@@ -27,11 +27,10 @@
         .hero-section-wrapper {
             width: 100%; /* Stretches full viewport width */
             background-color: #fff; /* White background for the header part */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            border-bottom-left-radius: 10px; /* Rounded corners for the bottom of the hero area */
-            border-bottom-right-radius: 10px;
+            /* Removed box-shadow for smooth transition */
+            /* Removed border-bottom-left-radius and border-bottom-right-radius for seamless blend */
             overflow: hidden; /* Ensures rounded corners apply to children */
-            margin-bottom: 20px; /* Space below the entire hero section */
+            margin-bottom: 0; /* Removed margin-bottom for smooth transition */
         }
 
         .hero-section-container {
@@ -51,29 +50,36 @@
         }
 
         .hero-logo {
-            display: flex;
+            display: flex; /* Use flexbox for precise alignment */
             align-items: center;
-            font-size: 1.2em; /* Font size for the 'NUURAQLYZ' text */
-            font-weight: 700;
-            color: #333; /* Color for 'NUURAQLYZ' text */
+            font-weight: 700; /* Default for logo text */
+            color: #333; /* Default color for logo text */
+            gap: 0px; /* Remove default gap between flex items, relying on margins */
         }
 
         .hero-logo-icon {
-            width: 183px;  /* Your specified width */
-            height: 86px;  /* Your specified height */
-            margin-right: 8px; /* Space between icon and text */
+            width: 150px;  /* Updated width for circular logo */
+            height: 150px;  /* Updated height for circular logo */
+            margin-right: 8px; /* Added positive margin to create space */
             flex-shrink: 0; /* Prevents icon from shrinking below its size in flex container */
             object-fit: contain; /* Ensures the entire image fits within the bounds without cropping */
+        }
+
+        .hero-logo-main-text {
+            font-size: 2em; /* Increased font size for 'NUURAQLYZ' text to balance with large logo */
+            font-weight: 700;
+            color: #333;
+            /* No margin-left here, controlled by parent gap and icon margin-right */
         }
 
         .hero-logo-analytics-text {
             color: #888; /* Soft medium gray */
             font-weight: 400; /* Regular weight, less bold than NUURAQLYZ */
-            margin-left: 5px; /* Small space after NUURAQLYZ */
+            margin-left: 8px; /* Re-added small margin-left for "ANALYTICS" */
         }
 
         .hero-tagline {
-            font-size: 1.1em; /* Increased font size for better visibility */
+            font-size: 1.3em; /* Increased font size significantly for better visibility */
             font-weight: 700;
             color: #555;
             text-transform: none; /* No longer all uppercase as per new text */
@@ -137,7 +143,8 @@
             right: 0;
             width: 55%; /* Occupy the right portion */
             height: 100%;
-            background-image: url('https://placehold.co/600x400/cccccc/333333?text=Road+Image'); /* Placeholder for road_fading_dark.jpg */
+            /* Placeholder for the generated hero image */
+            background-image: url('https://placehold.co/600x400/cccccc/333333?text=Abstract+Data+Path');
             background-size: cover; /* Cover the area, possibly cropping */
             background-position: center right; /* Focus on the right side of the image */
             opacity: 0.8; /* Adjust opacity as needed to blend with gradient */
@@ -169,7 +176,7 @@
         .about-section {
             width: 100%;
             max-width: 1200px; /* Match main container width */
-            margin: 20px; /* Spacing from hero section */
+            margin: 0; /* Removed margin for smooth transition */
             padding: 0; /* No internal padding for the section itself */
             box-sizing: border-box; /* Include padding in element's total width and height */
         }
@@ -279,6 +286,15 @@
             color: #555;
             margin-bottom: 30px;
         }
+        /* Removed custom color for bold spans in about-text */
+        .about-text span {
+            font-weight: bold; /* Keep bolding */
+            color: inherit; /* Revert to parent text color */
+        }
+        .about-text span[style*="font-style: italic"] {
+            font-style: italic; /* Keep italic if present */
+        }
+
 
         .action-buttons {
             display: flex;
@@ -555,6 +571,8 @@
             height: 100%;
             object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
             display: block; /* Removes extra space below image */
+            /* Placeholder for the generated contact image */
+            content: url('https://placehold.co/356x426/cccccc/333333?text=Professional+Contact');
         }
 
 
@@ -619,6 +637,7 @@
                 margin-bottom: 10px;
             }
             .hero-tagline {
+                font-size: 1.1em; /* Keep larger size for tablets */
                 text-align: center;
             }
             .hero-main-content {
@@ -642,7 +661,7 @@
 
             /* About Me Responsive */
             .about-me-container {
-                flex-direction: column; /* Stack columns on smaller screens */
+                flex-direction: column;
                 max-width: 100%;
                 margin: 20px;
             }
@@ -655,11 +674,11 @@
                 padding-top: 30px;
             }
             .action-buttons {
-                flex-direction: column; /* Stack action buttons */
+                flex-direction: column;
                 gap: 15px;
             }
             .button {
-                width: 100%; /* Full width buttons when stacked */
+                width: 100%;
                 box-sizing: border-box;
             }
             .profile-picture {
@@ -696,7 +715,7 @@
                 margin-bottom: 30px;
             }
             .industry-cards-container {
-                grid-template-columns: 1fr; /* Single column on small screens */
+                grid-template-columns: 1fr;
                 gap: 20px;
             }
             .card {
@@ -722,9 +741,9 @@
                 justify-content: center; /* Center text lines including icons */
             }
             .contact-image {
-                width: 280px; /* Smaller fixed width for mobile */
-                height: 335px; /* Proportional height */
-                margin-bottom: 20px; /* Space between image and info */
+                width: 280px;
+                height: 335px;
+                margin-bottom: 20px;
             }
             .contact-icons {
                 justify-content: center; /* Center icons on mobile */
@@ -743,7 +762,7 @@
                 height: 60px;
             }
             .hero-tagline {
-                font-size: 0.9em; /* Adjusted for very small screens */
+                font-size: 1em; /* Adjusted for very small screens */
             }
             .hero-main-content {
                 padding: 20px 15px;
@@ -754,7 +773,7 @@
 
             /* About Me Responsive (further) */
             .about-me-container {
-                margin: 10px; /* Tighter margin on very small screens */
+                margin: 10px;
             }
             .left-column, .right-column {
                 padding: 25px;
@@ -822,8 +841,8 @@
         <div class="hero-section-container">
             <header class="hero-header">
                 <div class="hero-logo">
-                    <img src="https://placehold.co/183x86/cccccc/333333?text=NUURAQLYZ+Logo" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Circular+Logo+Placeholder';">
-                    Nuuraqlyz
+                    <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/86x86/cccccc/333333?text=Circular+Logo+Placeholder';">
+                    <span class="hero-logo-main-text">Nuuraqlyz</span>
                     <span class="hero-logo-analytics-text">ANALYTICS</span>
                 </div>
                 <div class="hero-tagline">
@@ -858,19 +877,21 @@
                 <p class="title">Data Analyst</p>
                 <button class="button">Email me</button>
                 <div class="social-icons">
-                    <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- Removed LinkedIn icon as requested -->
                 </div>
             </div>
             <div class="right-column">
                 <h2 class="section-title">About Me</h2>
                 <p class="about-text">
-                    I am a <span style="font-weight: bold; color: #4F49B4;">forward-thinking</span>, <span style="font-weight: bold; color: #4F49B4;">action-driven</span>, and <span style="font-weight: bold; color: #4F49B4;">creative problem-solver</span> by nature and by profession. My philosophy is that <span style="font-style: italic;">skills and knowledge gained are never lost</span>; rather, they form a powerful foundation for future growth. After many years <span style="font-weight: bold;">supporting executive teams and business operations across diverse industries</span>, I honed my ability to be a <span style="font-weight: bold;">trusted knowledge center</span> and a <span style="font-weight: bold;">proactive source of solutions</span> for any challenge.
+                    I am a <span>forward-thinking</span>, <span>action-driven</span>, and <span>creative problem-solver</span> by nature and by profession. My philosophy is that <span style="font-style: italic;">skills and knowledge gained are never lost</span>; rather, they form a powerful foundation for future growth. After many years <span>supporting executive teams and business operations across diverse industries</span>, I honed my ability to be a <span>trusted knowledge center</span> and a <span>proactive source of solutions</span> for any challenge.
                 </p>
 
                 <p class="about-text">
-                    This <span style="font-weight: bold;">innate drive for overcoming obstacles and delivering results</span> sparked my transition into <span style="font-weight: bold; color: #4F49B4;">data analytics</span>. I am now leveraging this passion to <span style="font-weight: bold;">offer freelance analytics services</span>, driven by a dual objective: to <span style="font-weight: bold; color: #4F49B4;">help you meet your business objectives</span> and to <span style="font-weight: bold; color: #4F49B4;">continuously grow my expertise</span>. I excel at <span style="font-weight: bold;">transforming raw data into actionable insights and innovative solutions</span> that <span style="font-weight: bold; color: #4F49B4;">help businesses grow</span>, <span style="font-weight: bold; color: #4F49B4;">uncover hidden opportunities</span>, and <span style="font-weight: bold; color: #4F49B4;">discover invaluable information within their existing data</span> to <span style="font-weight: bold; color: #4F49B4;">propel them toward their goals</span>.
+                    This <span>innate drive for overcoming obstacles and delivering results</span> sparked my transition into <span>data analytics</span>. I am now leveraging this passion to <span>offer freelance analytics services</span>, driven by a dual objective: to <span>help you meet your business objectives</span> and to <span>continuously grow my expertise</span>. I excel at <span>transforming raw data into actionable insights and innovative solutions</span> that <span>help businesses grow</span>, <span>uncover hidden opportunities</span>, and <span>discover invaluable information within their existing data</span> to <span>propel them toward their goals</span>.
                 </p>
-              
+                <div class="action-buttons">
+                    <!-- Removed "Work With Me" button as requested -->
+                </div>
             </div>
         </div>
     </section>
@@ -938,7 +959,7 @@
                                 <li>Unclear understanding of customer acquisition costs and profitability.</li>
                                 <li>Difficulty identifying key user behaviors that lead to retention or churn.</li>
                                 <li>Struggling to prioritize product features based on user impact.</li>
-                                <li>Ineffective marketing spend due to lack of performance metrics.</li>
+                                <li>Ineffective marketing efforts due due to lack of performance metrics.</li>
                             </ul>
                             <h4>How Data Analytics Can Help:</h4>
                             <ul>
@@ -1056,7 +1077,7 @@
                                 <li>Overwhelm from managing all aspects of the business without clear performance indicators.</li>
                                 <li>Difficulty identifying which products/services are most profitable.</li>
                                 <li>Suboptimal inventory management leading to stockouts or excess stock.</li>
-                                <li>Ineffective marketing efforts due to lack of data-driven insights.</li>
+                                <li>Ineffective marketing efforts due due to lack of data-driven insights.</li>
                                 <li>Challenges in understanding customer loyalty and retention.</li>
                             </ul>
                             <h4>How Data Analytics Can Help:</h4>
@@ -1104,15 +1125,17 @@
     <section class="contact-section">
         <div class="contact-container">
             <div class="contact-image">
-                <img src="https://placehold.co/356x426/cccccc/333333?text=Contact+Image" alt="Contact Image" onerror="this.onerror=null;this.src='https://placehold.co/356x426/cccccc/333333?text=Contact+Image';">
+                <!-- Placeholder for the generated contact image -->
+                <img src="https://placehold.co/356x426/cccccc/333333?text=Professional+Contact" alt="Contact Image" onerror="this.onerror=null;this.src='https://placehold.co/356x426/cccccc/333333?text=Professional+Contact';">
             </div>
             <div class="contact-info">
                 <h2>Let's Connect</h2>
                 <p>Have a question or a project in mind? Reach out to us!</p>
-                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:your.meryemkciftci@gmail.com"> Send Email</a></p>
-                 <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> New York, NY</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <!-- Removed Phone number as requested -->
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> New York, NY</p>
                 <div class="contact-icons">
-                    <a href="https://www.linkedin.com/in/meryack" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <!-- Removed LinkedIn and GitHub icons as requested -->
                 </div>
             </div>
         </div>
