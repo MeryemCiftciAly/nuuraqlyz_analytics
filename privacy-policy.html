@@ -1,100 +1,419 @@
-Privacy Policy for NUURAQLYZ Analytics
-Last Updated: July 24, 2025
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUURAQLYZ Analytics - Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
 
-This Privacy Policy describes how NUURAQLYZ Analytics ("we," "us," or "our") collects, uses, and discloses your information when you use our data analytics services, website, and communicate with us. We are committed to protecting your privacy and handling your data with transparency and care.
+        .policy-container {
+            max-width: 900px;
+            width: 100%;
+            margin: 40px 20px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-sizing: border-box;
+        }
 
-1. Information We Collect
-We collect various types of information to provide and improve our services to you.
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
 
-1.1 Personal Information You Provide Directly
-When you interact with us, you may provide us with personal information, including but not limited to:
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
 
-Contact Information: Name, email address, phone number.
+        h3 {
+            font-size: 1.3em;
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
 
-Professional Information: Company name, job title, industry.
+        p {
+            margin-bottom: 15px;
+        }
 
-Payment Information: Details required for billing and payment processing (e.g., billing address, payment method details).
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
 
-Project Details: Information related to your data analytics projects, including specific business challenges, objectives, and any data you share with us for analysis.
+        ul li {
+            margin-bottom: 8px;
+        }
 
-Communication Content: Any information you provide in your communications with us via email, LinkedIn DMs, Slack, Zoom, or Microsoft Teams.
+        strong {
+            font-weight: 700;
+        }
 
-1.2 Information Collected Automatically
-When you visit our website, certain information may be collected automatically:
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
 
-Usage Data: Information about how you access and use our website, such as pages viewed, time spent on pages, links clicked, and referral sources.
+        a:hover {
+            text-decoration: underline;
+        }
 
-Device Information: Information about your device, including IP address, browser type, operating system, and unique device identifiers.
+        .last-updated {
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 30px;
+        }
 
-Cookies and Tracking Technologies: We may use cookies and similar tracking technologies to track activity on our website and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
+        /* Consistent Header and Navigation Styles */
+        .hero-section-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
 
-1.3 Information from Third Parties
-If you choose to integrate third-party services (e.g., Google Drive, Dropbox, Salesforce) with our services for data sharing or collaboration, we may receive information from these third parties in accordance with their privacy policies and your settings on those services.
+        .hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #fff;
+        }
 
-2. How We Use Your Information
-We use the collected information for various purposes, including:
+        .hero-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #333;
+        }
 
-Service Provision: To provide, operate, and maintain our data analytics services, including project execution, analysis, and delivery of insights.
+        .hero-logo-icon {
+            width: 183px;
+            height: 86px;
+            margin-right: 8px;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
 
-Communication: To communicate with you, respond to your inquiries, provide customer support, and send you project updates, invoices, and other service-related information.
+        .hero-logo-analytics-text {
+            color: #888;
+            font-weight: 400;
+            margin-left: 5px;
+        }
 
-Improvement and Personalization: To understand and analyze how you use our services, personalize your experience, and develop new features, functionality, and service offerings.
+        .hero-tagline {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #555;
+            text-transform: none;
+            letter-spacing: 1px;
+            text-align: right;
+            line-height: 1.3;
+        }
 
-Billing and Payments: To process payments for services rendered and manage our financial operations.
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            width: 100%;
+            background-color: transparent;
+            border-top: none;
+            box-sizing: border-box;
+        }
 
-Security and Fraud Prevention: To protect the security and integrity of our services, detect and prevent fraudulent activities, and troubleshoot technical issues.
+        .navbar-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+        }
 
-Legal Compliance: To comply with applicable laws, regulations, and legal processes, and to enforce our Terms of Service.
+        .navbar-links li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
 
-Marketing and Promotional Purposes: To send you marketing communications, newsletters, and promotional offers that may be of interest to you, where permitted by law and in accordance with your preferences.
+        .navbar-links li a:hover {
+            color: #FF8C00;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
 
-3. How We Share Your Information
-We may share your information in the following circumstances:
+        /* Footer Styles */
+        .footer {
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+            padding: 30px 20px;
+            background-color: #444444;
+            color: #fff;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
 
-With Service Providers: We may engage third-party companies and individuals to facilitate our services (e.g., payment processing, website hosting, communication platforms, analytics providers). These third parties have access to your personal information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.
+        .footer p {
+            margin: 0;
+            padding: 5px 0;
+        }
 
-For Legal Reasons: We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., a court order or government agency). We may also disclose your information to protect our rights, property, or safety, or the rights, property, or safety of others.
+        .footer a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-Business Transfers: In the event of a merger, acquisition, asset sale, or other business transaction, your personal information may be transferred as part of that transaction. We will notify you before your personal information is transferred and becomes subject to a different Privacy Policy.
+        .footer a:hover {
+            color: #FFA07A;
+        }
 
-With Your Consent: We may share your information with third parties when we have your explicit consent to do so.
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .hero-header {
+                padding: 15px 30px;
+            }
+            .navbar-links {
+                gap: 20px;
+            }
+            .policy-container {
+                margin: 20px 15px;
+                padding: 30px;
+            }
+            h1 {
+                font-size: 2.2em;
+            }
+            h2 {
+                font-size: 1.6em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+        }
 
-Aggregated or Anonymized Data: We may share aggregated or anonymized information that does not directly identify you with third parties for various purposes, including research, analytics, marketing, and improving our services.
+        @media (max-width: 768px) {
+            .hero-header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            .hero-logo {
+                margin-bottom: 10px;
+            }
+            .hero-tagline {
+                text-align: center;
+            }
+            .navbar-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .navbar-links li a {
+                padding: 8px 15px;
+                font-size: 1em;
+            }
+            .policy-container {
+                margin: 15px 10px;
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+            p, ul li {
+                font-size: 0.95em;
+            }
+        }
 
-4. Data Security
-We implement reasonable technical and organizational measures designed to protect your personal information from unauthorized access, use, alteration, and disclosure. These measures include, but are not limited to, encryption, access controls, and secure storage solutions. However, please be aware that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.
+        @media (max-width: 480px) {
+            .hero-header {
+                padding: 10px 15px;
+            }
+            .hero-logo-icon {
+                width: 140px;
+                height: 60px;
+            }
+            .hero-tagline {
+                font-size: 0.8em;
+            }
+            .navbar-links {
+                gap: 10px;
+            }
+            .navbar-links li a {
+                font-size: 0.9em;
+            }
+            .policy-container {
+                margin: 10px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            h3 {
+                font-size: 1em;
+            }
+            p, ul li {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section-container">
+        <header class="hero-header">
+            <div class="hero-logo">
+                <img src="https://placehold.co/183x86/cccccc/333333?text=NUURAQLYZ+Logo" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/183x86/cccccc/333333?text=Logo+Fallback';">
+                Nuuraqlyz
+                <span class="hero-logo-analytics-text">ANALYTICS</span>
+            </div>
+            <div class="hero-tagline">
+                Analytics for clarity.<br>Insights for Action.
+            </div>
+        </header>
 
-5. Data Retention
-We retain your personal information only for as long as is necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law (e.g., for tax, accounting, or other legal requirements).
+        <nav class="navbar">
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="customer_feedback.html">Client Feedback</a></li>
+                <li><a href="guided_information.html">Guided Information</a></li>
+            </ul>
+        </nav>
+    </div>
 
-Important Data Retention Policy: Upon project completion and final delivery, all project-related files and data shared with us will be securely deleted from our systems. We will not retain any client files once the project is concluded, ensuring your data is not stored long-term outside of your own systems.
+    <div class="policy-container">
+        <h1>Privacy Policy for NUURAQLYZ Analytics</h1>
+        <p class="last-updated"><strong>Last Updated:</strong> July 24, 2025</p>
 
-6. Your Data Protection Rights
-Depending on your location and applicable data protection laws, you may have the following rights regarding your personal information:
+        <p>This Privacy Policy describes how NUURAQLYZ Analytics ("we," "us," or "our") collects, uses, and discloses your information when you use our data analytics services, website, and communicate with us. We are committed to protecting your privacy and handling your data with transparency and care.</p>
 
-Right to Access: The right to request copies of your personal information.
+        <h2>1. Information We Collect</h2>
+        <p>We collect various types of information to provide and improve our services to you.</p>
 
-Right to Rectification: The right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.
+        <h3>1.1 Personal Information You Provide Directly</h3>
+        <p>When you interact with us, you may provide us with personal information, including but not limited to:</p>
+        <ul>
+            <li><strong>Contact Information:</strong> Name, email address, phone number.</li>
+            <li><strong>Professional Information:</strong> Company name, job title, industry.</li>
+            <li><strong>Payment Information:</strong> Details required for billing and payment processing (e.g., billing address, payment method details).</li>
+            <li><strong>Project Details:</strong> Information related to your data analytics projects, including specific business challenges, objectives, and any data you share with us for analysis.</li>
+            <li><strong>Communication Content:</strong> Any information you provide in your communications with us via email, LinkedIn DMs, Slack, Zoom, or Microsoft Teams.</li>
+        </ul>
 
-Right to Erasure: The right to request that we erase your personal information, under certain conditions.
+        <h3>1.2 Information Collected Automatically</h3>
+        <p>When you visit our website, certain information may be collected automatically:</p>
+        <ul>
+            <li><strong>Usage Data:</strong> Information about how you access and use our website, such as pages viewed, time spent on pages, links clicked, and referral sources.</li>
+            <li><strong>Device Information:</strong> Information about your device, including IP address, browser type, operating system, and unique device identifiers.</li>
+            <li><strong>Cookies and Tracking Technologies:</strong> We may use cookies and similar tracking technologies to track activity on our website and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.</li>
+        </ul>
 
-Right to Restrict Processing: The right to request that we restrict the processing of your personal information, under certain conditions.
+        <h3>1.3 Information from Third Parties</h3>
+        <p>If you choose to integrate third-party services (e.g., Google Drive, Dropbox, Salesforce) with our services for data sharing or collaboration, we may receive information from these third parties in accordance with their privacy policies and your settings on those services.</p>
 
-Right to Object to Processing: The right to object to our processing of your personal information, under certain conditions.
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the collected information for various purposes, including:</p>
+        <ul>
+            <li><strong>Service Provision:</strong> To provide, operate, and maintain our data analytics services, including project execution, analysis, and delivery of insights.</li>
+            <li><strong>Communication:</strong> To communicate with you, respond to your inquiries, provide customer support, and send you project updates, invoices, and other service-related information.</li>
+            <li><strong>Improvement and Personalization:</strong> To understand and analyze how you use our services, personalize your experience, and develop new features, functionality, and service offerings.</li>
+            <li><strong>Billing and Payments:</strong> To process payments for services rendered and manage our financial operations.</li>
+            <li><strong>Security and Fraud Prevention:</strong> To protect the security and integrity of our services, detect and prevent fraudulent activities, and troubleshoot technical issues.</li>
+            <li><strong>Legal Compliance:</strong> To comply with applicable laws, regulations, and legal processes, and to enforce our Terms of Service.</li>
+            <li><strong>Marketing and Promotional Purposes:</strong> To send you marketing communications, newsletters, and promotional offers that may be of interest to you, where permitted by law and in accordance with your preferences.</li>
+        </ul>
 
-Right to Data Portability: The right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.
+        <h2>3. How We Share Your Information</h2>
+        <p>We may share your information in the following circumstances:</p>
+        <ul>
+            <li><strong>With Service Providers:</strong> We may engage third-party companies and individuals to facilitate our services (e.g., payment processing, website hosting, communication platforms, analytics providers). These third parties have access to your personal information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</li>
+            <li><strong>For Legal Reasons:</strong> We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., a court order or government agency). We may also disclose your information to protect our rights, property, or safety, or the rights, property, or safety of others.</li>
+            <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, asset sale, or other business transaction, your personal information may be transferred as part of that transaction. We will notify you before your personal information is transferred and becomes subject to a different Privacy Policy.</li>
+            <li><strong>With Your Consent:</strong> We may share your information with third parties when we have your explicit consent to do so.</li>
+            <li><strong>Aggregated or Anonymized Data:</strong> We may share aggregated or anonymized information that does not directly identify you with third parties for various purposes, including research, analytics, and improving our services.</li>
+        </ul>
 
-To exercise any of these rights, please contact us using the contact information provided in Section 9.
+        <h2>4. Data Security</h2>
+        <p>We implement reasonable technical and organizational measures designed to protect your personal information from unauthorized access, use, alteration, and disclosure. These measures include, but are not limited to, encryption, access controls, and secure storage solutions. However, please be aware that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
 
-7. Third-Party Links
-Our website and services may contain links to other websites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+        <h2>5. Data Retention</h2>
+        <p>We retain your personal information only for as long as is necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law (e.g., for tax, accounting, or other legal requirements).</p>
+        <p><strong>Important Data Retention Policy:</strong> Upon project completion and final delivery, all project-related files and data shared with us will be securely deleted from our systems. We will not retain any client files once the project is concluded, ensuring your data is not stored long-term outside of your own systems.</p>
 
-8. Changes to This Privacy Policy
-We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top of this Privacy Policy. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
+        <h2>6. Your Data Protection Rights</h2>
+        <p>Depending on your location and applicable data protection laws, you may have the following rights regarding your personal information:</p>
+        <ul>
+            <li><strong>Right to Access:</strong> The right to request copies of your personal information.</li>
+            <li><strong>Right to Rectification:</strong> The right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.</li>
+            <li><strong>Right to Erasure:</strong> The right to request that we erase your personal information, under certain conditions.</li>
+            <li><strong>Right to Restrict Processing:</strong> The right to request that we restrict the processing of your personal information, under certain conditions.</li>
+            <li><strong>Right to Object to Processing:</b> The right to object to our processing of your personal information, under certain conditions.</li>
+            <li><strong>Right to Data Portability:</strong> The right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
+        </ul>
+        <p>To exercise any of these rights, please contact us using the contact information provided in Section 9.</p>
 
-9. Contact Us
-If you have any questions about this Privacy Policy, your data, or our practices, please contact us:
+        <h2>7. Third-Party Links</h2>
+        <p>Our website and services may contain links to other websites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
 
-By Email: [Your Email Address Here]
+        <h2>8. Changes to This Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top of this Privacy Policy. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
 
-Via LinkedIn: [Your LinkedIn Profile URL Here]
+        <h2>9. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, your data, or our practices, please contact us:</p>
+        <ul>
+            <li><strong>By Email:</strong> [Your Email Address Here]</li>
+            <li><strong>Via LinkedIn:</strong> [Your LinkedIn Profile URL Here]</li>
+        </ul>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 NUURAQLYZ Analytics. All rights reserved.</p>
+        <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
