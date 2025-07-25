@@ -369,7 +369,8 @@
 
         .industry-cards-container { /* Renamed from .dashboard-container */
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
+            /* Adjusted minmax to allow cards to be wider */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Increased min-width for cards */
             gap: 25px;
             width: 100%;
             max-width: 1000px; /* Limit width of the grid itself */
@@ -494,7 +495,8 @@
         /* Multi-column grid for collapsible content */
         .collapsible-content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Two columns, min 250px each */
+            /* Increased minmax for columns within expanded content */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Wider columns for better readability */
             gap: 20px;
             padding-top: 10px;
         }
@@ -1218,18 +1220,18 @@
         </div>
     </section>
 
+    <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
-            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe -Ciftci (Meryem)</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by (Meryem)</p>
             <p>
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-of-service.html">Terms of Service</a>
+                <a href="terms-of-service.html">Terms of Service</a>
                 &nbsp;|&nbsp;
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
             </p>
         </div>
     </footer>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
