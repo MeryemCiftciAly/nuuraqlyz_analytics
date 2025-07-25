@@ -169,15 +169,29 @@
             margin-left: 8px; /* Re-added small margin-left for "ANALYTICS" */
         }
 
-        .hero-tagline {
-            font-size: 1.3em; /* Increased font size significantly for better visibility */
-            font-weight: 700;
-            color: #555;
-            text-transform: none; /* No longer all uppercase as per new text */
-            letter-spacing: 1px;
-            text-align: right; /* Align text to the right within its space */
-            line-height: 1.3; /* Adjust line height for the two lines */
-        }
+       .hero-tagline {
+    font-size: 1.3em; /* Increased font size significantly for better visibility */
+    font-weight: 700;
+    color: #555;
+    text-transform: none; /* No longer all uppercase as per new text */
+    letter-spacing: 1px;
+    text-align: right; /* Align text to the right within its space */
+    /* REMOVE OR COMMENT OUT THIS LINE IF YOU WANT IT ON ONE LINE: */
+    /* line-height: 1.3; */
+    
+    /* ADD THIS LINE to prevent wrapping and make it stretch across: */
+    white-space: nowrap; 
+}
+
+/* IMPORTANT: Consider responsive behavior */
+/* You will likely want to add a media query to make it stack again on smaller screens */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .hero-tagline {
+        white-space: normal; /* Allow text to wrap on smaller screens */
+        line-height: 1.3; /* Re-introduce line-height for stacking on smaller screens */
+        text-align: center; /* Optionally center it on smaller screens */
+    }
+}
 
         /* Navigation Bar Styles */
         .navbar {
