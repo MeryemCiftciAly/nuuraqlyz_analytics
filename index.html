@@ -27,8 +27,6 @@
         .hero-section-wrapper {
             width: 100%; /* Stretches full viewport width */
             background-color: #fff; /* White background for the header part */
-            /* Removed box-shadow for smooth transition */
-            /* Removed border-bottom-left-radius and border-bottom-right-radius for seamless blend */
             overflow: hidden; /* Ensures rounded corners apply to children */
             margin-bottom: 0; /* Removed margin-bottom for smooth transition */
         }
@@ -52,7 +50,7 @@
         .hero-logo {
             display: flex; /* Use flexbox for precise alignment */
             align-items: center;
-            font-weight: 700; /* Default for logo text */
+            font-weight: 600; /* Default for logo text */
             color: #333; /* Default color for logo text */
             gap: 0px; /* Remove default gap between flex items, relying on margins */
         }
@@ -60,16 +58,15 @@
         .hero-logo-icon {
             width: 180px;  /* Updated width for circular logo */
             height: 180px;  /* Updated height for circular logo */
-            margin-right: 4px; /* Added positive margin to create space */
+            margin-right: 8px; /* Added positive margin to create space */
             flex-shrink: 0; /* Prevents icon from shrinking below its size in flex container */
             object-fit: contain; /* Ensures the entire image fits within the bounds without cropping */
         }
 
         .hero-logo-main-text {
             font-size: 2em; /* Increased font size for 'NUURAQLYZ' text to balance with large logo */
-            font-weight: 600;
+            font-weight: 700;
             color: #333;
-            /* No margin-left here, controlled by parent gap and icon margin-right */
         }
 
         .hero-logo-analytics-text {
@@ -122,39 +119,60 @@
             background-color: rgba(0, 0, 0, 0.05); /* Subtle background on hover */
         }
 
-        /* Main Hero Content Area (Gradient Background with Road Image) */
+        /* Main Hero Content Area (Gradient Background with Image Overlay) */
         .hero-main-content {
             display: flex;
-            position: relative; /* For positioning the background image pseudo-element */
+            position: relative; /* For positioning the image overlay */
             min-height: 450px; /* Minimum height for desktop view */
             padding: 50px 40px; /* Padding for content inside */
-            /* Gradient Background for the left side/underneath content */
             background: linear-gradient(to right, #FF8C00, #FFA07A); /* Orange to Light Salmon */
             border-bottom-left-radius: 10px; /* Match container's rounded corners */
             border-bottom-right-radius: 10px;
-            overflow: hidden; /* Crucial for containing the pseudo-element image */
+            overflow: hidden; /* Crucial for containing the overlay */
         }
 
-        /* Pseudo-element for the road image on the right */
-        .hero-main-content::after {
-            content: '';
+        /* Hero Image Overlay */
+        #hero-image-overlay {
             position: absolute;
             top: 0;
             right: 0;
             width: 55%; /* Occupy the right portion */
             height: 100%;
-            /* Placeholder for the generated hero image */
-            background-image: url('https://placehold.co/600x400/cccccc/333333?text=Abstract+Data+Path');
             background-size: cover; /* Cover the area, possibly cropping */
             background-position: center right; /* Focus on the right side of the image */
-            opacity: 0.8; /* Adjust opacity as needed to blend with gradient */
+            opacity: 0; /* Start hidden for fade-in */
             z-index: 0; /* Ensure this is behind the text content */
+            transition: opacity 1.5s ease-out; /* Fade in animation */
+        }
+        #hero-image-overlay.loaded {
+            opacity: 0.8; /* Target opacity after loading */
+        }
+
+        /* Loading indicator styles */
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; /* Above the image overlay */
+            display: none; /* Hidden by default, shown by JS */
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         /* Text Content (A guiding light...) */
         .hero-text-content {
             flex: 1; /* Takes up available space on the left */
-            z-index: 1; /* Ensure text is above the road image */
+            z-index: 1; /* Ensure text is above the image overlay */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -560,19 +578,25 @@
         }
 
         .contact-image {
-            /* Fixed dimensions for the image container */
             width: 356px;
             height: 426px;
-            overflow: hidden; /* Ensures image fits within bounds */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eee; /* Placeholder background */
         }
 
         .contact-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
-            display: block; /* Removes extra space below image */
-            /* Placeholder for the generated contact image */
-            content: url('https://placehold.co/356x426/cccccc/333333?text=Professional+Contact');
+            object-fit: cover;
+            display: block;
+            opacity: 0; /* Start hidden for fade-in */
+            transition: opacity 1s ease-in-out; /* Fade in effect */
+        }
+        .contact-image img.loaded {
+            opacity: 1;
         }
 
 
@@ -645,7 +669,7 @@
                 min-height: auto;
                 padding: 30px 20px;
             }
-            .hero-main-content::after {
+            #hero-image-overlay {
                 position: static; /* Remove absolute positioning */
                 width: 100%;
                 height: 200px; /* Fixed height for image when stacked */
@@ -854,13 +878,15 @@
             <nav class="navbar">
                 <ul class="navbar-links">
                     <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
+                    <li><a href="phttps://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
                     <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer_feedback.html">Client Feedback</a></li>
                     <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/guided_information.html">Guided Information</a></li>
                 </ul>
             </nav>
 
             <div class="hero-main-content">
+                <div class="loading-spinner" id="hero-loading-spinner"></div>
+                <div id="hero-image-overlay"></div> <!-- This will hold the hero background image -->
                 <div class="hero-text-content">
                     <h1 class="hero-title">A guiding light<br>into the unknown</h1>
                 </div>
@@ -960,6 +986,7 @@
                                 <li>Difficulty identifying key user behaviors that lead to retention or churn.</li>
                                 <li>Struggling to prioritize product features based on user impact.</li>
                                 <li>Ineffective marketing efforts due due to lack of performance metrics.</li>
+                                <li>Challenges in understanding customer loyalty and retention.</li>
                             </ul>
                             <h4>How Data Analytics Can Help:</h4>
                             <ul>
@@ -1125,17 +1152,16 @@
     <section class="contact-section">
         <div class="contact-container">
             <div class="contact-image">
-                <!-- Placeholder for the generated contact image -->
-                <img src="https://placehold.co/356x426/cccccc/333333?text=Professional+Contact" alt="Contact Image" onerror="this.onerror=null;this.src='https://placehold.co/356x426/cccccc/333333?text=Professional+Contact';">
+                <div class="loading-spinner" id="contact-loading-spinner"></div>
+                <!-- Placeholder image for contact section. Replace src with your generated image URL. -->
+                <img src="https://placehold.co/356x426/cccccc/333333?text=Professional+Contact" alt="Contact Image" id="contact-img" onerror="this.onerror=null;this.src='https://placehold.co/356x426/cccccc/333333?text=Professional+Contact';">
             </div>
             <div class="contact-info">
                 <h2>Let's Connect</h2>
                 <p>Have a question or a project in mind? Reach out to us!</p>
                 <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-                <!-- Removed Phone number as requested -->
                 <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> New York, NY</p>
                 <div class="contact-icons">
-                    <!-- Removed LinkedIn and GitHub icons as requested -->
                 </div>
             </div>
         </div>
@@ -1144,7 +1170,7 @@
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 NUURAQLYZ Analytics. All rights reserved.</p>
-            <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+            <p><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a> | <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-of-service.html">Terms of Service</a></p>
         </div>
     </footer>
 
@@ -1172,6 +1198,65 @@
                     }
                 });
             });
+
+            // Function to load image and handle spinner/fade-in
+            function loadImage(imageUrl, targetElement, spinnerId) {
+                const spinner = document.getElementById(spinnerId);
+                if (spinner) {
+                    spinner.style.display = 'block'; // Show spinner
+                }
+
+                if (targetElement.tagName === 'IMG') {
+                    targetElement.src = imageUrl;
+                    targetElement.onload = () => {
+                        targetElement.classList.add('loaded'); // Add class to trigger fade-in
+                        if (spinner) {
+                            spinner.style.display = 'none'; // Hide spinner after image loads
+                        }
+                    };
+                    targetElement.onerror = () => {
+                        console.error(`Failed to load image: ${imageUrl}`);
+                        if (spinner) {
+                            spinner.style.display = 'none'; // Hide spinner on error
+                        }
+                        // Optionally, set a fallback placeholder here if the onerror attribute isn't enough
+                        targetElement.src = `https://placehold.co/${targetElement.width || 300}x${targetElement.height || 200}/cccccc/333333?text=Image+Error`;
+                    };
+                } else if (targetElement.id === 'hero-image-overlay') {
+                    // For the hero overlay div, set background-image directly
+                    const img = new Image();
+                    img.src = imageUrl;
+                    img.onload = () => {
+                        targetElement.style.backgroundImage = `url('${imageUrl}')`;
+                        targetElement.classList.add('loaded'); // Trigger fade-in
+                        if (spinner) {
+                            spinner.style.display = 'none'; // Hide spinner
+                        }
+                    };
+                    img.onerror = () => {
+                        console.error(`Failed to load hero background image: ${imageUrl}`);
+                        if (spinner) {
+                            spinner.style.display = 'none'; // Hide spinner on error
+                        }
+                        // Fallback for hero background
+                        targetElement.style.backgroundImage = `url('https://placehold.co/1200x675/cccccc/333333?text=Hero+Image+Error')`;
+                        targetElement.classList.add('loaded');
+                    };
+                }
+            }
+
+            // --- Replace these with your actual image URLs ---
+            const heroImageUrl = "https://placehold.co/1200x675/4a90e2/ffffff?text=Abstract+Data+Path"; // Example placeholder
+            const contactImageUrl = "https://placehold.co/356x426/cccccc/333333?text=Professional+Contact"; // Example placeholder
+            // --------------------------------------------------
+
+            // Load Hero Image
+            const heroImageOverlay = document.getElementById('hero-image-overlay');
+            loadImage(heroImageUrl, heroImageOverlay, 'hero-loading-spinner');
+
+            // Load Contact Image
+            const contactImgElement = document.getElementById('contact-img');
+            loadImage(contactImageUrl, contactImgElement, 'contact-loading-spinner');
         });
     </script>
 </body>
