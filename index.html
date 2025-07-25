@@ -10,898 +10,898 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* General Body Styles - Consolidated */
-body {
-    font-family: 'Inter', sans-serif; /* Default font for general text */
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff; /* Changed to white */
-    display: flex; /* Using flex to center the main content on the page */
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center horizontally */
-    min-height: 100vh;
-    box-sizing: border-box;
-    overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
-    color: #333; /* Default text color */
-    line-height: 1.5; /* Default line height */
-}
-
-/* Hero Section Container (now full-width background, content max-width) */
-.hero-section-wrapper {
-    width: 100%; /* Stretches full viewport width */
-    background-color: #fff; /* White background for the header part */
-    overflow: hidden; /* Ensures rounded corners apply to children */
-    margin-bottom: 0; /* Removed margin-bottom for smooth transition */
-}
-
-.hero-section-container {
-    max-width: 1800px; /* Max width for the content inside hero section */
-    margin: 0 auto; /* Center the content */
-    border-radius: 10px; /* Rounded corners for the content area */
-    overflow: hidden;
-}
-
-/* Header Section (Logo and Tagline) */
-.hero-header {
-    display: flex;
-    justify-content: space-between; /* Pushes logo and tagline to opposite ends */
-    align-items: center;
-    padding: 20px 40px; /* Padding for the header */
-    background-color: #fff; /* White background */
-}
-
-.hero-logo {
-    display: flex; /* Use flexbox for precise alignment */
-    align-items: center;
-    font-weight: 600; /* Default for logo text */
-    color: #333; /* Default color for logo text */
-    gap: 0px; /* Remove default gap between flex items, relying on margins */
-}
-
-.hero-logo-icon {
-    width: 180px; /* Updated width for circular logo */
-    height: 180px; /* Updated height for circular logo */
-    margin-right: 8px; /* Added positive margin to create space */
-    flex-shrink: 0; /* Prevents icon from shrinking below its size in flex container */
-    object-fit: contain; /* Ensures the entire image fits within the bounds without cropping */
-}
-
-.hero-logo-main-text {
-    font-size: 2em; /* Increased font size for 'NUURAQLYZ' text to balance with large logo */
-    font-weight: 700;
-    color: #333;
-}
-
-.hero-logo-analytics-text {
-    color: #888; /* Soft medium gray */
-    font-weight: 400; /* Regular weight, less bold than NUURAQLYZ */
-    margin-left: 8px; /* Re-added small margin-left for "ANALYTICS" */
-}
-
-.hero-tagline {
-    font-size: 1.3em; /* Increased font size significantly for better visibility */
-    font-weight: 700;
-    color: #555;
-    text-transform: none; /* No longer all uppercase as per new text */
-    letter-spacing: 1px;
-    text-align: right; /* Align text to the right within its space */
-    white-space: nowrap; /* Prevent wrapping on desktop */
-}
-
-/* Navigation Bar Styles */
-.navbar {
-    display: flex;
-    justify-content: center; /* Center the navigation links */
-    align-items: center;
-    padding: 15px 0;
-    width: 100%;
-    border-top: 1px solid #eee; /* Subtle separator from header */
-    box-sizing: border-box; /* Ensure padding/border don't add to width */
-}
-
-.navbar-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 40px; /* Space between navigation items */
-}
-
-.navbar-links li a {
-    color: #333; /* Dark text for links to blend with white header */
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1em;
-    padding: 5px 10px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-    border-radius: 5px;
-}
-
-.navbar-links li a:hover {
-    color: #FF8C00; /* Orange on hover, matching hero gradient */
-    background-color: rgba(0, 0, 0, 0.05); /* Subtle background on hover */
-}
-
-/* Main Hero Content Area (Gradient Background with Image Overlay) */
-.hero-main-content {
-    display: flex;
-    position: relative; /* For positioning the image overlay */
-    min-height: 450px; /* Minimum height for desktop view */
-    padding: 50px 40px; /* Padding for content inside */
-    background: linear-gradient(to right, #FF8C00, #FFA07A); /* Orange to Light Salmon */
-    border-bottom-left-radius: 10px; /* Match container's rounded corners */
-    border-bottom-right-radius: 10px;
-    overflow: hidden; /* Crucial for containing the overlay */
-}
-
-/* Hero Image Overlay */
-#hero-image-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 55%; /* Occupy the right portion */
-    height: 100%;
-    background-image: url('https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png'); /* <--- ADD THIS LINE FOR YOUR ROAD IMAGE */
-    background-size: cover; /* Cover the area, possibly cropping */
-    background-position: center right; /* Focus on the right side of the image */
-    opacity: 0; /* Start hidden for fade-in */
-    z-index: 0; /* Ensure this is behind the text content */
-    transition: opacity 1.5s ease-out; /* Fade in animation */
-}
-
-/* Keyframes for subtle zoom and pan animation */
-@keyframes zoom-pan-subtle {
-    0% {
-        transform: scale(1) translateX(0);
-        background-position: center right;
-    }
-    50% {
-        transform: scale(1.03) translateX(-5px); /* Slightly zoom in and shift left */
-        background-position: center left; /* Shift background position */
-    }
-    100% {
-        transform: scale(1) translateX(0);
-        background-position: center right;
-    }
-}
-
-#hero-image-overlay.loaded {
-    opacity: 0.8; /* Target opacity after loading */
-    animation: zoom-pan-subtle 15s ease-in-out infinite alternate; /* Apply animation */
-}
-
-/* Loading indicator styles */
-.loading-spinner {
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid #fff;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2; /* Above the image overlay */
-    display: none; /* Hidden by default, shown by JS */
-}
-
-@keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Text Content (A guiding light...) */
-.hero-text-content {
-    flex: 1; /* Takes up available space on the left */
-    z-index: 1; /* Ensure text is above the image overlay */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    color: #fff; /* Set text color to white for contrast against gradient/image */
-}
-
-.hero-title {
-    font-family: 'Playfair Display', serif; /* Serif font for the title */
-    font-size: 3.5em; /* Adjusted font size for the new text */
-    font-weight: 700;
-    color: #fff; /* White text for "A guiding light into the unknown" */
-    line-height: 1.1; /* Tighter line height */
-    margin: 0;
-    padding: 0;
-}
-
-/* ABOUT ME SECTION STYLES - Consolidated */
-.about-section {
-    width: 100%;
-    max-width: 1200px; /* Match main container width */
-    margin-top: 50px; /* Add space above the about section */
-    margin-bottom: 50px; /* Add space below the about section (optional, but good for consistency) */
-    padding: 0; /* No internal padding for the section itself */
-    box-sizing: border-box; /* Include padding in element's total width and height */
-    margin-left: auto; /* Center the section on the page */
-    margin-right: auto;
-}
-
-.about-me-container { /* Renamed from .container to avoid conflict */
-    display: flex;
-    background-color: #fff; /* White background for the content area */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-    max-width: 900px; /* Adjust as needed */
-    width: 100%;
-    border-radius: 8px; /* Slightly rounded corners */
-    overflow: hidden; /* Ensures content stays within bounds */
-    margin: 0 auto; /* Center the about me container within its section */
-}
-
-.left-column {
-    flex: 1; /* Takes up equal space */
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-right: 1px solid #eee; /* Separator line */
-}
-
-.profile-picture {
-    width: 180px; /* Fixed width for the image */
-    height: 180px; /* Fixed height for the image */
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    margin-bottom: 25px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-}
-
-.name {
-    font-size: 2.2em;
-    font-weight: 700; /* Bold */
-    color: #333;
-    margin-bottom: 5px;
-    line-height: 1.1;
-}
-
-.pronouns {
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.title {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.button {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #333; /* Dark grey button */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1em;
-    font-weight: 700;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    border: none; /* Remove default button border */
-}
-
-.button:hover {
-    background-color: #555; /* Darker grey on hover */
-}
-
-.social-icons {
-    margin-top: 40px;
-    display: flex;
-    gap: 20px; /* Space between icons */
-}
-
-.social-icon {
-    color: #333; /* Dark grey icons */
-    font-size: 1.5em;
-    transition: color 0.3s ease;
-}
-.social-icon:hover {
-    color: #007bff; /* Example hover color for social icons */
-}
-
-.right-column {
-    flex: 2; /* Takes up more space than the left column */
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.section-title {
-    font-size: 2.8em;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.about-text {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 30px;
-}
-/* Removed custom color for bold spans in about-text */
-.about-text span {
-    font-weight: bold; /* Keep bolding */
-    color: inherit; /* Revert to parent text color */
-}
-.about-text span[style*="font-style: italic"] {
-    font-style: italic; /* Keep italic if present */
-}
-
-.action-buttons {
-    display: flex;
-    gap: 20px; /* Space between buttons */
-}
-
-.button-link {
-    text-decoration: none; /* Remove underline from anchor around button */
-}
-
-/* INDUSTRY FOCUS SECTION STYLES */
-.industry-focus-section {
-    width: 100%;
-    max-width: 1200px;
-    margin: 50px auto; /* Centered with top/bottom margin */
-    padding: 40px 20px; /* Padding for the section itself */
-    background-color: #eef2f5; /* A slightly darker light background for this section */
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-    box-sizing: border-box;
-    text-align: center; /* Center the heading */
-}
-
-.industry-focus-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 40px;
-    line-height: 1.2;
-}
-
-.industry-cards-container { /* Renamed from .dashboard-container */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
-    gap: 25px;
-    width: 100%;
-    max-width: 1000px; /* Limit width of the grid itself */
-    margin: 0 auto; /* Center the grid */
-    padding: 0; /* No internal padding here, handled by cards */
-}
-.card {
-    border-radius: 10px;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
-    position: relative;
-    overflow: hidden;
-    min-height: 180px; /* Increased min-height for better appearance */
-    box-sizing: border-box;
-    transition: all 0.3s ease; /* Smooth transition for expansion */
-    text-align: left; /* Align card content left */
-}
-
-/* Distinct Card Colors */
-.card.industry-small-law {
-    background-color: #8A2BE2; /* Blue Violet */
-    color: #fff;
-}
-.card.industry-startup {
-    background-color: #FFD700; /* Gold */
-    color: #333; /* Dark text for light background */
-}
-.card.industry-small-realtors {
-    background-color: #20B2AA; /* Light Sea Green */
-    color: #fff;
-}
-.card.industry-small-medical {
-    background-color: #DC143C; /* Crimson */
-    color: #fff;
-}
-.card.industry-owner-run {
-    background-color: #FF8C00; /* Dark Orange */
-    color: #fff;
-}
-.card.industry-unsure {
-    background-color: #6A5ACD; /* Slate Blue */
-    color: #fff;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px;
-}
-
-.card-title {
-    font-size: 1.4em; /* Larger title for industry */
-    font-weight: bold;
-    line-height: 1.3;
-    color: inherit; /* Inherit color from card */
-}
-
-.icon-circle {
-    width: 35px; /* Larger icon circle */
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8em; /* Larger plus/minus sign */
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-.icon-circle.expanded {
-    transform: rotate(45deg);
-}
-/* Adjust icon circle colors based on card background */
-.card.industry-small-law .icon-circle,
-.card.industry-small-realtors .icon-circle,
-.card.industry-small-medical .icon-circle,
-.card.industry-owner-run .icon-circle,
-.card.industry-unsure .icon-circle {
-    background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent white for dark cards */
-    color: #ffffff; /* White for plus sign */
-}
-.card.industry-startup .icon-circle {
-    background-color: rgba(0, 0, 0, 0.1); /* Slightly transparent black for light cards */
-    color: #333; /* Dark for plus sign */
-}
-
-/* Collapsible Content Styling */
-.collapsible-content {
-    max-height: 0; /* Initially hidden */
-    padding-top: 0; /* No padding when closed */
-    padding-bottom: 0; /* No padding when closed */
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition for height and padding */
-    overflow: hidden; /* Ensures content doesn't overflow during collapse */
-    text-align: left; /* Align content left */
-}
-.collapsible-content.active {
-    max-height: var(--content-height); /* Set dynamically by JS */
-    padding-top: 15px; /* Padding when open */
-    padding-bottom: 15px; /* Padding when open */
-    border-top: 1px solid; /* Add border when active */
-}
-/* Adjust border color for collapsible content based on card */
-.card.industry-small-law .collapsible-content,
-.card.industry-small-realtors .collapsible-content,
-.card.industry-small-medical .collapsible-content,
-.card.industry-owner-run .collapsible-content,
-.card.industry-unsure .collapsible-content {
-    border-color: rgba(255, 255, 255, 0.2);
-}
-.card.industry-startup .collapsible-content {
-    border-color: rgba(0, 0, 0, 0.1);
-}
-
-/* Multi-column grid for collapsible content */
-.collapsible-content-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Two columns, min 250px each */
-    gap: 20px;
-    padding-top: 10px;
-}
-.collapsible-content-grid h4 {
-    grid-column: 1 / -1; /* Make headers span all columns */
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 1.05em;
-    color: inherit;
-    font-weight: bold;
-}
-.collapsible-content-grid ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    padding-left: 0;
-    margin-bottom: 10px;
-}
-.collapsible-content-grid ul li {
-    margin-bottom: 5px;
-}
-
-
-/* Contact Section Styles */
-.contact-section {
-    width: 100%;
-    max-width: 1200px;
-    margin: 50px auto; /* Centered with top/bottom margin */
-    padding: 50px 20px;
-    background-color: #f8f8f8; /* Match body background for seamless blend */
-    border-radius: 10px; /* Keep consistent rounding */
-    box-shadow: none; /* Remove shadow to blend into body background */
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.contact-container {
-    background-color: #F5F5F5; /* Light background for the info section */
-    color: #333;
-    display: flex;
-    max-width: 900px; /* Adjusted max-width for overall container */
-    width: 95%;
-    margin: 0 auto; /* Center within the contact-section */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-.contact-info {
-    flex: 1; /* Allows this section to grow */
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.contact-info h2 {
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 30px;
-}
-
-.contact-info p {
-    font-size: 1em;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    display: flex; /* Allows icon and text to be on the same line */
-    align-items: center;
-}
-
-.contact-info p strong {
-    font-weight: 700;
-    margin-right: 10px; /* Space between label and content */
-}
-
-.contact-info p i {
-    margin-right: 8px; /* Space after the icon */
-    font-size: 1.2em; /* Adjust icon size */
-    color: #555; /* Icon color */
-}
-
-.contact-info a {
-    color: #007bff; /* Link color */
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-}
-
-.contact-icons {
-    margin-top: 20px;
-    display: flex;
-    gap: 20px; /* Space between icons */
-    align-items: center;
-}
-
-.contact-icons a {
-    color: #555; /* Icon color */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-icons a:hover {
-    color: #007bff; /* Hover color for icons */
-}
-
-.contact-image {
-    width: 356px;
-    height: 426px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #eee; /* Placeholder background */
-}
-
-.contact-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    opacity: 0; /* Start hidden for fade-in */
-    transition: opacity 1s ease-in-out; /* Fade in effect */
-}
-.contact-image img.loaded {
-    opacity: 1;
-}
-
-/* Footer Styles */
-.footer {
-    width: 100%; /* Stretches full viewport width */
-    background-color: #444444; /* Softer dark gray footer background */
-    color: #fff;
-    text-align: center;
-    margin-top: auto; /* Pushes footer to the bottom */
-    box-sizing: border-box;
-    font-size: 0.9em;
-}
-
-.footer-content {
-    max-width: 1200px; /* Content inside footer aligns with main content */
-    margin: 0 auto; /* Center the content */
-    padding: 30px 20px; /* Apply padding here */
-    border-top-left-radius: 10px; /* Apply radius to content wrapper if desired */
-    border-top-right-radius: 10px;
-}
-
-.footer p {
-    margin: 0;
-    padding: 5px 0;
-}
-
-.footer a {
-    color: #FFD700; /* Gold links in footer */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer a:hover {
-    color: #FFA07A; /* Lighter orange on hover */
-}
-
-
-/* Responsive adjustments - Consolidated Media Queries */
-
-/* Tablet and smaller desktops */
-@media (max-width: 1024px) {
-    .hero-header, .navbar, .hero-main-content,
-    .about-section, .industry-focus-section, .contact-section {
-        max-width: 100%; /* Allow content to fill wrapper up to 1024px */
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .hero-main-content {
-        min-height: 400px;
-    }
-    .hero-title {
-        font-size: 3em;
-    }
-    .navbar-links {
-        gap: 20px; /* Adjust gap for medium screens */
-    }
-}
-
-/* Mobile (Portrait) and smaller tablets */
-@media (max-width: 768px) {
-    .hero-header {
-        flex-direction: column;
-        padding: 15px 20px;
-    }
-    .hero-logo {
-        margin-bottom: 10px;
-    }
-    .hero-tagline {
-        font-size: 1.1em; /* Keep larger size for tablets */
-        text-align: center;
-        white-space: normal; /* Allow text to wrap on smaller screens */
-        line-height: 1.3; /* Re-introduce line-height for stacking on smaller screens */
-    }
-    .hero-main-content {
-        flex-direction: column-reverse; /* Stack image below text */
-        min-height: auto;
-        padding: 30px 20px;
-    }
-    #hero-image-overlay {
-        position: static; /* Remove absolute positioning */
-        width: 100%;
-        height: 200px; /* Fixed height for image when stacked */
-        margin-top: 20px;
-        opacity: 1; /* Make it always visible on mobile if it's stacked */
-        z-index: auto; /* Reset z-index */
-        animation: none; /* Disable animation on mobile when stacked */
-    }
-    .hero-text-content {
-        align-items: center;
-        text-align: center;
-    }
-    .hero-title {
-        font-size: 2.5em;
-    }
-
-    /* About Me Responsive */
-    .about-me-container {
-        flex-direction: column;
-        max-width: 100%;
-        margin: 20px;
-    }
-    .left-column {
-        border-right: none;
-        border-bottom: 1px solid #eee; /* Add bottom border when stacked */
-        padding-bottom: 30px;
-    }
-    .right-column {
-        padding-top: 30px;
-    }
-    .action-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .button {
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .profile-picture {
-        width: 150px;
-        height: 150px;
-    }
-    .name {
-        font-size: 1.8em;
-    }
-    .section-title {
-        font-size: 2.2em;
-    }
-    .about-text {
-        font-size: 1em;
-    }
-
-    /* Navigation Responsive */
-    .navbar-links {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .navbar-links li a {
-        padding: 8px 15px;
-        font-size: 1em;
-    }
-
-    /* Industry Focus Responsive */
-    .industry-focus-section {
-        padding: 30px 15px;
-        margin: 15px auto; /* Center on mobile */
-    }
-    .industry-focus-heading {
-        font-size: 2em;
-        margin-bottom: 30px;
-    }
-    .industry-cards-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .card {
-        min-height: 160px;
-        padding: 20px;
-    }
-    .card-title {
-        font-size: 1.2em;
-    }
-    .collapsible-content {
-        font-size: 0.9em;
-    }
-    /* Contact Section Responsive */
-    .contact-section {
-        padding: 40px 15px;
-        margin: 30px auto; /* Center on mobile */
-    }
-    .contact-container {
-        flex-direction: column; /* Stack image and info vertically */
-        max-width: 100%;
-        width: auto; /* Allow it to take full width of parent padding */
-    }
-    .contact-info {
-        padding-bottom: 20px; /* Add padding below info when stacked */
-    }
-    .contact-info h2 {
-        font-size: 2em;
-        margin-bottom: 20px;
-    }
-    .contact-info p {
-        justify-content: center; /* Center text lines including icons */
-    }
-    .contact-image {
-        width: 100%; /* Full width image */
-        height: 250px; /* Adjusted height for mobile */
-        margin-bottom: 20px;
-    }
-    .contact-icons {
-        justify-content: center; /* Center icons on mobile */
-    }
-}
-
-/* Very Small Mobile Screens */
-@media (max-width: 480px) {
-    .hero-section-wrapper {
-        margin-bottom: 10px;
-    }
-    .hero-header {
-        padding: 10px 15px;
-    }
-    .hero-logo-icon {
-        width: 140px;
-        height: 60px; /* Potentially problematic for aspect ratio, review during testing */
-    }
-    .hero-tagline {
-        font-size: 1em; /* Adjusted for very small screens */
-    }
-    .hero-main-content {
-        padding: 20px 15px;
-    }
-    .hero-title {
-        font-size: 2em;
-    }
-
-    /* About Me Responsive (further) */
-    .about-me-container {
-        margin: 10px;
-    }
-    .left-column, .right-column {
-        padding: 25px;
-    }
-    .profile-picture {
-        width: 120px;
-        height: 120px;
-    }
-    .name {
-        font-size: 1.5em;
-    }
-    .section-title {
-        font-size: 1.8em;
-    }
-    /* Navigation Responsive (further) */
-    .navbar-links {
-        gap: 10px;
-    }
-    .navbar-links li a {
-        font-size: 0.9em;
-    }
-
-    /* Industry Focus Responsive (further) */
-    .industry-focus-section {
-        padding: 20px 10px;
-        margin: 10px auto;
-    }
-    .industry-focus-heading {
-        font-size: 1.8em;
-        margin-bottom: 25px;
-    }
-    .card {
-        padding: 18px;
-    }
-    .card-title {
-        font-size: 1.1em;
-    }
-    .icon-circle {
-        width: 30px;
-        height: 30px;
-        font-size: 1.5em;
-    }
-
-    /* Contact Section Responsive (further) */
-    .contact-section {
-        padding: 30px 10px;
-    }
-    .contact-info h2 {
-        font-size: 1.8em;
-    }
-    .contact-info p {
-        font-size: 0.9em;
-    }
-    .contact-icons {
-        gap: 15px;
-    }
-    .contact-icons a i { /* Target the icon inside the link */
-        font-size: 1.8em; /* Slightly smaller icons for very small screens */
-    }
-    .contact-image {
-        height: 200px; /* Even smaller height for very small mobile */
-    }
-}
- </style>
+        body {
+            font-family: 'Inter', sans-serif; /* Default font for general text */
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Changed to white */
+            display: flex; /* Using flex to center the main content on the page */
+            flex-direction: column; /* Stack content vertically */
+            align-items: center; /* Center horizontally */
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
+            color: #333; /* Default text color */
+            line-height: 1.5; /* Default line height */
+        }
+
+        /* Hero Section Container (now full-width background, content max-width) */
+        .hero-section-wrapper {
+            width: 100%; /* Stretches full viewport width */
+            background-color: #fff; /* White background for the header part */
+            overflow: hidden; /* Ensures rounded corners apply to children */
+            margin-bottom: 0; /* Removed margin-bottom for smooth transition */
+        }
+
+        .hero-section-container {
+            max-width: 1800px; /* Max width for the content inside hero section */
+            margin: 0 auto; /* Center the content */
+            border-radius: 10px; /* Rounded corners for the content area */
+            overflow: hidden;
+        }
+
+        /* Header Section (Logo and Tagline) */
+        .hero-header {
+            display: flex;
+            justify-content: space-between; /* Pushes logo and tagline to opposite ends */
+            align-items: center;
+            padding: 20px 40px; /* Padding for the header */
+            background-color: #fff; /* White background */
+        }
+
+        .hero-logo {
+            display: flex; /* Use flexbox for precise alignment */
+            align-items: center;
+            font-weight: 600; /* Default for logo text */
+            color: #333; /* Default color for logo text */
+            gap: 0px; /* Remove default gap between flex items, relying on margins */
+        }
+
+        .hero-logo-icon {
+            width: 180px; /* Updated width for circular logo */
+            height: 180px; /* Updated height for circular logo */
+            margin-right: 8px; /* Added positive margin to create space */
+            flex-shrink: 0; /* Prevents icon from shrinking below its size in flex container */
+            object-fit: contain; /* Ensures the entire image fits within the bounds without cropping */
+        }
+
+        .hero-logo-main-text {
+            font-size: 2em; /* Increased font size for 'NUURAQLYZ' text to balance with large logo */
+            font-weight: 700;
+            color: #333;
+        }
+
+        .hero-logo-analytics-text {
+            color: #888; /* Soft medium gray */
+            font-weight: 400; /* Regular weight, less bold than NUURAQLYZ */
+            margin-left: 8px; /* Re-added small margin-left for "ANALYTICS" */
+        }
+
+        .hero-tagline {
+            font-size: 1.3em; /* Increased font size significantly for better visibility */
+            font-weight: 700;
+            color: #555;
+            text-transform: none; /* No longer all uppercase as per new text */
+            letter-spacing: 1px;
+            text-align: right; /* Align text to the right within its space */
+            white-space: nowrap; /* Prevent wrapping on desktop */
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            display: flex;
+            justify-content: center; /* Center the navigation links */
+            align-items: center;
+            padding: 15px 0;
+            width: 100%;
+            border-top: 1px solid #eee; /* Subtle separator from header */
+            box-sizing: border-box; /* Ensure padding/border don't add to width */
+        }
+
+        .navbar-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px; /* Space between navigation items */
+        }
+
+        .navbar-links li a {
+            color: #333; /* Dark text for links to blend with white header */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar-links li a:hover {
+            color: #FF8C00; /* Orange on hover, matching hero gradient */
+            background-color: rgba(0, 0, 0, 0.05); /* Subtle background on hover */
+        }
+
+        /* Main Hero Content Area (Gradient Background with Image Overlay) */
+        .hero-main-content {
+            display: flex;
+            position: relative; /* For positioning the image overlay */
+            min-height: 450px; /* Minimum height for desktop view */
+            padding: 50px 40px; /* Padding for content inside */
+            background: linear-gradient(to right, #FF8C00, #FFA07A); /* Orange to Light Salmon */
+            border-bottom-left-radius: 10px; /* Match container's rounded corners */
+            border-bottom-right-radius: 10px;
+            overflow: hidden; /* Crucial for containing the overlay */
+        }
+
+        /* Hero Image Overlay */
+        #hero-image-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%; /* Occupy the right portion */
+            height: 100%;
+            background-image: url('https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png'); /* <--- ADD THIS LINE FOR YOUR ROAD IMAGE */
+            background-size: cover; /* Cover the area, possibly cropping */
+            background-position: center right; /* Focus on the right side of the image */
+            opacity: 0; /* Start hidden for fade-in */
+            z-index: 0; /* Ensure this is behind the text content */
+            transition: opacity 1.5s ease-out; /* Fade in animation */
+        }
+
+        /* Keyframes for subtle zoom and pan animation */
+        @keyframes zoom-pan-subtle {
+            0% {
+                transform: scale(1) translateX(0);
+                background-position: center right;
+            }
+            50% {
+                transform: scale(1.03) translateX(-5px); /* Slightly zoom in and shift left */
+                background-position: center left; /* Shift background position */
+            }
+            100% {
+                transform: scale(1) translateX(0);
+                background-position: center right;
+            }
+        }
+
+        #hero-image-overlay.loaded {
+            opacity: 0.8; /* Target opacity after loading */
+            animation: zoom-pan-subtle 15s ease-in-out infinite alternate; /* Apply animation */
+        }
+
+        /* Loading indicator styles */
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; /* Above the image overlay */
+            display: none; /* Hidden by default, shown by JS */
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Text Content (A guiding light...) */
+        .hero-text-content {
+            flex: 1; /* Takes up available space on the left */
+            z-index: 1; /* Ensure text is above the image overlay */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: #fff; /* Set text color to white for contrast against gradient/image */
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif; /* Serif font for the title */
+            font-size: 3.5em; /* Adjusted font size for the new text */
+            font-weight: 700;
+            color: #fff; /* White text for "A guiding light into the unknown" */
+            line-height: 1.1; /* Tighter line height */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ABOUT ME SECTION STYLES - Consolidated */
+        .about-section {
+            width: 100%;
+            max-width: 1200px; /* Match main container width */
+            margin-top: 50px; /* Add space above the about section */
+            margin-bottom: 50px; /* Add space below the about section (optional, but good for consistency) */
+            padding: 0; /* No internal padding for the section itself */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+            margin-left: auto; /* Center the section on the page */
+            margin-right: auto;
+        }
+
+        .about-me-container { /* Renamed from .container to avoid conflict */
+            display: flex;
+            background-color: #fff; /* White background for the content area */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            max-width: 900px; /* Adjust as needed */
+            width: 100%;
+            border-radius: 8px; /* Slightly rounded corners */
+            overflow: hidden; /* Ensures content stays within bounds */
+            margin: 0 auto; /* Center the about me container within its section */
+        }
+
+        .left-column {
+            flex: 1; /* Takes up equal space */
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-right: 1px solid #eee; /* Separator line */
+        }
+
+        .profile-picture {
+            width: 180px; /* Fixed width for the image */
+            height: 180px; /* Fixed height for the image */
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+        }
+
+        .name {
+            font-size: 2.2em;
+            font-weight: 700; /* Bold */
+            color: #333;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        .pronouns {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #333; /* Dark grey button */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none; /* Remove default button border */
+        }
+
+        .button:hover {
+            background-color: #555; /* Darker grey on hover */
+        }
+
+        .social-icons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px; /* Space between icons */
+        }
+
+        .social-icon {
+            color: #333; /* Dark grey icons */
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+        .social-icon:hover {
+            color: #007bff; /* Example hover color for social icons */
+        }
+
+        .right-column {
+            flex: 2; /* Takes up more space than the left column */
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        /* Removed custom color for bold spans in about-text */
+        .about-text span {
+            font-weight: bold; /* Keep bolding */
+            color: inherit; /* Revert to parent text color */
+        }
+        .about-text span[style*="font-style: italic"] {
+            font-style: italic; /* Keep italic if present */
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+        }
+
+        .button-link {
+            text-decoration: none; /* Remove underline from anchor around button */
+        }
+
+        /* INDUSTRY FOCUS SECTION STYLES */
+        .industry-focus-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto; /* Centered with top/bottom margin */
+            padding: 40px 20px; /* Padding for the section itself */
+            background-color: #eef2f5; /* A slightly darker light background for this section */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            box-sizing: border-box;
+            text-align: center; /* Center the heading */
+        }
+
+        .industry-focus-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+
+        .industry-cards-container { /* Renamed from .dashboard-container */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px; /* Limit width of the grid itself */
+            margin: 0 auto; /* Center the grid */
+            padding: 0; /* No internal padding here, handled by cards */
+        }
+        .card {
+            border-radius: 10px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+            position: relative;
+            overflow: hidden;
+            min-height: 180px; /* Increased min-height for better appearance */
+            box-sizing: border-box;
+            transition: all 0.3s ease; /* Smooth transition for expansion */
+            text-align: left; /* Align card content left */
+        }
+
+        /* Distinct Card Colors */
+        .card.industry-small-law {
+            background-color: #8A2BE2; /* Blue Violet */
+            color: #fff;
+        }
+        .card.industry-startup {
+            background-color: #FFD700; /* Gold */
+            color: #333; /* Dark text for light background */
+        }
+        .card.industry-small-realtors {
+            background-color: #20B2AA; /* Light Sea Green */
+            color: #fff;
+        }
+        .card.industry-small-medical {
+            background-color: #DC143C; /* Crimson */
+            color: #fff;
+        }
+        .card.industry-owner-run {
+            background-color: #FF8C00; /* Dark Orange */
+            color: #fff;
+        }
+        .card.industry-unsure {
+            background-color: #6A5ACD; /* Slate Blue */
+            color: #fff;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.4em; /* Larger title for industry */
+            font-weight: bold;
+            line-height: 1.3;
+            color: inherit; /* Inherit color from card */
+        }
+
+        .icon-circle {
+            width: 35px; /* Larger icon circle */
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8em; /* Larger plus/minus sign */
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .icon-circle.expanded {
+            transform: rotate(45deg);
+        }
+        /* Adjust icon circle colors based on card background */
+        .card.industry-small-law .icon-circle,
+        .card.industry-small-realtors .icon-circle,
+        .card.industry-small-medical .icon-circle,
+        .card.industry-owner-run .icon-circle,
+        .card.industry-unsure .icon-circle {
+            background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent white for dark cards */
+            color: #ffffff; /* White for plus sign */
+        }
+        .card.industry-startup .icon-circle {
+            background-color: rgba(0, 0, 0, 0.1); /* Slightly transparent black for light cards */
+            color: #333; /* Dark for plus sign */
+        }
+
+        /* Collapsible Content Styling */
+        .collapsible-content {
+            max-height: 0; /* Initially hidden */
+            padding-top: 0; /* No padding when closed */
+            padding-bottom: 0; /* No padding when closed */
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition for height and padding */
+            overflow: hidden; /* Ensures content doesn't overflow during collapse */
+            text-align: left; /* Align content left */
+        }
+        .collapsible-content.active {
+            max-height: var(--content-height); /* Set dynamically by JS */
+            padding-top: 15px; /* Padding when open */
+            padding-bottom: 15px; /* Padding when open */
+            border-top: 1px solid; /* Add border when active */
+        }
+        /* Adjust border color for collapsible content based on card */
+        .card.industry-small-law .collapsible-content,
+        .card.industry-small-realtors .collapsible-content,
+        .card.industry-small-medical .collapsible-content,
+        .card.industry-owner-run .collapsible-content,
+        .card.industry-unsure .collapsible-content {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .card.industry-startup .collapsible-content {
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Multi-column grid for collapsible content */
+        .collapsible-content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Two columns, min 250px each */
+            gap: 20px;
+            padding-top: 10px;
+        }
+        .collapsible-content-grid h4 {
+            grid-column: 1 / -1; /* Make headers span all columns */
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 1.05em;
+            color: inherit;
+            font-weight: bold;
+        }
+        .collapsible-content-grid ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+            margin-bottom: 10px;
+        }
+        .collapsible-content-grid ul li {
+            margin-bottom: 5px;
+        }
+
+
+        /* Contact Section Styles */
+        .contact-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto; /* Centered with top/bottom margin */
+            padding: 50px 20px;
+            background-color: #f8f8f8; /* Match body background for seamless blend */
+            border-radius: 10px; /* Keep consistent rounding */
+            box-shadow: none; /* Remove shadow to blend into body background */
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .contact-container {
+            background-color: #F5F5F5; /* Light background for the info section */
+            color: #333;
+            display: flex;
+            max-width: 900px; /* Adjusted max-width for overall container */
+            width: 95%;
+            margin: 0 auto; /* Center within the contact-section */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .contact-info {
+            flex: 1; /* Allows this section to grow */
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            display: flex; /* Allows icon and text to be on the same line */
+            align-items: center;
+        }
+
+        .contact-info p strong {
+            font-weight: 700;
+            margin-right: 10px; /* Space between label and content */
+        }
+
+        .contact-info p i {
+            margin-right: 8px; /* Space after the icon */
+            font-size: 1.2em; /* Adjust icon size */
+            color: #555; /* Icon color */
+        }
+
+        .contact-info a {
+            color: #007bff; /* Link color */
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-icons {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px; /* Space between icons */
+            align-items: center;
+        }
+
+        .contact-icons a {
+            color: #555; /* Icon color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-icons a:hover {
+            color: #007bff; /* Hover color for icons */
+        }
+
+        .contact-image {
+            width: 356px;
+            height: 426px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eee; /* Placeholder background */
+        }
+
+        .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0; /* Start hidden for fade-in */
+            transition: opacity 1s ease-in-out; /* Fade in effect */
+        }
+        .contact-image img.loaded {
+            opacity: 1;
+        }
+
+        /* Footer Styles */
+        .footer {
+            width: 100%; /* Stretches full viewport width */
+            background-color: #444444; /* Softer dark gray footer background */
+            color: #fff;
+            text-align: center;
+            margin-top: auto; /* Pushes footer to the bottom */
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
+
+        .footer-content {
+            max-width: 1200px; /* Content inside footer aligns with main content */
+            margin: 0 auto; /* Center the content */
+            padding: 30px 20px; /* Apply padding here */
+            border-top-left-radius: 10px; /* Apply radius to content wrapper if desired */
+            border-top-right-radius: 10px;
+        }
+
+        .footer p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        .footer a {
+            color: #FFD700; /* Gold links in footer */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #FFA07A; /* Lighter orange on hover */
+        }
+
+
+        /* Responsive adjustments - Consolidated Media Queries */
+
+        /* Tablet and smaller desktops */
+        @media (max-width: 1024px) {
+            .hero-header, .navbar, .hero-main-content,
+            .about-section, .industry-focus-section, .contact-section {
+                max-width: 100%; /* Allow content to fill wrapper up to 1024px */
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-main-content {
+                min-height: 400px;
+            }
+            .hero-title {
+                font-size: 3em;
+            }
+            .navbar-links {
+                gap: 20px; /* Adjust gap for medium screens */
+            }
+        }
+
+        /* Mobile (Portrait) and smaller tablets */
+        @media (max-width: 768px) {
+            .hero-header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            .hero-logo {
+                margin-bottom: 10px;
+            }
+            .hero-tagline {
+                font-size: 1.1em; /* Keep larger size for tablets */
+                text-align: center;
+                white-space: normal; /* Allow text to wrap on smaller screens */
+                line-height: 1.3; /* Re-introduce line-height for stacking on smaller screens */
+            }
+            .hero-main-content {
+                flex-direction: column-reverse; /* Stack image below text */
+                min-height: auto;
+                padding: 30px 20px;
+            }
+            #hero-image-overlay {
+                position: static; /* Remove absolute positioning */
+                width: 100%;
+                height: 200px; /* Fixed height for image when stacked */
+                margin-top: 20px;
+                opacity: 1; /* Make it always visible on mobile if it's stacked */
+                z-index: auto; /* Reset z-index */
+                animation: none; /* Disable animation on mobile when stacked */
+            }
+            .hero-text-content {
+                align-items: center;
+                text-align: center;
+            }
+            .hero-title {
+                font-size: 2.5em;
+            }
+
+            /* About Me Responsive */
+            .about-me-container {
+                flex-direction: column;
+                max-width: 100%;
+                margin: 20px;
+            }
+            .left-column {
+                border-right: none;
+                border-bottom: 1px solid #eee; /* Add bottom border when stacked */
+                padding-bottom: 30px;
+            }
+            .right-column {
+                padding-top: 30px;
+            }
+            .action-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .button {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .profile-picture {
+                width: 150px;
+                height: 150px;
+            }
+            .name {
+                font-size: 1.8em;
+            }
+            .section-title {
+                font-size: 2.2em;
+            }
+            .about-text {
+                font-size: 1em;
+            }
+
+            /* Navigation Responsive */
+            .navbar-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .navbar-links li a {
+                padding: 8px 15px;
+                font-size: 1em;
+            }
+
+            /* Industry Focus Responsive */
+            .industry-focus-section {
+                padding: 30px 15px;
+                margin: 15px auto; /* Center on mobile */
+            }
+            .industry-focus-heading {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .industry-cards-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .card {
+                min-height: 160px;
+                padding: 20px;
+            }
+            .card-title {
+                font-size: 1.2em;
+            }
+            .collapsible-content {
+                font-size: 0.9em;
+            }
+            /* Contact Section Responsive */
+            .contact-section {
+                padding: 40px 15px;
+                margin: 30px auto; /* Center on mobile */
+            }
+            .contact-container {
+                flex-direction: column; /* Stack image and info vertically */
+                max-width: 100%;
+                width: auto; /* Allow it to take full width of parent padding */
+            }
+            .contact-info {
+                padding-bottom: 20px; /* Add padding below info when stacked */
+            }
+            .contact-info h2 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+            .contact-info p {
+                justify-content: center; /* Center text lines including icons */
+            }
+            .contact-image {
+                width: 100%; /* Full width image */
+                height: 250px; /* Adjusted height for mobile */
+                margin-bottom: 20px;
+            }
+            .contact-icons {
+                justify-content: center; /* Center icons on mobile */
+            }
+        }
+
+        /* Very Small Mobile Screens */
+        @media (max-width: 480px) {
+            .hero-section-wrapper {
+                margin-bottom: 10px;
+            }
+            .hero-header {
+                padding: 10px 15px;
+            }
+            .hero-logo-icon {
+                width: 140px;
+                height: 60px; /* Potentially problematic for aspect ratio, review during testing */
+            }
+            .hero-tagline {
+                font-size: 1em; /* Adjusted for very small screens */
+            }
+            .hero-main-content {
+                padding: 20px 15px;
+            }
+            .hero-title {
+                font-size: 2em;
+            }
+
+            /* About Me Responsive (further) */
+            .about-me-container {
+                margin: 10px;
+            }
+            .left-column, .right-column {
+                padding: 25px;
+            }
+            .profile-picture {
+                width: 120px;
+                height: 120px;
+            }
+            .name {
+                font-size: 1.5em;
+            }
+            .section-title {
+                font-size: 1.8em;
+            }
+            /* Navigation Responsive (further) */
+            .navbar-links {
+                gap: 10px;
+            }
+            .navbar-links li a {
+                font-size: 0.9em;
+            }
+
+            /* Industry Focus Responsive (further) */
+            .industry-focus-section {
+                padding: 20px 10px;
+                margin: 10px auto;
+            }
+            .industry-focus-heading {
+                font-size: 1.8em;
+                margin-bottom: 25px;
+            }
+            .card {
+                padding: 18px;
+            }
+            .card-title {
+                font-size: 1.1em;
+            }
+            .icon-circle {
+                width: 30px;
+                height: 30px;
+                font-size: 1.5em;
+            }
+
+            /* Contact Section Responsive (further) */
+            .contact-section {
+                padding: 30px 10px;
+            }
+            .contact-info h2 {
+                font-size: 1.8em;
+            }
+            .contact-info p {
+                font-size: 0.9em;
+            }
+            .contact-icons {
+                gap: 15px;
+            }
+            .contact-icons a i { /* Target the icon inside the link */
+                font-size: 1.8em; /* Slightly smaller icons for very small screens */
+            }
+            .contact-image {
+                height: 200px; /* Even smaller height for very small mobile */
+            }
+        }
+    </style>
 </head>
 <body>
-   <div class="hero-section-wrapper">
+    <div class="hero-section-wrapper">
         <div class="hero-section-container">
             <header class="hero-header">
                 <div class="hero-logo">
@@ -917,7 +917,8 @@ body {
             <nav class="navbar">
                 <ul class="navbar-links">
                     <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
-                    <li><a href="phttps://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
+<li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/services.html">Services</a></li>
+                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
                     <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer_feedback.html">Client Feedback</a></li>
                     <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/guided_information.html">Guided Information</a></li>
                 </ul>
@@ -925,212 +926,39 @@ body {
 
             <div class="hero-main-content">
                 <div class="loading-spinner" id="hero-loading-spinner"></div>
-
-                <div id="hero-image-overlay"></div> <div class="hero-text-content">
+                <div id="hero-image-overlay"></div> 
+                <div class="hero-text-content">
                     <h1 class="hero-title">A guiding light<br>into the unknown</h1>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Quote Section - Now directly under body, spanning 1800px -->
-    <section class="quote-hero-section">
-        <div class="quote-container">
-            <p class="quote-text">“The true mark of expertise isn’t making things more complex — it’s making the complex clear, and the solution practical.”</p>
-        </div>
-    </section>
 
-    <!-- Services Offerings Section - Now directly under body, spanning 1200px -->
-    <section class="page-section services-offerings-section">
-        <div class="section-content-container">
-            <h2 class="section-title">Our Services And Works</h2>
-            
-            <div class="services-grid">
-                <!-- Service Item: Basic Data Analysis & Insight Reports -->
-                <div class="service-item">
-                    <div class="service-item-header">
-                        <h3 class="service-category">Basic Data Analysis & Insight Reports</h3>
-                        <div class="icon-circle" data-target="basic-analysis-content"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <p class="service-description">Conduct basic statistical analysis to identify trends, patterns, or anomalies that impact business outcomes</p>
-                    <div class="collapsible-content" id="basic-analysis-content">
-                        <div class="collapsible-content-grid">
-                            <div class="benefit-column">
-                                <h4>Benefit:</h4>
-                                <ul>
-                                    <li>Know what’s working and what needs attention.</li>
-                                </ul>
-                            </div>
-                            <div class="result-column">
-                                <h4>Result:</h4>
-                                <ul>
-                                    <li>Use the findings to adjust pricing, optimize spending, refine offers, or improve customer targeting.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Item: SQL Querying & Data Summarization -->
-                <div class="service-item">
-                    <div class="service-item-header">
-                        <h3 class="service-category">SQL Querying & Data Summarization</h3>
-                        <div class="icon-circle" data-target="sql-querying-content">+</div>
-                    </div>
-                    <p class="service-description">Support senior analysts by executing smaller tasks such as SQL query adjustments, reporting logic tweaks, or dashboard updates</p>
-                    <div class="collapsible-content" id="sql-querying-content">
-                        <div class="collapsible-content-grid">
-                            <div class="benefit-column">
-                                <h4>Benefit:</h4>
-                                <ul>
-                                    <li>Keeps reporting workflows moving smoothly and allows senior analysts to focus on higher-level analysis.</li>
-                                </ul>
-                            </div>
-                            <div class="result-column">
-                                <h4>Result:</h4>
-                                <ul>
-                                    <li>Teams remain productive, reports stay up to date, and changes are made quickly when business needs shift.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Item: Data Entry & Migration Support -->
-                <div class="service-item">
-                    <div class="service-item-header">
-                        <h3 class="service-category">Data Entry & Migration Support</h3>
-                        <div class="icon-circle" data-target="data-entry-content">+</div>
-                    </div>
-                    <p class="service-description">Collect and preprocess data from internal systems, Excel files, or databases (e.g. SQL) to ensure accuracy and readiness for analysis</p>
-                    <div class="collapsible-content" id="data-entry-content">
-                        <div class="collapsible-content-grid">
-                            <div class="benefit-column">
-                                <h4>Benefit:</h4>
-                                <ul>
-                                    <li>Ensures consistent, clean, and properly structured data across all systems, reducing errors and duplication.</li>
-                                </ul>
-                            </div>
-                            <div class="result-column">
-                                <h4>Result:</h4>
-                                <ul>
-                                    <li>You gain reliable, well-organized records that improve day-to-day operations, reporting accuracy, and team collaboration.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Item: Salesforce Support (Back-End) -->
-                <div class="service-item">
-                    <div class="service-item-header">
-                        <h3 class="service-category">Salesforce Support (Back-End)</h3>
-                        <div class="icon-circle" data-target="salesforce-content">+</div>
-                    </div>
-                    <p class="service-description">Clean and transform data, remove duplicates, standardize formats, and validate integrity.
-I support both back-end data structure and front-end usability in Salesforce, ensuring your CRM reflects accurate, organized, and usable information.</p>
-                    <div class="collapsible-content" id="salesforce-content">
-                        <div class="collapsible-content-grid">
-                            <div class="benefit-column">
-                                <h4>Benefit:</h4>
-                                <ul>
-                                    <li>Improves CRM performance and usability by eliminating clutter and inconsistencies. Sales and service teams work faster with cleaner, more reliable records.</li>
-                                </ul>
-                            </div>
-                            <div class="result-column">
-                                <h4>Result:</h4>
-                                <ul>
-                                    <li>More efficient lead management, better customer insights, and fewer missed opportunities due to outdated or incorrect data.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Item: Custom Spreadsheet Tools for Business -->
-                <div class="service-item">
-                    <div class="service-item-header">
-                        <h3 class="service-category">Custom Spreadsheet Tools for Business</h3>
-                        <div class="icon-circle" data-target="spreadsheet-tools-content">+</div>
-                    </div>
-                    <p class="service-description">Maintain documentation and data dictionaries, ensuring standards, accuracy, and consistency in datasets</p>
-                    <div class="collapsible-content" id="spreadsheet-tools-content">
-                        <div class="collapsible-content-grid">
-                            <div class="benefit-column">
-                                <h4>Benefit:</h4>
-                                <ul>
-                                    <li>Reveals underlying behaviors, seasonal shifts, or potential risks hidden in the data.</li>
-                                </ul>
-                            </div>
-                            <div class="result-column">
-                                <h4>Result:</h4>
-                                <ul>
-                                    <li> Enables proactive strategies, such as optimizing operations, addressing customer churn, or spotting market opportunities early.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Item: Power BI Reports & Dashboards -->
-                <div class="service-item">
-                    <div class="service-item-header">
-                        <h3 class="service-category">Power BI Reports & Dashboards</h3>
-                        <div class="icon-circle" data-target="powerbi-content"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <p class="service-description">Transform your raw data into interactive, decision-ready reports. I design end-to-end Power BI solutions—from importing and cleaning data (Excel, CRM, or other sources) to creating a star schema model and building a dashboard with visual insights aligned to your goals.</p>
-                    <div class="collapsible-content" id="powerbi-content">
-                        <div class="collapsible-content-grid">
-                            <div class="benefit-column">
-                                <h4>Benefit:</h4>
-                                <ul>
-                                    <li>Understand your operations at a glance—sales, customer behavior, team performance, or marketing impact.</li>
-                                </ul>
-                            </div>
-                            <div class="result-column">
-                                <h4>Result:</h4>
-                                <ul>
-                                    <li>Use interactive reports in real time to make smarter decisions, improve performance, or present to investors or stakeholders.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Item: Presentation-Ready Reports & Business Decks -->
-                <div class="service-item">
-                    <div class="service-item-header">
-                        <h3 class="service-category">Presentation-Ready Reports & Business Decks</h3>
-                        <div class="icon-circle" data-target="presentations-content"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <p class="service-description">Deliver findings to stakeholders, translating technical insights into clear, actionable summaries via presentation decks or slide reports.</p>
-                    <div class="collapsible-content" id="presentations-content">
-                        <div class="collapsible-content-grid">
-                            <div class="benefit-column">
-                                <h4>Benefit:</h4>
-                                <ul>
-                                    <li>Communicate insights with clarity and impact.</li>
-                                </ul>
-                            </div>
-                            <div class="result-column">
-                                <h4>Result:</h4>
-                                <ul>
-                                    <li>Leave meetings with decisions made, not questions raised.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+    <section class="about-section">
+        <div class="about-me-container">
+            <div class="left-column">
+                <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/profile_picture.png" alt="Meryem Ciftci Profile" class="profile-picture" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Profile+Image';">
+                <h1 class="name">Meryem Ciftci</h1>
+                <p class="pronouns">(she/her)</p>
+                <p class="title">Data Analyst</p>
+                <a href="mailto:meryemkciftci@gmail.com?subject=Inquiry%20from%20Website" class="button">Email me</a>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/meryemciftci/" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="right-column">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">
+                    I am a <span>forward-thinking</span>, <span>action-driven</span>, and <span>creative problem-solver</span> by nature and by profession. My philosophy is that <span style="font-style: italic;">skills and knowledge gained are never lost</span>; rather, they form a powerful foundation for future growth. After many years <span>supporting executive teams and business operations across diverse industries</span>, I honed my ability to be a <span>trusted knowledge center</span> and a <span>proactive source of solutions</span> for any challenge.
+                </p>
 
-    <!-- NEW Call to Action Section -->
-    <section class="call-to-action-section">
-        <div class="call-to-action-container">
-            <p class="call-to-action-text">
-                If you believe that Excel, PowerPoint, Power BI, SQL, or Tableau are the tools you need to get your job done, but you don't know how, then it's worth having a discussion with me to see if we can come up with a roadmap and a solution to achieve the results you need.
-            </p>
-            <a href="mailto:meryemkciftci@gmail.com?subject=Inquiry%20from%20Services%20Page" class="call-to-action-button">Make An Inquery</a>
+                <p class="about-text">
+                    This <span>innate drive for overcoming obstacles and delivering results</span> sparked my transition into <span>data analytics</span>. I am now leveraging this passion to <span>offer freelance analytics services</span>, driven by a dual objective: to <span>help you meet your business objectives</span> and to <span>continuously grow my expertise</span>. I excel at <span>transforming raw data into actionable insights and innovative solutions</span> that <span>help businesses grow</span>, <span>uncover hidden opportunities</span>, and <span>discover invaluable information within their existing data</span> to <span>propel them toward their goals</span>.
+                </p>
+                <div class="action-buttons">
+                    <!-- Placeholder for future buttons if needed, currently empty as per previous request -->
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1360,39 +1188,13 @@ I support both back-end data structure and front-end usability in Salesforce, en
             </div>
         </div>
     </section>
-<section class="about-section">
-        <div class="about-me-container">
-            <div class="left-column">
-                <img src="https://placehold.co/180x180/cccccc/333333?text=Profile+Image" alt="Meryem Ciftci Profile" class="profile-picture" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Profile+Image';">
-                <h1 class="name">Meryem Ciftci</h1>
-                <p class="pronouns">(she/her)</p>
-                <p class="title">Data Analyst</p>
-                <button class="button">Email me</button>
-                <div class="social-icons">
-                    <!-- Removed LinkedIn icon as requested -->
-                </div>
-            </div>
-            <div class="right-column">
-                <h2 class="section-title">About Me</h2>
-                <p class="about-text">
-                    I am a <span>forward-thinking</span>, <span>action-driven</span>, and <span>creative problem-solver</span> by nature and by profession. My philosophy is that <span style="font-style: italic;">skills and knowledge gained are never lost</span>; rather, they form a powerful foundation for future growth. After many years <span>supporting executive teams and business operations across diverse industries</span>, I honed my ability to be a <span>trusted knowledge center</span> and a <span>proactive source of solutions</span> for any challenge.
-                </p>
 
-                <p class="about-text">
-                    This <span>innate drive for overcoming obstacles and delivering results</span> sparked my transition into <span>data analytics</span>. I am now leveraging this passion to <span>offer freelance analytics services</span>, driven by a dual objective: to <span>help you meet your business objectives</span> and to <span>continuously grow my expertise</span>. I excel at <span>transforming raw data into actionable insights and innovative solutions</span> that <span>help businesses grow</span>, <span>uncover hidden opportunities</span>, and <span>discover invaluable information within their existing data</span> to <span>propel them toward their goals</span>.
-                </p>
-                <div class="action-buttons">
-                    <!-- Removed "Work With Me" button as requested -->
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="contact-section">
         <div class="contact-container">
             <div class="contact-image">
                 <div class="loading-spinner" id="contact-loading-spinner"></div>
                 <!-- Placeholder image for contact section. Replace src with your generated image URL. -->
-                <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/contact_image.png">
+                <img id="contact-img" src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/contact_image.png" alt="Contact Image">
             </div>
             <div class="contact-info">
                 <h2>Let's Connect</h2>
@@ -1400,126 +1202,127 @@ I support both back-end data structure and front-end usability in Salesforce, en
                 <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:meryemkciftci@gmail.com">Send Email</a></p>
                 <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> New York, NY</p>
                 <div class="contact-icons">
+                    <!-- Add social icons here if desired, e.g., LinkedIn, GitHub -->
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 NUURAQLYZ Analytics. All rights reserved.</p>
-            <p><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a> | <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-of-service.html">Terms of Service</a></p>
+            <p>&copy; 2024 Nuuraqlyz Analytics. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Meryem Ciftci</p>
         </div>
     </footer>
 
     <script>
-   document.addEventListener('DOMContentLoaded', () => {
-    // Function to load image and handle spinner/fade-in
-    function loadImage(imageUrl, targetElement, spinnerId) {
-        const spinner = document.getElementById(spinnerId);
-        if (spinner) {
-            spinner.style.display = 'block'; // Show spinner
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to load image and handle spinner/fade-in
+            function loadImage(imageUrl, targetElement, spinnerId) {
+                const spinner = document.getElementById(spinnerId);
+                if (spinner) {
+                    spinner.style.display = 'block'; // Show spinner
+                }
 
-        // Create a temporary image object to check for load completion
-        const img = new Image();
-        img.src = imageUrl;
+                // Create a temporary image object to check for load completion
+                const img = new Image();
+                img.src = imageUrl;
 
-        img.onload = () => {
-            // If the target is an <img> tag, set its src
-            if (targetElement.tagName === 'IMG') {
-                targetElement.src = imageUrl;
-                targetElement.classList.add('loaded'); // Add class to trigger fade-in
-            } 
-            // If the target is a div (like hero-image-overlay), set its background-image
-            else { 
-                targetElement.style.backgroundImage = `url('${imageUrl}')`;
-                targetElement.classList.add('loaded'); // Trigger fade-in
+                img.onload = () => {
+                    // If the target is an <img> tag, set its src
+                    if (targetElement.tagName === 'IMG') {
+                        targetElement.src = imageUrl;
+                        targetElement.classList.add('loaded'); // Add class to trigger fade-in
+                    } 
+                    // If the target is a div (like hero-image-overlay), set its background-image
+                    else { 
+                        targetElement.style.backgroundImage = `url('${imageUrl}')`;
+                        targetElement.classList.add('loaded'); // Trigger fade-in
+                    }
+                    
+                    if (spinner) {
+                        spinner.style.display = 'none'; // Hide spinner after image loads
+                    }
+                };
+
+                img.onerror = () => {
+                    console.error(`Failed to load image: ${imageUrl}`);
+                    if (spinner) {
+                        spinner.style.display = 'none'; // Hide spinner on error
+                    }
+                    // Fallback for different element types
+                    if (targetElement.tagName === 'IMG') {
+                        targetElement.src = `https://placehold.co/${targetElement.width || 300}x${targetElement.height || 200}/cccccc/333333?text=Image+Error`;
+                        targetElement.classList.add('loaded'); // Still fade in fallback
+                    } else { // For hero overlay div
+                        targetElement.style.backgroundImage = `url('https://placehold.co/1200x675/cccccc/333333?text=Hero+Image+Error')`;
+                        targetElement.classList.add('loaded'); // Still fade in fallback
+                    }
+                };
             }
-            
-            if (spinner) {
-                spinner.style.display = 'none'; // Hide spinner after image loads
-            }
-        };
 
-        img.onerror = () => {
-            console.error(`Failed to load image: ${imageUrl}`);
-            if (spinner) {
-                spinner.style.display = 'none'; // Hide spinner on error
-            }
-            // Fallback for different element types
-            if (targetElement.tagName === 'IMG') {
-                targetElement.src = `https://placehold.co/${targetElement.width || 300}x${targetElement.height || 200}/cccccc/333333?text=Image+Error`;
-                targetElement.classList.add('loaded'); // Still fade in fallback
-            } else { // For hero overlay div
-                targetElement.style.backgroundImage = `url('https://placehold.co/1200x675/cccccc/333333?text=Hero+Image+Error')`;
-                targetElement.classList.add('loaded'); // Still fade in fallback
-            }
-        };
-    }
+            // --- Image Loading Logic ---
+            const heroImageUrl = "https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png"; 
+            const contactImageUrl = "https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/contact_image.png";
 
-    // --- Image Loading Logic ---
-    const heroImageUrl = "https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png"; 
-    const contactImageUrl = "https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/contact_image.png";
-
-    const heroImageOverlay = document.getElementById('hero-image-overlay');
-    if (heroImageOverlay) {
-        loadImage(heroImageUrl, heroImageOverlay, 'hero-loading-spinner');
-    } else {
-        console.warn("Element with ID 'hero-image-overlay' not found. Hero image will not load via JS.");
-    }
-
-    const contactImgElement = document.getElementById('contact-img');
-    if (contactImgElement) {
-        loadImage(contactImageUrl, contactImgElement, 'contact-loading-spinner');
-    } else {
-        console.warn("Element with ID 'contact-img' not found. Contact image will not load via JS.");
-    }
-
-    // --- Collapsible Sections Logic (Industry Focus) ---
-    const iconCircles = document.querySelectorAll('.industry-cards-container .icon-circle'); // Targeting only industry cards
-
-    iconCircles.forEach(circle => {
-        circle.addEventListener('click', () => {
-            const targetId = circle.dataset.target;
-            const content = document.getElementById(targetId);
-            
-            circle.classList.toggle('expanded');
-
-            if (content.classList.contains('active')) {
-                content.style.maxHeight = null; // Collapse
-                content.classList.remove('active');
+            const heroImageOverlay = document.getElementById('hero-image-overlay');
+            if (heroImageOverlay) {
+                loadImage(heroImageUrl, heroImageOverlay, 'hero-loading-spinner');
             } else {
-                content.style.setProperty('--content-height', content.scrollHeight + 'px');
-                content.classList.add('active');
+                console.warn("Element with ID 'hero-image-overlay' not found. Hero image will not load via JS.");
             }
-        });
-    });
 
-    // --- Collapsible Sections Logic (Services Grid - if applicable on index) ---
-    // Note: This part is typically for the services.html page.
-    // If you have a services grid on index.html, ensure its elements have unique IDs/classes
-    // to avoid conflict with the industry focus collapsible sections.
-    const serviceIconCircles = document.querySelectorAll('.services-grid .icon-circle');
-
-    serviceIconCircles.forEach(circle => {
-        circle.addEventListener('click', () => {
-            const targetId = circle.dataset.target;
-            const content = document.getElementById(targetId);
-            
-            circle.classList.toggle('expanded');
-
-            if (content.classList.contains('active')) {
-                content.style.maxHeight = null;
-                content.classList.remove('active');
+            const contactImgElement = document.getElementById('contact-img');
+            if (contactImgElement) {
+                loadImage(contactImageUrl, contactImgElement, 'contact-loading-spinner');
             } else {
-                content.style.setProperty('--content-height', content.scrollHeight + 'px');
-                content.classList.add('active');
+                console.warn("Element with ID 'contact-img' not found. Contact image will not load via JS.");
             }
-        });
-    });
-});
 
-</script>
+            // --- Collapsible Sections Logic (Industry Focus) ---
+            const iconCircles = document.querySelectorAll('.industry-cards-container .icon-circle'); // Targeting only industry cards
+
+            iconCircles.forEach(circle => {
+                circle.addEventListener('click', () => {
+                    const targetId = circle.dataset.target;
+                    const content = document.getElementById(targetId);
+                    
+                    circle.classList.toggle('expanded');
+
+                    if (content.classList.contains('active')) {
+                        content.style.maxHeight = null; // Collapse
+                        content.classList.remove('active');
+                    } else {
+                        content.style.setProperty('--content-height', content.scrollHeight + 'px');
+                        content.classList.add('active');
+                    }
+                });
+            });
+
+            // --- Collapsible Sections Logic (Services Grid - if applicable on index) ---
+            // Note: This part is typically for the services.html page.
+            // If you have a services grid on index.html, ensure its elements have unique IDs/classes
+            // to avoid conflict with the industry focus collapsible sections.
+            const serviceIconCircles = document.querySelectorAll('.services-grid .icon-circle');
+
+            serviceIconCircles.forEach(circle => {
+                circle.addEventListener('click', () => {
+                    const targetId = circle.dataset.target;
+                    const content = document.getElementById(targetId);
+                    
+                    circle.classList.toggle('expanded');
+
+                    if (content.classList.contains('active')) {
+                        content.style.maxHeight = null;
+                        content.classList.remove('active');
+                    } else {
+                        content.style.setProperty('--content-height', content.scrollHeight + 'px');
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
