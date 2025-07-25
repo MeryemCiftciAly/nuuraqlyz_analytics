@@ -46,7 +46,6 @@
         .hero-logo {
             display: flex;
             align-items: center;
-            font-size: 1.2em;
             font-weight: 700;
             color: #333;
         }
@@ -59,6 +58,12 @@
             object-fit: contain;
         }
 
+        .hero-logo-main-text {
+            font-size: 2em; /* Increased font size as requested */
+            font-weight: 700;
+            color: #333;
+        }
+
         .hero-logo-analytics-text {
             color: #888;
             font-weight: 400;
@@ -66,13 +71,14 @@
         }
 
         .hero-tagline {
-            font-size: 0.9em;
+            font-size: 1.3em; /* Updated from 1.1em to 1.3em */
             font-weight: 700;
             color: #555;
             text-transform: none;
             letter-spacing: 1px;
             text-align: right;
-            line-height: 1.3;
+            line-height: 1.3; /* Adjusted for potential wrapping on smaller screens */
+            white-space: nowrap; /* Prevent wrapping on desktop */
         }
 
         .navbar {
@@ -150,7 +156,7 @@
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 15px;
-            color: #000;
+            color: #555; /* Softened color for the main heading */
             text-align: left;
         }
 
@@ -360,6 +366,7 @@
             }
             .hero-tagline {
                 text-align: center;
+                white-space: normal; /* Allow text to wrap on smaller screens */
             }
             .navbar-links {
                 flex-direction: column;
@@ -426,7 +433,7 @@
                 height: 60px;
             }
             .hero-tagline {
-                font-size: 0.8em;
+                font-size: 1em; /* Adjusted for smaller screens as well */
             }
             .navbar-links {
                 gap: 10px;
@@ -458,7 +465,8 @@
         <header class="hero-header">
             <div class="hero-logo">
                 <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/183x86/cccccc/333333?text=Logo+Fallback';">
-                Nuuraqlyz
+                <!-- Added a span for the main text to apply specific font size -->
+                <span class="hero-logo-main-text">Nuuraqlyz</span>
                 <span class="hero-logo-analytics-text">ANALYTICS</span>
             </div>
             <div class="hero-tagline">
@@ -535,7 +543,7 @@
         </div>
     </div>
 
-  <footer class="footer">
+    <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
             <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe -Ciftci (Meryem)</p>
