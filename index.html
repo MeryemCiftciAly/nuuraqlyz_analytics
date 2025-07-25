@@ -14,7 +14,7 @@
             font-family: 'Inter', sans-serif; /* Default font for general text */
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* Light background for the page */
+            background-color: #ffffff; /* Changed to white */
             display: flex; /* Using flex to center the main content on the page */
             flex-direction: column; /* Stack content vertically */
             align-items: center; /* Center horizontally */
@@ -23,15 +23,22 @@
             overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
         }
 
-        /* Hero Section Container */
-        .hero-section-container {
-            width: 100%;
-            max-width: 1200px; /* Max width for the entire hero section */
-            margin: 20px; /* Margin around the hero section */
+        /* Hero Section Container (now full-width background, content max-width) */
+        .hero-section-wrapper {
+            width: 100%; /* Stretches full viewport width */
             background-color: #fff; /* White background for the header part */
-            border-radius: 10px; /* Rounded corners for the whole section */
-            overflow: hidden; /* Ensures rounded corners apply to children */
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            border-bottom-left-radius: 10px; /* Rounded corners for the bottom of the hero area */
+            border-bottom-right-radius: 10px;
+            overflow: hidden; /* Ensures rounded corners apply to children */
+            margin-bottom: 20px; /* Space below the entire hero section */
+        }
+
+        .hero-section-container {
+            max-width: 1200px; /* Max width for the content inside hero section */
+            margin: 0 auto; /* Center the content */
+            border-radius: 10px; /* Rounded corners for the content area */
+            overflow: hidden;
         }
 
         /* Header Section (Logo and Tagline) */
@@ -66,7 +73,7 @@
         }
 
         .hero-tagline {
-            font-size: 0.9em;
+            font-size: 1.1em; /* Increased font size for better visibility */
             font-weight: 700;
             color: #555;
             text-transform: none; /* No longer all uppercase as per new text */
@@ -401,14 +408,18 @@
 
         /* Collapsible Content Styling */
         .collapsible-content {
-            display: none; /* Initially hidden */
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid; /* Use current color for border */
-            color: inherit; /* Inherit text color from card */
-            font-size: 0.95em;
-            line-height: 1.5;
-            overflow: hidden; /* Ensure content doesn't overflow during collapse */
+            max-height: 0; /* Initially hidden */
+            padding-top: 0; /* No padding when closed */
+            padding-bottom: 0; /* No padding when closed */
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition for height and padding */
+            overflow: hidden; /* Ensures content doesn't overflow during collapse */
+            text-align: left; /* Align content left */
+        }
+        .collapsible-content.active {
+            max-height: var(--content-height); /* Set dynamically by JS */
+            padding-top: 15px; /* Padding when open */
+            padding-bottom: 15px; /* Padding when open */
+            border-top: 1px solid; /* Add border when active */
         }
         /* Adjust border color for collapsible content based on card */
         .card.industry-small-law .collapsible-content,
@@ -422,23 +433,31 @@
             border-color: rgba(0, 0, 0, 0.1);
         }
 
-
-        .collapsible-content h4 {
+        /* Multi-column grid for collapsible content */
+        .collapsible-content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Two columns, min 250px each */
+            gap: 20px;
+            padding-top: 10px;
+        }
+        .collapsible-content-grid h4 {
+            grid-column: 1 / -1; /* Make headers span all columns */
             margin-top: 10px;
             margin-bottom: 5px;
             font-size: 1.05em;
             color: inherit;
             font-weight: bold;
         }
-        .collapsible-content ul {
+        .collapsible-content-grid ul {
             list-style-type: disc;
             margin-left: 20px;
             padding-left: 0;
             margin-bottom: 10px;
         }
-        .collapsible-content ul li {
+        .collapsible-content-grid ul li {
             margin-bottom: 5px;
         }
+
 
         /* Contact Section Styles */
         .contact-section {
@@ -541,17 +560,21 @@
 
         /* Footer Styles */
         .footer {
-            width: 100%;
-            max-width: 1200px;
-            margin-top: 20px;
-            padding: 30px 20px;
+            width: 100%; /* Stretches full viewport width */
             background-color: #444444; /* Softer dark gray footer background */
             color: #fff;
             text-align: center;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            margin-top: auto; /* Pushes footer to the bottom */
             box-sizing: border-box;
             font-size: 0.9em;
+        }
+
+        .footer-content {
+            max-width: 1200px; /* Content inside footer aligns with main content */
+            margin: 0 auto; /* Center the content */
+            padding: 30px 20px; /* Apply padding here */
+            border-top-left-radius: 10px; /* Apply radius to content wrapper if desired */
+            border-top-right-radius: 10px;
         }
 
         .footer p {
@@ -572,6 +595,10 @@
 
         /* Responsive adjustments */
         @media (max-width: 1024px) {
+            .hero-header, .navbar, .hero-main-content {
+                max-width: 100%; /* Allow content to fill wrapper up to 1024px */
+                margin: 0 auto;
+            }
             .hero-main-content {
                 min-height: 400px;
             }
@@ -705,8 +732,8 @@
         }
 
         @media (max-width: 480px) {
-            .hero-section-container {
-                margin: 10px;
+            .hero-section-wrapper {
+                margin-bottom: 10px;
             }
             .hero-header {
                 padding: 10px 15px;
@@ -716,7 +743,7 @@
                 height: 60px;
             }
             .hero-tagline {
-                font-size: 0.8em;
+                font-size: 0.9em; /* Adjusted for very small screens */
             }
             .hero-main-content {
                 padding: 20px 15px;
@@ -771,7 +798,7 @@
                 font-size: 1.5em;
             }
 
-            /* Contact Section Responsive */
+            /* Contact Section Responsive (further) */
             .contact-section {
                 padding: 30px 10px;
             }
@@ -791,31 +818,33 @@
     </style>
 </head>
 <body>
-    <div class="hero-section-container">
-        <header class="hero-header">
-            <div class="hero-logo">
-                <img src="https://placehold.co/183x86/cccccc/333333?text=NUURAQLYZ+Logo" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/183x86/cccccc/333333?text=Logo+Fallback';">
-                Nuuraqlyz
-                <span class="hero-logo-analytics-text">ANALYTICS</span>
-            </div>
-            <div class="hero-tagline">
-                Analytics for clarity.<br>Insights for Action.
-            </div>
-        </header>
+    <div class="hero-section-wrapper">
+        <div class="hero-section-container">
+            <header class="hero-header">
+                <div class="hero-logo">
+                    <img src="https://placehold.co/183x86/cccccc/333333?text=NUURAQLYZ+Logo" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Circular+Logo+Placeholder';">
+                    Nuuraqlyz
+                    <span class="hero-logo-analytics-text">ANALYTICS</span>
+                </div>
+                <div class="hero-tagline">
+                    Analytics for clarity.<br>Insights for Action.
+                </div>
+            </header>
 
-        <!-- Navigation Bar (moved inside hero-section-container for seamless blending) -->
-        <nav class="navbar">
-            <ul class="navbar-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="customer_feedback.html">Client Feedback</a></li>
-                <li><a href="guided_information.html">Guided Information</a></li>
-            </ul>
-        </nav>
+            <!-- Navigation Bar -->
+            <nav class="navbar">
+                <ul class="navbar-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="customer_feedback.html">Client Feedback</a></li>
+                    <li><a href="guided_information.html">Guided Information</a></li>
+                </ul>
+            </nav>
 
-        <div class="hero-main-content">
-            <div class="hero-text-content">
-                <h1 class="hero-title">A guiding light<br>into the unknown</h1>
+            <div class="hero-main-content">
+                <div class="hero-text-content">
+                    <h1 class="hero-title">A guiding light<br>into the unknown</h1>
+                </div>
             </div>
         </div>
     </div>
@@ -823,7 +852,7 @@
     <section class="about-section">
         <div class="about-me-container">
             <div class="left-column">
-                <img src="contact.jpg-82d4489b-6cc5-477f-9a73-c957877899e1" alt="Meryem Ciftci Profile" class="profile-picture" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Profile+Image';">
+                <img src="https://placehold.co/180x180/cccccc/333333?text=Profile+Image" alt="Meryem Ciftci Profile" class="profile-picture" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Profile+Image';">
                 <h1 class="name">Meryem Ciftci</h1>
                 <p class="pronouns">(she/her)</p>
                 <p class="title">Data Analyst</p>
@@ -839,7 +868,7 @@
                 </p>
 
                 <p class="about-text">
-                    This <span style="font-weight: bold;">innate drive for overcoming obstacles and delivering results</span> sparked my transition into <span style="font-weight: bold; color: #A26F97;">data analytics</span>. I am now leveraging this passion to <span style="font-weight: bold;">offer freelance analytics services</span>, driven by a dual objective: to <span style="font-weight: bold; color: #A26F97;">help you meet your business objectives</span> and to <span style="font-weight: bold;">continuously grow my expertise</span>. I excel at <span style="font-weight: bold;">transforming raw data into actionable insights and innovative solutions</span> that <span style="font-weight: bold; color: #A26F97;">help businesses grow</span>, <span style="font-weight: bold; color: #A26F97;">uncover hidden opportunities</span>, and <span style="font-weight: bold; color: #A26F97;">discover invaluable information within their existing data</span> to <span style="font-weight: bold; color: #A26F97;">propel them toward their goals</span>.
+                    This <span style="font-weight: bold;">innate drive for overcoming obstacles and delivering results</span> sparked my transition into <span style="font-weight: bold; color: #A26F97;">data analytics</span>. I am now leveraging this passion to <span style="font-weight: bold;">offer freelance analytics services</span>, driven by a dual objective: to <span style="font-weight: bold; color: #A26F97;">help you meet your business objectives</span> and to <span style="font-weight: bold; color: #A26F97;">continuously grow my expertise</span>. I excel at <span style="font-weight: bold;">transforming raw data into actionable insights and innovative solutions</span> that <span style="font-weight: bold; color: #A26F97;">help businesses grow</span>, <span style="font-weight: bold; color: #A26F97;">uncover hidden opportunities</span>, and <span style="font-weight: bold; color: #A26F97;">discover invaluable information within their existing data</span> to <span style="font-weight: bold; color: #A26F97;">propel them toward their goals</span>.
                 </p>
                 <div class="action-buttons">
                     <a href="your-work-with-me-page.html" class="button-link">
@@ -859,203 +888,272 @@
                     <div class="icon-circle" data-target="law-firm-content">+</div>
                 </div>
                 <div id="law-firm-content" class="collapsible-content">
-                    <h4>Type of Data They May Have:</h4>
-                    <ul>
-                        <li>Case management system data (client intake, case types, status, outcomes)</li>
-                        <li>Billing and invoicing data (hours logged, rates, payment status)</li>
-                        <li>Marketing and client acquisition data (referral sources, website analytics)</li>
-                        <li>Employee time tracking and productivity metrics</li>
-                        <li>Court schedules and deadline tracking data</li>
-                    </ul>
-                    <h4>What I Can Do With Your Data:</h4>
-                    <ul>
-                        <li>Optimize case workflow and identify bottlenecks (SQL, Excel, Dashboard).</li>
-                        <li>Analyze billing efficiency and revenue per case/attorney (SQL, Excel, Dashboard).</li>
-                        <li>Identify most profitable client types and marketing channels (SQL, Excel, Dashboard).</li>
-                        <li>Improve resource allocation and forecast workload (Excel, Dashboard).</li>
-                        <li>Streamline operations and enhance client satisfaction through data-driven insights (Presentation/Deck).</li>
-                    </ul>
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <h4>Type of Data They May Have:</h4>
+                            <ul>
+                                <li>Case management system data (client intake, case types, status, outcomes)</li>
+                                <li>Billing and invoicing data (hours logged, rates, payment status)</li>
+                                <li>Marketing and client acquisition data (referral sources, website analytics)</li>
+                                <li>Employee performance data (billable hours, case load)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Potential Problems:</h4>
+                            <ul>
+                                <li>Difficulty tracking case progress and bottlenecks.</li>
+                                <li>Inefficient billing and revenue collection.</li>
+                                <li>Lack of insight into most profitable case types or client acquisition channels.</li>
+                                <li>Challenges in optimizing employee workload and productivity.</li>
+                            </ul>
+                            <h4>How Data Analytics Can Help:</h4>
+                            <ul>
+                                <li><strong>Case Flow Optimization:</strong> Analyze case durations, identify common delays, and optimize workflows to improve efficiency and reduce cycle times.</li>
+                                <li><strong>Revenue Analysis:</strong> Track billable hours vs. collected revenue, identify payment trends, and optimize pricing strategies.</li>
+                                <li><strong>Client Acquisition Strategy:</strong> Determine the most effective marketing channels and referral sources, allowing for targeted client acquisition efforts.</li>
+                                <li><strong>Resource Allocation:</strong> Optimize lawyer and paralegal workload distribution, identify training needs, and improve overall team productivity.</li>
+                                <li><strong>Predictive Insights:</strong> Forecast future case volumes and revenue based on historical data.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="card industry-startup">
                 <div class="card-header">
-                    <div class="card-title">Startup Companies</div>
+                    <div class="card-title">Startups</div>
                     <div class="icon-circle" data-target="startup-content">+</div>
                 </div>
                 <div id="startup-content" class="collapsible-content">
-                    <h4>Type of Data They May Have:</h4>
-                    <ul>
-                        <li>Customer acquisition and retention metrics (CAC, LTV, churn rates)</li>
-                        <li>Product usage data (user engagement, feature adoption)</li>
-                        <li>Marketing campaign performance data (impressions, clicks, conversions)</li>
-                        <li>Sales pipeline and conversion funnel data</li>
-                        <li>Financials (burn rate, funding rounds, revenue growth)</li>
-                    </ul>
-                    <h4>What I Can Do With Your Data:</h4>
-                    <ul>
-                        <li>Optimize customer acquisition and improve retention strategies (SQL, Excel, Dashboard).</li>
-                        <li>Identify key product features driving engagement and inform development (SQL, Dashboard, Presentation/Deck).</li>
-                        <li>Measure ROI of marketing efforts and allocate budget effectively (SQL, Excel, Dashboard).</li>
-                        <li>Streamline sales processes and boost conversion rates (SQL, Dashboard).</li>
-                        <li>Provide crucial insights for investor reports and growth forecasting (SQL, Presentation/Deck, Dashboard).</li>
-                    </ul>
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <h4>Type of Data They May Have:</h4>
+                            <ul>
+                                <li>Customer acquisition data (CAC, conversion rates, channel performance)</li>
+                                <li>Product usage data (user engagement, feature adoption, churn rates)</li>
+                                <li>Sales data (pipeline, revenue, customer lifetime value - CLTV)</li>
+                                <li>Marketing campaign data (impressions, clicks, conversions)</li>
+                                <li>Website and app analytics (traffic, bounce rate, user paths)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Potential Problems:</h4>
+                            <ul>
+                                <li>Unclear understanding of customer acquisition costs and profitability.</li>
+                                <li>Difficulty identifying key user behaviors that lead to retention or churn.</li>
+                                <li>Struggling to prioritize product features based on user impact.</li>
+                                <li>Ineffective marketing spend due to lack of performance metrics.</li>
+                            </ul>
+                            <h4>How Data Analytics Can Help:</h4>
+                            <ul>
+                                <li><strong>Growth Hacking:</strong> Identify key growth levers by analyzing user acquisition, activation, retention, referral, and revenue (AARRR) metrics.</li>
+                                <li><strong>Product-Market Fit:</strong> Understand which features drive engagement and retention, guiding product development.</li>
+                                <li><strong>Customer Segmentation:</strong> Identify high-value customer segments for targeted marketing and personalized experiences.</li>
+                                <li><strong>Churn Prediction:</strong> Develop models to predict and prevent customer churn, improving CLTV.</li>
+                                <li><strong>Fundraising Support:</strong> Provide data-backed insights and dashboards to impress investors and demonstrate traction.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="card industry-small-realtors">
                 <div class="card-header">
-                    <div class="card-title">Small Realtors</div>
-                    <div class="icon-circle" data-target="realtor-content">+</div>
+                    <div class="card-title">Small Real Estate Agencies / Realtors</div>
+                    <div class="icon-circle" data-target="realtors-content">+</div>
                 </div>
-                <div id="realtor-content" class="collapsible-content">
-                    <h4>Type of Data They May Have:</h4>
-                    <ul>
-                        <li>Property listings and sales data (price, location, property type, time on market)</li>
-                        <li>Client lead sources and conversion rates</li>
-                        <li>Commission and revenue tracking</li>
-                        <li>Marketing channel effectiveness (open house attendance, online ad performance)</li>
-                        <li>Client demographics and preferences</li>
-                    </ul>
-                    <h4>What I Can Do With Your Data:</h4>
-                    <ul>
-                        <li>Identify market trends and optimal pricing strategies (SQL, Excel, Dashboard).</li>
-                        <li>Optimize lead generation and client conversion funnels (SQL, Excel, Dashboard).</li>
-                        <li>Analyze commission structures and identify high-value properties/clients (SQL, Excel).</li>
-                        <li>Determine most effective marketing channels for specific property types (Excel, Presentation/Deck).</li>
-                        <li>Enhance client matching and personalize property recommendations (SQL, Excel, Dashboard).</li>
-                    </ul>
+                <div id="realtors-content" class="collapsible-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <h4>Type of Data They May Have:</h4>
+                            <ul>
+                                <li>Property listing data (type, price, location, features, days on market)</li>
+                                <li>Client lead data (source, contact info, preferences, follow-up history)</li>
+                                <li>Sales transaction data (closing prices, commissions, agent performance)</li>
+                                <li>Marketing campaign data (open house attendance, ad performance)</li>
+                                <li>Market trend data (neighborhood demographics, average prices, inventory)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Potential Problems:</h4>
+                            <ul>
+                                <li>Inefficient lead management and conversion.</li>
+                                <li>Difficulty pricing properties competitively or identifying market trends.</li>
+                                <li>Lack of insight into agent performance and areas for improvement.</li>
+                                <li>Suboptimal marketing spend without clear ROI.</li>
+                                <li>Struggling to identify profitable neighborhoods or property types.</li>
+                            </ul>
+                            <h4>How Data Analytics Can Help:</h4>
+                            <ul>
+                                <li><strong>Lead Conversion Optimization:</strong> Analyze lead sources, follow-up effectiveness, and conversion rates to optimize lead nurturing strategies.</li>
+                                <li><strong>Market Trend Analysis:</strong> Identify emerging neighborhood trends, property value fluctuations, and optimal listing times.</li>
+                                <li><strong>Comparative Market Analysis (CMA) Enhancement:</strong> Use data to provide more precise and competitive property valuations.</li>
+                                <li><strong>Agent Performance Tracking:</strong> Monitor agent KPIs (leads, closings, commission) to identify top performers and provide targeted coaching.</li>
+                                <li><strong>Targeted Marketing:</strong> Understand which marketing channels deliver the highest quality leads and sales, optimizing ad spend.</li>
+                                <li><strong>Inventory Management:</strong> Analyze days on market by property type/location to optimize listing strategies.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="card industry-small-medical">
                 <div class="card-header">
-                    <div class="card-title">Small Medical Offices</div>
+                    <div class="card-title">Small Medical Practices</div>
                     <div class="icon-circle" data-target="medical-content">+</div>
                 </div>
                 <div id="medical-content" class="collapsible-content">
-                    <h4>Type of Data They May Have:</h4>
-                    <ul>
-                        <li>Patient demographics and appointment scheduling data</li>
-                        <li>Billing and insurance claim data (rejection rates, payment cycles)</li>
-                        <li>Patient flow and waiting times</li>
-                        <li>Service utilization rates (types of procedures, frequently visited departments)</li>
-                        <li>Patient satisfaction survey results</li>
-                    </ul>
-                    <h4>What I Can Do With Your Data:</h4>
-                    <ul>
-                        <li>Optimize appointment scheduling to reduce wait times and improve patient flow (SQL, Excel, Dashboard).</li>
-                        <li>Analyze billing efficiency and identify common claim rejections (SQL, Excel, Dashboard).</li>
-                        <li>Identify popular services and areas for expansion or improvement (SQL, Excel, Dashboard).</li>
-                        <li>Track patient satisfaction and pinpoint areas for better patient experience (Dashboard, Presentation/Deck).</li>
-                        <li>Improve operational efficiency and resource allocation (SQL, Excel).</li>
-                    </ul>
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <h4>Type of Data They May Have:</h4>
+                            <ul>
+                                <li>Patient demographic data (age, gender, insurance, contact info)</li>
+                                <li>Appointment scheduling data (no-show rates, wait times, visit types)</li>
+                                <li>Billing and claims data (reimbursement rates, denial reasons, outstanding balances)</li>
+                                <li>Patient satisfaction survey data</li>
+                                <li>Referral source tracking</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Potential Problems:</h4>
+                            <ul>
+                                <li>High patient no-show rates impacting revenue and scheduling.</li>
+                                <li>Inefficient patient flow leading to long wait times and dissatisfaction.</li>
+                                <li>Challenges in identifying reasons for claim denials and optimizing billing.</li>
+                                <li>Lack of insight into patient demographics and service utilization.</li>
+                                <li>Difficulty tracking referral effectiveness.</li>
+                            </ul>
+                            <h4>How Data Analytics Can Help:</h4>
+                            <ul>
+                                <li><strong>Appointment Optimization:</strong> Analyze no-show patterns and reschedule rates to implement effective reminder systems and reduce revenue loss.</li>
+                                <li><strong>Patient Flow Efficiency:</strong> Identify bottlenecks in patient journeys (check-in, wait times, consultation) to improve operational efficiency and patient satisfaction.</li>
+                                <li><strong>Revenue Cycle Management:</strong> Analyze billing data to identify common denial reasons, optimize claims submission, and reduce accounts receivable days.</li>
+                                <li><strong>Patient Demographics & Service Utilization:</strong> Understand patient populations to tailor services, marketing, and outreach programs.</li>
+                                <li><strong>Referral Tracking & Optimization:</strong> Identify top referral sources and their impact on patient volume and revenue.</li>
+                                <li><strong>Patient Satisfaction Insights:</strong> Analyze survey data to pinpoint areas for improvement in patient experience.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="card industry-owner-run">
                 <div class="card-header">
-                    <div class="card-title">Owner-Run and Operated Small Businesses</div>
+                    <div class="card-title">Owner-Run Businesses</div>
                     <div class="icon-circle" data-target="owner-run-content">+</div>
                 </div>
                 <div id="owner-run-content" class="collapsible-content">
-                    <h4>Type of Data They May Have:</h4>
-                    <ul>
-                        <li>Sales transactions and customer purchase history</li>
-                        <li>Inventory levels and product movement data</li>
-                        <li>Marketing spend vs. customer acquisition</li>
-                        <li>Employee hours and basic payroll data</li>
-                        <li>Website analytics or social media engagement metrics</li>
-                    </ul>
-                    <h4>What I Can Do With Your Data:</h4>
-                    <ul>
-                        <li>Identify top-selling products/services and optimize pricing (SQL, Excel, Dashboard).</li>
-                        <li>Manage inventory more efficiently to reduce waste and stockouts (Excel, SQL).</li>
-                        <li>Evaluate the effectiveness of marketing efforts and optimize spend (Excel, Dashboard).</li>
-                        <li>Improve staff scheduling and productivity (Excel, SQL).</li>
-                        <li>Uncover customer behavior patterns to enhance loyalty and sales (Excel, SQL, Presentation/Deck).</li>
-                    </ul>
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <h4>Type of Data They May Have:</h4>
+                            <ul>
+                                <li>Sales data (daily/weekly/monthly revenue, product sales, customer purchase history)</li>
+                                <li>Inventory data (stock levels, popular items, slow-moving items)</li>
+                                <li>Customer data (contact info, purchase frequency, average spend)</li>
+                                <li>Marketing data (social media engagement, website traffic, ad spend)</li>
+                                <li>Operational data (employee hours, service delivery times)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Potential Problems:</h4>
+                            <ul>
+                                <li>Overwhelm from managing all aspects of the business without clear performance indicators.</li>
+                                <li>Difficulty identifying which products/services are most profitable.</li>
+                                <li>Suboptimal inventory management leading to stockouts or excess stock.</li>
+                                <li>Ineffective marketing efforts due to lack of data-driven insights.</li>
+                                <li>Challenges in understanding customer loyalty and retention.</li>
+                            </ul>
+                            <h4>How Data Analytics Can Help:</h4>
+                            <ul>
+                                <li><strong>Holistic Business Overview:</strong> Create a central dashboard integrating sales, inventory, and customer data for a quick, comprehensive view of business health.</li>
+                                <li><strong>Profitability Analysis:</strong> Identify your most profitable products, services, and customer segments to focus resources effectively.</li>
+                                <li><strong>Inventory Optimization:</strong> Forecast demand, optimize stock levels, and reduce carrying costs by analyzing sales patterns.</li>
+                                <li><strong>Marketing Effectiveness:</strong> Track campaign performance, identify best-performing channels, and optimize ad spend for higher ROI.</li>
+                                <li><strong>Customer Retention:</strong> Understand customer behavior, identify at-risk customers, and develop strategies to improve loyalty and repeat business.</li>
+                                <li><strong>Operational Efficiency:</strong> Pinpoint bottlenecks in operations, optimize resource allocation, and improve service delivery times.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="card industry-unsure">
                 <div class="card-header">
-                    <div class="card-title">Unsure?</div>
+                    <div class="card-title">Unsure / Other</div>
                     <div class="icon-circle" data-target="unsure-content">+</div>
                 </div>
                 <div id="unsure-content" class="collapsible-content">
-                    <h4>Type of Data They May Have:</h4>
-                    <ul>
-                        <li>Any operational records (e.g., sales receipts, customer lists, production logs)</li>
-                        <li>Website traffic or social media presence details</li>
-                        <li>Basic financial records (invoices, expenses, bank statements)</li>
-                        <li>Communication logs (emails, customer service interactions)</li>
-                        <li>Internal reports or spreadsheets used for tracking</li>
-                    </ul>
-                    <h4>What I Can Do With Your Data:</h4>
-                    <ul>
-                        <li>Help identify what data you currently collect and its potential value (SQL, Presentation/Deck).</li>
-                        <li>Guide you in defining your key business questions (Presentation/Deck).</li>
-                        <li>Assist in structuring and organizing your existing information (Excel, SQL).</li>
-                        <li>Collaborate to discover hidden trends and opportunities you didn't know existed (SQL, Excel, Dashboard).</li>
-                        <li>Develop a roadmap for leveraging data to solve specific business problems (Presentation/Deck).</li>
-                    </ul>
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <h4>Do you have data but aren't sure where to start?</h4>
+                            <p>Many businesses collect data but don't know how to leverage it. If you have data in spreadsheets, databases, or other systems but are unsure what insights it holds or how it can help your business, we can help!</p>
+                        </div>
+                        <div>
+                            <h4>How We Can Help:</h4>
+                            <ul>
+                                <li><strong>Data Audit & Assessment:</strong> We can review your existing data sources to understand what information you have and its potential.</li>
+                                <li><strong>Problem Identification:</strong> Through discussions and initial data exploration, we can help you identify key business questions that your data can answer.</li>
+                                <li><strong>Opportunity Discovery:</strong> Uncover hidden patterns, trends, and opportunities within your data that you might not be aware of.</li>
+                                <li><strong>Custom Solution Design:</strong> Based on your data and identified needs, we can propose tailored analytics solutions, from simple reports to interactive dashboards.</li>
+                                <li><strong>Guidance & Strategy:</strong> Provide guidance on data collection best practices and a roadmap for building a data-driven strategy for your business.</li>
+                            </ul>
+                            <p>Don't let your data sit unused. Reach out for a free consultation to explore the possibilities!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleButtons = document.querySelectorAll('.icon-circle');
 
-            toggleButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const targetId = this.dataset.target;
-                    const content = document.getElementById(targetId);
-                    const parentCard = this.closest('.card');
-
-                    if (content) {
-                        if (content.style.display === 'block') {
-                            content.style.display = 'none';
-                            this.classList.remove('expanded'); // Rotate icon back
-                            // Reset min-height and overflow using style property for direct manipulation
-                            parentCard.style.minHeight = '180px'; // Revert to initial min-height
-                            parentCard.style.overflow = 'hidden'; // Hide overflow when closed
-                        } else {
-                            content.style.display = 'block';
-                            this.classList.add('expanded'); // Rotate icon
-                            parentCard.style.minHeight = 'auto'; // Allow card to grow based on content
-                            parentCard.style.overflow = 'visible'; // Show overflow for expanded content
-                        }
-                    }
-                });
-            });
-        });
-    </script>
-
-    <!-- Contact Section -->
     <section class="contact-section">
         <div class="contact-container">
-            <div class="contact-info">
-                <h2>Get in Touch</h2>
-                <p>
-                    <strong><i class="fas fa-envelope"></i> Email</strong>
-                    <a href="mailto:meryemkciftci@gmail.com">Send Email</a>
-                </p>
-                <div class="contact-icons">
-                    <a href="https://slack.com/your-channel-or-profile" target="_blank" title="Slack"><i class="fab fa-slack fa-2x"></i></a>
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
-                </div>
-            </div>
             <div class="contact-image">
-                <img src="contact.jpg-477ba7b1-ebe3-4d74-bf53-5fe71315ce78" alt="Your Photo" onerror="this.onerror=null;this.src='https://placehold.co/356x426/cccccc/333333?text=Contact+Image';">
+                <img src="https://placehold.co/356x426/cccccc/333333?text=Contact+Image" alt="Contact Image" onerror="this.onerror=null;this.src='https://placehold.co/356x426/cccccc/333333?text=Contact+Image';">
+            </div>
+            <div class="contact-info">
+                <h2>Let's Connect</h2>
+                <p>Have a question or a project in mind? Reach out to us!</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:your.meryemkciftci@gmail.com"> Send Email</a></p>
+                 <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> New York, NY</p>
+                <div class="contact-icons">
+                    <a href="https://www.linkedin.com/in/meryack" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 NUURAQLYZ Analytics. All rights reserved.</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <div class="footer-content">
+            <p>&copy; 2024 NUURAQLYZ Analytics. All rights reserved.</p>
+            <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+        </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const iconCircles = document.querySelectorAll('.icon-circle');
+
+            iconCircles.forEach(circle => {
+                circle.addEventListener('click', () => {
+                    const targetId = circle.dataset.target;
+                    const content = document.getElementById(targetId);
+                    
+                    // Toggle the 'expanded' class on the icon
+                    circle.classList.toggle('expanded');
+
+                    // Toggle the max-height and active class
+                    if (content.classList.contains('active')) {
+                        content.style.maxHeight = null; // Collapse
+                        content.classList.remove('active');
+                    } else {
+                        // Set a custom property for the max-height to ensure smooth transition
+                        // This is a common pattern for dynamic max-height
+                        content.style.setProperty('--content-height', content.scrollHeight + 'px');
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
