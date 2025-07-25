@@ -45,7 +45,6 @@
         .hero-logo {
             display: flex;
             align-items: center;
-            font-size: 1.2em;
             font-weight: 700;
             color: #333;
         }
@@ -115,6 +114,15 @@
         .navbar-links li a:hover {
             color: #FF8C00;
             background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Main content area for projects page */
+        .main-content-projects {
+            flex-grow: 1; /* This makes the main content expand to fill available space */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* Tabs Container */
@@ -447,9 +455,6 @@
             .navbar-links {
                 gap: 10px;
             }
-            .navbar-links li a {
-                font-size: 0.9em;
-            }
             .tabs-container {
                 padding: 8px 10px;
                 margin-bottom: 15px;
@@ -507,67 +512,69 @@
         </nav>
     </div>
 
-    <div class="tabs-container">
-        <div class="tab active" data-filter="all">All</div>
-        <div class="tab" data-filter="dashboards">Dashboards</div>
-        <div class="tab" data-filter="projects">Projects Completed</div>
-    </div>
-
-    <div class="portfolio-container">
-        <div class="quote-section">
-            <blockquote class="quote-content">
-                Every skill gained fuels future growth. Now, leveraging data, I deliver actionable insights to propel your objectives and expand my expertise.
-            </blockquote>
+    <main class="main-content-projects">
+        <div class="tabs-container">
+            <div class="tab active" data-filter="all">All</div>
+            <div class="tab" data-filter="dashboards">Dashboards</div>
+            <div class="tab" data-filter="projects">Projects Completed</div>
         </div>
 
-        <div class="grid-section">
-            <div class="content-block block-teal" data-type="project"
-                 data-title="Project 1: Waiting to be filled..."
-                 data-description="Details for this project are currently being prepared."
-                 data-link="#">
-                Project 1: Waiting to be filled...
+        <div class="portfolio-container">
+            <div class="quote-section">
+                <blockquote class="quote-content">
+                    Every skill gained fuels future growth. Now, leveraging data, I deliver actionable insights to propel your objectives and expand my expertise.
+                </blockquote>
             </div>
-            <div class="content-block block-pink" data-type="dashboard"
-                 data-title="Project 2: Waiting to be filled..."
-                 data-description="Details for this project are currently being prepared."
-                 data-link="#">
-                Project 2: Waiting to be filled...
-            </div>
-            <div class="content-block block-purple-light" data-type="project"
-                 data-title="Project 3: Waiting to be filled..."
-                 data-description="Details for this project are currently being prepared."
-                 data-link="#">
-                Project 3: Waiting to be filled...
-            </div>
-            <div class="content-block block-orange" data-type="dashboard"
-                 data-title="Project 4: Waiting to be filled..."
-                 data-description="Details for this project are currently being prepared."
-                 data-link="#">
-                Project 4: Waiting to be filled...
-            </div>
-            <div class="content-block block-purple-dark" data-type="project"
-                 data-title="Project 5: Waiting to be filled..."
-                 data-description="Details for this project are currently being prepared."
-                 data-link="#">
-                Project 5: Waiting to be filled...
-            </div>
-            <div class="content-block block-yellow-grid" data-type="dashboard"
-                 data-title="Project 6: Waiting to be filled..."
-                 data-description="Details for this project are currently being prepared."
-                 data-link="#">
-                Project 6: Waiting to be filled...
-            </div>
-        </div>
-    </div>
 
-    <div class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-button">&times;</button>
-            <h2 class="modal-title"></h2>
-            <p class="modal-description"></p>
-            <a href="#" class="modal-link" target="_blank">View Project/Dashboard</a>
+            <div class="grid-section">
+                <div class="content-block block-teal" data-type="project"
+                    data-title="Project 1: Waiting to be filled..."
+                    data-description="Details for this project are currently being prepared."
+                    data-link="#">
+                    Project 1: Waiting to be filled...
+                </div>
+                <div class="content-block block-pink" data-type="dashboard"
+                    data-title="Project 2: Waiting to be filled..."
+                    data-description="Details for this project are currently being prepared."
+                    data-link="#">
+                    Project 2: Waiting to be filled...
+                </div>
+                <div class="content-block block-purple-light" data-type="project"
+                    data-title="Project 3: Waiting to be filled..."
+                    data-description="Details for this project are currently being prepared."
+                    data-link="#">
+                    Project 3: Waiting to be filled...
+                </div>
+                <div class="content-block block-orange" data-type="dashboard"
+                    data-title="Project 4: Waiting to be filled..."
+                    data-description="Details for this project are currently being prepared."
+                    data-link="#">
+                    Project 4: Waiting to be filled...
+                </div>
+                <div class="content-block block-purple-dark" data-type="project"
+                    data-title="Project 5: Waiting to be filled..."
+                    data-description="Details for this project are currently being prepared."
+                    data-link="#">
+                    Project 5: Waiting to be filled...
+                </div>
+                <div class="content-block block-yellow-grid" data-type="dashboard"
+                    data-title="Project 6: Waiting to be filled..."
+                    data-description="Details for this project are currently being prepared."
+                    data-link="#">
+                    Project 6: Waiting to be filled...
+                </div>
+            </div>
         </div>
-    </div>
+
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close-button">&times;</button>
+                <h2 class="modal-title"></h2>
+                <p class="modal-description"></p>
+                <a href="#" class="modal-link" target="_blank">View Project/Dashboard</a>
+            </div>
+        </div>
+    </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
