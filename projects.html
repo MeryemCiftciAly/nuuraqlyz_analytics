@@ -51,11 +51,18 @@
         }
 
         .hero-logo-icon {
-            width: 183px;
-            height: 86px;
+            /* Corrected dimensions for circular logo consistency */
+            width: 180px;
+            height: 180px;
             margin-right: 8px;
             flex-shrink: 0;
-            object-fit: contain;
+            object-fit: contain; /* Ensures the entire image fits within the bounds */
+        }
+
+        .hero-logo-main-text {
+            font-size: 2em; /* Increased font size for 'NUURAQLYZ' text to balance with large logo */
+            font-weight: 700;
+            color: #333;
         }
 
         .hero-logo-analytics-text {
@@ -65,13 +72,15 @@
         }
 
         .hero-tagline {
-            font-size: 0.9em;
+            /* Increased font size for better visibility */
+            font-size: 1.3em;
             font-weight: 700;
             color: #555;
             text-transform: none;
             letter-spacing: 1px;
             text-align: right;
-            line-height: 1.3;
+            line-height: 1.3; /* Adjusted for potential wrapping on smaller screens */
+            white-space: nowrap; /* Prevent wrapping on desktop */
         }
 
         .navbar {
@@ -80,8 +89,8 @@
             align-items: center;
             padding: 15px 0;
             width: 100%;
-            background-color: transparent; /* Blends with the body background */
-            border-top: none; /* Removed border for seamless blend */
+            background-color: transparent;
+            border-top: none;
             box-sizing: border-box;
         }
 
@@ -113,15 +122,15 @@
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
-            background-color: #f8f8f8; /* Changed to match body background */
+            background-color: #f8f8f8;
             padding: 10px 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             max-width: 1200px;
             width: 100%;
             box-sizing: border-box;
-            flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
-            margin-top: 20px; /* Space from the navbar */
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .tab {
@@ -132,40 +141,40 @@
             color: #555;
             border-radius: 5px;
             transition: background-color 0.3s ease, color 0.3s ease;
-            white-space: nowrap; /* Prevent tab text from breaking */
+            white-space: nowrap;
         }
 
         .tab:hover {
-            background-color: #CCE5FF; /* Soft blue on hover */
-            color: #333; /* Darker text for contrast on light blue */
+            background-color: #CCE5FF;
+            color: #333;
         }
 
         .tab.active {
-            background-color: #cccccc; /* Soft gray active color */
-            color: #333; /* Darker text for contrast on light gray */
+            background-color: #cccccc;
+            color: #333;
         }
 
         /* Main Portfolio Container */
         .portfolio-container {
-            display: flex; /* Establishes horizontal layout on desktop */
+            display: flex;
             width: 100%;
             max-width: 1200px;
             background-color: #fff;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             overflow: hidden;
-            margin-bottom: 20px; /* Space before the footer */
+            margin-bottom: 20px;
         }
 
         /* --- LEFT SECTION: LARGE QUOTATION BLOCK (40%) --- */
         .quote-section {
-            flex: 2; /* Represents 40% (2 / (2+3) = 2/5 = 40%) */
+            flex: 2;
             background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 40px;
-            min-height: 600px; /* Ensure sufficient height */
+            min-height: 600px;
             text-align: center;
             position: relative;
         }
@@ -206,18 +215,18 @@
 
         /* --- RIGHT SECTION: GRID BLOCKS (60%) --- */
         .grid-section {
-            flex: 3; /* Represents 60% (3 / (2+3) = 3/5 = 60%) */
+            flex: 3;
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: repeat(3, 1fr);
             gap: 1px;
             background-color: #fff;
-            min-height: 600px; /* Ensure sufficient height */
+            min-height: 600px;
         }
 
         .content-block {
             display: flex;
-            flex-direction: column; /* Allow text to stack if needed */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 20px;
@@ -226,13 +235,13 @@
             font-size: 1.3em;
             font-weight: 700;
             text-decoration: none;
-            cursor: pointer; /* Indicate clickability */
+            cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .content-block:hover {
             opacity: 0.9;
-            transform: translateY(-3px); /* Subtle lift effect */
+            transform: translateY(-3px);
         }
 
         /* Specific block colors (as in the original image) */
@@ -329,7 +338,7 @@
             max-width: 1200px;
             margin-top: 20px;
             padding: 30px 20px;
-            background-color: #444444; /* Softer dark gray footer background */
+            background-color: #444444;
             color: #fff;
             text-align: center;
             border-top-left-radius: 10px;
@@ -379,6 +388,7 @@
             }
             .hero-tagline {
                 text-align: center;
+                white-space: normal; /* Allow text to wrap on smaller screens */
             }
             .navbar-links {
                 flex-direction: column;
@@ -389,31 +399,31 @@
                 font-size: 1em;
             }
             .portfolio-container {
-                flex-direction: column; /* Stack panels vertically on smaller screens */
+                flex-direction: column;
                 margin: 10px;
             }
 
             .quote-section {
-                order: 1; /* Quote section appears first when stacked */
-                min-height: 300px; /* Adjust height for mobile */
+                order: 1;
+                min-height: 300px;
                 padding: 30px;
             }
 
             .quote-content {
-                font-size: 1.5em; /* Smaller font for mobile */
+                font-size: 1.5em;
                 max-width: 90%;
             }
 
             .quote-content::before,
             .quote-content::after {
-                font-size: 3em; /* Smaller quote marks for mobile */
+                font-size: 3em;
             }
 
             .grid-section {
-                order: 2; /* Grid section appears second when stacked */
+                order: 2;
                 min-height: auto;
                 width: 100%;
-                grid-template-columns: 1fr; /* Single column for content blocks on mobile */
+                grid-template-columns: 1fr;
                 grid-template-rows: auto;
             }
 
@@ -432,7 +442,7 @@
                 height: 60px;
             }
             .hero-tagline {
-                font-size: 0.8em;
+                font-size: 1em;
             }
             .navbar-links {
                 gap: 10px;
@@ -443,12 +453,12 @@
             .tabs-container {
                 padding: 8px 10px;
                 margin-bottom: 15px;
-                flex-direction: column; /* Stack tabs on tiny screens */
+                flex-direction: column;
                 align-items: center;
             }
             .tab {
                 margin: 5px 0;
-                width: calc(100% - 10px); /* Full width minus margin */
+                width: calc(100% - 10px);
                 text-align: center;
             }
             .quote-section {
@@ -476,8 +486,9 @@
     <div class="hero-section-container">
         <header class="hero-header">
             <div class="hero-logo">
-                <img src="https://github.com/MeryemCiftciAly/nuuraqlyz_analytics/blob/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/183x86/cccccc/333333?text=Logo+Fallback';">
-                Nuuraqlyz
+                <!-- Corrected logo src to raw GitHub content URL -->
+                <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Logo+Fallback';">
+                <span class="hero-logo-main-text">Nuuraqlyz</span>
                 <span class="hero-logo-analytics-text">ANALYTICS</span>
             </div>
             <div class="hero-tagline">
@@ -511,40 +522,40 @@
 
         <div class="grid-section">
             <div class="content-block block-teal" data-type="project"
-                 data-title="Data Storytelling Dashboard"
-                 data-description="Developed an interactive dashboard to visualize complex sales data, making it accessible for executive decision-making. Focused on clear narratives and key performance indicators."
-                 data-link="https://example.com/data-storytelling-dashboard">
-                Data Storytelling Dashboard
+                 data-title="Project 1: Waiting to be filled..."
+                 data-description="Details for this project are currently being prepared."
+                 data-link="#">
+                Project 1: Waiting to be filled...
             </div>
             <div class="content-block block-pink" data-type="dashboard"
-                 data-title="Customer Churn Analysis"
-                 data-description="Implemented a predictive model to identify high-risk customer churn, leading to proactive retention strategies. Provided actionable insights for marketing teams."
-                 data-link="https://example.com/customer-churn-analysis">
-                Customer Churn Analysis Dashboard
+                 data-title="Project 2: Waiting to be filled..."
+                 data-description="Details for this project are currently being prepared."
+                 data-link="#">
+                Project 2: Waiting to be filled...
             </div>
             <div class="content-block block-purple-light" data-type="project"
-                 data-title="Market Trend Report"
-                 data-description="Researched and compiled a comprehensive report on emerging market trends in the SaaS industry, identifying new opportunities and potential risks for product development."
-                 data-link="https://example.com/market-trend-report">
-                Market Trend Report
+                 data-title="Project 3: Waiting to be filled..."
+                 data-description="Details for this project are currently being prepared."
+                 data-link="#">
+                Project 3: Waiting to be filled...
             </div>
             <div class="content-block block-orange" data-type="dashboard"
-                 data-title="Supply Chain Optimization"
-                 data-description="Built a dashboard to monitor supply chain efficiency, tracking bottlenecks and optimizing logistics. Reduced operational costs by 15% in Q3."
-                 data-link="https://example.com/supply-chain-optimization">
-                Supply Chain Optimization Dashboard
+                 data-title="Project 4: Waiting to be filled..."
+                 data-description="Details for this project are currently being prepared."
+                 data-link="#">
+                Project 4: Waiting to be filled...
             </div>
             <div class="content-block block-purple-dark" data-type="project"
-                 data-title="Website Traffic Deep Dive"
-                 data-description="Conducted an in-depth analysis of website user behavior, pinpointing areas for conversion rate optimization. Recommendations led to a 10% increase in sign-ups."
-                 data-link="https://example.com/website-traffic-analysis">
-                Website Traffic Deep Dive
+                 data-title="Project 5: Waiting to be filled..."
+                 data-description="Details for this project are currently being prepared."
+                 data-link="#">
+                Project 5: Waiting to be filled...
             </div>
             <div class="content-block block-yellow-grid" data-type="dashboard"
-                 data-title="Financial Performance Dashboard"
-                 data-description="Designed a dynamic financial dashboard integrating budgeting, forecasting, and actual performance metrics. Empowered stakeholders with real-time financial health."
-                 data-link="https://example.com/financial-dashboard">
-                Financial Performance Dashboard
+                 data-title="Project 6: Waiting to be filled..."
+                 data-description="Details for this project are currently being prepared."
+                 data-link="#">
+                Project 6: Waiting to be filled...
             </div>
         </div>
     </div>
@@ -629,15 +640,15 @@
             });
         });
     </script>
-   <!-- Footer Section -->
+    <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
             <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe - Ciftci (Meryem)</p>
             <p>
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/iterms-of-service.html">Terms of Service</a>
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-and-conditions.html">Terms of Service</a>
                 &nbsp;|&nbsp;
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/iprivacy-policy.html">Privacy Policy</a>
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
             </p>
         </div>
     </footer>
