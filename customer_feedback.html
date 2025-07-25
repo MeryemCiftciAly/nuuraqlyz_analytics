@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Feedback & Testimonials - Nuuraqlyz Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Changed to match consistent site background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            color: #333;
+        }
+
+        /* Header and Navigation (Copied from index.html for consistency) */
+        .hero-section-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #fff;
+        }
+
+        .hero-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .hero-logo-icon {
+            width: 183px;
+            height: 86px;
+            margin-right: 8px;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+
+        .hero-logo-analytics-text {
+            color: #888;
+            font-weight: 400;
+            margin-left: 5px;
+        }
+
+        .hero-tagline {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #555;
+            text-transform: none;
+            letter-spacing: 1px;
+            text-align: right;
+            line-height: 1.3;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            width: 100%;
+            background-color: transparent; /* Blends with the body background */
+            border-top: none; /* Removed border for seamless blend */
+            box-sizing: border-box;
+        }
+
+        .navbar-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        .navbar-links li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar-links li a:hover {
+            color: #FF8C00;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Clients Who Trust Worked With Me & Want To Tell You Something - Side-by-Side Layout */
+        .clients-trust-section {
+            width: 100%; /* Ensure it takes full width of parent */
+            max-width: 1200px; /* Match main container width */
+            padding: 50px 20px; /* Add side padding */
+            margin-top: 20px; /* Space from the navbar */
+            margin-bottom: 40px;
+            background-color: #FFFFFF; /* White background */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex; /* Enable Flexbox for side-by-side layout */
+            align-items: center; /* Vertically align text and videos */
+            justify-content: space-between; /* Space out text and videos */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .trust-us-content {
+            text-align: left; /* Align text to the left within its container */
+            flex: 1; /* Allow content to grow */
+            min-width: 300px; /* Minimum width before wrapping */
+            padding-right: 30px; /* Add some spacing between text and videos */
+            box-sizing: border-box;
+        }
+
+        .clients-trust-section .logo {
+            font-size: 0.9em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #555;
+            display: block; /* Ensure it's on a new line */
+            text-align: left;
+        }
+
+        .clients-trust-section h1 {
+            font-size: 3em;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: #000;
+            text-align: left;
+        }
+
+        .clients-trust-section p {
+            font-size: 1.1em;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            color: #555;
+            max-width: 100%; /* Take full width of its container */
+            text-align: left;
+        }
+
+        .clients-trust-section .start-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #000;
+            color: #FFF;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .clients-trust-section .start-button:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+
+        .video-testimonials-grid {
+            display: flex;
+            flex-direction: column; /* Stack videos vertically on the right */
+            gap: 20px; /* Space between the stacked videos */
+            flex: 1; /* Allow videos to grow */
+            min-width: 300px; /* Minimum width before wrapping */
+        }
+
+        /* Styles for the video placeholder div */
+        .video-placeholder {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            background-color: #f0f0f0; /* Light gray background */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #888;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .video-placeholder .play-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #007bff; /* Blue play icon */
+        }
+
+        /* Hidden when actual video content is present */
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-client-caption {
+            font-weight: 600;
+            color: #555;
+            margin-top: 10px; /* Space below video */
+            text-align: center; /* Center caption below video */
+        }
+
+        /* Client Feedback section (Written Testimonials) */
+        .client-feedback-section {
+            width: 100%; /* Ensure it takes full width of parent */
+            max-width: 1200px; /* Match main container width */
+            padding: 50px 20px; /* Add side padding */
+            background-color: #f8f8f8; /* Changed to match body background */
+            text-align: center;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .client-feedback-section h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .client-feedback-section .subtitle {
+            font-size: 1.1em;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+            color: #555;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            padding: 0; /* Removed padding here as it's handled by section */
+        }
+
+        .testimonial-card {
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .testimonial-card p {
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1; /* Allows text to take available space */
+        }
+
+        .testimonial-card .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 15px; /* Space above client info */
+        }
+
+        .testimonial-card .client-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid #EEE; /* Subtle border around avatar */
+        }
+
+        .testimonial-card .client-name {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #333;
+        }
+
+        /* Footer Styles (Consistent across pages) */
+        .footer {
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+            padding: 30px 20px;
+            background-color: #444444; /* Softer dark gray footer background */
+            color: #fff;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
+
+        .footer p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        .footer a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #FFA07A;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .hero-header {
+                padding: 15px 30px;
+            }
+            .navbar-links {
+                gap: 20px;
+            }
+            .clients-trust-section, .client-feedback-section {
+                padding: 40px 15px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            .hero-logo {
+                margin-bottom: 10px;
+            }
+            .hero-tagline {
+                text-align: center;
+            }
+            .navbar-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .navbar-links li a {
+                padding: 8px 15px;
+                font-size: 1em;
+            }
+            .clients-trust-section {
+                flex-direction: column; /* Stack text and videos */
+                text-align: center;
+                padding: 50px 20px; /* Reset padding for stacking */
+            }
+            .trust-us-content {
+                max-width: 100%; /* Text takes full width */
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            .clients-trust-section .logo,
+            .clients-trust-section h1,
+            .clients-trust-section p {
+                text-align: center;
+            }
+            .video-testimonials-grid {
+                max-width: 100%; /* Videos take full width */
+            }
+            .video-wrapper, .video-placeholder {
+                width: 90%; /* Make video wrappers wider on tablets */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .clients-trust-section h1 {
+                font-size: 2.2em;
+            }
+            .clients-trust-section p {
+                font-size: 1em;
+            }
+            .client-feedback-section h2 {
+                font-size: 2em;
+            }
+            .client-feedback-section .subtitle {
+                font-size: 0.9em;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr; /* Stack testimonials */
+                padding: 0; /* Handled by section padding */
+            }
+            .testimonial-card {
+                padding: 25px;
+            }
+            .video-wrapper, .video-placeholder {
+                width: 95%; /* Even wider on smaller mobiles */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-header {
+                padding: 10px 15px;
+            }
+            .hero-logo-icon {
+                width: 140px;
+                height: 60px;
+            }
+            .hero-tagline {
+                font-size: 0.8em;
+            }
+            .navbar-links {
+                gap: 10px;
+            }
+            .navbar-links li a {
+                font-size: 0.9em;
+            }
+            .clients-trust-section h1 {
+                font-size: 1.8em;
+            }
+            .clients-trust-section p {
+                font-size: 0.9em;
+            }
+            .clients-trust-section .start-button {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+            .client-feedback-section h2 {
+                font-size: 1.8em;
+            }
+            .client-feedback-section .subtitle {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section-container">
+        <header class="hero-header">
+            <div class="hero-logo">
+                <img src="https://placehold.co/183x86/cccccc/333333?text=NUURAQLYZ+Logo" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/183x86/cccccc/333333?text=Logo+Fallback';">
+                Nuuraqlyz
+                <span class="hero-logo-analytics-text">ANALYTICS</span>
+            </div>
+            <div class="hero-tagline">
+                Analytics for clarity.<br>Insights for Action.
+            </div>
+        </header>
+
+        <nav class="navbar">
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="customer_feedback.html">Client Feedback</a></li>
+                <li><a href="guided_information.html">Guided Information</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="clients-trust-section">
+        <div class="trust-us-content">
+            <div class="logo">Nuuraqlyz Analytics</div>
+            <h1>Clients Who Have Worked With Us & Want To Tell You Something</h1>
+            <p>Their success stories speak volumes about the value they received and the results delivered.</p>
+        </div>
+        <div class="video-testimonials-grid">
+            <div>
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle play-icon"></i>
+                    <p>Video Testimonial Coming Soon!</p>
+                    <p>Be our first video success story.</p>
+                </div>
+                <div class="video-client-caption">Coming Soon</div>
+            </div>
+
+            <div>
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle play-icon"></i>
+                    <p>Another Video Testimonial Coming Soon!</p>
+                    <p>Share your experience!</p>
+                </div>
+                <div class="video-client-caption">Coming Soon</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="client-feedback-section">
+        <h2>Client Feedback</h2>
+        <p class="subtitle">IT IS A GREAT HONOR TO SERVE YOU</p>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>Be the first to share your experience with Nuuraqlyz Analytics! Your valuable feedback will help others understand the benefits of reliable and great services.</p>
+                <div class="client-info">
+                    <img src="https://placehold.co/60x60/cccccc/333333?text=Client" alt="Client Placeholder" class="client-avatar" onerror="this.onerror=null;this.src='https://placehold.co/60x60/cccccc/333333?text=Client';">
+                    <span class="client-name">Coming Soon</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p>Your success story could be featured here! Share how Nuuraqlyz Analytics has helped you achieve your goals and inspire others.</p>
+                <div class="client-info">
+                    <img src="https://placehold.co/60x60/cccccc/333333?text=Client" alt="Client Placeholder" class="client-avatar" onerror="this.onerror=null;this.src='https://placehold.co/60x60/cccccc/333333?text=Client';">
+                    <span class="client-name">Coming Soon</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p>We're excited to hear about your results! Provide a testimonial to showcase the impact of our partnership.</p>
+                <div class="client-info">
+                    <img src="https://placehold.co/60x60/cccccc/333333?text=Client" alt="Client Placeholder" class="client-avatar" onerror="this.onerror=null;this.src='https://placehold.co/60x60/cccccc/333333?text=Client';">
+                    <span class="client-name">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 NUURAQLYZ Analytics. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
