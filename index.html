@@ -421,7 +421,8 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 15px;
+            margin-bottom: 10px; /* Slightly reduced margin */
+            cursor: pointer;
         }
 
         .card-title {
@@ -460,7 +461,7 @@
             color: #333; /* Dark for plus sign */
         }
 
-        /* Collapsible Content Styling */
+        /* Collapsible Content Styling - MODIFIED FOR SCROLLING AND TEXT COLOR */
         .collapsible-content {
             max-height: 0; /* Initially hidden */
             padding-top: 0; /* No padding when closed */
@@ -468,9 +469,11 @@
             transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition for height and padding */
             overflow: hidden; /* Ensures content doesn't overflow during collapse */
             text-align: left; /* Align content left */
+            color: #fff; /* Default text color for collapsible content */
         }
         .collapsible-content.active {
-            max-height: var(--content-height); /* Set dynamically by JS */
+            max-height: 250px; /* Fixed height for scrolling content */
+            overflow-y: auto; /* Enable vertical scrolling */
             padding-top: 15px; /* Padding when open */
             padding-bottom: 15px; /* Padding when open */
             border-top: 1px solid; /* Add border when active */
@@ -485,6 +488,7 @@
         }
         .card.industry-startup .collapsible-content {
             border-color: rgba(0, 0, 0, 0.1);
+            color: #333; /* Keep dark text for the light background of startup card */
         }
 
         /* Multi-column grid for collapsible content */
@@ -499,7 +503,7 @@
             margin-top: 10px;
             margin-bottom: 5px;
             font-size: 1.05em;
-            color: inherit;
+            color: inherit; /* Inherit color from parent (.collapsible-content) */
             font-weight: bold;
         }
         .collapsible-content-grid ul {
@@ -507,9 +511,15 @@
             margin-left: 20px;
             padding-left: 0;
             margin-bottom: 10px;
+            color: inherit; /* Inherit color from parent (.collapsible-content) */
         }
         .collapsible-content-grid ul li {
             margin-bottom: 5px;
+            color: inherit; /* Inherit color from parent (.collapsible-content) */
+        }
+        .collapsible-content-grid p { /* Added rule for paragraph text */
+            color: inherit; /* Inherit color from parent (.collapsible-content) */
+            margin-bottom: 10px;
         }
 
 
@@ -783,7 +793,7 @@
             /* Contact Section Responsive */
             .contact-section {
                 padding: 40px 15px;
-                margin: 30px auto; /* Center on mobile */
+                margin: 30px auto;
             }
             .contact-container {
                 flex-direction: column; /* Stack image and info vertically */
@@ -916,11 +926,11 @@
 
             <nav class="navbar">
                 <ul class="navbar-links">
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
-<li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/services.html">Services</a></li>
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer_feedback.html">Client Feedback</a></li>
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/guided_information.html">Guided Information</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="customer_feedback.html">Client Feedback</a></li>
+                    <li><a href="guided_information.html">Guided Information</a></li>
                 </ul>
             </nav>
 
@@ -1212,7 +1222,7 @@
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
-            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe- Ciftci (Meryem)</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe - Ciftci (Meryem)</p>
         </div>
     </footer>
 
@@ -1294,7 +1304,10 @@
                         content.style.maxHeight = null; // Collapse
                         content.classList.remove('active');
                     } else {
-                        content.style.setProperty('--content-height', content.scrollHeight + 'px');
+                        // The max-height is now controlled by CSS, but this line can remain if you need
+                        // to dynamically set '--content-height' for other purposes or if content can vary significantly.
+                        // For fixed max-height with scrolling, this line is less critical for the max-height itself.
+                        content.style.setProperty('--content-height', content.scrollHeight + 'px'); 
                         content.classList.add('active');
                     }
                 });
