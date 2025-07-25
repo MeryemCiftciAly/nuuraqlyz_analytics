@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUURAQLYZ Analytics - Guided Information</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Changed to match consistent site background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* Header and Navigation (Copied from index.html for consistency) */
+        .hero-section-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #fff;
+        }
+
+        .hero-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .hero-logo-icon {
+            width: 183px;
+            height: 86px;
+            margin-right: 8px;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+
+        .hero-logo-analytics-text {
+            color: #888;
+            font-weight: 400;
+            margin-left: 5px;
+        }
+
+        .hero-tagline {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #555;
+            text-transform: none;
+            letter-spacing: 1px;
+            text-align: right;
+            line-height: 1.3;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            width: 100%;
+            background-color: transparent; /* Blends with the body background */
+            border-top: none; /* Removed border for seamless blend */
+            box-sizing: border-box;
+        }
+
+        .navbar-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        .navbar-links li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar-links li a:hover {
+            color: #FF8C00;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Information Guide Section Styles */
+        .info-guide-container {
+            width: 100%;
+            max-width: 1100px; /* Increased max-width for wider content */
+            padding: 50px 20px;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+            margin-top: 20px; /* Space from header/nav */
+            background-color: #fff; /* White background for the section */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 700px;
+            height: 200px;
+            background: radial-gradient(circle at center, rgba(51, 116, 140, 0.4) 0%, rgba(51, 116, 140, 0) 70%);
+            filter: blur(50px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .company-name {
+            font-size: 0.9em;
+            font-weight: 400;
+            color: #333;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-title {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: #333;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-title span {
+            display: block;
+        }
+
+        .intro-paragraph {
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Accordion specific styles */
+        .accordion-container {
+            max-width: 1000px; /* Increased max-width for accordion grid */
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Default two columns for items */
+            gap: 20px;
+        }
+
+        .accordion-item {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: transparent;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1em;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            outline: none;
+            text-align: left;
+            position: relative;
+            height: 60px;
+        }
+
+        .accordion-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid #AAA;
+            border-radius: 30px;
+            pointer-events: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .accordion-header:hover::before {
+            border-color: #777;
+        }
+
+        .accordion-header h3 {
+            margin: 0;
+            flex-grow: 1;
+            overflow: visible;
+            text-overflow: clip;
+        }
+
+        .accordion-icon {
+            font-size: 1.5em;
+            margin-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            background-color: #f9f9f9;
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            text-align: left;
+            border-top: 1px solid #eee;
+            border-bottom-left-radius: 8px; /* Apply border radius here */
+            border-bottom-right-radius: 8px;
+        }
+
+        .accordion-content.active {
+            /* max-height will be set dynamically by JS based on content */
+            padding: 20px 30px;
+        }
+
+        /* Styles for multi-column content */
+        .collapsible-content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 columns minimum 280px each */
+            gap: 20px; /* Gap between columns */
+            padding-top: 10px; /* Small padding top if needed */
+        }
+
+        .collapsible-content-grid h4 {
+            grid-column: 1 / -1; /* Make headers span all columns */
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Ensure paragraphs and list items correctly flow within columns */
+        .collapsible-content-grid p,
+        .collapsible-content-grid ul {
+            margin-bottom: 1em; /* Spacing between paragraphs/lists */
+        }
+
+        .collapsible-content-grid ul {
+            padding-left: 20px; /* Indent lists */
+        }
+
+        /* Footer Styles (Consistent across pages) */
+        .footer {
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+            padding: 30px 20px;
+            background-color: #444444; /* Softer dark gray footer background */
+            color: #fff;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
+
+        .footer p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        .footer a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #FFA07A;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .hero-header {
+                padding: 15px 30px;
+            }
+            .navbar-links {
+                gap: 20px;
+            }
+            .info-guide-container {
+                max-width: 900px; /* Smaller max-width for the overall container */
+            }
+            .accordion-container {
+                max-width: 800px; /* Smaller max-width for the accordion grid */
+            }
+            .collapsible-content-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            .hero-logo {
+                margin-bottom: 10px;
+            }
+            .hero-tagline {
+                text-align: center;
+            }
+            .navbar-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .navbar-links li a {
+                padding: 8px 15px;
+                font-size: 1em;
+            }
+            .info-guide-container {
+                padding: 40px 15px;
+            }
+            .main-title {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+            }
+            .intro-paragraph {
+                font-size: 1em;
+                margin-bottom: 40px;
+            }
+            .accordion-container {
+                grid-template-columns: 1fr; /* Single column for accordion items on smaller screens */
+                gap: 15px;
+                max-width: 400px; /* Constrain width further */
+            }
+            .accordion-header {
+                font-size: 0.9em;
+                padding: 15px 20px;
+                height: 50px;
+            }
+            .accordion-header::before {
+                border-radius: 25px;
+            }
+            .accordion-content {
+                padding: 15px 20px;
+            }
+            .gradient-overlay {
+                width: 90%;
+                height: 150px;
+                filter: blur(40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-header {
+                padding: 10px 15px;
+            }
+            .hero-logo-icon {
+                width: 140px;
+                height: 60px;
+            }
+            .hero-tagline {
+                font-size: 0.8em;
+            }
+            .navbar-links {
+                gap: 10px;
+            }
+            .navbar-links li a {
+                font-size: 0.9em;
+            }
+            .info-guide-container {
+                padding: 30px 10px;
+            }
+            .company-name {
+                font-size: 0.8em;
+            }
+            .main-title {
+                font-size: 2em;
+                margin-bottom: 15px;
+            }
+            .intro-paragraph {
+                font-size: 0.9em;
+                margin-bottom: 30px;
+            }
+            .accordion-header {
+                font-size: 0.85em;
+                padding: 12px 15px;
+                height: 45px;
+            }
+            .accordion-header::before {
+                border-radius: 22px;
+            }
+            .accordion-content {
+                padding: 12px 15px;
+            }
+            .gradient-overlay {
+                width: 100%;
+                height: 120px;
+                filter: blur(30px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section-container">
+        <header class="hero-header">
+            <div class="hero-logo">
+                <img src="https://placehold.co/183x86/cccccc/333333?text=NUURAQLYZ+Logo" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/183x86/cccccc/333333?text=Logo+Fallback';">
+                Nuuraqlyz
+                <span class="hero-logo-analytics-text">ANALYTICS</span>
+            </div>
+            <div class="hero-tagline">
+                Analytics for clarity.<br>Insights for Action.
+            </div>
+        </header>
+
+        <nav class="navbar">
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="customer_feedback.html">Client Feedback</a></li>
+                <li><a href="guided_information.html">Guided Information</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="info-guide-container">
+        <div class="gradient-overlay"></div>
+
+        <div class="company-name">NUURAQLYZ ANALYTICS</div>
+        <h1 class="main-title">
+            <span>Your Comprehensive</span>
+            <span>Information Guide</span>
+        </h1>
+
+        <p class="intro-paragraph">
+            As a dedicated data analyst transitioning my career, NUURAQLYZ Analytics leverages a unique blend of extensive prior experience in business operations, executive support, and client relations. Combined with a rapidly expanding set of analytical skills, my mission is to provide clear, precise, and valuable data insights. I actively seek opportunities where successfully completed projects can contribute to building a robust portfolio that showcases my evolving capabilities.
+        </p>
+
+        <div class="accordion-container">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>What is Data Analytics and Why is it Important for My Business?</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <h4>What is Data Analytics?</h4>
+                            <p>Data analytics involves examining raw data to discover meaningful insights, draw conclusions, and support decision-making. It transforms unorganized numbers and facts into understandable patterns and trends.</p>
+                        </div>
+                        <div>
+                            <h4>Why is it Important?</h4>
+                            <ul>
+                                <li><strong>Informed Decision-Making:</strong> Moves businesses from guesswork to data-driven strategies.</li>
+                                <li><strong>Problem-Solving:</strong> Identifies root causes of issues and suggests solutions.</li>
+                                <li><strong>Efficiency:</strong> Optimizes operations by pinpointing areas for improvement.</li>
+                                <li><strong>Customer Understanding:</strong> Reveals customer behavior, preferences, and trends.</li>
+                                <li><strong>Competitive Advantage:</strong> Uncovers market opportunities and threats before competitors.</li>
+                                <li><strong>Revenue Growth:</strong> Identifies sales trends, optimizes pricing, and enhances marketing efforts.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>What Services Does Nuuraqlyz Analytics Offer?</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <h4>Core Services:</h4>
+                            <ul>
+                                <li><strong>Data Collection & Cleaning:</strong> Gathering, structuring, and preparing data for analysis.</li>
+                                <li><strong>Data Visualization:</strong> Creating intuitive charts, dashboards, and reports.</li>
+                                <li><strong>Predictive Analytics:</strong> Forecasting future trends and outcomes.</li>
+                                <li><strong>Ad-hoc Analysis:</strong> Deep-dive investigations into specific business questions.</li>
+                                <li><strong>Performance Monitoring:</strong> Setting up systems to track key metrics.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Specialized Areas:</h4>
+                            <ul>
+                                <li><strong>Marketing Analytics:</strong> ROI, campaign effectiveness, customer segmentation.</li>
+                                <li><strong>Sales Analytics:</strong> Funnel optimization, sales forecasting, performance tracking.</li>
+                                <li><strong>Operational Analytics:</strong> Process optimization, supply chain efficiency.</li>
+                                <li><strong>Custom Reporting:</strong> Tailored reports for specific business needs.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>How Can I Get Started with Nuuraqlyz Analytics?</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <h4>Step-by-Step Process:</h4>
+                            <ol>
+                                <li><strong>Initial Consultation:</strong> Schedule a free 30-minute call to discuss your needs.</li>
+                                <li><strong>Proposal & Agreement:</strong> Receive a customized proposal outlining the <strong>scope of work, key deliverables, proposed timeline</strong>, and when you can expect <strong>status updates</strong>. This will include my <strong>working hours</strong> (e.g., 9 AM - 5 PM EST) and expected <strong>project duration</strong> (typically 3-5 business days for standard projects, 2 days for urgent requests; same-day turnaround is rare unless the scope is very manageable).</li>
+                                <li><strong>Documentation & Access:</strong> Securely provide access to all necessary documents (e.g., preferred data formats like CSV/Excel, secure cloud links) and required system access. You'll also receive an optional <strong>Non-Disclosure Agreement (NDA)</strong> for your protection, and a <strong>permission note</strong> to sign if you're comfortable with the project being mentioned in my portfolio.</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <ol start="4">
+                                <li><strong>Project Kick-off:</strong> Once all agreements are signed, the initial deposit is received, and all necessary documents/access are provided, you will receive an email confirming the official project start date. <strong>Please note: the project officially commences the next business day after deposit confirmation.</strong></li>
+                                <li><strong>Ongoing Communication & Delivery:</strong> Throughout the project, you'll receive agreed-upon status updates. I'll notify you as the final delivery date approaches, ensuring the project is completed to your satisfaction and delivered in the agreed format. For more details on payment terms and invoicing for work completed, please refer to our <a href="#payment-terms-accordion">Payment Terms & Invoicing Schedule</a> section.</li>
+                            </ol>
+                            <h4>What You Need to Prepare:</h4>
+                            <ul>
+                                <li>A clear understanding of your business challenge or question.</li>
+                                <li>Any existing data sources (e.g., spreadsheets, databases, marketing platform access).</li>
+                                <li>Your specific goals and desired outcomes for the analysis.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Communication Protocol & Expectations</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>Effective communication is central to a successful partnership. My communication protocol is designed to ensure clarity and efficiency throughout your project:</p>
+                            <p>1. <strong>Initial Contact:</strong> For all new inquiries and initial discussions, please connect with me via <strong>LinkedIn DM or email</strong>.</p>
+                            <p>2. <strong>Official Project Communication:</strong> Once a project commences, all official communication will transition to:</p>
+                            <ul>
+                                <li><strong>Slack:</strong> For instant messaging, quick questions, daily updates, and sharing small files. This is our primary channel for real-time collaboration.</li>
+                                <li><strong>Zoom or Microsoft Teams:</strong> For scheduled video calls, project kick-offs, milestone reviews, in-depth discussions, or screen-sharing sessions.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p>3. <strong>Response Time:</strong> During my standard working hours (Monday to Friday, 9:00 AM - 5:00 PM EST), you can generally expect a response within <strong>a few hours</strong> for non-urgent inquiries. For matters submitted outside these hours, a response will be provided within 24 business hours.</p>
+                            <p>4. <strong>Urgent Matters:</strong> For truly urgent issues requiring immediate attention within working hours, please send a message via **Slack with "URGENT" clearly indicated**. I strive to address such requests as soon as possible.</p>
+                            <p>5. <strong>Documentation:</strong> Key decisions and crucial project updates from video calls or Slack discussions will be summarized via email to ensure clear documentation for all parties.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Deliverables & Formats</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>Depending on the project scope, deliverables are provided in industry-standard formats for your convenience, typically organized within a secure, downloadable zip file with clearly structured project folders.</p>
+                            <p>Specific deliverable formats include:</p>
+                            <ul>
+                                <li><strong>Interactive Dashboards:</strong>
+                                    <ul>
+                                        <li>For <strong>Power BI</strong>, you will receive the <code>.pbix</code> project file, which can be opened and interacted with using Power BI Desktop. Static PDF or image exports can also be provided upon request.</li>
+                                        <li>For <strong>Tableau</strong>, you will receive the <code>.twbx</code> (packaged workbook) file, ensuring all necessary data and visuals are included for seamless viewing in Tableau Reader or Desktop. Static PDF or image exports are also available.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><strong>Comprehensive Executive Summary Reports:</strong> Provided as professional <code>.pdf</code> documents, ensuring consistent formatting across all devices. Word (<code>.docx</code>) or PowerPoint (<code>.pptx</code>) versions can be provided if editability is required.</li>
+                                <li><strong>Detailed Data Dictionaries:</strong> Delivered in <code>.xlsx</code> (Excel) format for easy reference and searchability.</li>
+                                <li><strong>Well-documented Codebases:</strong> Relevant code scripts (e.g., <code>.py</code> for Python, <code>.sql</code> for SQL) will be provided within the project folder structure, accompanied by clear comments and documentation.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Data Security & Confidentiality</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>Protecting your sensitive information is paramount. While I do not operate as a data warehouse or center, all client data I interact with is handled with the highest level of confidentiality and strict adherence to data protection best practices.</p>
+                            <p>For data sharing and access, we prioritize secure and streamlined methods:</p>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>Clients are welcome to utilize their own <strong>secured storage platforms</strong>, providing me with designated access.</li>
+                                <li>Alternatively, we can use trusted cloud services like <strong>Dropbox or Google Drive</strong> by sharing secure links to documents. In such cases, we rely on these reputable platforms' robust internal security measures to safeguard your data.</li>
+                            </ul>
+                            <p><strong>Important Data Retention Policy:</strong> Upon project completion and final delivery, all project-related files and data shared with me will be securely deleted from my systems. I will not retain any client files once the project is concluded, ensuring your data is not stored long-term outside of your own systems.</p>
+                            <p><strong>Non-disclosure agreements (NDAs)</strong> are readily available to formalize these commitments and provide additional peace of mind regarding your confidential information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" id="payment-terms-accordion">
+                <button class="accordion-header">
+                    <h3>Payment Terms & Invoicing Schedule</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>My pricing structure is designed to be fair, transparent, and flexible, aligning with my commitment to deliver valuable insights while growing my portfolio.</p>
+                            <h4>1. Project Fees & Deposit:</h4>
+                            <ul>
+                                <li>For standard projects, my fees are project-based, ranging from <strong>$60 to $150</strong>. This flexible range allows us to align on a price that reflects the project's complexity, desired deliverables, and your specific budget. We will finalize the exact fee during the proposal phase.</li>
+                                <li>A <strong>50% upfront deposit</strong> is required to commence work, with the remaining <strong>50% due upon project completion</strong> and your final approval.</li>
+                            </ul>
+                            <h4>2. Invoicing & Payment Platforms:</h4>
+                            <ul>
+                                <li>Invoices will be conveniently sent via email. Details for payment and preferred secure platforms will be provided directly in the invoice, ensuring a secure transaction process.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>3. Cancellation Policy:</h4>
+                            <ul>
+                                <li>If a project is cancelled by the client for any reason after the deposit has been paid, a non-refundable fee of <strong>$40</strong> will be retained to cover initial preparation and time investment. Any amount paid above this $40 fee will be promptly refunded.</li>
+                            </ul>
+                            <h4>4. Project Completion & Updates:</h4>
+                            <ul>
+                                <li>Upon completion of a non-rush project (3-5 business days), any subsequent requests for <strong>updates or new features</strong> will be treated as a new project, and the initial fee structure will apply.</li>
+                                <li>Minor revisions within the original scope of work will be addressed to your satisfaction before final delivery.</li>
+                            </ul>
+                            <h4>5. Project Delays (My End):</h4>
+                            <ul>
+                                <li>In the event that I require additional time beyond the agreed-upon 3-5 business day window to complete a non-rush project, you will <strong>not be charged</strong> for these extra days (typically up to 2 additional days).</li>
+                                <li>Should a project remain incomplete beyond these additional days, all completed files will be returned, and you will be refunded all payments except for a $40 fee, which covers the initial preparation and project setup time.</li>
+                            </ul>
+                            <p>For specific terms and fees related to urgent project requests, please refer to the <a href="#rush-project-accordion">"Rush Project Availability & Fees"</a> section.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Ethical Guidelines / Data Philosophy</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>My ethical commitment guides every project. I will <strong>not</strong> engage in work that promotes or depicts violence (including violence against women or minorities), racism, discrimination of any kind, pornography, or religious bias.</p>
+                        </div>
+                        <div>
+                            <p>My work is founded on principles of integrity, transparency, and ethical data handling. I commit to providing <strong>unbiased analysis</strong> and respecting <strong>data privacy</strong> to build trust and deliver meaningful insights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" id="rush-project-accordion">
+                <button class="accordion-header">
+                    <h3>Rush Project Availability/Fees</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>For urgent, high-priority requirements, limited rush project availability may be offered on a case-by-case basis, depending on my current workload and the project's scope. Please note that 'rush' generally refers to a <strong>2-business-day turnaround</strong>, not typically a 24-hour or same-day delivery.</p>
+                            <h4>Communicating Rush Requests:</h4>
+                            <ul>
+                                <li>To ensure the most efficient turnaround for accepted rush projects, please submit your request via <strong>Slack by 4:00 PM EST the business day prior</strong> to the desired 2-day start. This allows me to allocate time and commence work promptly, potentially leading to an earlier completion within the 2-business-day window. Please remember, 'rush' still signifies a 2-business-day turnaround, not a 24-hour or same-day service.</li>
+                            </ul>
+                            <h4>Types of tasks commonly accepted as rush work include:</h4>
+                            <ul>
+                                <li><strong>Data Administration:</strong>
+                                    <ul>
+                                        <li>Precise data entry into spreadsheets (e.g., Excel, Google Sheets) from various source documents.</li>
+                                        <li>Updating existing documents (e.g., reports, guides) with new information.</li>
+                                        <li>Creating simple, non-complex slide decks (e.g., PowerPoint, Google Slides) from provided content.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><strong>Basic Data Analyst Tasks:</strong>
+                                    <ul>
+                                        <li>Small, clearly defined data pulls or queries from accessible databases.</li>
+                                        <li>Basic data cleaning, formatting, or standardization of small datasets.</li>
+                                        <li>Ad-hoc report generation using pre-defined templates or simple filter adjustments.</li>
+                                        <li>Minor updates to existing dashboards (e.g., adding a single data point, adjusting a filter).</li>
+                                        <li>Creating one or two specific charts/graphs from readily available data.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Salesforce Specific Tasks:</strong>
+                                    <ul>
+                                        <li>Basic Salesforce report creation or modification (e.g., adding fields, adjusting filters).</li>
+                                        <li>Updating specific components on existing Salesforce dashboards.</li>
+                                        <li>Small-scale data exports or imports.</li>
+                                        <li>Quick data cleanup for a limited number of records.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <h4>Rush Project Terms & Fees:</h4>
+                            <ul>
+                                <li>An hourly rate of <strong>$20 per hour</strong> applies to all accepted rush projects.</li>
+                                <li>An initial deposit of <strong>$40</strong> (covering approximately 2 hours for initial scope understanding and preparation) is required to commence rush work.</li>
+                                <li>If a rush project takes slightly longer than initially estimated due to my internal processes (e.g., an extra hour beyond a 2-3 hour estimate), you will <strong>not be charged</strong> for that additional time.</li>
+                                <li>Should a project remain incomplete beyond these additional days, all completed files will be returned, and you will be refunded all payments except for a $40 fee, which covers the initial preparation and project setup time.</li>
+                                <li><strong>Saturday Availability:</strong> For these specific rush tasks, I may offer availability on Saturdays from <strong>10:00 AM - 4:00 PM EST</strong> to expedite completion.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Working Hours</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>My standard working hours are <strong>Monday to Friday, 9:00 AM - 5:00 PM EST</strong>. While I strive to be responsive, major communication and work output will primarily occur within these hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Pricing Overview</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>My pricing is <strong>project-based</strong>, tailored to the complexity and estimated time investment. Custom quotes are provided after a detailed discovery session. <strong>Hourly rates</strong> are available for <strong>rush</strong>, consulting, or smaller, ongoing tasks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Core Values</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>My practice is built on a foundation of <strong>clarity, precision, collaboration, and partnership</strong>. I value open communication, robust analytical methods, and a relentless focus on delivering <strong>measurable value</strong> that helps clients achieve their goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Policies</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>Comprehensive policies regarding <strong>revisions, project scope changes, intellectual property, and data ownership</strong> are clearly outlined in the service agreement. These ensure transparency and protect both parties throughout our collaboration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const currentItem = header.parentNode;
+                    const accordionContent = header.nextElementSibling; // The accordion-content div
+                    const accordionIcon = header.querySelector('.accordion-icon');
+
+                    // Close all other open accordions except the one just clicked
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            const otherContent = otherHeader.nextElementSibling;
+                            const otherIcon = otherHeader.querySelector('.accordion-icon');
+                            if (otherContent.classList.contains('active')) {
+                                otherContent.style.maxHeight = null;
+                                otherContent.classList.remove('active');
+                                otherHeader.classList.remove('active');
+                                otherIcon.style.transform = 'rotate(0deg)';
+                            }
+                        }
+                    });
+
+                    // Toggle current accordion
+                    if (accordionContent.classList.contains('active')) {
+                        accordionContent.style.maxHeight = null;
+                        accordionContent.classList.remove('active');
+                        header.classList.remove('active');
+                        accordionIcon.style.transform = 'rotate(0deg)';
+                    } else {
+                        accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+                        accordionContent.classList.add('active');
+                        header.classList.add('active');
+                        accordionIcon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <p>&copy; 2024 NUURAQLYZ Analytics. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
