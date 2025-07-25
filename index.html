@@ -9,6 +9,100 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+         /* (All your existing CSS up to .hero-main-content remains largely the same) */
+
+        /* Main Hero Content Area (Gradient Background with Image Overlay) */
+        .hero-main-content {
+            display: flex;
+            position: relative; /* Crucial for absolute positioning of the image overlay */
+            min-height: 450px; /* Minimum height for desktop view */
+            padding: 50px 40px; /* Padding for content inside */
+            /* KEEP THIS GRADIENT - it will be behind your text content */
+            background: linear-gradient(to right, #FF8C00, #FFA07A); /* Orange to Light Salmon */
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            overflow: hidden; /* Crucial for containing the overlay and rounded corners */
+        }
+
+        /* Hero Image Overlay - THIS IS WHERE YOUR ROAD IMAGE GOES */
+        #hero-image-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%; /* Occupy the right portion as intended */
+            height: 100%;
+            background-image: url('https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png'); /* <--- ADD THIS LINE FOR YOUR ROAD IMAGE */
+            background-size: cover; /* Cover the area, possibly cropping */
+            background-position: center right; /* Focus on the right side of the image */
+            opacity: 0; /* Start hidden for fade-in */
+            z-index: 0; /* Ensure this is behind the text content */
+            transition: opacity 1.5s ease-out; /* Fade in animation */
+        }
+        #hero-image-overlay.loaded {
+            opacity: 0.8; /* Target opacity after loading */
+        }
+
+        /* Loading indicator styles */
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; /* Above the image overlay */
+            /* IMPORTANT: Only display if JS is controlling it. For initial test, keep it hidden
+               or add logic to show/hide with JS for the background image. */
+            display: none; /* Keep hidden by default */
+        }
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Text Content (A guiding light...) */
+        .hero-text-content {
+            flex: 1; /* Takes up available space on the left */
+            z-index: 1; /* Ensure text is above the image overlay */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* Keeps text left-aligned */
+            color: #fff; /* Set text color to white for contrast against gradient/image */
+            /* The padding from .hero-main-content will apply around this text too */
+        }
+
+        /* (All other CSS remains the same) */
+
+        /* Responsive adjustments - ensure you review these carefully! */
+        @media (max-width: 768px) {
+            /* ... (Your existing media queries) ... */
+            .hero-main-content {
+                flex-direction: column-reverse; /* Stack image below text */
+                min-height: auto;
+                padding: 30px 20px;
+                /* Remove background-gradient here if you want text background to be solid on mobile,
+                   or keep it if the stacking works for your design. */
+            }
+            #hero-image-overlay { /* This is the key change for mobile image */
+                position: static; /* Remove absolute positioning, make it flow naturally */
+                width: 100%; /* Make it full width */
+                height: 200px; /* Fixed height for image when stacked */
+                margin-top: 20px; /* Space between text and image */
+                opacity: 1; /* Make it always visible on mobile if it's stacked */
+                z-index: auto; /* Reset z-index */
+                /* Remove transition for opacity if you don't need it on mobile stacking */
+            }
+            .hero-text-content {
+                align-items: center; /* Center text when stacked */
+                text-align: center;
+            }
+            /* ... (rest of your media queries) ... */
+        }
         /* General Body Styles */
         body {
             font-family: 'Inter', sans-serif; /* Default font for general text */
@@ -861,7 +955,7 @@
     </style>
 </head>
 <body>
-    <div class="hero-section-wrapper">
+   <div class="hero-section-wrapper">
         <div class="hero-section-container">
             <header class="hero-header">
                 <div class="hero-logo">
@@ -874,7 +968,6 @@
                 </div>
             </header>
 
-            <!-- Navigation Bar -->
             <nav class="navbar">
                 <ul class="navbar-links">
                     <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
@@ -886,14 +979,13 @@
 
             <div class="hero-main-content">
                 <div class="loading-spinner" id="hero-loading-spinner"></div>
-                <div id="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png"></div> <!-- This will hold the hero background image -->
-                <div class="hero-text-content">
+
+                <div id="hero-image-overlay"></div> <div class="hero-text-content">
                     <h1 class="hero-title">A guiding light<br>into the unknown</h1>
                 </div>
             </div>
         </div>
     </div>
-
     <section class="about-section">
         <div class="about-me-container">
             <div class="left-column">
@@ -1175,89 +1267,97 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const iconCircles = document.querySelectorAll('.icon-circle');
+    document.addEventListener('DOMContentLoaded', () => {
+        const iconCircles = document.querySelectorAll('.icon-circle');
 
-            iconCircles.forEach(circle => {
-                circle.addEventListener('click', () => {
-                    const targetId = circle.dataset.target;
-                    const content = document.getElementById(targetId);
-                    
-                    // Toggle the 'expanded' class on the icon
-                    circle.classList.toggle('expanded');
+        iconCircles.forEach(circle => {
+            circle.addEventListener('click', () => {
+                const targetId = circle.dataset.target;
+                const content = document.getElementById(targetId);
+                
+                // Toggle the 'expanded' class on the icon
+                circle.classList.toggle('expanded');
 
-                    // Toggle the max-height and active class
-                    if (content.classList.contains('active')) {
-                        content.style.maxHeight = null; // Collapse
-                        content.classList.remove('active');
-                    } else {
-                        // Set a custom property for the max-height to ensure smooth transition
-                        // This is a common pattern for dynamic max-height
-                        content.style.setProperty('--content-height', content.scrollHeight + 'px');
-                        content.classList.add('active');
-                    }
-                });
+                // Toggle the max-height and active class
+                if (content.classList.contains('active')) {
+                    content.style.maxHeight = null; // Collapse
+                    content.classList.remove('active');
+                } else {
+                    // Set a custom property for the max-height to ensure smooth transition
+                    // This is a common pattern for dynamic max-height
+                    content.style.setProperty('--content-height', content.scrollHeight + 'px');
+                    content.classList.add('active');
+                }
             });
+        });
 
-            // Function to load image and handle spinner/fade-in
-            function loadImage(imageUrl, targetElement, spinnerId) {
-                const spinner = document.getElementById(spinnerId);
-                if (spinner) {
-                    spinner.style.display = 'block'; // Show spinner
-                }
-
-                if (targetElement.tagName === 'IMG') {
-                    targetElement.src = imageUrl;
-                    targetElement.onload = () => {
-                        targetElement.classList.add('loaded'); // Add class to trigger fade-in
-                        if (spinner) {
-                            spinner.style.display = 'none'; // Hide spinner after image loads
-                        }
-                    };
-                    targetElement.onerror = () => {
-                        console.error(`Failed to load image: ${imageUrl}`);
-                        if (spinner) {
-                            spinner.style.display = 'none'; // Hide spinner on error
-                        }
-                        // Optionally, set a fallback placeholder here if the onerror attribute isn't enough
-                        targetElement.src = `https://placehold.co/${targetElement.width || 300}x${targetElement.height || 200}/cccccc/333333?text=Image+Error`;
-                    };
-                } else if (targetElement.id === 'hero-image-overlay') {
-                    // For the hero overlay div, set background-image directly
-                    const img = new Image();
-                    img.src = imageUrl;
-                    img.onload = () => {
-                        targetElement.style.backgroundImage = `url('${imageUrl}')`;
-                        targetElement.classList.add('loaded'); // Trigger fade-in
-                        if (spinner) {
-                            spinner.style.display = 'none'; // Hide spinner
-                        }
-                    };
-                    img.onerror = () => {
-                        console.error(`Failed to load hero background image: ${imageUrl}`);
-                        if (spinner) {
-                            spinner.style.display = 'none'; // Hide spinner on error
-                        }
-                        // Fallback for hero background
-                        targetElement.style.backgroundImage = `url('https://placehold.co/1200x675/cccccc/333333?text=Hero+Image+Error')`;
-                        targetElement.classList.add('loaded');
-                    };
-                }
+        // Function to load image and handle spinner/fade-in
+        function loadImage(imageUrl, targetElement, spinnerId) {
+            const spinner = document.getElementById(spinnerId);
+            if (spinner) {
+                spinner.style.display = 'block'; // Show spinner
             }
 
-            // --- Replace these with your actual image URLs ---
-            const heroImageUrl = "https://placehold.co/1200x675/4a90e2/ffffff?text=Abstract+Data+Path"; // Example placeholder
-            const contactImageUrl = "https://placehold.co/356x426/cccccc/333333?text=Professional+Contact"; // Example placeholder
-            // --------------------------------------------------
+            // Create a temporary image object to check for load completion
+            const img = new Image();
+            img.src = imageUrl;
 
-            // Load Hero Image
-            const heroImageOverlay = document.getElementById('hero-image-overlay');
+            img.onload = () => {
+                // If the target is an <img> tag, set its src
+                if (targetElement.tagName === 'IMG') {
+                    targetElement.src = imageUrl; // Redundant if img.src was already set, but ensures consistency
+                    targetElement.classList.add('loaded'); // Add class to trigger fade-in
+                } 
+                // If the target is a div (like hero-image-overlay), set its background-image
+                else { 
+                    targetElement.style.backgroundImage = `url('${imageUrl}')`;
+                    targetElement.classList.add('loaded'); // Trigger fade-in
+                }
+                
+                if (spinner) {
+                    spinner.style.display = 'none'; // Hide spinner after image loads
+                }
+            };
+
+            img.onerror = () => {
+                console.error(`Failed to load image: ${imageUrl}`);
+                if (spinner) {
+                    spinner.style.display = 'none'; // Hide spinner on error
+                }
+                // Fallback for different element types
+                if (targetElement.tagName === 'IMG') {
+                    targetElement.src = `https://placehold.co/${targetElement.width || 300}x${targetElement.height || 200}/cccccc/333333?text=Image+Error`;
+                    targetElement.classList.add('loaded'); // Still fade in fallback
+                } else { // For hero overlay div
+                    targetElement.style.backgroundImage = `url('https://placehold.co/1200x675/cccccc/333333?text=Hero+Image+Error')`;
+                    targetElement.classList.add('loaded'); // Still fade in fallback
+                }
+            };
+        }
+
+        // --- ADJUSTMENT START ---
+        // Replace these with your actual image URLs from your GitHub raw content
+        const heroImageUrl = "https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png"; 
+        const contactImageUrl = "https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/contact_image.png"; // Assuming you have a contact image like this
+        // --- ADJUSTMENT END ---
+
+        // Load Hero Image
+        const heroImageOverlay = document.getElementById('hero-image-overlay');
+        if (heroImageOverlay) { // Add a check to ensure the element exists before trying to load
             loadImage(heroImageUrl, heroImageOverlay, 'hero-loading-spinner');
+        } else {
+            console.warn("Element with ID 'hero-image-overlay' not found. Hero image will not load via JS.");
+        }
 
-            // Load Contact Image
-            const contactImgElement = document.getElementById('contact-img');
+        // Load Contact Image
+        const contactImgElement = document.getElementById('contact-img'); // Make sure your contact image has this ID in HTML
+        if (contactImgElement) { // Add a check to ensure the element exists before trying to load
             loadImage(contactImageUrl, contactImgElement, 'contact-loading-spinner');
-        });
-    </script>
+        } else {
+            console.warn("Element with ID 'contact-img' not found. Contact image will not load via JS.");
+        }
+
+    });
+</script>
 </body>
 </html>
