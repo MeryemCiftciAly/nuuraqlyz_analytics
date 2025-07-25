@@ -488,6 +488,7 @@
         <nav class="navbar">
             <ul class="navbar-links">
                 <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
+                <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/services.html">Services</a></li>
                 <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
                 <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer_feedback.html">Client Feedback</a></li>
                 <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/guided_information.html">Guided Information</a></li>
@@ -628,9 +629,17 @@
             });
         });
     </script>
+   <!-- Footer Section -->
     <footer class="footer">
-        <p>&copy; 2024 NUURAQLYZ Analytics. All rights reserved.</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <div class="footer-content">
+            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe - Ciftci (Meryem)</p>
+            <p>
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/iterms-of-service.html">Terms of Service</a>
+                &nbsp;|&nbsp;
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/iprivacy-policy.html">Privacy Policy</a>
+            </p>
+        </div>
     </footer>
 </body>
 </html>
