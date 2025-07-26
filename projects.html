@@ -345,18 +345,23 @@
         }
 
         /* Footer Styles (Consistent across pages) */
+     
         .footer {
-            width: 100%;
-            max-width: 1200px;
-            margin-top: 20px;
-            padding: 30px 20px;
+            width: 100%; /* Stretches full viewport width */
             background-color: #444444; /* Softer dark gray footer background */
             color: #fff;
             text-align: center;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            margin-top: auto; /* Pushes footer to the bottom */
             box-sizing: border-box;
             font-size: 0.9em;
+        }
+
+        .footer-content {
+            max-width: 1200px; /* Content inside footer aligns with main content */
+            margin: 0 auto; /* Center the content */
+            padding: 30px 20px; /* Apply padding here */
+            border-top-left-radius: 10px; /* Apply radius to content wrapper if desired */
+            border-top-right-radius: 10px;
         }
 
         .footer p {
@@ -365,14 +370,15 @@
         }
 
         .footer a {
-            color: #FFD700;
+            color: #FFD700; /* Gold links in footer */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .footer a:hover {
-            color: #FFA07A;
+            color: #FFA07A; /* Lighter orange on hover */
         }
+
 
         /* Responsive Adjustments */
         @media (max-width: 1024px) {
