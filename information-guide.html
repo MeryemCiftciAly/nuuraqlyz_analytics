@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUURAQLYZ Analytics - Guided Information</title>
+    <title>NUURAQLYZ Analytics - Information Guide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8; /* Changed to match consistent site background */
+            background-color: #ffffff; /* Changed to white */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -27,7 +27,7 @@
         .hero-section-container {
             width: 100%;
             max-width: 1200px;
-            margin: 20px;
+            margin: 0 20px 20px 20px; /* Removed top margin */
             background-color: #fff;
             border-radius: 10px;
             overflow: hidden;
@@ -45,7 +45,6 @@
         .hero-logo {
             display: flex;
             align-items: center;
-            /* Removed font-size from here as it's now handled by specific text spans */
             font-weight: 700;
             color: #333;
         }
@@ -58,9 +57,8 @@
             object-fit: contain;
         }
 
-        /* Added new style for the main "Nuuraqlyz" text */
         .hero-logo-main-text {
-            font-size: 2em; /* Increased font size as requested */
+            font-size: 2em;
             font-weight: 700;
             color: #333;
         }
@@ -72,14 +70,14 @@
         }
 
         .hero-tagline {
-            font-size: 1.3em; /* Updated from 0.9em to 1.3em for consistency */
+            font-size: 1.3em;
             font-weight: 700;
             color: #555;
             text-transform: none;
             letter-spacing: 1px;
             text-align: right;
             line-height: 1.3;
-            white-space: nowrap; /* Prevent wrapping on desktop */
+            white-space: nowrap;
         }
 
         .navbar {
@@ -88,8 +86,8 @@
             align-items: center;
             padding: 15px 0;
             width: 100%;
-            background-color: transparent; /* Blends with the body background */
-            border-top: none; /* Removed border for seamless blend */
+            background-color: transparent;
+            border-top: none;
             box-sizing: border-box;
         }
 
@@ -119,7 +117,7 @@
         /* Information Guide Section Styles */
         .info-guide-container {
             width: 100%;
-            max-width: 1100px; /* Increased max-width for wider content */
+            max-width: 1100px;
             padding: 50px 20px;
             box-sizing: border-box;
             text-align: center;
@@ -130,20 +128,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .gradient-overlay {
-            position: absolute;
-            /* Adjusted top to position it behind the intro-paragraph */
-            top: 250px; /* Approximate position below main title and company name */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            max-width: 700px;
-            height: 200px;
-            background: radial-gradient(circle at center, rgba(51, 116, 140, 0.4) 0%, rgba(51, 116, 140, 0) 70%);
-            filter: blur(50px);
-            z-index: 0;
-            pointer-events: none;
-        }
+        /* REMOVED .gradient-overlay CSS */
 
         .company-name {
             font-size: 0.9em;
@@ -183,12 +168,12 @@
 
         /* Accordion specific styles */
         .accordion-container {
-            max-width: 1000px; /* Increased max-width for accordion grid */
+            max-width: 1000px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Default two columns for items */
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
@@ -249,11 +234,13 @@
         .accordion-icon {
             font-size: 1.5em;
             margin-left: 15px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease; /* Added color transition */
+            color: #33748C; /* New color for the icon */
         }
 
         .accordion-header.active .accordion-icon {
             transform: rotate(180deg);
+            color: #5190B2; /* Slightly different shade when active, or keep same */
         }
 
         .accordion-content {
@@ -264,25 +251,24 @@
             transition: max-height 0.3s ease-out, padding 0.3s ease-out;
             text-align: left;
             border-top: 1px solid #eee;
-            border-bottom-left-radius: 8px; /* Apply border radius here */
+            border-bottom-left-radius: 8px;
             border-bottom-right-radius: 8px;
         }
 
         .accordion-content.active {
-            /* max-height will be set dynamically by JS based on content */
             padding: 20px 30px;
         }
 
         /* Styles for multi-column content */
         .collapsible-content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 columns minimum 280px each */
-            gap: 20px; /* Gap between columns */
-            padding-top: 10px; /* Small padding top if needed */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding-top: 10px;
         }
 
         .collapsible-content-grid h4 {
-            grid-column: 1 / -1; /* Make headers span all columns */
+            grid-column: 1 / -1;
             margin-top: 10px;
             margin-bottom: 10px;
             font-size: 1.1em;
@@ -293,11 +279,11 @@
         /* Ensure paragraphs and list items correctly flow within columns */
         .collapsible-content-grid p,
         .collapsible-content-grid ul {
-            margin-bottom: 1em; /* Spacing between paragraphs/lists */
+            margin-bottom: 1em;
         }
 
         .collapsible-content-grid ul {
-            padding-left: 20px; /* Indent lists */
+            padding-left: 20px;
         }
 
         /* Footer Styles (Consistent across pages) */
@@ -306,7 +292,7 @@
             max-width: 1200px;
             margin-top: 20px;
             padding: 30px 20px;
-            background-color: #444444; /* Softer dark gray footer background */
+            background-color: #444444;
             color: #fff;
             text-align: center;
             border-top-left-radius: 10px;
@@ -339,13 +325,13 @@
                 gap: 20px;
             }
             .info-guide-container {
-                max-width: 900px; /* Smaller max-width for the overall container */
+                max-width: 900px;
             }
             .accordion-container {
-                max-width: 800px; /* Smaller max-width for the accordion grid */
+                max-width: 800px;
             }
             .collapsible-content-grid {
-                grid-template-columns: 1fr; /* Single column on smaller screens */
+                grid-template-columns: 1fr;
             }
         }
 
@@ -359,7 +345,7 @@
             }
             .hero-tagline {
                 text-align: center;
-                white-space: normal; /* Allow text to wrap on smaller screens */
+                white-space: normal;
             }
             .navbar-links {
                 flex-direction: column;
@@ -381,9 +367,9 @@
                 margin-bottom: 40px;
             }
             .accordion-container {
-                grid-template-columns: 1fr; /* Single column for accordion items on smaller screens */
+                grid-template-columns: 1fr;
                 gap: 15px;
-                max-width: 400px; /* Constrain width further */
+                max-width: 400px;
             }
             .accordion-header {
                 font-size: 0.9em;
@@ -396,13 +382,7 @@
             .accordion-content {
                 padding: 15px 20px;
             }
-            .gradient-overlay {
-                /* Adjust top for smaller screens if needed */
-                top: 200px; /* Example adjustment */
-                width: 90%;
-                height: 150px;
-                filter: blur(40px);
-            }
+            /* REMOVED .gradient-overlay responsive adjustments */
         }
 
         @media (max-width: 480px) {
@@ -414,7 +394,7 @@
                 height: 60px;
             }
             .hero-tagline {
-                font-size: 1em; /* Adjusted for smaller screens as well */
+                font-size: 1em;
             }
             .navbar-links {
                 gap: 10px;
@@ -447,13 +427,7 @@
             .accordion-content {
                 padding: 12px 15px;
             }
-            .gradient-overlay {
-                /* Adjust top for smallest screens if needed */
-                top: 150px; /* Example adjustment */
-                width: 100%;
-                height: 120px;
-                filter: blur(30px);
-            }
+            /* REMOVED .gradient-overlay responsive adjustments */
         }
     </style>
 </head>
@@ -476,14 +450,13 @@
                 <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/services.html">Services</a></li>
                 <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
                 <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer-feedback.html">Client Feedback</a></li>
-                <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/information-guide.html">Guided Information</a></li>
+                <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/information-guide.html">Information Guide</a></li>
             </ul>
         </nav>
     </div>
 
     <div class="info-guide-container">
-        <!-- Gradient overlay is now positioned to be behind the intro-paragraph -->
-        <div class="gradient-overlay"></div>
+        <!-- Removed the gradient-overlay div -->
 
         <div class="company-name">NUURAQLYZ ANALYTICS</div>
         <h1 class="main-title">
@@ -834,6 +807,18 @@
         </div>
     </div>
 
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe - Ciftci (Meryem)</p>
+            <p>
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-of-service.html">Terms of Service</a>
+                &nbsp;|&nbsp;
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const accordionHeaders = document.querySelectorAll('.accordion-header');
@@ -874,18 +859,5 @@
             });
         });
     </script>
-
-     <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
-            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe - Ciftci (Meryem)</p>
-            <p>
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-and-conditions.html">Terms of Service</a>
-                &nbsp;|&nbsp;
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
-            </p>
-        </div>
-    </footer>
 </body>
 </html>
