@@ -35,7 +35,7 @@
             align-items: center;
             padding: 20px 40px; /* Padding for the header */
             background-color: #fff; /* White background */
-            width: 100%; /* Ensures it spans full width, changed from 70% */
+            width: 85%; /* Adjusted width to 85% */
             box-sizing: border-box; /* Include padding in width */
             /* Removed margin, border-radius, box-shadow to make it "flat" */
         }
@@ -85,7 +85,7 @@
             justify-content: center; /* Center the navigation links */
             align-items: center;
             padding: 15px 0;
-            width: 70%; /* Ensures it spans full width */
+            width: 100%; /* Ensures it spans full width */
             border-top: 1px solid #eee; /* Subtle separator from header */
             box-sizing: border-box;
             /* Removed margin, border-radius, box-shadow */
@@ -117,7 +117,7 @@
         /* Main content area for projects page - ensures footer stays at bottom */
         .main-content-projects {
             flex-grow: 1; /* This makes the main content expand to fill available space */
-            width: 70%;
+            width: 100%;
             max-width: 1200px; /* Constrain main content width */
             display: flex;
             flex-direction: column;
@@ -348,9 +348,9 @@
             color: #fff;
             text-align: center;
             margin-top: 20px; /* Consistent margin from content */
-            padding: 30px 20px; /* <--- PADDING IS HERE */
-            border-top-left-radius: 10px; /* <--- RADIUS IS HERE */
-            border-top-right-radius: 10px; /* <--- RADIUS IS HERE */
+            padding: 30px 20px; /* PADDING IS HERE */
+            border-top-left-radius: 10px; /* RADIUS IS HERE */
+            border-top-right-radius: 10px; /* RADIUS IS HERE */
             box-sizing: border-box;
             font-size: 0.9em;
             flex-shrink: 0; /* Important for preventing footer from shrinking on short pages */
@@ -397,6 +397,7 @@
             .hero-header {
                 flex-direction: column;
                 padding: 15px 20px;
+                width: 100%; /* On smaller screens, allow it to be full width */
             }
             .hero-logo {
                 margin-bottom: 10px;
