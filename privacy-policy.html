@@ -7,12 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: #ffffff; /* Consistent white background */
             color: #333;
             line-height: 1.6;
             display: flex;
@@ -20,6 +21,99 @@
             align-items: center;
             min-height: 100vh;
             box-sizing: border-box;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Consistent Header and Navigation Styles */
+        .hero-section-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 20px 20px 20px; /* Removed top margin for consistency */
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #fff;
+        }
+
+        .hero-logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            color: #333;
+            gap: 0px; /* Ensure no extra gap from previous designs */
+        }
+
+        .hero-logo-icon {
+            width: 180px; /* Consistent size with other pages */
+            height: 180px; /* Consistent size with other pages */
+            margin-right: 8px;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+
+        .hero-logo-main-text {
+            font-size: 2em; /* Consistent font size */
+            font-weight: 700;
+            color: #333;
+        }
+
+        .hero-logo-analytics-text {
+            color: #888;
+            font-weight: 400;
+            margin-left: 8px; /* Consistent margin */
+        }
+
+        .hero-tagline {
+            font-size: 1.3em; /* Consistent font size */
+            font-weight: 700;
+            color: #555;
+            text-transform: none;
+            letter-spacing: 1px;
+            text-align: right;
+            line-height: normal; /* Consistent line-height */
+            white-space: nowrap; /* Prevent wrapping on desktop */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            width: 100%;
+            background-color: #fff; /* Consistent with other pages */
+            border-top: 1px solid #eee; /* Consistent with other pages */
+            box-sizing: border-box;
+        }
+
+        .navbar-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        .navbar-links li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar-links li a:hover {
+            color: #FF8C00;
+            background-color: rgba(0, 0, 0, 0.05);
         }
 
         .policy-container {
@@ -31,6 +125,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             box-sizing: border-box;
+            flex-grow: 1; /* Allows content to push footer down */
         }
 
         h1 {
@@ -92,104 +187,20 @@
             margin-bottom: 30px;
         }
 
-        /* Consistent Header and Navigation Styles */
-        .hero-section-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background-color: #fff;
-        }
-
-        .hero-logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.2em;
-            font-weight: 700;
-            color: #333;
-        }
-
-        .hero-logo-icon {
-            width: 183px;
-            height: 86px;
-            margin-right: 8px;
-            flex-shrink: 0;
-            object-fit: contain;
-        }
-
-        .hero-logo-analytics-text {
-            color: #888;
-            font-weight: 400;
-            margin-left: 5px;
-        }
-
-        .hero-tagline {
-            font-size: 0.9em;
-            font-weight: 700;
-            color: #555;
-            text-transform: none;
-            letter-spacing: 1px;
-            text-align: right;
-            line-height: 1.3;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px 0;
-            width: 100%;
-            background-color: transparent;
-            border-top: none;
-            box-sizing: border-box;
-        }
-
-        .navbar-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 40px;
-        }
-
-        .navbar-links li a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1em;
-            padding: 5px 10px;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            border-radius: 5px;
-        }
-
-        .navbar-links li a:hover {
-            color: #FF8C00;
-            background-color: rgba(0, 0, 0, 0.05);
-        }
-
-        /* Footer Styles */
+        /* Consistent Footer Styles */
         .footer {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1200px; /* Match hero-section-container max-width */
             margin-top: 20px;
             padding: 30px 20px;
             background-color: #444444;
             color: #fff;
             text-align: center;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border-top-left-radius: 10px; /* Consistent border-radius */
+            border-top-right-radius: 10px; /* Consistent border-radius */
             box-sizing: border-box;
             font-size: 0.9em;
+            flex-shrink: 0; /* Prevents footer from shrinking on short pages */
         }
 
         .footer p {
@@ -230,7 +241,7 @@
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .hero-header {
                 flex-direction: column;
                 padding: 15px 20px;
@@ -240,6 +251,7 @@
             }
             .hero-tagline {
                 text-align: center;
+                white-space: normal;
             }
             .navbar-links {
                 flex-direction: column;
@@ -307,8 +319,8 @@
     <div class="hero-section-container">
         <header class="hero-header">
             <div class="hero-logo">
-                <img src="'https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png'">
-                Nuuraqlyz
+                <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Logo+Fallback';">
+                <span class="hero-logo-main-text">Nuuraqlyz</span>
                 <span class="hero-logo-analytics-text">ANALYTICS</span>
             </div>
             <div class="hero-tagline">
@@ -321,8 +333,8 @@
                 <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
                 <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/services.html">Services</a></li>
                 <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
-                <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer_feedback.html">Client Feedback</a></li>
-                <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/guided_information.html">Guided Information</a></li>
+                <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer-feedback.html">Client Feedback</a></li>
+                <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/information-guide.html">Information Guide</a></li>
             </ul>
         </nav>
     </div>
@@ -393,7 +405,7 @@
             <li><strong>Right to Rectification:</strong> The right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.</li>
             <li><strong>Right to Erasure:</strong> The right to request that we erase your personal information, under certain conditions.</li>
             <li><strong>Right to Restrict Processing:</strong> The right to request that we restrict the processing of your personal information, under certain conditions.</li>
-            <li><strong>Right to Object to Processing:</b> The right to object to our processing of your personal information, under certain conditions.</li>
+            <li><strong>Right to Object to Processing:</strong> The right to object to our processing of your personal information, under certain conditions.</li>
             <li><strong>Right to Data Portability:</strong> The right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
         </ul>
         <p>To exercise any of these rights, please contact us using the contact information provided in Section 9.</p>
@@ -412,13 +424,13 @@
         </ul>
     </div>
 
-<!-- Footer Section -->
+    <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
-            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> Kamara Rowe - Ciftci by (Meryem)</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe - Ciftci (Meryem)</p>
             <p>
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-and-conditions.html">Terms of Service</a>
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-of-service.html">Terms of Service</a>
                 &nbsp;|&nbsp;
                 <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
             </p>
