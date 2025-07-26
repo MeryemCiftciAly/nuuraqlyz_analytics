@@ -23,15 +23,15 @@
             overflow-x: hidden;
         }
 
-        /* Header and Navigation (Copied from index.html for consistency) */
+        /* Header and Navigation (Consistent with index.html) */
         .hero-section-container {
             width: 100%;
             max-width: 1200px;
-            margin: 0 20px 20px 20px; /* Removed top margin */
+            margin: 0; /* Adjusted to be flush with the top */
             background-color: #fff;
-            border-radius: 10px;
+            border-radius: 0; /* Removed border-radius for flat design */
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: none; /* Removed box-shadow for flat design */
         }
 
         .hero-header {
@@ -86,8 +86,8 @@
             align-items: center;
             padding: 15px 0;
             width: 100%;
-            background-color: transparent;
-            border-top: none;
+            background-color: #fff; /* Changed to white to match header */
+            border-top: 1px solid #eee; /* Added border-top for separation */
             box-sizing: border-box;
         }
 
@@ -126,9 +126,8 @@
             background-color: #fff; /* White background for the section */
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            flex-grow: 1; /* Allows content to push footer down */
         }
-
-        /* REMOVED .gradient-overlay CSS */
 
         .company-name {
             font-size: 0.9em;
@@ -288,10 +287,9 @@
 
         /* Footer Styles (Consistent across pages) */
         .footer {
-            width: 100%;
-            max-width: 1200px;
+            width: 100%; /* Make footer span full width of the screen */
             margin-top: 20px;
-            padding: 30px 20px;
+            padding: 30px 0; /* Adjust padding as content will have its own horizontal padding */
             background-color: #444444;
             color: #fff;
             text-align: center;
@@ -299,6 +297,13 @@
             border-top-right-radius: 10px;
             box-sizing: border-box;
             font-size: 0.9em;
+            flex-shrink: 0; /* Prevents footer from shrinking on short pages */
+        }
+
+        .footer-inner-content {
+            max-width: 1200px; /* Constrain content to match header's width */
+            margin: 0 auto; /* Center the content */
+            padding: 0 20px; /* Add horizontal padding to content */
         }
 
         .footer p {
@@ -332,6 +337,9 @@
             }
             .collapsible-content-grid {
                 grid-template-columns: 1fr;
+            }
+            .footer-inner-content {
+                padding: 0 15px; /* Adjust inner padding for smaller screens */
             }
         }
 
@@ -382,7 +390,9 @@
             .accordion-content {
                 padding: 15px 20px;
             }
-            /* REMOVED .gradient-overlay responsive adjustments */
+            .footer-inner-content {
+                padding: 0 10px; /* Adjust inner padding for smaller screens */
+            }
         }
 
         @media (max-width: 480px) {
@@ -427,7 +437,6 @@
             .accordion-content {
                 padding: 12px 15px;
             }
-            /* REMOVED .gradient-overlay responsive adjustments */
         }
     </style>
 </head>
@@ -456,8 +465,6 @@
     </div>
 
     <div class="info-guide-container">
-        <!-- Removed the gradient-overlay div -->
-
         <div class="company-name">NUURAQLYZ ANALYTICS</div>
         <h1 class="main-title">
             <span>Your Comprehensive</span>
@@ -674,26 +681,9 @@
                 </div>
             </div>
 
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <h3>Ethical Guidelines / Data Philosophy</h3>
-                    <i class="fas fa-chevron-down accordion-icon"></i>
-                </button>
-                <div class="accordion-content">
-                    <div class="collapsible-content-grid">
-                        <div>
-                            <p>My ethical commitment guides every project. I will <strong>not</strong> engage in work that promotes or depicts violence (including violence against women or minorities), racism, discrimination of any kind, pornography, or religious bias.</p>
-                        </div>
-                        <div>
-                            <p>My work is founded on principles of integrity, transparency, and ethical data handling. I commit to providing <strong>unbiased analysis</strong> and respecting <strong>data privacy</strong> to build trust and deliver meaningful insights.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="accordion-item" id="rush-project-accordion">
                 <button class="accordion-header">
-                    <h3>Rush Project Availability/Fees</h3>
+                    <h3>Rush Project Availability & Fees</h3>
                     <i class="fas fa-chevron-down accordion-icon"></i>
                 </button>
                 <div class="accordion-content">
@@ -750,20 +740,6 @@
 
             <div class="accordion-item">
                 <button class="accordion-header">
-                    <h3>Working Hours</h3>
-                    <i class="fas fa-chevron-down accordion-icon"></i>
-                </button>
-                <div class="accordion-content">
-                    <div class="collapsible-content-grid">
-                        <div>
-                            <p>My standard working hours are <strong>Monday to Friday, 9:00 AM - 5:00 PM EST</strong>. While I strive to be responsive, major communication and work output will primarily occur within these hours.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header">
                     <h3>Pricing Overview</h3>
                     <i class="fas fa-chevron-down accordion-icon"></i>
                 </button>
@@ -771,6 +747,37 @@
                     <div class="collapsible-content-grid">
                         <div>
                             <p>My pricing is <strong>project-based</strong>, tailored to the complexity and estimated time investment. Custom quotes are provided after a detailed discovery session. <strong>Hourly rates</strong> are available for <strong>rush</strong>, consulting, or smaller, ongoing tasks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Ethical Guidelines / Data Philosophy</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>My ethical commitment guides every project. I will <strong>not</strong> engage in work that promotes or depicts violence (including violence against women or minorities), racism, discrimination of any kind, pornography, or religious bias.</p>
+                        </div>
+                        <div>
+                            <p>My work is founded on principles of integrity, transparency, and ethical data handling. I commit to providing <strong>unbiased analysis</strong> and respecting <strong>data privacy</strong> to build trust and deliver meaningful insights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Working Hours</h3>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="collapsible-content-grid">
+                        <div>
+                            <p>My standard working hours are <strong>Monday to Friday, 9:00 AM - 5:00 PM EST</strong>. While I strive to be responsive, major communication and work output will primarily occur within these hours.</p>
                         </div>
                     </div>
                 </div>
@@ -807,8 +814,9 @@
         </div>
     </div>
 
+    <!-- Footer Section -->
     <footer class="footer">
-        <div class="footer-content">
+        <div class="footer-inner-content">
             <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
             <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe - Ciftci (Meryem)</p>
             <p>
@@ -820,43 +828,68 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', function() {
             const accordionHeaders = document.querySelectorAll('.accordion-header');
 
             accordionHeaders.forEach(header => {
-                header.addEventListener('click', () => {
-                    const currentItem = header.parentNode;
-                    const accordionContent = header.nextElementSibling; // The accordion-content div
-                    const accordionIcon = header.querySelector('.accordion-icon');
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.accordion-icon');
 
                     // Close all other open accordions except the one just clicked
                     accordionHeaders.forEach(otherHeader => {
-                        if (otherHeader !== header) {
+                        if (otherHeader !== this) { // Changed to 'this' to correctly exclude the current header
                             const otherContent = otherHeader.nextElementSibling;
                             const otherIcon = otherHeader.querySelector('.accordion-icon');
                             if (otherContent.classList.contains('active')) {
-                                otherContent.style.maxHeight = null;
+                                otherContent.style.maxHeight = '0';
                                 otherContent.classList.remove('active');
                                 otherHeader.classList.remove('active');
-                                otherIcon.style.transform = 'rotate(0deg)';
+                                otherIcon.classList.remove('active'); // Ensure icon also resets
                             }
                         }
                     });
 
-                    // Toggle current accordion
-                    if (accordionContent.classList.contains('active')) {
-                        accordionContent.style.maxHeight = null;
-                        accordionContent.classList.remove('active');
-                        header.classList.remove('active');
-                        accordionIcon.style.transform = 'rotate(0deg)';
+                    // Toggle the active class on the header
+                    this.classList.toggle('active');
+
+                    // Toggle the active class on the content and adjust max-height
+                    if (content.classList.contains('active')) {
+                        content.classList.remove('active');
+                        content.style.maxHeight = '0';
                     } else {
-                        accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-                        accordionContent.classList.add('active');
-                        header.classList.add('active');
-                        accordionIcon.style.transform = 'rotate(180deg)';
+                        content.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
                     }
+
+                    // Toggle the active class on the icon
+                    icon.classList.toggle('active');
                 });
             });
+
+            // Handle deep linking to specific accordion items (like #payment-terms-accordion)
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1); // Remove '#'
+                const targetAccordionItem = document.getElementById(targetId);
+                if (targetAccordionItem) {
+                    const header = targetAccordionItem.querySelector('.accordion-header');
+                    const content = targetAccordionItem.querySelector('.accordion-content');
+                    const icon = targetAccordionItem.querySelector('.accordion-icon');
+
+                    if (header && content && icon && !header.classList.contains('active')) {
+                        // Open the accordion if it's not already open
+                        header.classList.add('active');
+                        content.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.classList.add('active');
+
+                        // Scroll to the accordion item after a slight delay to allow rendering
+                        setTimeout(() => {
+                            targetAccordionItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 300); // Adjust delay as needed
+                    }
+                }
+            }
         });
     </script>
 </body>
