@@ -18,7 +18,7 @@
             line-height: 1.6;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* Centers the max-width containers */
             min-height: 100vh;
             box-sizing: border-box;
             overflow-x: hidden; /* Prevent horizontal scroll */
@@ -27,12 +27,11 @@
         /* Consistent Header and Navigation Styles */
         .hero-section-container {
             width: 100%;
-            max-width: 1200px;
-            margin: 0 20px 20px 20px; /* Removed top margin for consistency */
+            max-width: 1200px; /* Constrains the content width of the header */
+            margin: 0; /* Removed all margins to ensure it's flush */
             background-color: #fff;
-            border-radius: 10px;
+            /* Removed border-radius and box-shadow to make it flat */
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .hero-header {
@@ -48,7 +47,7 @@
             align-items: center;
             font-weight: 700;
             color: #333;
-            gap: 0px; /* Ensure no extra gap from previous designs */
+            gap: 0px;
         }
 
         .hero-logo-icon {
@@ -119,7 +118,7 @@
         .policy-container {
             max-width: 900px;
             width: 100%;
-            margin: 40px 20px;
+            margin: 40px 20px; /* Keep margin here to separate from header/footer */
             padding: 40px;
             background-color: #fff;
             border-radius: 10px;
@@ -189,10 +188,9 @@
 
         /* Consistent Footer Styles */
         .footer {
-            width: 100%;
-            max-width: 1200px; /* Match hero-section-container max-width */
+            width: 100%; /* Make footer span full width of the screen */
             margin-top: 20px;
-            padding: 30px 20px;
+            padding: 30px 0; /* Adjust padding as content will have its own horizontal padding */
             background-color: #444444;
             color: #fff;
             text-align: center;
@@ -201,6 +199,12 @@
             box-sizing: border-box;
             font-size: 0.9em;
             flex-shrink: 0; /* Prevents footer from shrinking on short pages */
+        }
+
+        .footer-inner-content {
+            max-width: 1200px; /* Constrain content to match header's width */
+            margin: 0 auto; /* Center the content */
+            padding: 0 20px; /* Add horizontal padding to content */
         }
 
         .footer p {
@@ -239,6 +243,9 @@
             h3 {
                 font-size: 1.2em;
             }
+            .footer-inner-content {
+                padding: 0 15px; /* Adjust inner padding for smaller screens */
+            }
         }
 
         @media (max-width: 992px) {
@@ -276,6 +283,9 @@
             }
             p, ul li {
                 font-size: 0.95em;
+            }
+            .footer-inner-content {
+                padding: 0 10px; /* Adjust inner padding for smaller screens */
             }
         }
 
@@ -426,7 +436,7 @@
 
     <!-- Footer Section -->
     <footer class="footer">
-        <div class="footer-content">
+        <div class="footer-inner-content">
             <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
             <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe - Ciftci (Meryem)</p>
             <p>
