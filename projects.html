@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUURAQLYZ Analytics - Portfolio</title>
+    <title>NUURAQLYZ Analytics - Projects</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Favicon links -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.svg" />
-<link rel="shortcut icon" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//apple-touch-icon.png" />
-<link rel="manifest" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//site.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.svg" />
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//apple-touch-icon.png" />
+    <link rel="manifest" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//site.webmanifest" />
     <style>
         /* General Body Styles */
         body {
@@ -29,16 +30,15 @@
             color: #333; /* Default text color */
         }
 
-        /* Header Section (Logo and Tagline) - Now directly under body, spanning full width */
+        /* Header Section (Logo and Tagline) */
         .hero-header {
             display: flex;
             justify-content: space-between; /* Pushes logo and tagline to opposite ends */
             align-items: center;
             padding: 20px 40px; /* Padding for the header */
             background-color: #fff; /* White background */
-            width: 70%; /* Adjusted width to 85% */
+            width: 70%; /* Adjusted width */
             box-sizing: border-box; /* Include padding in width */
-            /* Removed margin, border-radius, box-shadow to make it "flat" */
         }
 
         .hero-logo {
@@ -50,8 +50,8 @@
         }
 
         .hero-logo-icon {
-            width: 180px;
-            height: 180px;
+            width: 180px; /* Consistent size */
+            height: 180px; /* Consistent size */
             margin-right: 8px;
             flex-shrink: 0;
             object-fit: contain;
@@ -80,7 +80,7 @@
             white-space: nowrap; /* Prevent text from wrapping */
         }
 
-        /* Navigation Bar Styles - Now directly under body, spanning full width */
+        /* Navigation Bar */
         .navbar {
             display: flex;
             justify-content: center; /* Center the navigation links */
@@ -89,7 +89,7 @@
             width: 100%; /* Ensures it spans full width */
             border-top: 1px solid #eee; /* Subtle separator from header */
             box-sizing: border-box;
-            /* Removed margin, border-radius, box-shadow */
+            background-color: #fff; /* Ensure it has a white background */
         }
 
         .navbar-links {
@@ -115,11 +115,11 @@
             background-color: rgba(0, 0, 0, 0.05);
         }
 
-        /* Main content area for projects page - ensures footer stays at bottom */
+        /* Main content area for projects page */
         .main-content-projects {
             flex-grow: 1; /* This makes the main content expand to fill available space */
             width: 100%;
-            max-width: 1200px; /* Constrain main content width */
+            max-width: 1200px; /* Max width for content within the main area */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -128,55 +128,95 @@
             margin-top: 20px; /* Add some space below the navbar */
         }
 
-        /* Tabs Container */
-        .tabs-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            background-color: #f8f8f8;
-            padding: 10px 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            max-width: 100%; /* Ensure it fits within main-content-projects */
-            width: 100%;
-            box-sizing: border-box;
-            flex-wrap: wrap;
+        /* Section Headings and Descriptions */
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: #555;
+            text-align: center;
         }
 
-        .tab {
-            padding: 10px 20px;
-            margin: 0 5px;
+        /* Client Projects Section (Container for quote and grid) */
+        .client-projects-section {
+            width: 100%;
+            max-width: 1100px; /* Full width for content */
+            position: relative; /* For positioning the filter next to heading */
+            box-sizing: border-box;
+        }
+
+        /* Container for Client Projects Heading and Filter */
+        .client-section-header {
+            display: flex;
+            justify-content: center; /* Center the heading and filter container */
+            align-items: center;
+            width: 100%;
+            margin-top: 60px;
+            margin-bottom: 15px;
+            position: relative; /* For filter positioning */
+        }
+
+        .client-section-header h2 {
+            margin: 0; /* Remove default margin from h2 */
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: #333;
+            white-space: nowrap; /* Prevent heading from wrapping */
+        }
+
+        /* Horizontal Filter for Client Projects (Always Visible Tabs) */
+        .client-filter-tabs-container {
+            display: flex;
+            margin-left: 20px; /* Space from the heading */
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 5px; /* Padding inside the container */
+            flex-shrink: 0; /* Prevent it from shrinking */
+        }
+
+        .client-filter-tabs-container .tab {
+            padding: 10px 15px;
+            margin: 0 5px; /* Small margin between tabs */
             cursor: pointer;
-            font-weight: 700;
+            font-weight: 600;
             color: #555;
             border-radius: 5px;
             transition: background-color 0.3s ease, color 0.3s ease;
             white-space: nowrap;
+            flex-shrink: 0; /* Prevent tabs from shrinking */
+            display: block; /* Ensure all tabs are always displayed */
         }
 
-        .tab:hover {
+        .client-filter-tabs-container .tab.active {
+            background-color: #007bff; /* Active tab color */
+            color: #fff;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .client-filter-tabs-container .tab:hover {
             background-color: #CCE5FF;
             color: #333;
         }
-
-        .tab.active {
-            background-color: #cccccc;
-            color: #333;
+        .client-filter-tabs-container .tab.active:hover {
+            background-color: #0056b3; /* Darker blue on hover for active */
+            color: #fff;
         }
 
-        /* Main Portfolio Container */
+        /* Client Projects Inner Container (Quote + Grid) */
         .portfolio-container {
             display: flex;
             width: 100%;
-            max-width: 100%; /* Ensure it fits within main-content-projects */
             background-color: #fff;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             overflow: hidden;
-            margin-bottom: 20px; /* Space before footer */
+            margin: 0 auto;
+            margin-bottom: 20px; /* Space before pagination */
         }
 
-        /* --- LEFT SECTION: LARGE QUOTATION BLOCK (40%) --- */
+        /* Quote Section */
         .quote-section {
             flex: 2;
             background-color: #f0f0f0;
@@ -223,8 +263,8 @@
             left: -0.2em;
         }
 
-        /* --- RIGHT SECTION: GRID BLOCKS (60%) --- */
-        .grid-section {
+        /* Grid Section for Client Projects */
+        .client-project-grid {
             flex: 3;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -234,33 +274,195 @@
             min-height: 600px; /* Match quote section height */
         }
 
-        .content-block {
+        /* Project Card Styles (unified for all projects) */
+        .project-card {
+            background-color: #fff;
+            border-radius: 8px; /* Rounded corners for individual cards */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            text-align: center;
-            color: #fff;
-            font-size: 1.3em;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            justify-content: space-between;
+            min-height: 220px; /* Ensure consistent card height */
+            border: 1px solid #eee; /* Subtle border */
         }
 
-        .content-block:hover {
-            opacity: 0.9;
-            transform: translateY(-3px);
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        /* Specific block colors */
+        /* Ensure text in client project cards is white for readability */
+        .client-project-grid .project-card h3,
+        .client-project-grid .project-card p {
+            color: #fff; /* Explicitly set text color to white for client project cards */
+        }
+
+        /* Default text color for showcase project cards (if not overridden by specific block colors) */
+        .showcase-projects-section .project-card h3,
+        .showcase-projects-section .project-card p {
+            color: #333; /* Default text color for showcase projects */
+        }
+
+
+        .project-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .project-card p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            flex-grow: 1; /* Allows description to take available space */
+            margin-bottom: 15px;
+        }
+
+        /* Specific block colors (for client projects) */
         .block-teal { background-color: #00CED1; }
         .block-pink { background-color: #FF69B4; }
         .block-purple-light { background-color: #8A2BE2; }
         .block-orange { background-color: #FFA500; }
         .block-purple-dark { background-color: #4B0082; }
         .block-yellow-grid { background-color: #FFD700; }
+
+        /* Showcase Projects Section */
+        .showcase-projects-section {
+            width: 100%;
+            max-width: 1100px; /* Align with client projects container max-width */
+            padding: 40px 20px;
+            margin-top: 60px; /* Space from client projects section */
+            background-color: #f8f8f8; /* Light gray background for distinction */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Subtle shadow */
+            box-sizing: border-box;
+            text-align: center; /* Center content within the section */
+        }
+
+        .showcase-project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+            margin: 0 auto; /* Center the grid within its section */
+            max-width: 900px; /* Max width for the grid itself */
+        }
+
+        /* Pagination Controls (for both client and showcase projects) */
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            gap: 20px;
+            width: 100%; /* Ensure it spans the width of its parent section */
+            max-width: 1100px; /* Align with section width */
+        }
+
+        /* Refined Pagination Button Styling */
+        .pagination-button {
+            background-color: #ffffff; /* White background */
+            color: #007bff; /* Blue text */
+            padding: 10px 25px;
+            border: 1px solid #007bff; /* Blue border */
+            border-radius: 25px; /* More rounded, pill-like shape */
+            font-size: 1em;
+            font-weight: 600; /* Slightly less bold */
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .pagination-button:hover:not(:disabled) {
+            background-color: #007bff; /* Blue background on hover */
+            color: #fff; /* White text on hover */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+            transform: translateY(-1px); /* Slight lift */
+        }
+
+        .pagination-button:disabled {
+            background-color: #f0f0f0; /* Lighter gray for disabled */
+            color: #999; /* Softer text color for disabled */
+            border-color: #ddd;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .page-info {
+            font-size: 1.05em; /* Slightly smaller font */
+            font-weight: 500; /* Less bold */
+            color: #666; /* Softer color */
+            padding: 0 10px; /* Space around text */
+        }
+
+        /* What-if Pay Scenario Spreadsheet Section */
+        .pay-scenario-section {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 60px;
+            padding: 40px;
+            background-color: #e0f7fa; /* Light blue background */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .pay-scenario-section .section-heading {
+            margin-top: 0;
+            font-size: 2em;
+        }
+
+        .pay-scenario-section .section-description {
+            margin-bottom: 30px;
+        }
+
+        .download-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+
+        .download-message {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #FF8C00; /* Orange color for emphasis */
+            margin-bottom: 15px;
+        }
+
+        .download-link-button { /* Style for the download link */
+            display: inline-block;
+            background-color: #28a745; /* Green for download */
+            color: #fff;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 15px; /* Space from messages */
+        }
+
+        .download-link-button:hover {
+            background-color: #218838; /* Darker green on hover */
+            transform: translateY(-2px);
+        }
+
+        .success-message {
+            font-size: 1em;
+            color: #555;
+            margin-top: 10px; /* Space from button */
+        }
 
         /* --- MODAL STYLES --- */
         .modal-overlay {
@@ -342,25 +544,25 @@
             background-color: #0056b3;
         }
 
-        /* Consistent Footer Styles (from index.html/services.html) */
+        /* Consistent Footer Styles */
         .footer {
             width: 100%; /* Stretches full viewport width */
             background-color: #444444; /* Softer dark gray footer background */
             color: #fff;
             text-align: center;
             margin-top: 20px; /* Consistent margin from content */
-            padding: 30px 20px; /* PADDING IS HERE */
-            border-top-left-radius: 10px; /* RADIUS IS HERE */
-            border-top-right-radius: 10px; /* RADIUS IS HERE */
+            padding: 30px 0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
             box-sizing: border-box;
             font-size: 0.9em;
             flex-shrink: 0; /* Important for preventing footer from shrinking on short pages */
         }
 
-        .footer-content {
+        .footer-inner-content { /* New wrapper for footer content to align it */
             max-width: 1200px; /* Content inside footer aligns with main content */
             margin: 0 auto; /* Center the content */
-            /* REMOVED padding, border-radius from here */
+            padding: 0 20px; /* Add horizontal padding to content */
         }
 
         .footer p {
@@ -379,18 +581,41 @@
         }
 
         /* Responsive Adjustments */
+        @media (max-width: 1200px) {
+            .client-projects-section {
+                max-width: 100%; /* Allow full width */
+            }
+            .client-section-header {
+                flex-direction: column; /* Stack heading and filter on smaller screens */
+                align-items: center;
+                text-align: center;
+            }
+            .client-section-header h2 {
+                margin-bottom: 15px; /* Space between heading and filter */
+            }
+            .client-filter-tabs-container {
+                margin-left: 0; /* Remove left margin when stacked */
+                width: 100%; /* Full width when stacked */
+                max-width: 350px; /* Max width for the filter container itself */
+            }
+        }
+
         @media (max-width: 1024px) {
             .hero-header {
                 padding: 15px 30px;
+                width: 90%;
             }
             .navbar-links {
                 gap: 20px;
             }
-            .tabs-container {
-                margin: 15px;
+            .pay-scenario-section {
+                padding: 30px 20px;
             }
-            .portfolio-container {
-                margin: 15px;
+            .pay-scenario-section .section-heading {
+                font-size: 2em;
+            }
+            .footer-inner-content {
+                padding: 0 15px;
             }
         }
 
@@ -398,14 +623,14 @@
             .hero-header {
                 flex-direction: column;
                 padding: 15px 20px;
-                width: 100%; /* On smaller screens, allow it to be full width */
+                width: 95%;
             }
             .hero-logo {
                 margin-bottom: 10px;
             }
             .hero-tagline {
                 text-align: center;
-                white-space: normal; /* Allow text to wrap on smaller screens */
+                white-space: normal;
             }
             .navbar-links {
                 flex-direction: column;
@@ -415,9 +640,31 @@
                 padding: 8px 15px;
                 font-size: 1em;
             }
+            /* Client filter becomes full width horizontal on smaller screens */
+            .client-filter-tabs-container {
+                position: static; /* No longer absolute */
+                transform: none; /* Remove transform */
+                width: 100%; /* Full width */
+                margin-top: 20px; /* Space from heading */
+                margin-bottom: 20px;
+                background-color: #f8f8f8;
+                padding: 10px 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                flex-direction: row; /* Horizontal tabs */
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .client-filter-tabs-container .tab {
+                width: auto; /* Auto width for horizontal tabs */
+                margin: 0 5px; /* Horizontal margin */
+            }
+            .client-project-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
             .portfolio-container {
                 flex-direction: column;
-                margin: 10px;
+                margin: 10px auto;
             }
 
             .quote-section {
@@ -436,7 +683,7 @@
                 font-size: 3em;
             }
 
-            .grid-section {
+            .client-project-grid {
                 order: 2;
                 min-height: auto;
                 width: 100%;
@@ -444,15 +691,25 @@
                 grid-template-rows: auto;
             }
 
-            .content-block {
+            .project-card {
                 font-size: 1.1em;
                 padding: 15px;
+            }
+            .showcase-project-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+            .pay-scenario-section .section-heading {
+                font-size: 1.8em;
+            }
+            .footer-inner-content {
+                padding: 0 10px;
             }
         }
 
         @media (max-width: 480px) {
             .hero-header {
                 padding: 10px 15px;
+                width: 100%;
             }
             .hero-logo-icon {
                 width: 140px;
@@ -464,43 +721,53 @@
             .navbar-links {
                 gap: 10px;
             }
-            .tabs-container {
+            .navbar-links li a {
+                font-size: 0.9em;
+            }
+            .client-filter-tabs-container {
                 padding: 8px 10px;
                 margin-bottom: 15px;
-                flex-direction: column;
+                flex-direction: column; /* Stack tabs vertically on very small screens */
                 align-items: center;
             }
-            .tab {
+            .client-filter-tabs-container .tab {
                 margin: 5px 0;
-                width: calc(100% - 10px);
+                width: calc(100% - 20px); /* Full width minus padding */
                 text-align: center;
             }
-            .quote-section {
-                padding: 20px;
-                min-height: 250px;
+            .client-project-grid {
+                grid-template-columns: 1fr; /* Single column on very small screens */
             }
-            .quote-content {
+            .project-card {
+                padding: 20px;
+                min-height: 180px;
+            }
+            .project-card h3 {
+                font-size: 1.3em;
+            }
+            .showcase-projects-section {
+                padding: 30px 15px;
+            }
+            .showcase-project-card {
+                padding: 20px;
+            }
+            .showcase-project-card h3 {
                 font-size: 1.2em;
             }
-            .quote-content::before,
-            .quote-content::after {
-                font-size: 2em;
+            .pay-scenario-section .section-heading {
+                font-size: 1.5em;
             }
-            .grid-section {
-                padding: 0;
-            }
-            .content-block {
+            .download-message {
                 font-size: 1em;
-                padding: 12px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section (Consistent with index.html without hero slide) -->
+    <!-- Header Section (Consistent with other pages) -->
     <header class="hero-header">
         <div class="hero-logo">
-            <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Logo+Fallback';">
+            <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Analytics Logo" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Logo+Fallback';" class="hero-logo-icon">
             <span class="hero-logo-main-text">Nuuraqlyz</span>
             <span class="hero-logo-analytics-text">ANALYTICS</span>
         </div>
@@ -509,137 +776,361 @@
         </div>
     </header>
 
-    <!-- Navigation Bar (Consistent with index.html) -->
+    <!-- Navigation Bar (Consistent with other pages) -->
     <nav class="navbar">
         <ul class="navbar-links">
             <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
             <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/services.html">Services</a></li>
             <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
             <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer-feedback.html">Client Feedback</a></li>
-            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/information-guide.html">Guided Information</a></li>
+            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/information-guide.html">Information Guide</a></li>
         </ul>
     </nav>
 
     <main class="main-content-projects">
-        <div class="tabs-container">
-            <div class="tab active" data-filter="all">All</div>
-            <div class="tab" data-filter="dashboards">Dashboards</div>
-            <div class="tab" data-filter="projects">Projects Completed</div>
-        </div>
-
-        <div class="portfolio-container">
-            <div class="quote-section">
-                <blockquote class="quote-content">
-                    Every skill gained fuels future growth. Now, leveraging data, I deliver actionable insights to propel your objectives and expand my expertise.
-                </blockquote>
-            </div>
-
-            <div class="grid-section">
-                <div class="content-block block-teal" data-type="project"
-                    data-title="Project 1: Waiting to be filled..."
-                    data-description="Details for this project are currently being prepared."
-                    data-link="#">
-                    Project 1: Waiting to be filled...
-                </div>
-                <div class="content-block block-pink" data-type="dashboard"
-                    data-title="Project 2: Waiting to be filled..."
-                    data-description="Details for this project are currently being prepared."
-                    data-link="#">
-                    Project 2: Waiting to be filled...
-                </div>
-                <div class="content-block block-purple-light" data-type="project"
-                    data-title="Project 3: Waiting to be filled..."
-                    data-description="Details for this project are currently being prepared."
-                    data-link="#">
-                    Project 3: Waiting to be filled...
-                </div>
-                <div class="content-block block-orange" data-type="dashboard"
-                    data-title="Project 4: Waiting to be filled..."
-                    data-description="Details for this project are currently being prepared."
-                    data-link="#">
-                    Project 4: Waiting to be filled...
-                </div>
-                <div class="content-block block-purple-dark" data-type="project"
-                    data-title="Project 5: Waiting to be filled..."
-                    data-description="Details for this project are currently being prepared."
-                    data-link="#">
-                    Project 5: Waiting to be filled...
-                </div>
-                <div class="content-block block-yellow-grid" data-type="dashboard"
-                    data-title="Project 6: Waiting to be filled..."
-                    data-description="Details for this project are currently being prepared."
-                    data-link="#">
-                    Project 6: Waiting to be filled...
+        <!-- Client Projects Section -->
+        <section class="client-projects-section">
+            <div class="client-section-header">
+                <h2 class="section-heading">Client Projects</h2>
+                <!-- Horizontal Filter for Client Projects (Always Visible Tabs) -->
+                <div class="client-filter-tabs-container">
+                    <div class="tab all-tab active" data-filter="all">ALL</div>
+                    <div class="tab" data-filter="dashboard">Dashboards</div>
+                    <div class="tab" data-filter="project">Completed Projects</div>
                 </div>
             </div>
-        </div>
+            <p class="section-description">Explore a selection of our successful client engagements, where we've delivered tangible results through data-driven strategies and analytical expertise.</p>
+            <div class="portfolio-container">
+                <div class="quote-section">
+                    <blockquote class="quote-content">
+                        Every skill gained fuels future growth. Now, leveraging data, I deliver actionable insights to propel your objectives and expand my expertise.
+                    </blockquote>
+                </div>
 
+                <div class="client-project-grid">
+                    <!-- Client project cards will be dynamically loaded here by JavaScript -->
+                </div>
+            </div>
+            <!-- Pagination Controls for Client Projects -->
+            <div class="pagination-controls client-pagination-controls">
+                <button id="clientPrevBtn" class="pagination-button">Previous</button>
+                <span id="clientPageInfo" class="page-info">Page 1 of 1</span>
+                <button id="clientNextBtn" class="pagination-button">Next</button>
+            </div>
+        </section>
+
+        <!-- Showcase Projects Section -->
+        <section class="showcase-projects-section">
+            <h2 class="section-heading">Showcase Projects</h2>
+            <p class="section-description">These projects demonstrate advanced analytical techniques, innovative problem-solving, and my continuous exploration of new tools and methodologies.</p>
+            <div class="showcase-project-grid">
+                <!-- Showcase project cards will be dynamically loaded here by JavaScript -->
+            </div>
+            <!-- Pagination Controls for Showcase Projects -->
+            <div class="pagination-controls showcase-pagination-controls">
+                <button id="showcasePrevBtn" class="pagination-button">Previous</button>
+                <span id="showcasePageInfo" class="page-info">Page 1 of 1</span>
+                <button id="showcaseNextBtn" class="pagination-button">Next</button>
+            </div>
+        </section>
+
+        <!-- What-if Pay Scenario Spreadsheet Section -->
+        <section class="pay-scenario-section">
+            <h2 class="section-heading">Plan Your Future: What-if Pay Scenario Spreadsheet</h2>
+            <p class="section-description">Download your own customizable spreadsheet to calculate estimated take-home pay for different job scenarios in New York City, factoring in relevant taxes.</p>
+            <div class="download-box">
+                <p class="download-message">Download soon. Standby for release!</p>
+                <!-- New Download Link for the Excel File -->
+                <a href="#" download="What-if_Pay_Scenario_NYC.xlsx" class="download-link-button">Download Spreadsheet (Coming Soon)</a>
+                <p class="success-message">We wish you good fortune and success!</p>
+            </div>
+        </section>
+
+        <!-- Modal for Project Details -->
         <div class="modal-overlay">
             <div class="modal-content">
                 <button class="modal-close-button">&times;</button>
                 <h2 class="modal-title"></h2>
                 <p class="modal-description"></p>
+                <!-- The modal link will use the data-link from the clicked project card -->
                 <a href="#" class="modal-link" target="_blank">View Project/Dashboard</a>
             </div>
         </div>
     </main>
 
+    <!-- Footer Section (Consistent with other pages) -->
+    <footer class="footer">
+        <div class="footer-inner-content">
+            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe - Ciftci (Meryem)</p>
+            <p>
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-of-service.html">Terms of Service</a>
+                &nbsp;|&nbsp;
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const tabs = document.querySelectorAll('.tab');
-            const contentBlocks = document.querySelectorAll('.content-block');
+            // --- Project Data ---
+            const clientProjectsData = [
+                // Client Projects (18 entries for 3 pages of 6, all with "Waiting to be filled...")
+                // Replace '#' with actual project URLs when ready
+                { id: 'cp1', type: 'project', title: 'Project 1: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'teal' },
+                { id: 'cp2', type: 'dashboard', title: 'Project 2: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'pink' },
+                { id: 'cp3', type: 'project', title: 'Project 3: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'purple-light' },
+                { id: 'cp4', type: 'dashboard', title: 'Project 4: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'orange' },
+                { id: 'cp5', type: 'project', title: 'Project 5: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'purple-dark' },
+                { id: 'cp6', type: 'dashboard', title: 'Project 6: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'yellow-grid' },
+                { id: 'cp7', type: 'project', title: 'Project 7: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'teal' },
+                { id: 'cp8', type: 'dashboard', title: 'Project 8: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'pink' },
+                { id: 'cp9', type: 'project', title: 'Project 9: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'purple-light' },
+                { id: 'cp10', type: 'dashboard', title: 'Project 10: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'orange' },
+                { id: 'cp11', type: 'project', title: 'Project 11: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'purple-dark' },
+                { id: 'cp12', type: 'dashboard', title: 'Project 12: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'yellow-grid' },
+                { id: 'cp13', type: 'project', title: 'Project 13: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'teal' },
+                { id: 'cp14', type: 'dashboard', title: 'Project 14: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'pink' },
+                { id: 'cp15', type: 'project', title: 'Project 15: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'purple-light' },
+                { id: 'cp16', type: 'dashboard', title: 'Project 16: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'orange' },
+                { id: 'cp17', type: 'project', title: 'Project 17: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'purple-dark' },
+                { id: 'cp18', type: 'dashboard', title: 'Project 18: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', color: 'yellow-grid' }
+            ];
+
+            const showcaseProjectsData = [
+                // Showcase Projects (18 entries for 3 pages of 6, all with "Waiting to be filled...")
+                // Replace '#' with actual project URLs when ready
+                { id: 'sp1', type: 'project', title: 'Showcase Project 1: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp2', type: 'dashboard', title: 'Showcase Project 2: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp3', type: 'project', title: 'Showcase Project 3: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp4', type: 'dashboard', title: 'Showcase Project 4: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp5', type: 'project', title: 'Showcase Project 5: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp6', type: 'dashboard', title: 'Showcase Project 6: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp7', type: 'project', title: 'Showcase Project 7: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp8', type: 'dashboard', title: 'Showcase Project 8: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp9', type: 'project', title: 'Showcase Project 9: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp10', type: 'dashboard', title: 'Showcase Project 10: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp11', type: 'project', title: 'Showcase Project 11: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp12', type: 'dashboard', title: 'Showcase Project 12: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp13', type: 'project', title: 'Showcase Project 13: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp14', type: 'dashboard', title: 'Showcase Project 14: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp15', type: 'project', title: 'Showcase Project 15: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp16', type: 'dashboard', title: 'Showcase Project 16: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp17', type: 'project', title: 'Showcase Project 17: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' },
+                { id: 'sp18', type: 'dashboard', title: 'Showcase Project 18: Waiting to be filled...', description: 'Details for this project are currently being prepared.', link: '#', category: 'showcase' }
+            ];
+
+
+            // --- DOM Elements ---
+            const clientProjectGrid = document.querySelector('.client-project-grid');
+            const showcaseProjectGrid = document.querySelector('.showcase-project-grid');
+
+            const clientPrevBtn = document.getElementById('clientPrevBtn');
+            const clientNextBtn = document.getElementById('clientNextBtn');
+            const clientPageInfoSpan = document.getElementById('clientPageInfo');
+
+            const showcasePrevBtn = document.getElementById('showcasePrevBtn');
+            const showcaseNextBtn = document.getElementById('showcaseNextBtn');
+            const showcasePageInfoSpan = document.getElementById('showcasePageInfo');
+
+            const clientFilterTabsContainer = document.querySelector('.client-filter-tabs-container');
+            const clientFilterTabs = document.querySelectorAll('.client-filter-tabs-container .tab');
+
             const modalOverlay = document.querySelector('.modal-overlay');
             const modalTitle = document.querySelector('.modal-title');
             const modalDescription = document.querySelector('.modal-description');
             const modalLink = document.querySelector('.modal-link');
             const modalCloseButton = document.querySelector('.modal-close-button');
 
-            // --- Tab Filtering Logic ---
-            const filterBlocks = (filter) => {
-                contentBlocks.forEach(block => {
-                    const blockType = block.dataset.type; // 'dashboard' or 'project'
-                    if (filter === 'all') {
-                        block.style.display = 'flex';
-                    } else if (filter === 'dashboards' && blockType === 'dashboard') {
-                        block.style.display = 'flex';
-                    } else if (filter === 'projects' && blockType === 'project') {
-                        block.style.display = 'flex';
-                    } else {
-                        block.style.display = 'none';
+            // --- Pagination and Filtering State ---
+            const projectsPerPage = 6;
+
+            let currentClientFilter = 'all'; // 'all', 'dashboard', 'project'
+            let clientCurrentPage = 1;
+            let filteredClientProjects = []; // This will hold the filtered client projects for pagination
+
+            let showcaseCurrentPage = 1;
+            let filteredShowcaseProjects = []; // This will hold the filtered showcase projects for pagination
+
+
+            // --- Functions ---
+
+            /**
+             * Renders paginated client project cards into the DOM based on filter.
+             */
+            const renderClientProjects = () => {
+                // Filter projects based on currentClientFilter
+                if (currentClientFilter === 'all') {
+                    filteredClientProjects = clientProjectsData;
+                } else {
+                    filteredClientProjects = clientProjectsData.filter(project => project.type === currentClientFilter);
+                }
+
+                const totalPages = Math.ceil(filteredClientProjects.length / projectsPerPage);
+
+                // Adjust currentPage if it's out of bounds after filtering
+                if (clientCurrentPage > totalPages && totalPages > 0) {
+                    clientCurrentPage = totalPages;
+                } else if (totalPages === 0) {
+                    clientCurrentPage = 1; // Always show page 1 even if no projects
+                } else if (clientCurrentPage === 0 && totalPages > 0) {
+                    clientCurrentPage = 1; // Reset to first page if it was 0 and projects exist
+                }
+
+                clientProjectGrid.innerHTML = ''; // Clear existing projects
+
+                const startIndex = (clientCurrentPage - 1) * projectsPerPage;
+                const endIndex = startIndex + projectsPerPage;
+                const projectsToDisplay = filteredClientProjects.slice(startIndex, endIndex);
+
+                if (projectsToDisplay.length === 0 && filteredClientProjects.length === 0) {
+                    clientProjectGrid.innerHTML = '<p style="text-align: center; color: #777; font-size: 1.2em; padding: 50px;">No client projects found for this category.</p>';
+                }
+
+                projectsToDisplay.forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.classList.add('project-card');
+                    // Add block color class
+                    if (project.color) {
+                        projectCard.classList.add(`block-${project.color}`);
                     }
+
+                    projectCard.dataset.id = project.id;
+                    projectCard.dataset.title = project.title;
+                    projectCard.dataset.description = project.description;
+                    projectCard.dataset.link = project.link; // This is where the project URL is stored
+                    projectCard.dataset.type = project.type;
+
+                    projectCard.innerHTML = `
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                    `;
+                    clientProjectGrid.appendChild(projectCard);
                 });
+
+                // Update pagination buttons and info
+                clientPrevBtn.disabled = clientCurrentPage <= 1;
+                clientNextBtn.disabled = clientCurrentPage >= totalPages;
+                clientPageInfoSpan.textContent = `Page ${clientCurrentPage} of ${totalPages > 0 ? totalPages : 1}`;
             };
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Remove active class from all tabs
-                    tabs.forEach(t => t.classList.remove('active'));
-                    // Add active class to clicked tab
-                    tab.classList.add('active');
-                    // Filter blocks based on data-filter attribute
-                    filterBlocks(tab.dataset.filter);
+
+            /**
+             * Renders paginated showcase project cards into the DOM.
+             */
+            const renderShowcaseProjects = () => {
+                filteredShowcaseProjects = showcaseProjectsData; // No filtering for showcase, just pagination
+
+                const totalPages = Math.ceil(filteredShowcaseProjects.length / projectsPerPage);
+
+                // Adjust currentPage if it's out of bounds
+                if (showcaseCurrentPage > totalPages && totalPages > 0) {
+                    showcaseCurrentPage = totalPages;
+                } else if (totalPages === 0) {
+                    showcaseCurrentPage = 1; // Always show page 1 even if no projects
+                } else if (showcaseCurrentPage === 0 && totalPages > 0) {
+                    showcaseCurrentPage = 1; // Reset to first page if it was 0 and projects exist
+                }
+
+                showcaseProjectGrid.innerHTML = ''; // Clear existing projects
+
+                const startIndex = (showcaseCurrentPage - 1) * projectsPerPage;
+                const endIndex = startIndex + projectsPerPage;
+                const projectsToDisplay = filteredShowcaseProjects.slice(startIndex, endIndex);
+
+                if (projectsToDisplay.length === 0 && filteredShowcaseProjects.length === 0) {
+                    showcaseProjectGrid.innerHTML = '<p style="text-align: center; color: #777; font-size: 1.2em; padding: 50px;">No showcase projects available yet.</p>';
+                }
+
+                projectsToDisplay.forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.classList.add('project-card');
+                    // Showcase projects don't have specific block colors, so text color will default to #333
+                    projectCard.dataset.id = project.id;
+                    projectCard.dataset.title = project.title;
+                    projectCard.dataset.description = project.description;
+                    projectCard.dataset.link = project.link; // This is where the project URL is stored
+                    projectCard.dataset.type = project.type;
+
+                    projectCard.innerHTML = `
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                    `;
+                    showcaseProjectGrid.appendChild(projectCard);
                 });
+
+                // Update pagination buttons and info
+                showcasePrevBtn.disabled = showcaseCurrentPage <= 1;
+                showcaseNextBtn.disabled = showcaseCurrentPage >= totalPages;
+                showcasePageInfoSpan.textContent = `Page ${showcaseCurrentPage} of ${totalPages > 0 ? totalPages : 1}`;
+            };
+
+
+            // --- Event Listeners ---
+
+            // Horizontal Filter (Client Projects Only)
+            clientFilterTabsContainer.addEventListener('click', (e) => {
+                const clickedTab = e.target.closest('.tab');
+                if (clickedTab) {
+                    // Remove active class from all tabs
+                    clientFilterTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    clickedTab.classList.add('active');
+                    // Update current filter and reset page for client projects
+                    currentClientFilter = clickedTab.dataset.filter;
+                    clientCurrentPage = 1; // Reset to first page on filter change
+                    renderClientProjects(); // Re-render client projects
+                }
             });
 
-            // Initial filter to show 'All' blocks
-            filterBlocks('all');
+            // Client Projects Pagination
+            clientPrevBtn.addEventListener('click', () => {
+                if (clientCurrentPage > 1) {
+                    clientCurrentPage--;
+                    renderClientProjects();
+                }
+            });
 
-            // --- Modal Logic ---
-            contentBlocks.forEach(block => {
-                block.addEventListener('click', () => {
-                    // Get data from the clicked block
-                    const title = block.dataset.title;
-                    const description = block.dataset.description;
-                    const link = block.dataset.link;
+            clientNextBtn.addEventListener('click', () => {
+                const totalPages = Math.ceil(filteredClientProjects.length / projectsPerPage);
+                if (clientCurrentPage < totalPages) {
+                    clientCurrentPage++;
+                    renderClientProjects();
+                }
+            });
 
-                    // Populate modal content
+            // Showcase Projects Pagination
+            showcasePrevBtn.addEventListener('click', () => {
+                if (showcaseCurrentPage > 1) {
+                    showcaseCurrentPage--;
+                    renderShowcaseProjects();
+                }
+            });
+
+            showcaseNextBtn.addEventListener('click', () => {
+                const totalPages = Math.ceil(showcaseProjectsData.length / projectsPerPage);
+                if (showcaseCurrentPage < totalPages) {
+                    showcaseCurrentPage++;
+                    renderShowcaseProjects();
+                }
+            });
+
+            // Modal Logic (Delegated event listener for both static and dynamically created cards)
+            document.addEventListener('click', (e) => {
+                const projectCard = e.target.closest('.project-card');
+                if (projectCard) {
+                    const title = projectCard.dataset.title;
+                    const description = projectCard.dataset.description;
+                    const link = projectCard.dataset.link; // Get the link from the data-link attribute
+
                     modalTitle.textContent = title;
                     modalDescription.textContent = description;
-                    modalLink.href = link;
+                    modalLink.href = link; // Set the href of the modal link
+                    modalLink.textContent = link === '#' ? 'Project Link (Coming Soon)' : 'View Project/Dashboard'; // Update button text
+                    modalLink.style.display = 'inline-block'; // Ensure it's visible
 
-                    // Show the modal
                     modalOverlay.classList.add('active');
-                });
+                }
             });
 
             // Close modal when close button or overlay is clicked
@@ -648,24 +1139,15 @@
             });
 
             modalOverlay.addEventListener('click', (e) => {
-                // Close only if click is directly on the overlay, not the content
                 if (e.target === modalOverlay) {
                     modalOverlay.classList.remove('active');
                 }
             });
+
+            // Initial renders when the page loads
+            renderClientProjects(); // Render client projects with pagination and filter
+            renderShowcaseProjects(); // Render showcase projects with pagination
         });
     </script>
-    <!-- Footer Section (Consistent with index.html) -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
-            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe - Ciftci (Meryem)</p>
-            <p>
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-and-conditions.html">Terms of Service</a>
-                &nbsp;|&nbsp;
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
-            </p>
-        </div>
-    </footer>
 </body>
 </html>
