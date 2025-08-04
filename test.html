@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUURAQLYZ Analytics - Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.svg" />
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//apple-touch-icon.png" />
+    <link rel="manifest" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//site.webmanifest" />
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            color: #333;
+        }
+
+        /* Header Section (Logo and Tagline) */
+        .hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #fff;
+            width: 70%;
+            box-sizing: border-box;
+        }
+
+        .hero-logo {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+            gap: 0px;
+        }
+
+        .hero-logo-icon {
+            width: 180px;
+            height: 180px;
+            margin-right: 8px;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+
+        .hero-logo-main-text {
+            font-size: 2em;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .hero-logo-analytics-text {
+            color: #888;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        .hero-tagline {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #555;
+            text-transform: none;
+            letter-spacing: 1px;
+            text-align: right;
+            line-height: normal;
+            white-space: nowrap;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            width: 100%;
+            border-top: 1px solid #eee;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        .navbar-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        .navbar-links li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar-links li a:hover {
+            color: #FF8C00;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Main content area for projects page */
+        .main-content-projects {
+            flex-grow: 1;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        /* Section Headings and Descriptions */
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Client Projects Section (Container for quote and grid) */
+        .client-projects-section {
+            width: 100%;
+            max-width: 1100px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        /* Container for Client Projects Heading and Filter */
+        .client-section-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 60px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .client-section-header h2 {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        /* Horizontal Filter for Client Projects (Always Visible Tabs) */
+        .client-filter-tabs-container {
+            display: flex;
+            margin-left: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 5px;
+            flex-shrink: 0;
+        }
+
+        .client-filter-tabs-container .tab {
+            padding: 10px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #555;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .client-filter-tabs-container .tab.active {
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .client-filter-tabs-container .tab:hover {
+            background-color: #CCE5FF;
+            color: #333;
+        }
+        .client-filter-tabs-container .tab.active:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Client Projects Inner Container (Quote + Grid) */
+        .portfolio-container {
+            display: flex;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            flex: 2;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            min-height: 600px;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-content {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: #333;
+            line-height: 1.4;
+            max-width: 85%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-content::before,
+        .quote-content::after {
+            content: '\201C';
+            font-family: serif;
+            font-size: 5em;
+            position: absolute;
+            color: rgba(0, 0, 0, 0.05);
+            line-height: 1;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .quote-content::after {
+            content: '\201D';
+            top: auto;
+            bottom: -0.2em;
+            right: -0.2em;
+        }
+
+        .quote-content::before {
+            top: -0.2em;
+            left: -0.2em;
+        }
+
+        /* Grid Section for Client Projects */
+        .client-project-grid {
+            flex: 3;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 1px;
+            background-color: #fff;
+            min-height: 600px;
+        }
+
+        /* Project Card Styles (unified for all projects) */
+        .project-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 220px;
+            border: 1px solid #eee;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Ensure text in client project cards is white for readability */
+        .client-project-grid .project-card h3,
+        .client-project-grid .project-card p {
+            color: #fff;
+        }
+
+        /* Default text color for showcase project cards (if not overridden by specific block colors) */
+        .showcase-projects-section .project-card h3,
+        .showcase-projects-section .project-card p {
+            color: #333;
+        }
+
+
+        .project-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .project-card p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        /* Specific block colors (for client projects) */
+        .block-teal { background-color: #00CED1; }
+        .block-pink { background-color: #FF69B4; }
+        .block-purple-light { background-color: #8A2BE2; }
+        .block-orange { background-color: #FFA500; }
+        .block-purple-dark { background-color: #4B0082; }
+        .block-yellow-grid { background-color: #FFD700; }
+
+        /* Showcase Projects Section */
+        .showcase-projects-section {
+            width: 100%;
+            max-width: 1100px;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .showcase-project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        /* Pagination Controls (for both client and showcase projects) */
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        /* Refined Pagination Button Styling */
+        .pagination-button {
+            background-color: #ffffff;
+            color: #007bff;
+            padding: 10px 25px;
+            border: 1px solid #007bff;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagination-button:hover:not(:disabled) {
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .pagination-button:disabled {
+            background-color: #f0f0f0;
+            color: #999;
+            border-color: #ddd;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .page-info {
+            font-size: 1.05em;
+            font-weight: 500;
+            color: #666;
+            padding: 0 10px;
+        }
+
+        /* What-if Pay Scenario Spreadsheet Section */
+        .pay-scenario-section {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 60px;
+            padding: 40px;
+            background-color: #e0f7fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .pay-scenario-section .section-heading {
+            margin-top: 0;
+            font-size: 2em;
+        }
+
+        .pay-scenario-section .section-description {
+            margin-bottom: 30px;
+        }
+
+        .download-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+
+        .download-message {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #FF8C00;
+            margin-bottom: 15px;
+        }
+
+        .download-link-button {
+            display: inline-block;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 15px;
+        }
+
+        .download-link-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        .success-message {
+            font-size: 1em;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* --- MODAL STYLES --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px; /* Increased max-width for more content */
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #888;
+            border: none;
+            background: none;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .modal-screenshot {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .modal-description {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            max-width: 90%;
+        }
+
+        .modal-links-table {
+            width: 80%; /* Adjusted for better appearance */
+            margin-bottom: 25px;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .modal-links-table th,
+        .modal-links-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .modal-links-table a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .modal-links-table a:hover {
+            text-decoration: underline;
+        }
+
+        .modal-call-to-action {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .contact-link-button {
+            display: inline-block;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .contact-link-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Consistent Footer Styles */
+        .footer {
+            width: 100%;
+            background-color: #444444;
+            color: #fff;
+            text-align: center;
+            margin-top: 20px;
+            padding: 30px 0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            box-sizing: border-box;
+            font-size: 0.9em;
+            flex-shrink: 0;
+        }
+
+        .footer-inner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        .footer a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #FFA07A;
+        }
+
+        /* No-JavaScript message styling */
+        .noscript-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 800px;
+        }
+        .noscript-message p {
+            margin: 0;
+            line-height: 1.5;
+        }
+        .noscript-message strong {
+            font-weight: 700;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1200px) {
+            .client-projects-section {
+                max-width: 100%;
+            }
+            .client-section-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .client-section-header h2 {
+                margin-bottom: 15px;
+            }
+            .client-filter-tabs-container {
+                margin-left: 0;
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-header {
+                padding: 15px 30px;
+                width: 90%;
+            }
+            .navbar-links {
+                gap: 20px;
+            }
+            .pay-scenario-section {
+                padding: 30px 20px;
+            }
+            .pay-scenario-section .section-heading {
+                font-size: 2em;
+            }
+            .footer-inner-content {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-header {
+                flex-direction: column;
+                padding: 15px 20px;
+                width: 95%;
+            }
+            .hero-logo {
+                margin-bottom: 10px;
+            }
+            .hero-tagline {
+                text-align: center;
+                white-space: normal;
+            }
+            .navbar-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .navbar-links li a {
+                padding: 8px 15px;
+                font-size: 1em;
+            }
+            .client-filter-tabs-container {
+                position: static;
+                transform: none;
+                width: 100%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                background-color: #f8f8f8;
+                padding: 10px 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .client-filter-tabs-container .tab {
+                width: auto;
+                margin: 0 5px;
+            }
+            .client-project-grid {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-container {
+                flex-direction: column;
+                margin: 10px auto;
+            }
+
+            .quote-section {
+                order: 1;
+                min-height: 300px;
+                padding: 30px;
+            }
+
+            .quote-content {
+                font-size: 1.5em;
+                max-width: 90%;
+            }
+
+            .quote-content::before,
+            .quote-content::after {
+                font-size: 3em;
+            }
+
+            .client-project-grid {
+                order: 2;
+                min-height: auto;
+                width: 100%;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .project-card {
+                font-size: 1.1em;
+                padding: 15px;
+            }
+            .showcase-project-grid {
+                grid-template-columns: 1fr;
+            }
+            .showcase-projects-section {
+                padding: 30px 15px;
+            }
+            .showcase-project-card {
+                padding: 20px;
+            }
+            .showcase-project-card h3 {
+                font-size: 1.2em;
+            }
+            .pay-scenario-section .section-heading {
+                font-size: 1.8em;
+            }
+            .footer-inner-content {
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-header {
+                padding: 10px 15px;
+                width: 100%;
+            }
+            .hero-logo-icon {
+                width: 140px;
+                height: 60px;
+            }
+            .hero-tagline {
+                font-size: 1em;
+            }
+            .navbar-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .navbar-links li a {
+                font-size: 0.9em;
+            }
+            .client-filter-tabs-container {
+                padding: 8px 10px;
+                margin-bottom: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+            .client-filter-tabs-container .tab {
+                width: calc(100% - 20px);
+                text-align: center;
+            }
+            .client-project-grid {
+                grid-template-columns: 1fr;
+            }
+            .project-card {
+                padding: 20px;
+                min-height: 180px;
+            }
+            .project-card h3 {
+                font-size: 1.3em;
+            }
+            .showcase-projects-section {
+                padding: 30px 15px;
+            }
+            .showcase-project-card {
+                padding: 20px;
+            }
+            .showcase-project-card h3 {
+                font-size: 1.2em;
+            }
+            .pay-scenario-section .section-heading {
+                font-size: 1.5em;
+            }
+            .download-message {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+        <header class="hero-header">
+        <div class="hero-logo">
+            <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Analytics Logo" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Logo+Fallback';" class="hero-logo-icon">
+            <span class="hero-logo-main-text">Nuuraqlyz</span>
+            <span class="hero-logo-analytics-text">ANALYTICS</span>
+        </div>
+        <div class="hero-tagline">
+            Analytics for clarity.<br>Insights for Action.
+        </div>
+    </header>
+
+        <nav class="navbar">
+        <ul class="navbar-links">
+            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
+            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/services.html">Services</a></li>
+            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
+            <li><a href="https://meryemciftcialy.github.io/work_sample/about_me.html">About Me</a></li>
+            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/information-guide.html">Information Guide</a></li>
+        </ul>
+    </nav>
+
+        <noscript>
+        <div class="noscript-message">
+            <p>⚠️ **Please enable JavaScript** to view this site's full interactive portfolio and features.</p>
+            <p>Without JavaScript, some sections, like the project details and filters, will not work as intended.</p>
+        </div>
+    </noscript>
+
+    <main class="main-content-projects">
+                <section class="client-projects-section">
+            <div class="client-section-header">
+                <h2 class="section-heading">Client Projects</h2>
+                                <div class="client-filter-tabs-container">
+                    <div class="tab all-tab active" data-filter="all">ALL</div>
+                    <div class="tab" data-filter="dashboard">Dashboards</div>
+                    <div class="tab" data-filter="project">Completed Projects</div>
+                </div>
+            </div>
+            <p class="section-description">Explore a selection of our successful client engagements, where we've delivered tangible results through data-driven strategies and analytical expertise.</p>
+            <div class="portfolio-container">
+                <div class="quote-section">
+                    <blockquote class="quote-content">
+                        Every skill gained fuels future growth. Now, leveraging data, I deliver actionable insights to propel your objectives and expand my expertise.
+                    </blockquote>
+                </div>
+
+                <div class="client-project-grid">
+                                    </div>
+            </div>
+                        <div class="pagination-controls client-pagination-controls">
+                <button id="clientPrevBtn" class="pagination-button" disabled>Previous</button>
+                <span id="clientPageInfo" class="page-info">Page 1 of 1</span>
+                <button id="clientNextBtn" class="pagination-button" disabled>Next</button>
+            </div>
+        </section>
+
+                <section class="showcase-projects-section">
+            <h2 class="section-heading">Showcase Projects</h2>
+            <p class="section-description">These are non-client projects to demonstrate advanced analytical techniques, innovative problem-solving, and my continuous exploration of new tools and methodologies.</p>
+            <div class="showcase-project-grid">
+                            </div>
+                        <div class="pagination-controls showcase-pagination-controls">
+                <button id="showcasePrevBtn" class="pagination-button" disabled>Previous</button>
+                <span id="showcasePageInfo" class="page-info">Page 1 of 1</span>
+                <button id="showcaseNextBtn" class="pagination-button" disabled>Next</button>
+            </div>
+        </section>
+
+                <section class="pay-scenario-section">
+            <h2 class="section-heading">Plan Your Future: What-if Pay Scenario Spreadsheet</h2>
+            <p class="section-description">Download your own customizable spreadsheet to calculate estimated take-home pay for different job scenarios in New York City, factoring in relevant taxes.</p>
+            <div class="download-box">
+                <p class="download-message">Download soon. Standby for release!</p>
+                                <a href="#" download="What-if_Pay_Scenario_NYC.xlsx" class="download-link-button">Download Spreadsheet (Coming Soon)</a>
+                <p class="success-message">We wish you good fortune and success!</p>
+            </div>
+        </section>
+
+                <div class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close-button">&times;</button>
+                <h2 class="modal-title">Project Title</h2>
+                <img src="" alt="Project Screenshot" class="modal-screenshot">
+                <p class="modal-description">Project description goes here.</p>
+                <table class="modal-links-table">
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                            </tbody>
+                </table>
+                <p class="modal-call-to-action">Call to action message goes here.</p>
+                <a href="#" class="contact-link-button">Let's Talk!</a>
+            </div>
+        </div>
+    </main>
+
+        <footer class="footer">
+        <div class="footer-inner-content">
+            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe - Ciftci (Meryem)</p>
+            <p>
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-of-service.html">Terms of Service</a>
+                &nbsp;|&nbsp;
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        // A central data store for all projects.
+        // This is where you will add your project details.
+        const projectData = {
+            client: [
+                {
+                    id: 'client-1',
+                    title: 'NYC Job Market Analysis',
+                    summary: 'An in-depth analysis of the New York City job market, focusing on salary trends, job availability, and key skills. The project involved data collection, cleaning, and visualization to provide actionable insights.',
+                    screenshot: 'https://placehold.co/800x450/e0f7fa/333333?text=Project+Screenshot+1',
+                    type: 'dashboard',
+                    colorClass: 'block-teal',
+                    links: [
+                        { platform: 'Tableau', url: 'https://public.tableau.com/profile/nuuraqlyz#!' },
+                        { platform: 'Power BI', url: 'https://app.powerbi.com/groups/me/reports/073b6a95-5f56-4c4f-a7f9-6b5d1e442801/ReportSection?experience=power-bi' },
+                        { platform: 'GitHub', url: 'https://github.com/MeryemCiftciAly' }
+                    ],
+                    callToAction: "This project is similar to an objective you'd like to meet or you have similar data that you would like to find insights on. Let's talk!",
+                },
+                {
+                    id: 'client-2',
+                    title: 'E-commerce Sales Dashboard',
+                    summary: 'A comprehensive dashboard to track and analyze e-commerce sales performance. Key metrics include revenue, customer demographics, and product profitability, enabling data-driven marketing decisions.',
+                    screenshot: 'https://placehold.co/800x450/e0f7fa/333333?text=Project+Screenshot+2',
+                    type: 'dashboard',
+                    colorClass: 'block-pink',
+                    links: [
+                        { platform: 'Power BI', url: 'https://app.powerbi.com/groups/me/reports/073b6a95-5f56-4c4f-a7f9-6b5d1e442801/ReportSection?experience=power-bi' }
+                    ],
+                    callToAction: "Have sales data you need to make sense of? Let's discuss how a custom dashboard can transform your business.",
+                },
+                {
+                    id: 'client-3',
+                    title: 'Supply Chain Optimization',
+                    summary: 'A project focused on optimizing a company’s supply chain by analyzing logistics data, identifying bottlenecks, and forecasting demand to reduce operational costs.',
+                    screenshot: 'https://placehold.co/800x450/e0f7fa/333333?text=Project+Screenshot+3',
+                    type: 'project',
+                    colorClass: 'block-purple-light',
+                    links: [
+                        { platform: 'Excel', url: '#' },
+                        { platform: 'GitHub', url: 'https://github.com/MeryemCiftciAly' }
+                    ],
+                    callToAction: "Need to streamline your operations? Our analytical skills can pinpoint inefficiencies and drive cost savings.",
+                },
+                {
+                    id: 'client-4',
+                    title: 'Marketing Campaign Performance',
+                    summary: 'Assessment of a recent marketing campaign using A/B testing data, customer engagement metrics, and conversion rates to determine effectiveness and ROI.',
+                    screenshot: 'https://placehold.co/800x450/e0f7fa/333333?text=Project+Screenshot+4',
+                    type: 'project',
+                    colorClass: 'block-orange',
+                    links: [
+                        { platform: 'Excel', url: '#' }
+                    ],
+                    callToAction: "Want to know if your marketing is working? Let's analyze your data to make confident, data-driven decisions.",
+                },
+                {
+                    id: 'client-5',
+                    title: 'More Projects Coming Soon!',
+                    summary: 'More client projects are being added to the portfolio. Please check back later to see new work!',
+                    screenshot: 'https://placehold.co/800x450/e0f7fa/333333?text=More+Projects+Soon',
+                    type: 'project',
+                    colorClass: 'block-purple-dark',
+                    links: [],
+                    callToAction: "Got a project in mind? Let's not wait! Reach out today to start the conversation.",
+                }
+            ],
+            showcase: [
+                {
+                    id: 'showcase-1',
+                    title: 'Sales Forecasting Model',
+                    summary: 'A showcase project using Python and machine learning to build a robust sales forecasting model. It demonstrates the use of time-series analysis and model evaluation techniques.',
+                    screenshot: 'https://placehold.co/800x450/f8f8f8/333333?text=Showcase+Project+1',
+                    type: 'project',
+                    links: [
+                        { platform: 'Python', url: '#' },
+                        { platform: 'GitHub', url: 'https://github.com/MeryemCiftciAly' }
+                    ],
+                    callToAction: "This project is similar to an objective you'd like to meet or you have similar data that you would like to find insights on. Let's talk!",
+                },
+                {
+                    id: 'showcase-2',
+                    title: 'Kaggle Competition: Titanic Survival',
+                    summary: 'My submission to the famous Kaggle Titanic competition, showcasing a well-structured data science pipeline from data cleaning and feature engineering to model building and evaluation.',
+                    screenshot: 'https://placehold.co/800x450/f8f8f8/333333?text=Showcase+Project+2',
+                    type: 'project',
+                    links: [
+                        { platform: 'Kaggle', url: '#' },
+                        { platform: 'GitHub', url: 'https://github.com/MeryemCiftciAly' }
+                    ],
+                    callToAction: "Got a project in mind? Let's not wait! Reach out today to start the conversation.",
+                },
+                {
+                    id: 'showcase-3',
+                    title: 'More Projects Coming Soon!',
+                    summary: 'More showcase projects are being added to the portfolio. Please check back later to see new work!',
+                    screenshot: 'https://placehold.co/800x450/f8f8f8/333333?text=More+Projects+Soon',
+                    type: 'project',
+                    links: [],
+                    callToAction: "Got a project in mind? Let's not wait! Reach out today to start the conversation.",
+                }
+            ]
+        };
+
+        // --- DOM Elements ---
+        const clientProjectGrid = document.querySelector('.client-project-grid');
+        const showcaseProjectGrid = document.querySelector('.showcase-project-grid');
+        const clientFilterTabs = document.querySelectorAll('.client-filter-tabs-container .tab');
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const modalContent = document.querySelector('.modal-content');
+        const modalTitle = modalContent.querySelector('.modal-title');
+        const modalScreenshot = modalContent.querySelector('.modal-screenshot');
+        const modalDescription = modalContent.querySelector('.modal-description');
+        const modalLinksTableBody = modalContent.querySelector('.modal-links-table tbody');
+        const modalCallToAction = modalContent.querySelector('.modal-call-to-action');
+        const modalCloseBtn = modalContent.querySelector('.modal-close-button');
+
+        // --- Helper Functions ---
+        function renderProjectCard(project, targetElement) {
+            const card = document.createElement('div');
+            card.classList.add('project-card');
+            card.classList.add(project.colorClass || '');
+            card.dataset.projectId = project.id;
+            card.dataset.projectType = project.type;
+
+            card.innerHTML = `
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-summary">${project.summary}</p>
+                <span class="project-status">Go to Project &nbsp; &#8594;</span>
+            `;
+            targetElement.appendChild(card);
+        }
+
+        function renderProjects(projects, targetElement) {
+            targetElement.innerHTML = '';
+            projects.forEach(project => renderProjectCard(project, targetElement));
+        }
+
+        function openModal(project) {
+            modalTitle.textContent = project.title;
+            modalScreenshot.src = project.screenshot;
+            modalDescription.textContent = project.summary;
+            modalCallToAction.textContent = project.callToAction;
+
+            modalLinksTableBody.innerHTML = '';
+            if (project.links && project.links.length > 0) {
+                project.links.forEach(link => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${link.platform}</td>
+                        <td><a href="${link.url}" target="_blank" rel="noopener noreferrer">View Project &nbsp; &#8594;</a></td>
+                    `;
+                    modalLinksTableBody.appendChild(tr);
+                });
+            } else {
+                modalLinksTableBody.innerHTML = '<tr><td colspan="2">No external links available.</td></tr>';
+            }
+
+            modalOverlay.classList.add('active');
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+        }
+
+        // --- Event Listeners ---
+        clientProjectGrid.addEventListener('click', (e) => {
+            const card = e.target.closest('.project-card');
+            if (card) {
+                const projectId = card.dataset.projectId;
+                const project = projectData.client.find(p => p.id === projectId);
+                if (project) {
+                    openModal(project);
+                }
+            }
+        });
+
+        showcaseProjectGrid.addEventListener('click', (e) => {
+            const card = e.target.closest('.project-card');
+            if (card) {
+                const projectId = card.dataset.projectId;
+                const project = projectData.showcase.find(p => p.id === projectId);
+                if (project) {
+                    openModal(project);
+                }
+            }
+        });
+
+        modalCloseBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        clientFilterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                clientFilterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.dataset.filter;
+                let filteredProjects = [];
+                if (filter === 'all') {
+                    filteredProjects = projectData.client;
+                } else {
+                    filteredProjects = projectData.client.filter(p => p.type === filter);
+                }
+
+                renderProjects(filteredProjects, clientProjectGrid);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects(projectData.client, clientProjectGrid);
+            renderProjects(projectData.showcase, showcaseProjectGrid);
+        });
+    </script>
+</body>
+</html>
