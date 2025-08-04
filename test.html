@@ -801,13 +801,24 @@
             text-decoration: underline;
         }
 
-        /* Responsive Design */
+        /* Responsive Design 
         @media (max-width: 1024px) {
             .hero-header {
                 flex-direction: column;
                 text-align: center;
                 padding: 20px;
-            }
+            } */
+
+             .hero-header {
+            display: flex;
+            justify-content: space-between; /* Pushes logo and tagline to opposite ends */
+            align-items: center;
+            padding: 20px 40px; /* Padding for the header */
+            background-color: #fff; /* White background */
+            width: 70%; /* Adjusted width */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
             .hero-tagline {
                 text-align: center;
                 margin-top: 10px;
