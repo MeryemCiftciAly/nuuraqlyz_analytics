@@ -970,17 +970,18 @@
                     </div>
                 </div>
 
-                <p class="modal-overview"></p>
-                <p class="modal-my-role"></p>
-                
-                <h4 class="modal-section-title">Skills & Tools Used</h4>
-                <p class="modal-skills-tools"></p>
-                
-                <div class="modal-testimonial-section">
-                    <p class="modal-testimonial-quote"></p>
-                    <div class="modal-testimonial-author-container">
-                        <span class="modal-testimonial-author"></span>
-                        <a href="#" class="modal-testimonial-link" target="_blank">Read Full Testimonial →</a>
+                <div class="modal-text-content">
+                    <p class="modal-overview"></p>
+                    <p class="modal-my-role"></p>
+                    <h4 class="modal-section-title">Skills & Tools Used</h4>
+                    <p class="modal-skills-tools"></p>
+                    
+                    <div class="modal-testimonial-section">
+                        <p class="modal-testimonial-quote"></p>
+                        <div class="modal-testimonial-author-container">
+                            <span class="modal-testimonial-author"></span>
+                            <a href="#" class="modal-testimonial-link" target="_blank">Read Full Testimonial →</a>
+                        </div>
                     </div>
                 </div>
 
@@ -1219,6 +1220,8 @@
             // --- DOM Elements ---
             const clientProjectGrid = document.querySelector('.client-project-grid');
             const showcaseProjectGrid = document.querySelector('.showcase-project-grid');
+            const clientProjectSection = document.querySelector('.client-projects-section');
+            const showcaseSection = document.querySelector('.showcase-section');
 
             const clientPrevBtn = document.getElementById('clientPrevBtn');
             const clientNextBtn = document.getElementById('clientNextBtn');
@@ -1283,6 +1286,11 @@
              * Renders paginated client project cards into the DOM based on filter.
              */
             const renderClientProjects = () => {
+                if (!clientProjectGrid) {
+                    console.error('Client project grid element not found.');
+                    return;
+                }
+
                 if (currentClientFilter === 'all') {
                     filteredClientProjects = clientProjectsData;
                 } else {
@@ -1300,29 +1308,28 @@
                 }
 
                 clientProjectGrid.innerHTML = '';
-
                 const startIndex = (clientCurrentPage - 1) * projectsPerPage;
                 const endIndex = startIndex + projectsPerPage;
                 const projectsToDisplay = filteredClientProjects.slice(startIndex, endIndex);
 
-                if (projectsToDisplay.length === 0 && filteredClientProjects.length === 0) {
+                if (projectsToDisplay.length === 0) {
                     clientProjectGrid.innerHTML = '<p style="text-align: center; color: #777; font-size: 1.2em; padding: 50px;">No client projects found for this category.</p>';
+                } else {
+                    projectsToDisplay.forEach(project => {
+                        const projectCard = document.createElement('div');
+                        projectCard.classList.add('project-card');
+                        if (project.color) {
+                            projectCard.classList.add(`block-${project.color}`);
+                        }
+                        projectCard.dataset.id = project.id;
+
+                        projectCard.innerHTML = `
+                            <h3>${project.title}</h3>
+                            <p>${project.description}</p>
+                        `;
+                        clientProjectGrid.appendChild(projectCard);
+                    });
                 }
-
-                projectsToDisplay.forEach(project => {
-                    const projectCard = document.createElement('div');
-                    projectCard.classList.add('project-card');
-                    if (project.color) {
-                        projectCard.classList.add(`block-${project.color}`);
-                    }
-                    projectCard.dataset.id = project.id;
-
-                    projectCard.innerHTML = `
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                    `;
-                    clientProjectGrid.appendChild(projectCard);
-                });
 
                 clientPrevBtn.disabled = clientCurrentPage <= 1;
                 clientNextBtn.disabled = clientCurrentPage >= totalPages;
@@ -1334,6 +1341,11 @@
              * Renders paginated showcase project cards into the DOM.
              */
             const renderShowcaseProjects = () => {
+                if (!showcaseProjectGrid) {
+                    console.error('Showcase project grid element not found.');
+                    return;
+                }
+
                 filteredShowcaseProjects = showcaseProjectsData;
 
                 const totalPages = Math.ceil(filteredShowcaseProjects.length / projectsPerPage);
@@ -1352,22 +1364,20 @@
                 const endIndex = startIndex + projectsPerPage;
                 const projectsToDisplay = filteredShowcaseProjects.slice(startIndex, endIndex);
 
-                if (projectsToDisplay.length === 0 && filteredShowcaseProjects.length === 0) {
+                if (projectsToDisplay.length === 0) {
                     showcaseProjectGrid.innerHTML = '<p style="text-align: center; color: #777; font-size: 1.2em; padding: 50px;">No showcase projects available yet.</p>';
+                } else {
+                    projectsToDisplay.forEach(project => {
+                        const projectCard = document.createElement('div');
+                        projectCard.classList.add('project-card');
+                        projectCard.dataset.id = project.id;
+                        projectCard.innerHTML = `
+                            <h3>${project.title}</h3>
+                            <p>${project.description}</p>
+                        `;
+                        showcaseProjectGrid.appendChild(projectCard);
+                    });
                 }
-
-                projectsToDisplay.forEach(project => {
-                    const projectCard = document.createElement('div');
-                    projectCard.classList.add('project-card');
-
-                    projectCard.dataset.id = project.id;
-
-                    projectCard.innerHTML = `
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                    `;
-                    showcaseProjectGrid.appendChild(projectCard);
-                });
 
                 showcasePrevBtn.disabled = showcaseCurrentPage <= 1;
                 showcaseNextBtn.disabled = showcaseCurrentPage >= totalPages;
@@ -1379,60 +1389,74 @@
              * @param {object} projectData - The data object for the selected project.
              */
             const openProjectModal = (projectData) => {
-                // Determine project type and show/hide the correct content block
+                // Ensure the modal elements exist before trying to populate them
+                if (!modalOverlay || !clientProjectContent || !showcaseProjectContent) {
+                    console.error('Modal elements not found.');
+                    return;
+                }
+
                 const isClientProject = projectData.id.startsWith('cp');
                 clientProjectContent.style.display = isClientProject ? 'block' : 'none';
                 showcaseProjectContent.style.display = isClientProject ? 'none' : 'block';
                 
                 // Populate content based on project type
                 if (isClientProject) {
-                    modalClientLogo.src = projectData.client_logo_url;
-                    modalClientWebsiteLink.href = projectData.client_website_link === '#' ? '#' : projectData.client_website_link;
-                    modalClientWebsiteLink.style.display = projectData.client_website_link === '#' ? 'none' : 'inline-block';
-                    modalClientTitle.textContent = projectData.title;
-                    modalOverview.innerHTML = `<h4 class="modal-section-title">Overview / Problem Statement</h4><p>${projectData.overview}</p>`;
-                    modalMyRole.innerHTML = `<h4 class="modal-section-title">My Role / What I Did</h4><p>${projectData.my_role}</p>`;
-                    modalClientSkillsTools.textContent = `Skills: ${projectData.skills} | Tools: ${projectData.tools}`;
+                    if (modalClientLogo) modalClientLogo.src = projectData.client_logo_url;
+                    if (modalClientWebsiteLink) {
+                        modalClientWebsiteLink.href = projectData.client_website_link === '#' ? '#' : projectData.client_website_link;
+                        modalClientWebsiteLink.style.display = projectData.client_website_link && projectData.client_website_link !== '#' ? 'inline-block' : 'none';
+                    }
+                    if (modalClientTitle) modalClientTitle.textContent = projectData.title;
+                    if (modalOverview) modalOverview.innerHTML = `<h4 class="modal-section-title">Overview / Problem Statement</h4><p>${projectData.overview}</p>`;
+                    if (modalMyRole) modalMyRole.innerHTML = `<h4 class="modal-section-title">My Role / What I Did</h4><p>${projectData.my_role}</p>`;
+                    if (modalClientSkillsTools) modalClientSkillsTools.textContent = `Skills: ${projectData.skills} | Tools: ${projectData.tools}`;
                     
                     // Conditionally show testimonial section
-                    if (projectData.testimonial_quote) {
-                        modalTestimonialSection.style.display = 'block';
-                        modalTestimonialQuote.textContent = `“${projectData.testimonial_quote}”`;
-                        modalTestimonialAuthor.textContent = `— ${projectData.testimonial_author}`;
-                        modalTestimonialLink.href = projectData.testimonial_link || '#';
-                        modalTestimonialLink.style.display = projectData.testimonial_link && projectData.testimonial_link !== '#' ? 'inline-block' : 'none';
-                    } else {
-                        modalTestimonialSection.style.display = 'none';
+                    if (modalTestimonialSection && modalTestimonialQuote && modalTestimonialAuthor && modalTestimonialLink) {
+                        if (projectData.testimonial_quote) {
+                            modalTestimonialSection.style.display = 'block';
+                            modalTestimonialQuote.textContent = `“${projectData.testimonial_quote}”`;
+                            modalTestimonialAuthor.textContent = `— ${projectData.testimonial_author}`;
+                            modalTestimonialLink.href = projectData.testimonial_link || '#';
+                            modalTestimonialLink.style.display = projectData.testimonial_link && projectData.testimonial_link !== '#' ? 'inline-block' : 'none';
+                        } else {
+                            modalTestimonialSection.style.display = 'none';
+                        }
                     }
+
                 } else { // Showcase project
-                    modalShowcaseTitle.textContent = projectData.title;
-                    modalShowcaseSkillsTools.textContent = `Skills: ${projectData.skills} | Tools: ${projectData.tools}`;
-                    modalScreenshot.src = projectData.screenshot;
-                    modalScreenshot.alt = `Screenshot of ${projectData.title}`;
-                    modalSummary.textContent = projectData.summary;
+                    if (modalShowcaseTitle) modalShowcaseTitle.textContent = projectData.title;
+                    if (modalShowcaseSkillsTools) modalShowcaseSkillsTools.textContent = `Skills: ${projectData.skills} | Tools: ${projectData.tools}`;
+                    if (modalScreenshot) {
+                        modalScreenshot.src = projectData.screenshot;
+                        modalScreenshot.alt = `Screenshot of ${projectData.title}`;
+                    }
+                    if (modalSummary) modalSummary.textContent = projectData.summary;
 
                     // Populate the links table
-                    const links = projectData.project_links;
-                    document.querySelector('.github-link a').href = links.github || '#';
-                    document.querySelector('.kaggle-link a').href = links.kaggle || '#';
-                    document.querySelector('.dropbox-link a').href = links.dropbox || '#';
-                    document.querySelector('.tableau-link a').href = links.tableau || '#';
-                    document.querySelector('.powerbi-link a').href = links.powerbi || '#';
+                    if (modalLinksTable) {
+                        const links = projectData.project_links;
+                        document.querySelector('.github-link a').href = links.github || '#';
+                        document.querySelector('.kaggle-link a').href = links.kaggle || '#';
+                        document.querySelector('.dropbox-link a').href = links.dropbox || '#';
+                        document.querySelector('.tableau-link a').href = links.tableau || '#';
+                        document.querySelector('.powerbi-link a').href = links.powerbi || '#';
 
-                    // Set link text and disable if no link is provided
-                    document.querySelectorAll('.modal-links-table a').forEach(a => {
-                        if (a.href.endsWith('#')) {
-                            a.textContent = 'N/A';
-                            a.style.pointerEvents = 'none';
-                            a.style.color = '#999';
-                            a.style.textDecoration = 'none';
-                        } else {
-                            a.textContent = 'View';
-                            a.style.pointerEvents = 'auto';
-                            a.style.color = '#007bff';
-                            a.style.textDecoration = 'underline';
-                        }
-                    });
+                        // Set link text and disable if no link is provided
+                        document.querySelectorAll('.modal-links-table a').forEach(a => {
+                            if (a.href.endsWith('#')) {
+                                a.textContent = 'N/A';
+                                a.style.pointerEvents = 'none';
+                                a.style.color = '#999';
+                                a.style.textDecoration = 'none';
+                            } else {
+                                a.textContent = 'View';
+                                a.style.pointerEvents = 'auto';
+                                a.style.color = '#007bff';
+                                a.style.textDecoration = 'underline';
+                            }
+                        });
+                    }
                 }
                 
                 modalOverlay.classList.add('active');
@@ -1444,42 +1468,48 @@
              * @param {HTMLElement} buttonElement - The button element that was clicked.
              */
             const copyToClipboard = (targetId, buttonElement) => {
-                const targetInput = document.getElementById(targetId);
-                targetInput.select();
-                document.execCommand('copy');
-                // Give visual feedback
-                const originalContent = buttonElement.innerHTML;
-                buttonElement.innerHTML = `<i class="fas fa-check"></i> Copied!`;
-                setTimeout(() => {
-                    buttonElement.innerHTML = originalContent;
-                }, 2000);
+                try {
+                    const targetInput = document.getElementById(targetId);
+                    if (targetInput) {
+                        targetInput.select();
+                        document.execCommand('copy');
+                        const originalContent = buttonElement.innerHTML;
+                        buttonElement.innerHTML = `<i class="fas fa-check"></i> Copied!`;
+                        setTimeout(() => {
+                            buttonElement.innerHTML = originalContent;
+                        }, 2000);
+                    }
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
             };
 
 
             // --- Event Listeners ---
+            if (clientFilterTabsContainer) {
+                // Horizontal Filter (Client Projects Only)
+                clientFilterTabsContainer.addEventListener('click', (e) => {
+                    const clickedTab = e.target.closest('.tab');
+                    if (clickedTab) {
+                        clientFilterTabs.forEach(t => t.classList.remove('active'));
+                        clickedTab.classList.add('active');
 
-            // Horizontal Filter (Client Projects Only)
-            clientFilterTabsContainer.addEventListener('click', (e) => {
-                const clickedTab = e.target.closest('.tab');
-                if (clickedTab) {
-                    clientFilterTabs.forEach(t => t.classList.remove('active'));
-                    clickedTab.classList.add('active');
-
-                    currentClientFilter = clickedTab.dataset.filter;
-                    clientCurrentPage = 1;
-                    renderClientProjects();
-                }
-            });
+                        currentClientFilter = clickedTab.dataset.filter;
+                        clientCurrentPage = 1;
+                        renderClientProjects();
+                    }
+                });
+            }
 
             // Client Projects Pagination
-            clientPrevBtn.addEventListener('click', () => {
+            if (clientPrevBtn) clientPrevBtn.addEventListener('click', () => {
                 if (clientCurrentPage > 1) {
                     clientCurrentPage--;
                     renderClientProjects();
                 }
             });
 
-            clientNextBtn.addEventListener('click', () => {
+            if (clientNextBtn) clientNextBtn.addEventListener('click', () => {
                 const totalPages = Math.ceil(filteredClientProjects.length / projectsPerPage);
                 if (clientCurrentPage < totalPages) {
                     clientCurrentPage++;
@@ -1488,14 +1518,14 @@
             });
 
             // Showcase Projects Pagination
-            showcasePrevBtn.addEventListener('click', () => {
+            if (showcasePrevBtn) showcasePrevBtn.addEventListener('click', () => {
                 if (showcaseCurrentPage > 1) {
                     showcaseCurrentPage--;
                     renderShowcaseProjects();
                 }
             });
 
-            showcaseNextBtn.addEventListener('click', () => {
+            if (showcaseNextBtn) showcaseNextBtn.addEventListener('click', () => {
                 const totalPages = Math.ceil(showcaseProjectsData.length / projectsPerPage);
                 if (showcaseCurrentPage < totalPages) {
                     showcaseCurrentPage++;
@@ -1521,11 +1551,11 @@
             });
 
             // Close modal when close button or overlay is clicked
-            modalCloseButton.addEventListener('click', () => {
-                modalOverlay.classList.remove('active');
+            if (modalCloseButton) modalCloseButton.addEventListener('click', () => {
+                if (modalOverlay) modalOverlay.classList.remove('active');
             });
 
-            modalOverlay.addEventListener('click', (e) => {
+            if (modalOverlay) modalOverlay.addEventListener('click', (e) => {
                 if (e.target === modalOverlay) {
                     modalOverlay.classList.remove('active');
                 }
@@ -1533,32 +1563,36 @@
 
             // External Link Confirmation Logic
             // This is now delegated to the modal overlay as links will be inside
-            modalOverlay.addEventListener('click', (e) => {
-                const linkElement = e.target.closest('a');
-                if (linkElement && linkElement.href && linkElement.href !== '#' && !linkElement.classList.contains('modal-cta-contact-btn')) {
-                    e.preventDefault(); // Prevent default link behavior
-                    externalLinkToOpen = linkElement.href;
-                    confirmModalOverlay.classList.add('active');
-                }
-            });
+            if (modalOverlay) {
+                modalOverlay.addEventListener('click', (e) => {
+                    const linkElement = e.target.closest('a');
+                    if (linkElement && linkElement.href && linkElement.href !== '#' && !linkElement.classList.contains('modal-cta-contact-btn')) {
+                        e.preventDefault(); // Prevent default link behavior
+                        externalLinkToOpen = linkElement.href;
+                        if (confirmModalOverlay) confirmModalOverlay.classList.add('active');
+                    }
+                });
+            }
 
-            confirmContinueBtn.addEventListener('click', () => {
+            if (confirmContinueBtn) confirmContinueBtn.addEventListener('click', () => {
                 window.open(externalLinkToOpen, '_blank');
-                confirmModalOverlay.classList.remove('active');
+                if (confirmModalOverlay) confirmModalOverlay.classList.remove('active');
             });
 
-            confirmCancelBtn.addEventListener('click', () => {
-                confirmModalOverlay.classList.remove('active');
+            if (confirmCancelBtn) confirmCancelBtn.addEventListener('click', () => {
+                if (confirmModalOverlay) confirmModalOverlay.classList.remove('active');
                 externalLinkToOpen = '';
             });
 
             // Copy to clipboard event listeners
-            copyBtns.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetId = button.dataset.copyTarget.replace('#', '');
-                    copyToClipboard(targetId, button);
+            if (copyBtns) {
+                copyBtns.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const targetId = button.dataset.copyTarget.replace('#', '');
+                        copyToClipboard(targetId, button);
+                    });
                 });
-            });
+            }
 
             // Initial renders when the page loads
             renderClientProjects();
