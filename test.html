@@ -30,7 +30,7 @@
             color: #333;
         }
 
-        /* Header Section (Logo and Tagline) - Updated to match the image 
+        /* Header Section (Logo and Tagline) - Updated to match the image */
         .hero-header {
             display: flex;
             justify-content: space-between;
@@ -40,34 +40,40 @@
             width: 70%;
             max-width: 1200px;
             box-sizing: border-box;
-        } */
-          .hero-header {
-            display: flex;
-            justify-content: space-between; /* Pushes logo and tagline to opposite ends */
-            align-items: center;
-            padding: 20px 40px; /* Padding for the header */
-            background-color: #fff; /* White background */
-            width: 70%; /* Adjusted width */
-            box-sizing: border-box; /* Include padding in width */
         }
- .hero-logo-main-text {
+        
+        /* Styles for the Nuuraqlyz Analytics text within the logo section */
+        .hero-logo-main-text {
             font-size: 2em;
             font-weight: 700;
             color: #333;
+            white-space: nowrap; /* Prevent wrapping for "Nuuraqlyz" */
         }
 
         .hero-logo-analytics-text {
             color: #888;
             font-weight: 400;
             margin-left: 8px;
+            white-space: nowrap; /* Prevent wrapping for "ANALYTICS" */
         }
-        .hero-logo img {
-            width: 250px; /* Adjust size as needed */
-            height: 120px;
+
+        .hero-logo {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+            gap: 0px; /* Adjust as needed for spacing between logo and text */
+        }
+
+        .hero-logo-icon {
+            width: 180px; /* Consistent size */
+            height: 180px; /* Consistent size */
+            margin-right: 8px;
+            flex-shrink: 0;
             object-fit: contain;
         }
 
-           .hero-tagline {
+        .hero-tagline {
             font-size: 1.3em;
             font-weight: 700;
             color: #555;
@@ -76,17 +82,6 @@
             text-align: right;
             line-height: normal; /* Adjusted for single line */
             white-space: nowrap; /* Prevent text from wrapping */
-        }
-        .hero-logo-main-text {
-            font-size: 2em;
-            font-weight: 700;
-            color: #333;
-        }
-
-        .hero-logo-analytics-text {
-            color: #888;
-            font-weight: 400;
-            margin-left: 8px;
         }
 
 
@@ -809,24 +804,13 @@
             text-decoration: underline;
         }
 
-        /* Responsive Design 
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .hero-header {
                 flex-direction: column;
                 text-align: center;
                 padding: 20px;
-            } */
-
-             .hero-header {
-            display: flex;
-            justify-content: space-between; /* Pushes logo and tagline to opposite ends */
-            align-items: center;
-            padding: 20px 40px; /* Padding for the header */
-            background-color: #fff; /* White background */
-            width: 70%; /* Adjusted width */
-            box-sizing: border-box; /* Include padding in width */
-        }
-
+            }
             .hero-tagline {
                 text-align: center;
                 margin-top: 10px;
@@ -841,8 +825,15 @@
         }
 
         @media (max-width: 768px) {
-            .hero-logo img {
-                width: 200px;
+            .hero-logo-icon {
+                width: 100px; /* Smaller logo on smaller screens */
+                height: 100px;
+            }
+            .hero-logo-main-text {
+                font-size: 1.5em; /* Smaller text on smaller screens */
+            }
+            .hero-logo-analytics-text {
+                font-size: 0.8em; /* Smaller text on smaller screens */
             }
             .hero-tagline {
                 font-size: 1em;
@@ -890,8 +881,15 @@
             .hero-header {
                 padding: 10px;
             }
-            .hero-logo img {
-                width: 150px;
+            .hero-logo-icon {
+                width: 80px; /* Even smaller logo on very small screens */
+                height: 80px;
+            }
+            .hero-logo-main-text {
+                font-size: 1.2em;
+            }
+            .hero-logo-analytics-text {
+                font-size: 0.7em;
             }
             .navbar-links {
                 flex-direction: column;
@@ -912,7 +910,7 @@
 </head>
 <body>
 
- <!-- Header Section (Consistent with other pages) -->
+    <!-- Header Section (Consistent with other pages) -->
     <header class="hero-header">
         <div class="hero-logo">
             <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Analytics Logo" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Logo+Fallback';" class="hero-logo-icon">
@@ -927,11 +925,11 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <ul class="navbar-links">
-             <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
-            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/services.html">Services</a></li>
-            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
-            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer-feedback.html">Client Feedback</a></li>
-            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/information-guide.html">Information Guide</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="#">Client Feedback</a></li>
+            <li><a href="#">Guided Information</a></li>
         </ul>
     </nav>
 
@@ -1111,7 +1109,7 @@
             <p>
                 <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-of-service.html">Terms of Service</a>
                 &nbsp;|&nbsp;
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
+                <a href="https://meryemciftciAly.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
             </p>
         </div>
     </footer>
