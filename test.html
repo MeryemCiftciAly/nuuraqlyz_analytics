@@ -30,7 +30,7 @@
             color: #333;
         }
 
-        /* Header Section (Logo and Tagline) */
+        /* Header Section (Logo and Tagline) - Updated to match the image */
         .hero-header {
             display: flex;
             justify-content: space-between;
@@ -38,49 +38,26 @@
             padding: 20px 40px;
             background-color: #fff;
             width: 70%;
+            max-width: 1200px;
             box-sizing: border-box;
         }
 
-        .hero-logo {
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-            color: #333;
-            gap: 0px;
-        }
-
-        .hero-logo-icon {
-            width: 180px;
-            height: 180px;
-            margin-right: 8px;
-            flex-shrink: 0;
+        .hero-logo img {
+            width: 250px; /* Adjust size as needed */
+            height: auto;
             object-fit: contain;
         }
 
-        .hero-logo-main-text {
-            font-size: 2em;
-            font-weight: 700;
-            color: #333;
-        }
-
-        .hero-logo-analytics-text {
-            color: #888;
-            font-weight: 400;
-            margin-left: 8px;
-        }
-
         .hero-tagline {
-            font-size: 1.3em;
-            font-weight: 700;
+            font-size: 1.1em;
+            font-weight: 400;
             color: #555;
-            text-transform: none;
-            letter-spacing: 1px;
             text-align: right;
-            line-height: normal;
+            line-height: 1.5;
             white-space: nowrap;
         }
 
-        /* Navigation Bar */
+        /* Navigation Bar - Updated to match the image */
         .navbar {
             display: flex;
             justify-content: center;
@@ -244,14 +221,20 @@
         .project-card.block-orange { background-color: #ffecb3; }
         .project-card.block-purple-dark { background-color: #d1c4e9; }
         .project-card.block-yellow-grid { background-color: #fff9c4; }
+        .project-card.block-light-blue { background-color: #e3f2fd; }
+        .project-card.block-green { background-color: #c8e6c9; }
+        .project-card.block-red { background-color: #ffcdd2; }
+        .project-card.block-gray { background-color: #f1f1f1; }
+        .project-card.block-cyan { background-color: #e0f7fa; }
+        .project-card.block-lime { background-color: #f0f4c3; }
 
-        /* General Project Card Styles for Showcase Projects */
-        .showcase-projects-grid .project-card {
+        /* General Project Card Styles for Independent Projects */
+        .independent-projects-grid .project-card {
             background-color: #ffffff;
             border: 1px solid #e0e0e0;
         }
-        .showcase-projects-grid .project-card h3,
-        .showcase-projects-grid .project-card p {
+        .independent-projects-grid .project-card h3,
+        .independent-projects-grid .project-card p {
             color: #333;
         }
 
@@ -288,8 +271,8 @@
             color: #555;
         }
 
-        /* Showcase Section */
-        .showcase-section {
+        /* Independent Projects Section */
+        .independent-section {
             width: 100%;
             max-width: 1100px;
             position: relative;
@@ -297,7 +280,7 @@
             margin-top: 50px;
         }
 
-        .showcase-heading {
+        .independent-heading {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 2.5em;
@@ -469,7 +452,7 @@
             color: #007bff;
             text-decoration: underline;
         }
-        
+
         .modal-section-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.8em;
@@ -554,7 +537,7 @@
             margin: 30px 0;
             border-left: 5px solid #007bff;
         }
-        
+
         .modal-testimonial-section p {
             font-style: italic;
             font-size: 1.1em;
@@ -581,7 +564,7 @@
         .modal-testimonial-link:hover {
             text-decoration: underline;
         }
-        
+
         .modal-cta-section {
             padding: 20px;
             background-color: #f9f9f9;
@@ -589,7 +572,7 @@
             text-align: center;
             margin-top: 30px;
         }
-        
+
         .modal-cta-section h4 {
             font-family: 'Playfair Display', serif;
             font-size: 1.8em;
@@ -603,18 +586,30 @@
             line-height: 1.6;
         }
 
-        .modal-cta-contact-btn {
-            display: inline-block;
+        .modal-contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .modal-contact-buttons .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             padding: 12px 30px;
             background-color: #FF8C00;
             color: #fff;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        .modal-cta-contact-btn:hover {
+
+        .modal-contact-buttons .btn:hover {
             background-color: #e67e22;
+            transform: translateY(-2px);
         }
 
         .share-container {
@@ -622,6 +617,8 @@
             flex-direction: column;
             gap: 15px;
             margin-bottom: 25px;
+            /* Added margin-top to create space between CTA and sharing */
+            margin-top: 25px;
         }
 
         .share-box {
@@ -639,7 +636,7 @@
             margin-right: 10px;
             white-space: nowrap;
         }
-        
+
         .share-box input {
             flex-grow: 1;
             padding: 8px 12px;
@@ -663,7 +660,7 @@
             justify-content: center;
             gap: 5px;
         }
-        
+
         .share-box .copy-btn:hover {
             background-color: #0056b3;
         }
@@ -800,12 +797,8 @@
         }
 
         @media (max-width: 768px) {
-            .hero-logo-icon {
-                width: 120px;
-                height: 120px;
-            }
-            .hero-logo-main-text {
-                font-size: 1.5em;
+            .hero-logo img {
+                width: 200px;
             }
             .hero-tagline {
                 font-size: 1em;
@@ -821,7 +814,7 @@
                 padding: 20px;
             }
             .client-projects-heading,
-            .showcase-heading {
+            .independent-heading {
                 font-size: 2em;
             }
             .modal-content {
@@ -853,9 +846,8 @@
             .hero-header {
                 padding: 10px;
             }
-            .hero-logo-icon {
-                width: 90px;
-                height: 90px;
+            .hero-logo img {
+                width: 150px;
             }
             .navbar-links {
                 flex-direction: column;
@@ -879,11 +871,10 @@
     <!-- Header Section (Logo and Tagline) -->
     <header class="hero-header">
         <div class="hero-logo">
-            <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//nuuraqlyz-analytics-icon.svg" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon">
-            <span class="hero-logo-main-text">NUURAQLYZ<span class="hero-logo-analytics-text">ANALYTICS</span></span>
+            <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Analytics Logo">
         </div>
         <div class="hero-tagline">
-            Leveraging Data to Drive Innovation
+            Analytics for clarity.<br>Insights for Action.
         </div>
     </header>
 
@@ -891,9 +882,10 @@
     <nav class="navbar">
         <ul class="navbar-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="#">Services</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Client Feedback</a></li>
+            <li><a href="#">Guided Information</a></li>
         </ul>
     </nav>
 
@@ -901,7 +893,7 @@
     <main class="main-content-projects">
         <h1 class="page-title" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 3em; margin: 40px 0 20px;">Our Portfolio</h1>
         <p class="section-description">
-            Explore a selection of our work, from enterprise-level client projects to personal showcase pieces. Each project highlights our ability to turn complex data into actionable insights and intuitive solutions.
+            Explore a selection of our work, from enterprise-level client projects to personal independent pieces. Each project highlights our ability to turn complex data into actionable insights and intuitive solutions.
         </p>
 
         <!-- Client Projects Section -->
@@ -919,7 +911,6 @@
             <div class="project-grid client-project-grid">
                 <!-- Project cards will be injected here by JavaScript -->
             </div>
-
             <div class="pagination-container">
                 <button id="clientPrevBtn" class="pagination-btn">Previous</button>
                 <span id="clientPageInfo" class="pagination-info"></span>
@@ -938,17 +929,17 @@
             </div>
         </section>
 
-        <!-- Showcase Projects Section -->
-        <section class="showcase-section">
-            <h2 class="showcase-heading">Showcase Projects</h2>
-            <div class="project-grid showcase-project-grid">
-                <!-- Showcase project cards will be injected here by JavaScript -->
+        <!-- Independent Projects Section -->
+        <section class="independent-section">
+            <h2 class="independent-heading">Independent Projects</h2>
+            <div class="project-grid independent-project-grid">
+                <!-- Independent project cards will be injected here by JavaScript -->
             </div>
 
             <div class="pagination-container">
-                <button id="showcasePrevBtn" class="pagination-btn">Previous</button>
-                <span id="showcasePageInfo" class="pagination-info"></span>
-                <button id="showcaseNextBtn" class="pagination-btn">Next</button>
+                <button id="independentPrevBtn" class="pagination-btn">Previous</button>
+                <span id="independentPageInfo" class="pagination-info"></span>
+                <button id="independentNextBtn" class="pagination-btn">Next</button>
             </div>
         </section>
     </main>
@@ -957,7 +948,7 @@
     <div class="modal-overlay">
         <div class="modal-content">
             <span class="modal-close-button">&times;</span>
-            
+
             <!-- Dynamic Content based on project type -->
             <div id="client-project-content" style="display: none;">
                 <div class="modal-client-header">
@@ -975,7 +966,7 @@
                     <p class="modal-my-role"></p>
                     <h4 class="modal-section-title">Skills & Tools Used</h4>
                     <p class="modal-skills-tools"></p>
-                    
+
                     <div class="modal-testimonial-section">
                         <p class="modal-testimonial-quote"></p>
                         <div class="modal-testimonial-author-container">
@@ -984,15 +975,9 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="modal-cta-section">
-                    <p>Looking for similar results for your business?</p>
-                    <p>I'm currently available for freelance data analysis projects. Let’s talk.</p>
-                    <a href="contact.html" class="modal-cta-contact-btn">Contact Me</a>
-                </div>
             </div>
 
-            <div id="showcase-project-content" style="display: none;">
+            <div id="independent-project-content" style="display: none;">
                 <h3 class="modal-title"></h3>
                 <p class="modal-skills-tools"></p>
                 <img class="modal-screenshot" src="" alt="Project Screenshot" width="250" height="250">
@@ -1022,21 +1007,36 @@
                 </div>
             </div>
 
-            <div class="modal-cta-section share-section">
-                <h4>Contact & Share</h4>
-                <p>I am currently freelancing as a data analyst. If you have a similar project or would like to have a project done with the tools and skills I showcase, please contact me. I would also appreciate it if you refer me to someone who may be interested or share my webpage on your LinkedIn Profile. In return, I wish you many blessings.</p>
-                <div class="share-container">
+            <div class="modal-cta-section">
+                <h4 class="cta-heading">Looking for similar results for your business?</h4>
+                <p class="cta-text">
+                    I'm currently available for freelance data analysis projects. Let’s talk.
+                </p>
+                <div class="modal-contact-buttons">
+                    <a href="mailto:meryemkciftci@gmail.com" class="btn">
+                        <i class="fas fa-envelope"></i>
+                        Contact Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/meryemciftci" class="btn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        DM on LinkedIn
+                    </a>
+                </div>
+                <div id="client-share-links" class="share-container" style="display: none;">
                     <div class="share-box">
                         <span class="share-box-label">Copy and share this link:</span>
-                        <input type="text" id="portfolio-link" value="https://meryemciftcialy.github.io/nuuraqlyz_analytics/" readonly>
-                        <button class="copy-btn" data-copy-target="#portfolio-link">
+                        <input type="text" id="client-portfolio-link" value="https://meryemciftcialy.github.io/nuuraqlyz_analytics/" readonly>
+                        <button class="copy-btn" data-copy-target="#client-portfolio-link">
                             <i class="fas fa-copy"></i>
                         </button>
                     </div>
+                </div>
+
+                <div id="independent-share-links" class="share-container" style="display: none;">
                     <div class="share-box">
-                        <span class="share-box-label">Or copy this message:</span>
-                        <input type="text" id="share-message" value="Check out this freelance data analyst I came across—great portfolio work!" readonly>
-                        <button class="copy-btn" data-copy-target="#share-message">
+                        <span class="share-box-label">Copy and share this project link:</span>
+                        <input type="text" id="independent-project-link" value="" readonly>
+                        <button class="copy-btn" data-copy-target="#independent-project-link">
                             <i class="fas fa-copy"></i>
                         </button>
                     </div>
@@ -1073,163 +1073,604 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Project Data ---
+            // Placeholder data for client projects. The descriptions will be "Client project realized soon".
             const clientProjectsData = [
                 {
                     id: 'cp1',
-                    type: 'data_visualization',
-                    client_name: 'CVS Health',
-                    client_logo_url: 'https://placehold.co/150x80/2594a1/FFFFFF?text=CVS+Health+Logo',
-                    client_website_link: '#',
-                    title: 'Payer Solutions Dashboard',
-                    description: 'Led the end-to-end development of a dashboard to monitor key performance indicators...',
-                    overview: 'CVS Health required a robust, real-time dashboard to monitor payer solutions performance. The primary challenge was consolidating disparate data sources into a single, cohesive view to identify operational bottlenecks and measure program effectiveness. The goal was to provide business leaders with actionable insights to inform strategic decisions and drive efficiency.',
-                    my_role: 'I served as the lead data analyst on this project, responsible for the full lifecycle of the dashboard. My contributions included requirements gathering, data modeling in SQL, building the data pipeline, and designing and developing the Power BI dashboard. I also worked closely with stakeholders to ensure the visualizations met their analytical needs.',
-                    skills: 'Data Visualization, Power BI, SQL, Data Modeling',
-                    tools: 'Power BI, SQL Server, Excel',
+                    title: 'CVS Health Project',
+                    description: 'Data analysis and visualization for a major healthcare provider.',
+                    type: 'data_analysis_modeling',
+                    color: 'teal',
+                    overview: 'We analyzed large datasets to identify key trends in patient engagement and prescription refill rates, helping the client optimize their outreach strategies.',
+                    my_role: 'As a data analyst, I was responsible for data cleaning, statistical modeling, and creating interactive dashboards to present our findings to the product management team.',
+                    skills: 'SQL, Python (Pandas, Scikit-learn), Tableau',
+                    tools: 'Tableau, Google Analytics, SQL Server',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=CVS+Health',
+                    client_website_link: 'https://www.cvs.com',
                     testimonial_quote: 'Working with Meryem helped us uncover insights we had overlooked.',
                     testimonial_author: 'CVS Health Executive, Product Management',
-                    testimonial_link: '#',
-                    color: 'teal'
+                    testimonial_link: '#'
                 },
                 {
                     id: 'cp2',
-                    type: 'data_analysis_modeling',
-                    client_name: 'Accenture',
-                    client_logo_url: 'https://placehold.co/150x80/d28399/FFFFFF?text=Accenture+Logo',
+                    title: 'Client Project 2',
+                    description: 'Client project realized soon',
+                    type: 'data_visualization',
+                    color: 'pink',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+B',
                     client_website_link: '#',
-                    title: 'Global Operations Data Model',
-                    description: 'Developed a comprehensive data model to optimize reporting and insights across global operations, supporting strategic decision-making and forecasting...',
-                    overview: 'Accenture\'s Global Operations team needed to streamline its reporting process. They faced challenges with inconsistent data across different regions, which hindered their ability to generate accurate forecasts and a unified view of performance. The objective was to create a scalable data model that could handle diverse data types and provide a single source of truth.',
-                    my_role: 'I designed and implemented a centralized data model that integrated information from multiple regional systems. Using Python for data cleaning and ETL processes, I transformed raw data into a structured format. This foundational work was crucial for enabling more efficient reporting and accurate forecasting, directly supporting senior leadership in strategic planning.',
-                    skills: 'Data Modeling, ETL, Python, SQL, Cloud Platforms',
-                    tools: 'Python (Pandas), SQL, Azure Data Factory',
                     testimonial_quote: '',
                     testimonial_author: '',
-                    testimonial_link: '#',
-                    color: 'pink'
+                    testimonial_link: '#'
                 },
                 {
                     id: 'cp3',
+                    title: 'Client Project 3',
+                    description: 'Client project realized soon',
                     type: 'process_improvement',
-                    client_name: 'LVMH',
-                    client_logo_url: 'https://placehold.co/150x80/b089c1/FFFFFF?text=LVMH+Logo',
+                    color: 'purple-light',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+C',
                     client_website_link: '#',
-                    title: 'Digital Innovation Workflow',
-                    description: 'Analyzed and streamlined data workflows, identifying bottlenecks and implementing automated solutions to enhance efficiency and accelerate digital transformation projects...',
-                    overview: 'LVMH\'s digital innovation team was experiencing delays in project delivery due to manual and inefficient data workflows. They needed an expert to analyze their current processes, identify pain points, and implement solutions that would accelerate their digital transformation initiatives.',
-                    my_role: 'I conducted a comprehensive audit of their data workflows, from data ingestion to final reporting. I identified key bottlenecks and developed automated solutions using Microsoft Power Automate, reducing manual intervention by over 30%. This project not only enhanced efficiency but also allowed the team to allocate more resources to creative and strategic tasks.',
-                    skills: 'Process Improvement, Automation, Data Governance, Project Management',
-                    tools: 'Jira, Confluence, Microsoft Power Automate',
                     testimonial_quote: '',
                     testimonial_author: '',
-                    testimonial_link: '#',
-                    color: 'purple-light'
+                    testimonial_link: '#'
                 },
-                // Client Project Placeholders
-                { id: 'cp4', type: 'data_visualization', title: 'Project 4: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'orange', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/ffecb3/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp5', type: 'data_analysis_modeling', title: 'Project 5: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'purple-dark', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/d1c4e9/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp6', type: 'process_improvement', title: 'Project 6: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'yellow-grid', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/fff9c4/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp7', type: 'data_visualization', title: 'Project 7: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'teal', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/b2dfdb/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp8', type: 'data_analysis_modeling', title: 'Project 8: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'pink', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/f8bbd0/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp9', type: 'process_improvement', title: 'Project 9: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'purple-light', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/e1bee7/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp10', type: 'data_visualization', title: 'Project 10: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'orange', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/ffecb3/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp11', type: 'data_analysis_modeling', title: 'Project 11: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'purple-dark', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/d1c4e9/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp12', type: 'process_improvement', title: 'Project 12: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'yellow-grid', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/fff9c4/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp13', type: 'data_visualization', title: 'Project 13: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'teal', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/b2dfdb/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp14', type: 'data_analysis_modeling', title: 'Project 14: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'pink', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/f8bbd0/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp15', type: 'process_improvement', title: 'Project 15: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'purple-light', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/e1bee7/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp16', type: 'data_visualization', title: 'Project 16: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'orange', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/ffecb3/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp17', type: 'data_analysis_modeling', title: 'Project 17: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'purple-dark', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/d1c4e9/333333?text=Client+Logo', client_website_link: '#' },
-                { id: 'cp18', type: 'process_improvement', title: 'Project 18: Confidential', description: 'Details are being prepared.', overview: 'Confidential project details.', my_role: 'Confidential role.', skills: 'Confidential Skills', tools: 'Confidential Tools', testimonial_quote: '', testimonial_author: '', testimonial_link: '#', color: 'yellow-grid', client_name: 'Placeholder Client', client_logo_url: 'https://placehold.co/150x80/fff9c4/333333?text=Client+Logo', client_website_link: '#' }
+                {
+                    id: 'cp4',
+                    title: 'Client Project 4',
+                    description: 'Client project realized soon',
+                    type: 'data_analysis_modeling',
+                    color: 'orange',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+D',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp5',
+                    title: 'Client Project 5',
+                    description: 'Client project realized soon',
+                    type: 'data_visualization',
+                    color: 'purple-dark',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+E',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp6',
+                    title: 'Client Project 6',
+                    description: 'Client project realized soon',
+                    type: 'process_improvement',
+                    color: 'yellow-grid',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+F',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp7',
+                    title: 'Client Project 7',
+                    description: 'Client project realized soon',
+                    type: 'data_analysis_modeling',
+                    color: 'light-blue',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+G',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp8',
+                    title: 'Client Project 8',
+                    description: 'Client project realized soon',
+                    type: 'data_visualization',
+                    color: 'green',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+H',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp9',
+                    title: 'Client Project 9',
+                    description: 'Client project realized soon',
+                    type: 'process_improvement',
+                    color: 'red',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+I',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp10',
+                    title: 'Client Project 10',
+                    description: 'Client project realized soon',
+                    type: 'data_analysis_modeling',
+                    color: 'gray',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+J',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp11',
+                    title: 'Client Project 11',
+                    description: 'Client project realized soon',
+                    type: 'data_visualization',
+                    color: 'cyan',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+K',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp12',
+                    title: 'Client Project 12',
+                    description: 'Client project realized soon',
+                    type: 'process_improvement',
+                    color: 'lime',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+L',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp13',
+                    title: 'Client Project 13',
+                    description: 'Client project realized soon',
+                    type: 'data_analysis_modeling',
+                    color: 'teal',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+M',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp14',
+                    title: 'Client Project 14',
+                    description: 'Client project realized soon',
+                    type: 'data_visualization',
+                    color: 'pink',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+N',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp15',
+                    title: 'Client Project 15',
+                    description: 'Client project realized soon',
+                    type: 'process_improvement',
+                    color: 'purple-light',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+O',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp16',
+                    title: 'Client Project 16',
+                    description: 'Client project realized soon',
+                    type: 'data_analysis_modeling',
+                    color: 'orange',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+P',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp17',
+                    title: 'Client Project 17',
+                    description: 'Client project realized soon',
+                    type: 'data_visualization',
+                    color: 'purple-dark',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+Q',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                },
+                {
+                    id: 'cp18',
+                    title: 'Client Project 18',
+                    description: 'Client project realized soon',
+                    type: 'process_improvement',
+                    color: 'yellow-grid',
+                    overview: 'Client project realized soon.',
+                    my_role: 'Client project realized soon.',
+                    skills: 'Client project realized soon.',
+                    tools: 'Client project realized soon.',
+                    client_logo_url: 'https://placehold.co/150x80/f1f1f1/888888?text=Client+R',
+                    client_website_link: '#',
+                    testimonial_quote: '',
+                    testimonial_author: '',
+                    testimonial_link: '#'
+                }
             ];
 
-            const showcaseProjectsData = [
-                // New Showcase Projects
+            // Placeholder data for independent projects. The descriptions and summaries will be "Project will be added soon".
+            const independentProjectsData = [
                 {
-                    id: 'sp1',
-                    type: 'showcase',
-                    title: 'What-if Pay Scenario Spreadsheet',
-                    description: 'A personal finance tool for New York City residents to analyze potential take-home pay based on different salaries, filing statuses, and other financial variables...',
-                    summary: 'A personal finance tool developed as a showcase piece for New York City residents. The spreadsheet is designed to analyze potential take-home pay by factoring in various financial variables such as salary, tax filing status, and deductions. This provides a clear, interactive way for users to understand the impact of different financial decisions.',
-                    skills: 'Data Analysis, Financial Modeling, Google Sheets, Spreadsheet Automation',
-                    tools: 'Google Sheets',
-                    screenshot: 'https://placehold.co/400x250/8a3a93/FFFFFF?text=What-if+Scenario',
-                    project_links: {
-                        github: '#',
-                        kaggle: '#',
-                        dropbox: 'https://docs.google.com/spreadsheets/d/1gq_4h4sV5W5M7W5H7V7H5W4H5W4W/edit?usp=sharing',
-                        tableau: '#',
-                        powerbi: '#'
-                    },
-                    category: 'showcase'
-                },
-                {
-                    id: 'sp2',
-                    type: 'showcase',
-                    title: 'US Wildfire Analysis with Python & R',
-                    description: 'An in-depth analysis of US wildfire data using Python and R to explore trends, identify key contributing factors, and develop predictive models...',
-                    summary: 'This project is an in-depth exploratory data analysis of US wildfire data. Using a combination of Python for data cleaning and manipulation (with libraries like Pandas) and R for statistical analysis and visualization, I aimed to uncover trends, identify key contributing factors, and develop a preliminary predictive model for wildfire occurrences.',
-                    skills: 'Data Analysis, Predictive Modeling, Python (Pandas), R (ggplot2, Dplyr)',
-                    tools: 'Jupyter Notebook, RStudio, Matplotlib',
-                    screenshot: 'https://placehold.co/400x250/66a4a9/FFFFFF?text=Wildfire+Analysis',
+                    id: 'ip1',
+                    title: 'Independent Project 1',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
                     project_links: {
                         github: '#',
                         kaggle: '#',
                         dropbox: '#',
                         tableau: '#',
                         powerbi: '#'
-                    },
-                    category: 'showcase'
+                    }
                 },
                 {
-                    id: 'sp3',
-                    type: 'showcase',
-                    title: 'E-commerce Sales Dashboard with Power BI',
-                    description: 'Developed an interactive dashboard to visualize and analyze key e-commerce metrics, including sales trends, customer behavior, and product performance...',
-                    summary: 'An interactive Power BI dashboard designed to provide comprehensive insights into an e-commerce business. The project involved data integration, creating a robust data model, and building visualizations to track key metrics such as sales trends, customer demographics, and product performance. This dashboard empowers business leaders to monitor performance and identify growth opportunities.',
-                    skills: 'Data Visualization, Business Intelligence, Power BI, DAX, Excel',
-                    tools: 'Power BI, Excel',
-                    screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=E-commerce+Dashboard',
+                    id: 'ip2',
+                    title: 'Independent Project 2',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
                     project_links: {
                         github: '#',
                         kaggle: '#',
                         dropbox: '#',
                         tableau: '#',
-                        powerbi: 'https://app.powerbi.com/view?r=eyJrIjoiYTljZjk1NjEtMzYwNC00NjgyLWI2YjMtYWQ1NTVlNjA2NjI4IiwidCI6IjQ5YzI0MzE2LWQzYmYtNGFkZS05YTRlLTU4MzE2NGM4YTA0OCIsImMiOjZ9'
-                    },
-                    category: 'showcase'
+                        powerbi: '#'
+                    }
                 },
-                // Showcase Project Placeholders
-                { id: 'sp4', type: 'showcase', title: 'Showcase Project 4: Waiting to be filled...', description: 'Details for this project are currently being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', tableau: '#', powerbi: '#' }, category: 'showcase' },
-                { id: 'sp5', type: 'showcase', title: 'Showcase Project 5: Waiting to be filled...', description: 'Details for this project are currently being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', tableau: '#', powerbi: '#' }, category: 'showcase' },
-                { id: 'sp6', type: 'showcase', title: 'Showcase Project 6: Waiting to be filled...', description: 'Details for this project are currently being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', tableau: '#', powerbi: '#' }, category: 'showcase' },
-                { id: 'sp7', type: 'showcase', title: 'Showcase Project 7: Waiting to be filled...', description: 'Details for this project are currently being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', tableau: '#', powerbi: '#' }, category: 'showcase' },
-                { id: 'sp8', type: 'showcase', title: 'Showcase Project 8: Waiting to be filled...', description: 'Details for this project are currently being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', tableau: '#', powerbi: '#' }, category: 'showcase' },
-                { id: 'sp9', type: 'showcase', title: 'Showcase Project 9: Waiting to be filled...', description: 'Details are being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', tableau: '#', powerbi: '#' }, category: 'showcase' },
-                { id: 'sp10', type: 'showcase', title: 'Showcase Project 10: Waiting to be filled...', description: 'Details are being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', tableau: '#', powerbi: '#' }, category: 'showcase' },
-                { id: 'sp11', type: 'showcase', title: 'Showcase Project 11: Waiting to be filled...', description: 'Details are being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', tableau: '#', powerbi: '#' }, category: 'showcase' },
-                { id: 'sp12', type: 'showcase', title: 'Showcase Project 12: Waiting to be filled...', description: 'Details are being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', tableau: '#', powerbi: '#' }, category: 'showcase' },
-                { id: 'sp13', type: 'showcase', title: 'Showcase Project 13: Waiting to be filled...', description: 'Details are being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', tableau: '#', powerbi: '#' }, category: 'showcase' },
-                { id: 'sp14', type: 'showcase', title: 'Showcase Project 14: Waiting to be filled...', description: 'Details are being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', tableau: '#', powerbi: '#' }, category: 'showcase' },
-                { id: 'sp15', type: 'showcase', title: 'Showcase Project 15: Waiting to be filled...', description: 'Details are being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', 'tableau': '#', 'powerbi': '#' }, category: 'showcase' },
-                { id: 'sp16', type: 'showcase', title: 'Project 16: Waiting to be filled...', description: 'Details are being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', 'tableau': '#', 'powerbi': '#' }, category: 'showcase' },
-                { id: 'sp17', type: 'showcase', title: 'Project 17: Waiting to be filled...', description: 'Details are being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', 'tableau': '#', 'powerbi': '#' }, category: 'showcase' },
-                { id: 'sp18', type: 'showcase', title: 'Project 18: Waiting to be filled...', description: 'Details are being prepared.', summary: 'Placeholder summary.', skills: 'Placeholder Skills', tools: 'Placeholder Tools', screenshot: 'https://placehold.co/400x250/8a4d70/FFFFFF?text=Placeholder', project_links: { github: '#', kaggle: '#', dropbox: '#', 'tableau': '#', 'powerbi': '#' }, category: 'showcase' }
+                {
+                    id: 'ip3',
+                    title: 'Independent Project 3',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip4',
+                    title: 'Independent Project 4',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip5',
+                    title: 'Independent Project 5',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip6',
+                    title: 'Independent Project 6',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip7',
+                    title: 'Independent Project 7',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip8',
+                    title: 'Independent Project 8',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip9',
+                    title: 'Independent Project 9',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip10',
+                    title: 'Independent Project 10',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip11',
+                    title: 'Independent Project 11',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip12',
+                    title: 'Independent Project 12',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip13',
+                    title: 'Independent Project 13',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip14',
+                    title: 'Independent Project 14',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip15',
+                    title: 'Independent Project 15',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip16',
+                    title: 'Independent Project 16',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip17',
+                    title: 'Independent Project 17',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                },
+                {
+                    id: 'ip18',
+                    title: 'Independent Project 18',
+                    description: 'Project will be added soon',
+                    skills: 'Project will be added soon.',
+                    tools: 'Project will be added soon.',
+                    screenshot: 'https://placehold.co/800x600/f1f1f1/888888?text=Project+Screenshot',
+                    summary: 'Project will be added soon.',
+                    project_links: {
+                        github: '#',
+                        kaggle: '#',
+                        dropbox: '#',
+                        tableau: '#',
+                        powerbi: '#'
+                    }
+                }
             ];
+
 
             // --- DOM Elements ---
             const clientProjectGrid = document.querySelector('.client-project-grid');
-            const showcaseProjectGrid = document.querySelector('.showcase-project-grid');
-            const clientProjectSection = document.querySelector('.client-projects-section');
-            const showcaseSection = document.querySelector('.showcase-section');
+            const independentProjectGrid = document.querySelector('.independent-project-grid');
 
             const clientPrevBtn = document.getElementById('clientPrevBtn');
             const clientNextBtn = document.getElementById('clientNextBtn');
             const clientPageInfoSpan = document.getElementById('clientPageInfo');
+            const clientPaginationContainer = document.querySelector('.client-projects-section .pagination-container');
 
-            const showcasePrevBtn = document.getElementById('showcasePrevBtn');
-            const showcaseNextBtn = document.getElementById('showcaseNextBtn');
-            const showcasePageInfoSpan = document.getElementById('showcasePageInfo');
+            const independentPrevBtn = document.getElementById('independentPrevBtn');
+            const independentNextBtn = document.getElementById('independentNextBtn');
+            const independentPageInfoSpan = document.getElementById('independentPageInfo');
+            const independentPaginationContainer = document.querySelector('.independent-section .pagination-container');
 
             const clientFilterTabsContainer = document.querySelector('.client-filter-tabs-container');
             const clientFilterTabs = document.querySelectorAll('.client-filter-tabs-container .tab');
@@ -1250,16 +1691,19 @@
             const modalTestimonialAuthor = document.querySelector('.modal-testimonial-author');
             const modalTestimonialLink = document.querySelector('.modal-testimonial-link');
 
-            // Showcase Modal Elements
-            const showcaseProjectContent = document.getElementById('showcase-project-content');
-            const modalShowcaseTitle = document.querySelector('#showcase-project-content .modal-title');
-            const modalShowcaseSkillsTools = document.querySelector('#showcase-project-content .modal-skills-tools');
+            // Independent Modal Elements
+            const independentProjectContent = document.getElementById('independent-project-content');
+            const modalIndependentTitle = document.querySelector('#independent-project-content .modal-title');
+            const modalIndependentSkillsTools = document.querySelector('#independent-project-content .modal-skills-tools');
             const modalScreenshot = document.querySelector('.modal-screenshot');
             const modalSummary = document.querySelector('.modal-summary');
             const modalLinksTable = document.querySelector('.modal-links-table');
-            
+
             // Shared Modal Elements
             const modalShareSection = document.querySelector('.share-section');
+            const clientShareLinks = document.getElementById('client-share-links');
+            const independentShareLinks = document.getElementById('independent-share-links');
+            const independentProjectLinkInput = document.getElementById('independent-project-link');
 
             const confirmModalOverlay = document.querySelector('.confirm-modal-overlay');
             const confirmContinueBtn = document.getElementById('confirm-continue');
@@ -1277,8 +1721,8 @@
             let clientCurrentPage = 1;
             let filteredClientProjects = [];
 
-            let showcaseCurrentPage = 1;
-            let filteredShowcaseProjects = [];
+            let independentCurrentPage = 1;
+            let filteredIndependentProjects = [];
 
             // --- Functions ---
 
@@ -1291,6 +1735,7 @@
                     return;
                 }
 
+                // Filter projects
                 if (currentClientFilter === 'all') {
                     filteredClientProjects = clientProjectsData;
                 } else {
@@ -1298,90 +1743,78 @@
                 }
 
                 const totalPages = Math.ceil(filteredClientProjects.length / projectsPerPage);
-
-                if (clientCurrentPage > totalPages && totalPages > 0) {
-                    clientCurrentPage = totalPages;
-                } else if (totalPages === 0) {
-                    clientCurrentPage = 1;
-                } else if (clientCurrentPage === 0 && totalPages > 0) {
-                    clientCurrentPage = 1;
-                }
+                clientCurrentPage = Math.max(1, Math.min(clientCurrentPage, totalPages));
 
                 clientProjectGrid.innerHTML = '';
                 const startIndex = (clientCurrentPage - 1) * projectsPerPage;
                 const endIndex = startIndex + projectsPerPage;
                 const projectsToDisplay = filteredClientProjects.slice(startIndex, endIndex);
 
-                if (projectsToDisplay.length === 0) {
-                    clientProjectGrid.innerHTML = '<p style="text-align: center; color: #777; font-size: 1.2em; padding: 50px;">No client projects found for this category.</p>';
-                } else {
-                    projectsToDisplay.forEach(project => {
-                        const projectCard = document.createElement('div');
-                        projectCard.classList.add('project-card');
-                        if (project.color) {
-                            projectCard.classList.add(`block-${project.color}`);
-                        }
-                        projectCard.dataset.id = project.id;
+                projectsToDisplay.forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.classList.add('project-card');
+                    if (project.color) {
+                        projectCard.classList.add(`block-${project.color}`);
+                    }
+                    projectCard.dataset.id = project.id;
 
-                        projectCard.innerHTML = `
-                            <h3>${project.title}</h3>
-                            <p>${project.description}</p>
-                        `;
-                        clientProjectGrid.appendChild(projectCard);
-                    });
+                    projectCard.innerHTML = `
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                    `;
+                    clientProjectGrid.appendChild(projectCard);
+                });
+
+                if(clientPrevBtn) clientPrevBtn.disabled = clientCurrentPage <= 1;
+                if(clientNextBtn) clientNextBtn.disabled = clientCurrentPage >= totalPages;
+                if(clientPageInfoSpan) clientPageInfoSpan.textContent = `Page ${clientCurrentPage} of ${totalPages > 0 ? totalPages : 1}`;
+
+                // Hide pagination if there's only one page
+                if (clientPaginationContainer) {
+                    clientPaginationContainer.style.display = totalPages > 1 ? 'flex' : 'none';
                 }
-
-                clientPrevBtn.disabled = clientCurrentPage <= 1;
-                clientNextBtn.disabled = clientCurrentPage >= totalPages;
-                clientPageInfoSpan.textContent = `Page ${clientCurrentPage} of ${totalPages > 0 ? totalPages : 1}`;
             };
 
 
             /**
-             * Renders paginated showcase project cards into the DOM.
+             * Renders paginated independent project cards into the DOM.
              */
-            const renderShowcaseProjects = () => {
-                if (!showcaseProjectGrid) {
-                    console.error('Showcase project grid element not found.');
+            const renderIndependentProjects = () => {
+                if (!independentProjectGrid) {
+                    console.error('Independent project grid element not found.');
                     return;
                 }
 
-                filteredShowcaseProjects = showcaseProjectsData;
+                filteredIndependentProjects = independentProjectsData;
 
-                const totalPages = Math.ceil(filteredShowcaseProjects.length / projectsPerPage);
+                const totalPages = Math.ceil(filteredIndependentProjects.length / projectsPerPage);
+                independentCurrentPage = Math.max(1, Math.min(independentCurrentPage, totalPages));
 
-                if (showcaseCurrentPage > totalPages && totalPages > 0) {
-                    showcaseCurrentPage = totalPages;
-                } else if (totalPages === 0) {
-                    showcaseCurrentPage = 1;
-                } else if (showcaseCurrentPage === 0 && totalPages > 0) {
-                    showcaseCurrentPage = 1;
-                }
+                independentProjectGrid.innerHTML = '';
 
-                showcaseProjectGrid.innerHTML = '';
-
-                const startIndex = (showcaseCurrentPage - 1) * projectsPerPage;
+                const startIndex = (independentCurrentPage - 1) * projectsPerPage;
                 const endIndex = startIndex + projectsPerPage;
-                const projectsToDisplay = filteredShowcaseProjects.slice(startIndex, endIndex);
+                const projectsToDisplay = filteredIndependentProjects.slice(startIndex, endIndex);
 
-                if (projectsToDisplay.length === 0) {
-                    showcaseProjectGrid.innerHTML = '<p style="text-align: center; color: #777; font-size: 1.2em; padding: 50px;">No showcase projects available yet.</p>';
-                } else {
-                    projectsToDisplay.forEach(project => {
-                        const projectCard = document.createElement('div');
-                        projectCard.classList.add('project-card');
-                        projectCard.dataset.id = project.id;
-                        projectCard.innerHTML = `
-                            <h3>${project.title}</h3>
-                            <p>${project.description}</p>
-                        `;
-                        showcaseProjectGrid.appendChild(projectCard);
-                    });
+                projectsToDisplay.forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.classList.add('project-card');
+                    projectCard.dataset.id = project.id;
+                    projectCard.innerHTML = `
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                    `;
+                    independentProjectGrid.appendChild(projectCard);
+                });
+
+                if(independentPrevBtn) independentPrevBtn.disabled = independentCurrentPage <= 1;
+                if(independentNextBtn) independentNextBtn.disabled = independentCurrentPage >= totalPages;
+                if(independentPageInfoSpan) independentPageInfoSpan.textContent = `Page ${independentCurrentPage} of ${totalPages > 0 ? totalPages : 1}`;
+
+                // Hide pagination if there's only one page
+                if (independentPaginationContainer) {
+                    independentPaginationContainer.style.display = totalPages > 1 ? 'flex' : 'none';
                 }
-
-                showcasePrevBtn.disabled = showcaseCurrentPage <= 1;
-                showcaseNextBtn.disabled = showcaseCurrentPage >= totalPages;
-                showcasePageInfoSpan.textContent = `Page ${showcaseCurrentPage} of ${totalPages > 0 ? totalPages : 1}`;
             };
 
             /**
@@ -1390,15 +1823,21 @@
              */
             const openProjectModal = (projectData) => {
                 // Ensure the modal elements exist before trying to populate them
-                if (!modalOverlay || !clientProjectContent || !showcaseProjectContent) {
+                if (!modalOverlay || !clientProjectContent || !independentProjectContent) {
                     console.error('Modal elements not found.');
                     return;
                 }
 
                 const isClientProject = projectData.id.startsWith('cp');
+
+                // Show/hide correct modal content section
                 clientProjectContent.style.display = isClientProject ? 'block' : 'none';
-                showcaseProjectContent.style.display = isClientProject ? 'none' : 'block';
-                
+                independentProjectContent.style.display = isClientProject ? 'none' : 'block';
+
+                // Show/hide correct share link section
+                if (clientShareLinks) clientShareLinks.style.display = isClientProject ? 'flex' : 'none';
+                if (independentShareLinks) independentShareLinks.style.display = isClientProject ? 'none' : 'flex';
+
                 // Populate content based on project type
                 if (isClientProject) {
                     if (modalClientLogo) modalClientLogo.src = projectData.client_logo_url;
@@ -1410,7 +1849,7 @@
                     if (modalOverview) modalOverview.innerHTML = `<h4 class="modal-section-title">Overview / Problem Statement</h4><p>${projectData.overview}</p>`;
                     if (modalMyRole) modalMyRole.innerHTML = `<h4 class="modal-section-title">My Role / What I Did</h4><p>${projectData.my_role}</p>`;
                     if (modalClientSkillsTools) modalClientSkillsTools.textContent = `Skills: ${projectData.skills} | Tools: ${projectData.tools}`;
-                    
+
                     // Conditionally show testimonial section
                     if (modalTestimonialSection && modalTestimonialQuote && modalTestimonialAuthor && modalTestimonialLink) {
                         if (projectData.testimonial_quote) {
@@ -1424,9 +1863,9 @@
                         }
                     }
 
-                } else { // Showcase project
-                    if (modalShowcaseTitle) modalShowcaseTitle.textContent = projectData.title;
-                    if (modalShowcaseSkillsTools) modalShowcaseSkillsTools.textContent = `Skills: ${projectData.skills} | Tools: ${projectData.tools}`;
+                } else { // Independent project
+                    if (modalIndependentTitle) modalIndependentTitle.textContent = projectData.title;
+                    if (modalIndependentSkillsTools) modalIndependentSkillsTools.textContent = `Skills: ${projectData.skills} | Tools: ${projectData.tools}`;
                     if (modalScreenshot) {
                         modalScreenshot.src = projectData.screenshot;
                         modalScreenshot.alt = `Screenshot of ${projectData.title}`;
@@ -1457,8 +1896,14 @@
                             }
                         });
                     }
+
+                    // Set the dynamic share link for independent projects
+                    if (independentProjectLinkInput) {
+                         const projectLink = `${window.location.origin}${window.location.pathname}#/project/${projectData.id}`;
+                         independentProjectLinkInput.value = projectLink;
+                    }
                 }
-                
+
                 modalOverlay.classList.add('active');
             };
 
@@ -1481,6 +1926,20 @@
                     }
                 } catch (err) {
                     console.error('Failed to copy text: ', err);
+                }
+            };
+
+            /**
+             * Checks the URL hash on page load and opens the correct project modal if a project ID is present.
+             */
+            const checkUrlHash = () => {
+                const hash = window.location.hash;
+                if (hash && hash.startsWith('#/project/')) {
+                    const projectId = hash.substring(10); // Remove '#/project/'
+                    let projectData = independentProjectsData.find(p => p.id === projectId);
+                    if (projectData) {
+                        openProjectModal(projectData);
+                    }
                 }
             };
 
@@ -1517,19 +1976,19 @@
                 }
             });
 
-            // Showcase Projects Pagination
-            if (showcasePrevBtn) showcasePrevBtn.addEventListener('click', () => {
-                if (showcaseCurrentPage > 1) {
-                    showcaseCurrentPage--;
-                    renderShowcaseProjects();
+            // Independent Projects Pagination
+            if (independentPrevBtn) independentPrevBtn.addEventListener('click', () => {
+                if (independentCurrentPage > 1) {
+                    independentCurrentPage--;
+                    renderIndependentProjects();
                 }
             });
 
-            if (showcaseNextBtn) showcaseNextBtn.addEventListener('click', () => {
-                const totalPages = Math.ceil(showcaseProjectsData.length / projectsPerPage);
-                if (showcaseCurrentPage < totalPages) {
-                    showcaseCurrentPage++;
-                    renderShowcaseProjects();
+            if (independentNextBtn) independentNextBtn.addEventListener('click', () => {
+                const totalPages = Math.ceil(independentProjectsData.length / projectsPerPage);
+                if (independentCurrentPage < totalPages) {
+                    independentCurrentPage++;
+                    renderIndependentProjects();
                 }
             });
 
@@ -1542,7 +2001,7 @@
                     if (projectId.startsWith('cp')) {
                         projectData = clientProjectsData.find(p => p.id === projectId);
                     } else {
-                        projectData = showcaseProjectsData.find(p => p.id === projectId);
+                        projectData = independentProjectsData.find(p => p.id === projectId);
                     }
                     if (projectData) {
                         openProjectModal(projectData);
@@ -1566,7 +2025,7 @@
             if (modalOverlay) {
                 modalOverlay.addEventListener('click', (e) => {
                     const linkElement = e.target.closest('a');
-                    if (linkElement && linkElement.href && linkElement.href !== '#' && !linkElement.classList.contains('modal-cta-contact-btn')) {
+                    if (linkElement && linkElement.href && linkElement.href.startsWith('http') && !linkElement.classList.contains('btn')) {
                         e.preventDefault(); // Prevent default link behavior
                         externalLinkToOpen = linkElement.href;
                         if (confirmModalOverlay) confirmModalOverlay.classList.add('active');
@@ -1596,7 +2055,8 @@
 
             // Initial renders when the page loads
             renderClientProjects();
-            renderShowcaseProjects();
+            renderIndependentProjects();
+            checkUrlHash(); // Check if a project modal should be opened on load
         });
     </script>
 </body>
