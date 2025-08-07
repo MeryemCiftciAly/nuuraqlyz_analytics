@@ -1950,18 +1950,22 @@
                     }
                     if (modalSummary) modalSummary.textContent = projectData.summary;
 
-                    // Populate the links table
+                 
                    // Populate the links table
+// Populate the links table
 if (modalLinksTable) {
     const links = projectData.project_links;
-    document.querySelector('.github-link a').href = links.github || '#';
-    document.querySelector('.kaggle-link a').href = links.kaggle || '#';
-    document.querySelector('.dropbox-link a').href = links.dropbox || '#';
-    document.querySelector('.tableau-link a').href = links.tableau || '#';
-    document.querySelector('.powerbi-link a').href = links.powerbi || '#';
-    document.querySelector('.excel-link a').href = links.excel || '#'; // Added line for Excel
-    document.querySelector('.presentations-link a').href = links.presentations_reports || '#' // Added line for Presentations/Reports
-};
+    const independentContent = document.getElementById('independent-project-content');
+
+    // Use independentContent.querySelector to scope the search
+    independentContent.querySelector('.github-link a').href = links.github || '#';
+    independentContent.querySelector('.kaggle-link a').href = links.kaggle || '#';
+    independentContent.querySelector('.dropbox-link a').href = links.dropbox || '#';
+    independentContent.querySelector('.tableau-link a').href = links.tableau || '#';
+    independentContent.querySelector('.powerbi-link a').href = links.powerbi || '#';
+    independentContent.querySelector('.excel-link a').href = links.excel || '#';
+    independentContent.querySelector('.presentations-link a').href = links.presentations_reports || '#';
+}
 
                         // Set link text and disable if no link is provided
                         document.querySelectorAll('.modal-links-table a').forEach(a => {
