@@ -1951,37 +1951,71 @@
                     if (modalSummary) modalSummary.textContent = projectData.summary;
 
                  
-                   // Populate the links table
-// Populate the links table
+                // Populate the links table
 if (modalLinksTable) {
     const links = projectData.project_links;
     const independentContent = document.getElementById('independent-project-content');
 
-    // Use independentContent.querySelector to scope the search
-    independentContent.querySelector('.github-link a').href = links.github || '#';
-    independentContent.querySelector('.kaggle-link a').href = links.kaggle || '#';
-    independentContent.querySelector('.dropbox-link a').href = links.dropbox || '#';
-    independentContent.querySelector('.tableau-link a').href = links.tableau || '#';
-    independentContent.querySelector('.powerbi-link a').href = links.powerbi || '#';
-    independentContent.querySelector('.excel-link a').href = links.excel || '#';
-    independentContent.querySelector('.presentations-link a').href = links.presentations_reports || '#';
-}
+    // Get and update the GitHub link if it exists
+    const githubLink = independentContent.querySelector('.github-link a');
+    if (githubLink) {
+        githubLink.href = links.github || '#';
+    }
 
-                        // Set link text and disable if no link is provided
-                        document.querySelectorAll('.modal-links-table a').forEach(a => {
-                            if (a.href.endsWith('#')) {
-                                a.textContent = 'N/A';
-                                a.style.pointerEvents = 'none';
-                                a.style.color = '#999';
-                                a.style.textDecoration = 'none';
-                            } else {
-                                a.textContent = 'View';
-                                a.style.pointerEvents = 'auto';
-                                a.style.color = '#007bff';
-                                a.style.textDecoration = 'underline';
-                            }
-                        });
-                    }
+    // Get and update the Kaggle link if it exists
+    const kaggleLink = independentContent.querySelector('.kaggle-link a');
+    if (kaggleLink) {
+        kaggleLink.href = links.kaggle || '#';
+    }
+
+    // Get and update the Dropbox link if it exists
+    const dropboxLink = independentContent.querySelector('.dropbox-link a');
+    if (dropboxLink) {
+        dropboxLink.href = links.dropbox || '#';
+    }
+
+    // And so on for all other links...
+    const tableauLink = independentContent.querySelector('.tableau-link a');
+    if (tableauLink) {
+        tableauLink.href = links.tableau || '#';
+    }
+
+    const powerbiLink = independentContent.querySelector('.powerbi-link a');
+    if (powerbiLink) {
+        powerbiLink.href = links.powerbi || '#';
+    }
+
+    const excelLink = independentContent.querySelector('.excel-link a');
+    if (excelLink) {
+        excelLink.href = links.excel || '#';
+    }
+
+    const presentationsLink = independentContent.querySelector('.presentations-link a');
+    if (presentationsLink) {
+        presentationsLink.href = links.presentations_reports || '#';
+    }
+
+    // Set link text and disable if no link is provided
+    document.querySelectorAll('.modal-links-table a').forEach(a => {
+        if (a.href.endsWith('#')) {
+            a.textContent = 'N/A';
+            a.style.pointerEvents = 'none';
+            a.style.color = '#999';
+            a.style.textDecoration = 'none';
+        } else {
+            a.textContent = 'View';
+            a.style.pointerEvents = 'auto';
+            a.style.color = '#007bff';
+            a.style.textDecoration = 'underline';
+        }
+    });
+
+    // Set the dynamic share link for independent projects
+    if (independentProjectLinkInput) {
+        const projectLink = `${window.location.origin}${window.location.pathname}#/project/${projectData.id}`;
+        independentProjectLinkInput.value = projectLink;
+    }
+}
 
                     // Set the dynamic share link for independent projects
                     if (independentProjectLinkInput) {
