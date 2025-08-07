@@ -1951,13 +1951,17 @@
                     if (modalSummary) modalSummary.textContent = projectData.summary;
 
                     // Populate the links table
-                    if (modalLinksTable) {
-                        const links = projectData.project_links;
-                        document.querySelector('.github-link a').href = links.github || '#';
-                        document.querySelector('.kaggle-link a').href = links.kaggle || '#';
-                        document.querySelector('.dropbox-link a').href = links.dropbox || '#';
-                        document.querySelector('.tableau-link a').href = links.tableau || '#';
-                        document.querySelector('.powerbi-link a').href = links.powerbi || '#';
+                   // Populate the links table
+if (modalLinksTable) {
+    const links = projectData.project_links;
+    document.querySelector('.github-link a').href = links.github || '#';
+    document.querySelector('.kaggle-link a').href = links.kaggle || '#';
+    document.querySelector('.dropbox-link a').href = links.dropbox || '#';
+    document.querySelector('.tableau-link a').href = links.tableau || '#';
+    document.querySelector('.powerbi-link a').href = links.powerbi || '#';
+    document.querySelector('.excel-link a').href = links.excel || '#'; // Added line for Excel
+    document.querySelector('.presentations-link a').href = links.presentations_reports || '#'; // Added line for Presentations/Reports
+}
 
                         // Set link text and disable if no link is provided
                         document.querySelectorAll('.modal-links-table a').forEach(a => {
