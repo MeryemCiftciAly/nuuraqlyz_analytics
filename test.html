@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Website</title>
+    <!-- All CSS is now native to this file -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        /* --- Global Styles --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f7fafc;
+            color: #2d3748;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Header --- */
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            text-decoration: none;
+        }
+
+        .header-nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .header-nav a {
+            color: #718096;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header-nav a:hover {
+            color: #1a202c;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-color: #ffffff;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-button {
+            background-color: #4c51bf;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-button:hover {
+            background-color: #434190;
+        }
+
+        /* --- Services Section --- */
+        .services {
+            background-color: #f9fafb;
+            padding: 5rem 0;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-header h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+
+        .services-header p {
+            font-size: 1rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .service-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .service-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: scale(1.03);
+        }
+
+        .service-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 9999px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .service-icon svg {
+            width: 2rem;
+            height: 2rem;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #4a5568;
+        }
+
+        /* Icon specific colors */
+        .service-card:nth-child(1) .service-icon { background-color: #e0e7ff; color: #4c51bf; }
+        .service-card:nth-child(2) .service-icon { background-color: #e9d8fd; color: #805ad5; }
+        .service-card:nth-child(3) .service-icon { background-color: #d1fae5; color: #38a169; }
+
+        /* --- Contact Section --- */
+        .contact {
+            background-color: #ffffff;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.125rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .contact-button {
+            background-color: #2d3748;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #4a5568;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #2d3748;
+            color: #a0aec0;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="header-logo">My Website</a>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Our Professional Website</h1>
+            <p>We provide high-quality services tailored to your needs.</p>
+            <a href="#services" class="hero-button">Explore Services</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="services-header">
+                <h2>Our Services</h2>
+                <p>We offer a range of professional services designed to help you succeed.</p>
+            </div>
+            <div class="service-cards">
+                <!-- Service Card 1: Web Development -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4m-4 4l-4 4m-4 4l4-16m-4 4l-4-4m4 4l4 4" />
+                        </svg>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>
+                        We build modern, responsive, and high-performing websites tailored to your business needs.
+                    </p>
+                </div>
+
+                <!-- Service Card 2: UI/UX Design -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L12 19.25m0 0L14.25 17M12 19.25V4.75m0 14.5a.75.75 0 010-1.5M12 4.75a.75.75 0 010-1.5M12 4.75V19.25M17.25 12L19.5 14.25m0 0L17.25 12m2.25 2.25L17.25 12M17.25 12L19.5 14.25M4.5 12L2.25 14.25M4.5 12L2.25 9.75M4.5 12L2.25 14.25" />
+                        </svg>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>
+                        Crafting intuitive and engaging user experiences that delight your customers.
+                    </p>
+                </div>
+
+                <!-- Service Card 3: Digital Marketing -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>
+                        Driving traffic and growing your online presence with targeted marketing strategies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Have a question or a project in mind? Contact us today.</p>
+            <a href="mailto:info@example.com" class="contact-button">Email Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 My Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
