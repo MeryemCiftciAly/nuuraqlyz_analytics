@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1396,7 +1395,8 @@
             </p>
         </div>
     </footer>
-     <script>
+     <!-- JavaScript for dynamic behavior -->
+    <script>
         // Function to handle image loading and fade-in
         function loadImageAndFadeIn(imgElementId, spinnerId) {
             const imgElement = document.getElementById(imgElementId);
@@ -1406,8 +1406,10 @@
                 // Show spinner while loading
                 spinnerElement.style.display = 'block';
 
-                // Create a temporary image to handle the load event
+                // We need to load the image via JavaScript to handle the fade-in effect.
                 const tempImage = new Image();
+
+                // Set up event handlers *before* setting the src
                 tempImage.onload = () => {
                     // Hide spinner and fade in the actual image on load
                     spinnerElement.style.display = 'none';
@@ -1415,13 +1417,13 @@
                     imgElement.classList.add('loaded'); // Add a class for CSS animations if needed
                 };
                 tempImage.onerror = () => {
-                    // In case of error, hide spinner and show alt text or fallback
+                    // In case of error, hide spinner and log to console
                     spinnerElement.style.display = 'none';
-                    console.error(`Error loading image from URL for ${imgElementId}`);
-                    // Fallback to the onerror attribute already in the HTML
+                    console.error(`Error loading image from URL for ${imgElementId}. Check the URL.`);
                 };
-                // Set the source after the event handlers are in place
-                tempImage.src = imgElement.src;
+                // Set the source after the event handlers are in place.
+                // We'll use the hardcoded URL since the div doesn't have a src attribute.
+                tempImage.src = 'https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png';
             }
         }
 
