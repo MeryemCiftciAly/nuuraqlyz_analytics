@@ -70,21 +70,12 @@
             background-color: #f44336; /* Red */
         }
         
-        /* Styles for the popup */
-        .info-popup {
-            display: none;
-            z-index: 100;
-        }
-
-        .info-popup.active {
-            display: block;
-        }
-
         /* New styling for the popup to ensure it's hidden and appears correctly */
         .popup-window {
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
+            z-index: 100;
         }
 
         .popup-window.is-visible {
@@ -168,7 +159,7 @@
                     <div class="relative">
                         <i id="infoIcon" class="fas fa-info-circle text-gray-400 text-xl cursor-pointer hover:text-gray-600 transition"></i>
                         <!-- The 'How it works' Popup Window -->
-                        <div id="infoPopup" class="info-popup absolute bottom-full mb-2 w-72 bg-gray-800 text-white text-sm p-4 rounded-lg shadow-lg transform -translate-x-1/2 left-1/2 popup-window">
+                        <div id="infoPopup" class="absolute bottom-full mb-2 w-72 bg-gray-800 text-white text-sm p-4 rounded-lg shadow-lg transform -translate-x-1/2 left-1/2 popup-window">
                             <p class="font-bold mb-2">How it works</p>
                             <p>By clicking 'Submit Testimonial', your default email client will open with the form details pre-filled. You will need to click 'Send' to complete the submission.</p>
                         </div>
@@ -178,9 +169,11 @@
                     <div class="relative">
                         <span id="privacyLink" class="text-sm font-medium text-gray-600 cursor-pointer hover:underline">Privacy Concerns?</span>
                         <!-- The 'Privacy concerns' Popup Window -->
-                        <div id="privacyPopup" class="info-popup absolute bottom-full mb-2 w-72 bg-gray-800 text-white text-sm p-4 rounded-lg shadow-lg transform -translate-x-1/2 left-1/2 popup-window">
+                        <div id="privacyPopup" class="absolute bottom-full mb-2 w-72 bg-gray-800 text-white text-sm p-4 rounded-lg shadow-lg transform -translate-x-1/2 left-1/2 popup-window">
                             <p class="font-bold mb-2">Security & Privacy</p>
-                            <p>This form does not collect or store any personal data. Your email address and password are not exposed. We simply create a draft email on your computer with your testimonial. You remain in complete control of sending it.</p>
+                            <p>You will not be exposing any sensitive information, like your email ID or password by using this form.</p>
+                            <p>This website doesn't have a backend server to collect or store any information. Instead, when you click the "Submit" button, the JavaScript code creates a mailto: link. This link simply opens your own default email program and pre-fills the subject and body with the details you entered into the form after you log into your email.</p>
+                            <p>The form itself never knows your email address or password. Therefore, your email ID will only be visible to the recipient because the email is sent from your own email account, just like any other email you would send. The process is safe, and the only information sent is what you have voluntarily provided in the form fields.</p>
                         </div>
                     </div>
                 </div>
