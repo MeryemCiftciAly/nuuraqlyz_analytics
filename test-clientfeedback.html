@@ -82,6 +82,11 @@
             opacity: 1;
             pointer-events: auto;
         }
+
+        /* Style for the generated content area */
+        #generatedContent {
+            display: none; /* Hidden by default */
+        }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
@@ -180,6 +185,16 @@
             </div>
         </form>
 
+        <!-- New section to display and copy the email content -->
+        <div id="generatedContent" class="mt-8 pt-8 border-t border-gray-200 space-y-4">
+            <h2 class="text-2xl font-bold text-gray-800">Your Testimonial is Ready!</h2>
+            <p class="text-gray-600">Please copy the content below and paste it into an email to send.</p>
+            <textarea id="emailContent" rows="10" class="w-full p-4 rounded-lg bg-gray-100 border border-gray-300 text-sm resize-none"></textarea>
+            <button id="copyButton" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                <i class="fas fa-copy mr-2"></i> Copy to Clipboard
+            </button>
+        </div>
+
         <!-- Message Box for success/error feedback -->
         <div id="messageBox" class="message-box"></div>
     </div>
@@ -267,6 +282,9 @@
             // Form submission handler
             const form = document.getElementById('testimonialForm');
             const messageBox = document.getElementById('messageBox');
+            const generatedContentSection = document.getElementById('generatedContent');
+            const emailContentTextarea = document.getElementById('emailContent');
+            const copyButton = document.getElementById('copyButton');
 
             form.addEventListener('submit', async (event) => {
                 event.preventDefault(); // Prevent the default form submission
@@ -286,6 +304,8 @@
                 
                 // Construct the email body
                 const emailBody = `
+Subject: New Testimonial Submission
+
 Client Name: ${clientName}
 Project Title: ${projectTitle}
 Rating: ${rating} stars
@@ -295,17 +315,30 @@ ${testimonial}
 Consent to share: ${consent ? 'Yes' : 'No'}
 `;
                 
-                // Encode the body for use in a URL
-                const encodedBody = encodeURIComponent(emailBody);
+                // Populate the new textarea with the generated email content
+                emailContentTextarea.value = emailBody;
 
-                // Construct the mailto link
-                const mailtoLink = `mailto:your-email@example.com?subject=New Testimonial Submission&body=${encodedBody}`;
+                // Hide the form and show the generated content
+                form.style.display = 'none';
+                generatedContentSection.style.display = 'block';
 
-                // Open the user's email client
-                window.location.href = mailtoLink;
+                // Provide user feedback
+                showMessage('Your testimonial is ready! Please copy and paste the text.', 'success');
+            });
 
-                // Provide user feedback that the email client is opening
-                showMessage('Opening your email client to send the testimonial...', 'success');
+            // Copy to clipboard functionality
+            copyButton.addEventListener('click', () => {
+                // Select the text in the textarea
+                emailContentTextarea.select();
+                emailContentTextarea.setSelectionRange(0, 99999); // For mobile devices
+
+                try {
+                    // Copy the text to the clipboard
+                    document.execCommand('copy');
+                    showMessage('Copied to clipboard!', 'success');
+                } catch (err) {
+                    showMessage('Failed to copy. Please copy the text manually.', 'error');
+                }
             });
 
             // Function to display a message box
