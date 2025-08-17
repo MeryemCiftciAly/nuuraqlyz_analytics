@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Share Your Experience - Testimonial Form</title>
+    <title>Share Your Experience - Work Critique Form</title>
     <!-- Tailwind CSS for utility classes -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter for main text, Playfair Display for headings -->
@@ -13,205 +13,202 @@
     <style>
         /* Define a custom font family for use in Tailwind CSS */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            font-family: 'Inter', sans-serif; /* Default font for general text */
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Changed to white */
+            display: flex; /* Using flex to center the main content on the page */
+            flex-direction: column; /* Stack content vertically */
+            align-items: center; /* Center horizontally */
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
+            color: #333; /* Default text color */
+            line-height: 1.5; /* Default line height */
         }
-               /* General Body Styles - Consolidated */
-    body {
-        font-family: 'Inter', sans-serif; /* Default font for general text */
-        margin: 0;
-        padding: 0;
-        background-color: #ffffff; /* Changed to white */
-        display: flex; /* Using flex to center the main content on the page */
-        flex-direction: column; /* Stack content vertically */
-        align-items: center; /* Center horizontally */
-        min-height: 100vh;
-        box-sizing: border-box;
-        overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
-        color: #333; /* Default text color */
-        line-height: 1.5; /* Default line height */
-    }
 
-    /* Hero Section Container (now full-width background, content max-width) */
-    .hero-section-wrapper {
-        width: 100%; /* Stretches full viewport width */
-        background-color: #fff; /* White background for the header part */
-        overflow: hidden; /* Ensures rounded corners apply to children */
-        margin-bottom: 0; /* Removed margin-bottom for smooth transition */
-    }
-
-    .hero-section-container {
-        max-width: 1365px; /* Max width for the content inside hero section */
-        margin: 0 auto; /* Center the content */
-        border-radius: 10px; /* Rounded corners for the content area */
-        overflow: hidden;
-    }
-
-    /* Header Section (Logo and Tagline) */
-    .hero-header {
-        display: flex;
-        justify-content: space-between; /* Pushes logo and tagline to opposite ends */
-        align-items: center;
-        padding: 20px 40px; /* Padding for the header */
-        background-color: #fff; /* White background */
-    }
-
-    .hero-logo {
-        display: flex; /* Use flexbox for precise alignment */
-        align-items: center;
-        font-weight: 600; /* Default for logo text */
-        color: #333; /* Default color for logo text */
-        gap: 0px; /* Remove default gap between flex items, relying on margins */
-    }
-
-    .hero-logo-icon {
-        width: 180px; /* Updated width for circular logo */
-        height: 180px; /* Updated height for circular logo */
-        margin-right: 8px; /* Added positive margin to create space */
-        flex-shrink: 0; /* Prevents icon from shrinking below its size in flex container */
-        object-fit: contain; /* Ensures the entire image fits within the bounds without cropping */
-    }
-
-    .hero-logo-main-text {
-        font-size: 2em; /* Increased font size for 'NUURAQLYZ' text to balance with large logo */
-        font-weight: 700;
-        color: #333;
-    }
-
-    .hero-logo-analytics-text {
-        color: #888; /* Soft medium gray */
-        font-weight: 400; /* Regular weight, less bold than NUURAQLYZ */
-        margin-left: 8px; /* Re-added small margin-left for "ANALYTICS" */
-    }
- .hero-tagline {
-            font-size: 1em; /* Adjusted for very small screens */
+        /* Hero Section Container (now full-width background, content max-width) */
+        .hero-section-wrapper {
+            width: 100%; /* Stretches full viewport width */
+            background-color: #fff; /* White background for the header part */
+            overflow: hidden; /* Ensures rounded corners apply to children */
+            margin-bottom: 0; /* Removed margin-bottom for smooth transition */
         }
-   
-    /* Navigation Bar Styles */
-    .navbar {
-        display: flex;
-        justify-content: center; /* Center the navigation links */
-        align-items: center;
-        padding: 15px 0;
-        width: 100%;
-        border-top: 1px solid #eee; /* Subtle separator from header */
-        box-sizing: border-box; /* Ensure padding/border don't add to width */
-    }
 
-    .navbar-links {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 40px; /* Space between navigation items */
-    }
-
-    .navbar-links li a {
-        color: #333; /* Dark text for links to blend with white header */
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 1.1em;
-        padding: 5px 10px;
-        transition: color 0.3s ease, background-color 0.3s ease;
-        border-radius: 5px;
-    }
-
-    .navbar-links li a:hover {
-        color: #FF8C00; /* Orange on hover, matching hero gradient */
-        background-color: rgba(0, 0, 0, 0.05); /* Subtle background on hover */
-    }
-
-    /* Main Hero Content Area (Gradient Background with Image Overlay) */
-    .hero-main-content {
-        display: flex;
-        position: relative; /* For positioning the image overlay */
-        min-height: 450px; /* Minimum height for desktop view */
-        padding: 50px 40px; /* Padding for content inside */
-        background: linear-gradient(to right, #FF8C00, #FFA07A); /* Orange to Light Salmon */
-        border-bottom-left-radius: 10px; /* Match container's rounded corners */
-        border-bottom-right-radius: 10px;
-        overflow: hidden; /* Crucial for containing the overlay */
-    }
-
-    /* Hero Image Overlay */
-    #hero-image-overlay {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 55%; /* Occupy the right portion */
-        height: 100%;
-        background-image: url('https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png'); /* <--- ADD THIS LINE FOR YOUR ROAD IMAGE */
-        background-size: cover; /* Cover the area, possibly cropping */
-        background-position: center right; /* Focus on the right side of the image */
-        opacity: 0; /* Start hidden for fade-in */
-        z-index: 0; /* Ensure this is behind the text content */
-        transition: opacity 1.5s ease-out; /* Fade in animation */
-    }
-
-    /* Keyframes for subtle zoom and pan animation */
-    @keyframes zoom-pan-subtle {
-        0% {
-            transform: scale(1) translateX(0);
-            background-position: center right;
+        .hero-section-container {
+            max-width: 1365px; /* Max width for the content inside hero section */
+            margin: 0 auto; /* Center the content */
+            border-radius: 10px; /* Rounded corners for the content area */
+            overflow: hidden;
         }
-        50% {
-            transform: scale(1.03) translateX(-5px); /* Slightly zoom in and shift left */
-            background-position: center left; /* Shift background position */
+
+        /* Header Section (Logo and Tagline) */
+        .hero-header {
+            display: flex;
+            justify-content: space-between; /* Pushes logo and tagline to opposite ends */
+            align-items: center;
+            padding: 20px 40px; /* Padding for the header */
+            background-color: #fff; /* White background */
         }
-        100% {
-            transform: scale(1) translateX(0);
-            background-position: center right;
+
+        .hero-logo {
+            display: flex; /* Use flexbox for precise alignment */
+            align-items: center;
+            font-weight: 600; /* Default for logo text */
+            color: #333; /* Default color for logo text */
+            gap: 0px; /* Remove default gap between flex items, relying on margins */
         }
-    }
 
-    #hero-image-overlay.loaded {
-        opacity: 0.8; /* Target opacity after loading */
-        animation: zoom-pan-subtle 15s ease-in-out infinite alternate; /* Apply animation */
-    }
+        .hero-logo-icon {
+            width: 180px; /* Updated width for circular logo */
+            height: 180px; /* Updated height for circular logo */
+            margin-right: 8px; /* Added positive margin to create space */
+            flex-shrink: 0; /* Prevents icon from shrinking below its size in flex container */
+            object-fit: contain; /* Ensures the entire image fits within the bounds without cropping */
+        }
 
-    /* Loading indicator styles */
-    .loading-spinner {
-        border: 4px solid rgba(255, 255, 255, 0.3);
-        border-top: 4px solid #fff;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        animation: spin 1s linear infinite;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2; /* Above the image overlay */
-        display: none; /* Hidden by default, shown by JS */
-    }
+        .hero-logo-main-text {
+            font-size: 2em; /* Increased font size for 'NUURAQLYZ' text to balance with large logo */
+            font-weight: 700;
+            color: #333;
+        }
 
-    @keyframes spin {
-        0% { transform: translate(-50%, -50%) rotate(0deg); }
-        100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
+        .hero-logo-analytics-text {
+            color: #888; /* Soft medium gray */
+            font-weight: 400; /* Regular weight, less bold than NUURAQLYZ */
+            margin-left: 8px; /* Re-added small margin-left for "ANALYTICS" */
+        }
 
-    /* Text Content (A guiding light...) */
-    .hero-text-content {
-        flex: 1; /* Takes up available space on the left */
-        z-index: 1; /* Ensure text is above the image overlay */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        color: #fff; /* Set text color to white for contrast against gradient/image */
-    }
+        .hero-tagline {
+            font-size: 1em; /* Increased font size significantly for better visibility */
+           
+        }
 
-    .hero-title {
-        font-family: 'Playfair Display', serif; /* Serif font for the title */
-        font-size: 3.5em; /* Adjusted font size for the new text */
-        font-weight: 700;
-        color: #fff; /* White text for "A guiding light into the unknown" */
-        line-height: 1.1; /* Tighter line height */
-        margin: 0;
-        padding: 0;
-    }
+        /* Navigation Bar Styles */
+        .navbar {
+            display: flex;
+            justify-content: center; /* Center the navigation links */
+            align-items: center;
+            padding: 15px 0;
+            width: 100%;
+            border-top: 1px solid #eee; /* Subtle separator from header */
+            box-sizing: border-box; /* Ensure padding/border don't add to width */
+        }
 
-       /* Custom styles for the star rating system */
+        .navbar-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px; /* Space between navigation items */
+        }
+
+        .navbar-links li a {
+            color: #333; /* Dark text for links to blend with white header */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar-links li a:hover {
+            color: #FF8C00; /* Orange on hover, matching hero gradient */
+            background-color: rgba(0, 0, 0, 0.05); /* Subtle background on hover */
+        }
+
+        /* Main Hero Content Area (Gradient Background with Image Overlay) */
+        .hero-main-content {
+            display: flex;
+            position: relative; /* For positioning the image overlay */
+            min-height: 450px; /* Minimum height for desktop view */
+            padding: 50px 40px; /* Padding for content inside */
+            background: linear-gradient(to right, #FF8C00, #FFA07A); /* Orange to Light Salmon */
+            border-bottom-left-radius: 10px; /* Match container's rounded corners */
+            border-bottom-right-radius: 10px;
+            overflow: hidden; /* Crucial for containing the overlay */
+        }
+
+        /* Hero Image Overlay */
+        #hero-image-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%; /* Occupy the right portion */
+            height: 100%;
+            background-image: url('https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png'); /* <--- ADD THIS LINE FOR YOUR ROAD IMAGE */
+            background-size: cover; /* Cover the area, possibly cropping */
+            background-position: center right; /* Focus on the right side of the image */
+            opacity: 0; /* Start hidden for fade-in */
+            z-index: 0; /* Ensure this is behind the text content */
+            transition: opacity 1.5s ease-out; /* Fade in animation */
+        }
+
+        /* Keyframes for subtle zoom and pan animation */
+        @keyframes zoom-pan-subtle {
+            0% {
+                transform: scale(1) translateX(0);
+                background-position: center right;
+            }
+            50% {
+                transform: scale(1.03) translateX(-5px); /* Slightly zoom in and shift left */
+                background-position: center left; /* Shift background position */
+            }
+            100% {
+                transform: scale(1) translateX(0);
+                background-position: center right;
+            }
+        }
+
+        #hero-image-overlay.loaded {
+            opacity: 0.8; /* Target opacity after loading */
+            animation: zoom-pan-subtle 15s ease-in-out infinite alternate; /* Apply animation */
+        }
+
+        /* Loading indicator styles */
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; /* Above the image overlay */
+            display: none; /* Hidden by default, shown by JS */
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Text Content (A guiding light...) */
+        .hero-text-content {
+            flex: 1; /* Takes up available space on the left */
+            z-index: 1; /* Ensure text is above the image overlay */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: #fff; /* Set text color to white for contrast against gradient/image */
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif; /* Serif font for the title */
+            font-size: 3.5em; /* Adjusted font size for the new text */
+            font-weight: 700;
+            color: #fff; /* White text for "A guiding light into the unknown" */
+            line-height: 1.1; /* Tighter line height */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Custom styles for the star rating system */
         .rating-stars {
             display: flex;
             justify-content: center;
@@ -283,40 +280,48 @@
         }
     </style>
 </head>
-    <div class="hero-section-wrapper">
-    <div class="hero-section-container">
-        <header class="hero-header">
-            <div class="hero-logo">
-                <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/logo.png" alt="NUURAQLYZ Analytics Logo" class="hero-logo-icon">
-                <div class="hero-logo-text-container">
-                    <span class="hero-logo-main-text">NUURAQLYZ</span>
-                    <span class="hero-logo-analytics-text">ANALYTICS</span>
-                </div>
-            </div>
-            <div class="hero-tagline">Crafting Clarity from Complexity</div>
-        </header>
-
-        <nav class="navbar">
-            <ul class="navbar-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#" class="font-bold">Testimonials</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-
-        <section class="hero-main-content">
-            <div id="loading-spinner" class="loading-spinner"></div>
-            <div id="hero-image-overlay"></div>
-            <div class="hero-text-content">
-                <h1 class="hero-title">A guiding light into the unknown</h1>
-                <p class="mt-4 text-xl font-medium">Empowering your data journey with strategic insights and analytical precision.</p>
-            </div>
-        </section>
-    </div>
-</div>
 <body class="flex items-center justify-center min-h-screen">
+    <!-- Hero Section -->
+    <div class="hero-section-wrapper">
+        <div class="hero-section-container">
+            <!-- Header Section -->
+            <header class="hero-header">
+                <div class="hero-logo">
+                    <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/logo.png" alt="NUURAQLYZ Analytics Logo" class="hero-logo-icon">
+                    <div class="hero-logo-text-container">
+                        <span class="hero-logo-main-text">NUURAQLYZ</span>
+                        <span class="hero-logo-analytics-text">ANALYTICS</span>
+                    </div>
+                </div>
+                <div class="hero-tagline">Analytics for clarity. Insights for Action.</div>
+            </header>
+
+            <!-- Navigation Bar -->
+            <nav class="navbar">
+                <ul class="navbar-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#" class="font-bold">Client Feedback</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Hero Main Content (with Gradient and Image Overlay) -->
+            <section class="hero-main-content">
+                <!-- Loading Spinner (for visual feedback) -->
+                <div id="loading-spinner" class="loading-spinner"></div>
+                <!-- Image Overlay (the road image) -->
+                <div id="hero-image-overlay"></div>
+                <!-- Text Content -->
+                <div class="hero-text-content">
+                    <h1 class="hero-title">A guiding light into the unknown</h1>
+                    <p class="mt-4 text-xl font-medium">Empowering your data journey with strategic insights and analytical precision.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+    
     <!-- Main content container -->
     <div class="bg-white p-8 md:p-12 lg:p-16 rounded-3xl shadow-2xl max-w-4xl w-full mx-4 my-8 md:my-12">
         <header class="text-center mb-12">
@@ -413,7 +418,7 @@
         </form>
 
         <!-- New section to display and copy the email content -->
-        <div id="generatedContent" class="mt-8 pt-8 border-t border-gray-200 space-y-4">
+        <div id="generatedContent" class="mt-8 pt-8 border-t border-gray-200 space-y-4" style="display: none;">
             <h2 class="text-2xl font-bold text-gray-800">Your Testimonial is Ready!</h2>
             <p class="text-gray-600">Please copy the content below and paste it into an email to send.</p>
             <textarea id="emailContent" rows="10" class="w-full p-4 rounded-lg bg-gray-100 border border-gray-300 text-sm resize-none"></textarea>
@@ -509,9 +514,6 @@
             // Form submission handler
             const form = document.getElementById('testimonialForm');
             const messageBox = document.getElementById('messageBox');
-            const generatedContentSection = document.getElementById('generatedContent');
-            const emailContentTextarea = document.getElementById('emailContent');
-            const copyButton = document.getElementById('copyButton');
 
             form.addEventListener('submit', async (event) => {
                 event.preventDefault(); // Prevent the default form submission
@@ -530,42 +532,29 @@
                 const consent = document.getElementById('consent').checked;
                 
                 // Construct the email body
+                const emailSubject = `New Testimonial from ${clientName}`;
                 const emailBody = `
-Subject: New Testimonial Submission
-
 Client Name: ${clientName}
 Project Title: ${projectTitle}
-Rating: ${rating} stars
+Rating: ${rating} out of 5 stars
 Testimonial: 
 ${testimonial}
 
 Consent to share: ${consent ? 'Yes' : 'No'}
 `;
                 
-                // Populate the new textarea with the generated email content
-                emailContentTextarea.value = emailBody;
+                // Encode the subject and body for the mailto link
+                const encodedSubject = encodeURIComponent(emailSubject);
+                const encodedBody = encodeURIComponent(emailBody);
+                
+                // Construct the mailto URL. **IMPORTANT: CHANGE 'youremail@example.com' to your actual email address!**
+                const mailtoLink = `mailto:youremail@example.com?subject=${encodedSubject}&body=${encodedBody}`;
 
-                // Hide the form and show the generated content
-                form.style.display = 'none';
-                generatedContentSection.style.display = 'block';
+                // Redirect the user to the mailto link, which will open their email client
+                window.location.href = mailtoLink;
 
                 // Provide user feedback
-                showMessage('Your testimonial is ready! Please copy and paste the text.', 'success');
-            });
-
-            // Copy to clipboard functionality
-            copyButton.addEventListener('click', () => {
-                // Select the text in the textarea
-                emailContentTextarea.select();
-                emailContentTextarea.setSelectionRange(0, 99999); // For mobile devices
-
-                try {
-                    // Copy the text to the clipboard
-                    document.execCommand('copy');
-                    showMessage('Copied to clipboard!', 'success');
-                } catch (err) {
-                    showMessage('Failed to copy. Please copy the text manually.', 'error');
-                }
+                showMessage('Opening your email client...', 'success');
             });
 
             // Function to display a message box
