@@ -36,7 +36,7 @@
         }
 
         .hero-section-container {
-            max-width: 1365px; /* Max width for the content inside hero section */
+            max-width: 1200px; /* Max width for the content inside hero section */
             margin: 0 auto; /* Center the content */
             border-radius: 10px; /* Rounded corners for the content area */
             overflow: hidden;
@@ -283,6 +283,57 @@
         #generatedContent {
             display: none; /* Hidden by default */
         }
+
+        /* Styles for the new footer */
+        .footer {
+            width: 100%;
+            background-color: #f8f8f8; /* A light gray background */
+            color: #555; /* Dark gray text */
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid #e0e0e0;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            margin-top: auto; /* Push the footer to the bottom of the flex container */
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        .footer a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #FF8C00; /* Match the hero section's theme */
+            text-decoration: underline;
+        }
+
+        .footer .fas.fa-heart {
+            margin: 0 5px;
+        }
+
+        /* Responsive adjustments for footer */
+        @media (max-width: 768px) {
+            .footer-content {
+                text-align: center;
+            }
+
+            .footer-content p {
+                margin: 0.25rem 0;
+            }
+        }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
@@ -292,23 +343,23 @@
             <!-- Header Section -->
             <header class="hero-header">
                 <div class="hero-logo">
-                    <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/logo.png" alt="NUURAQLYZ Analytics Logo" class="hero-logo-icon">
+                    <!-- The logo has been updated with the new URL -->
+                    <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/nuuraqlyz_analytics_logo.png" alt="NUURAQLYZ Analytics Logo" class="hero-logo-icon">
                     <div class="hero-logo-text-container">
                         <span class="hero-logo-main-text">NUURAQLYZ</span>
                         <span class="hero-logo-analytics-text">ANALYTICS</span>
                     </div>
                 </div>
-                <div class="hero-tagline">Crafting Clarity from Complexity</div>
+                <div class="hero-tagline">Analytics for Clarity. Insights for Action</div>
             </header>
 
             <!-- Navigation Bar -->
             <nav class="navbar">
                 <ul class="navbar-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#" class="font-bold">Testimonials</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/test-clientfeedback.html#">Home</a></li>
+                   <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
+                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer-feedback.html" class="font-bold">Testimonials</a></li>
+                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/contact.html">Contact</a></li>
                 </ul>
             </nav>
 
@@ -436,9 +487,65 @@
         <div id="messageBox" class="message-box"></div>
     </div>
 
+    <!-- The new footer section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Meryem A. Rowe- Ciftci </p>
+            <p>
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-and-conditions.html">Terms of Service</a>
+                &nbsp;|&nbsp;
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    
     <script>
         // Star rating functionality
         document.addEventListener('DOMContentLoaded', () => {
+            // --- Image Loading Logic ---
+            // A common function to load an image, handle loading spinners, and provide a fallback.
+            function loadImage(imageUrl, targetElement, spinnerId) {
+                const spinner = document.getElementById(spinnerId);
+                if (spinner) {
+                    spinner.style.display = 'block'; // Show spinner
+                }
+
+                // Create a temporary image object to check for load completion
+                const img = new Image();
+                img.src = imageUrl;
+
+                img.onload = () => {
+                    // If the target is a div (like hero-image-overlay), set its background-image
+                    targetElement.style.backgroundImage = `url('${imageUrl}')`;
+                    targetElement.classList.add('loaded'); // Trigger fade-in
+                    
+                    if (spinner) {
+                        spinner.style.display = 'none'; // Hide spinner after image loads
+                    }
+                };
+
+                img.onerror = () => {
+                    console.error(`Failed to load image: ${imageUrl}`);
+                    if (spinner) {
+                        spinner.style.display = 'none'; // Hide spinner on error
+                    }
+                    // Fallback for hero overlay div
+                    targetElement.style.backgroundImage = `url('https://placehold.co/1200x675/cccccc/333333?text=Hero+Image+Error')`;
+                    targetElement.classList.add('loaded'); // Still fade in fallback
+                };
+            }
+
+            // Load the hero image when the page loads
+            const heroImageUrl = "https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png"; 
+            const heroImageOverlay = document.getElementById('hero-image-overlay');
+            if (heroImageOverlay) {
+                loadImage(heroImageUrl, heroImageOverlay, 'loading-spinner');
+            } else {
+                console.warn("Element with ID 'hero-image-overlay' not found. Hero image will not load via JS.");
+            }
+
+            // --- Form, Star Rating, and Popup Logic ---
             const starContainer = document.getElementById('star-rating');
             const stars = starContainer.querySelectorAll('.rating-star');
             const ratingInput = document.getElementById('ratingValue');
@@ -447,7 +554,6 @@
             // Function to update star colors based on the given rating
             const updateStars = (rating) => {
                 stars.forEach((star, index) => {
-                    // Check if the current star's index is less than the rating
                     if (index < rating) {
                         star.classList.add('selected');
                     } else {
@@ -473,7 +579,6 @@
 
             // Event listener for mouseout from star container (reset hover effect)
             starContainer.addEventListener('mouseout', () => {
-                // Remove the 'hovered' class from all stars when the mouse leaves the container
                 stars.forEach(star => star.classList.remove('hovered'));
             });
 
@@ -482,10 +587,9 @@
                 const clickedStar = event.target.closest('.rating-star');
                 if (!clickedStar) return;
 
-                // Update the current rating and the hidden input value
                 currentRating = clickedStar.dataset.rating;
                 ratingInput.value = currentRating;
-                updateStars(currentRating); // Update the visual appearance
+                updateStars(currentRating);
             });
 
             // Popup functionality using click/tap events
@@ -496,16 +600,16 @@
 
             // Event listener to show/hide the "How it works" popup
             infoIcon.addEventListener('click', (event) => {
-                event.stopPropagation(); // Prevents the document click listener from closing it
+                event.stopPropagation();
                 infoPopup.classList.toggle('is-visible');
-                privacyPopup.classList.remove('is-visible'); // Close the other popup
+                privacyPopup.classList.remove('is-visible');
             });
 
             // Event listener to show/hide the "Privacy Concerns" popup
             privacyLink.addEventListener('click', (event) => {
-                event.stopPropagation(); // Prevents the document click listener from closing it
+                event.stopPropagation();
                 privacyPopup.classList.toggle('is-visible');
-                infoPopup.classList.remove('is-visible'); // Close the other popup
+                infoPopup.classList.remove('is-visible');
             });
             
             // Event listener to hide popups when clicking anywhere on the document
@@ -521,22 +625,19 @@
             const messageBox = document.getElementById('messageBox');
 
             form.addEventListener('submit', async (event) => {
-                event.preventDefault(); // Prevent the default form submission
+                event.preventDefault();
 
-                // Simple form validation
                 if (!form.checkValidity()) {
                     form.reportValidity();
                     return;
                 }
 
-                // Gather form data
                 const clientName = document.getElementById('clientName').value;
                 const projectTitle = document.getElementById('projectTitle').value;
                 const testimonial = document.getElementById('testimonial').value;
                 const rating = currentRating;
                 const consent = document.getElementById('consent').checked;
                 
-                // Construct the email body
                 const emailSubject = `New Testimonial from ${clientName}`;
                 const emailBody = `
 Client Name: ${clientName}
@@ -548,18 +649,13 @@ ${testimonial}
 Consent to share: ${consent ? 'Yes' : 'No'}
 `;
                 
-                // Encode the subject and body for the mailto link
                 const encodedSubject = encodeURIComponent(emailSubject);
                 const encodedBody = encodeURIComponent(emailBody);
                 
-                // Construct the mailto URL.
-                // You must replace 'youremail@example.com' with your actual email address.
                 const mailtoLink = `mailto:youremail@example.com?subject=${encodedSubject}&body=${encodedBody}`;
 
-                // Redirect the user to the mailto link, which will open their email client
                 window.location.href = mailtoLink;
 
-                // Provide user feedback
                 showMessage('Opening your email client...', 'success');
             });
 
@@ -567,7 +663,6 @@ Consent to share: ${consent ? 'Yes' : 'No'}
             const showMessage = (message, type) => {
                 messageBox.textContent = message;
                 messageBox.classList.add('show', type);
-                // Hide message after 5 seconds
                 setTimeout(() => {
                     messageBox.classList.remove('show', type);
                 }, 5000);
