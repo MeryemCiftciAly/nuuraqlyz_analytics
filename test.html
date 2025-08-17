@@ -3,328 +3,1506 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Website</title>
-    <!-- All CSS is now native to this file -->
+    <title>NUURAQLYZ Analytics - Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Favicon links -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon-96x96.png" sizes="180x180" />
+    <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.svg" />
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//apple-touch-icon.png" />
+    <link rel="manifest" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//site.webmanifest" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-        /* --- Global Styles --- */
+        /* General Body Styles - Updated with white background */
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            background-color: #f7fafc;
-            color: #2d3748;
+            padding: 0;
+            background-color: #ffffff; /* White background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            color: #28496c; /* Dark blue from brand palette */
         }
 
-        .container {
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 1.5rem;
-        }
-
-        /* --- Header --- */
-        .header {
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            padding: 1rem 0;
-        }
-
-        .header-content {
+        /* Header Section (Logo and Tagline) - Updated to match the image */
+        .hero-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            width: 70%;
+            max-width: 1200px;
+            box-sizing: border-box;
         }
-
-        .header-logo {
-            font-size: 1.5rem;
+        
+        /* Styles for the Nuuraqlyz Analytics text within the logo section */
+        .hero-logo-main-text {
+            font-size: 2em;
             font-weight: 700;
-            color: #1a202c;
-            text-decoration: none;
+            color: #28496c;
+            white-space: nowrap; /* Prevent wrapping for "Nuuraqlyz" */
         }
 
-        .header-nav ul {
+        .hero-logo-analytics-text {
+            color: #24647D; /* A slightly different blue from brand palette for a subtle contrast */
+            font-weight: 400;
+            margin-left: 8px;
+            white-space: nowrap; /* Prevent wrapping for "ANALYTICS" */
+        }
+
+        .hero-logo {
             display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 1.5rem;
-        }
-
-        .header-nav a {
-            color: #718096;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .header-nav a:hover {
-            color: #1a202c;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            background-color: #ffffff;
-            padding: 5rem 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #1a202c;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.125rem;
-            color: #4a5568;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .hero-button {
-            background-color: #4c51bf;
-            color: #ffffff;
+            align-items: center;
             font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: background-color 0.3s ease;
+            color: #28496c;
+            gap: 0px; /* Adjust as needed for spacing between logo and text */
         }
 
-        .hero-button:hover {
-            background-color: #434190;
+        .hero-logo-icon {
+            width: 180px; /* Consistent size */
+            height: 180px; /* Consistent size */
+            margin-right: 8px;
+            flex-shrink: 0;
+            object-fit: contain;
         }
 
-        /* --- Services Section --- */
-        .services {
-            background-color: #f9fafb;
-            padding: 5rem 0;
+        .hero-tagline {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #28496c;
+            text-transform: none;
+            letter-spacing: 1px;
+            text-align: right;
+            line-height: normal; /* Adjusted for single line */
+            white-space: nowrap; /* Prevent text from wrapping */
         }
 
-        .services-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
 
-        .services-header h2 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: #1a202c;
-            margin-bottom: 1rem;
-        }
-
-        .services-header p {
-            font-size: 1rem;
-            color: #4a5568;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .service-cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .service-cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .service-cards {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .service-card {
-            background-color: #ffffff;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            padding: 2rem;
-            transition: transform 0.3s ease;
-            text-align: center;
-        }
-        
-        .service-card:hover {
-            transform: scale(1.03);
-        }
-
-        .service-icon {
+        /* Navigation Bar - Updated with brand color */
+        .navbar {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 4rem;
-            height: 4rem;
-            border-radius: 9999px;
-            margin: 0 auto 1.5rem;
+            padding: 15px 0;
+            width: 100%;
+            border-top: 1px solid #c0d9d9; /* Lighter shade of brand color */
+            box-sizing: border-box;
+            background-color: #ffffff; /* White background */
         }
 
-        .service-icon svg {
-            width: 2rem;
-            height: 2rem;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
+        .navbar-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        .navbar-links li a {
+            color: #28496c;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar-links li a:hover {
+            color: #24647D; /* A slightly different blue from brand palette */
+            background-color: rgba(36, 100, 125, 0.1); /* Semi-transparent brand color for hover */
+        }
+
+        /* Main content area for projects page */
+        .main-content-projects {
+            flex-grow: 1;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+            margin-top: 20px;
         }
         
-        .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1a202c;
-            margin-bottom: 0.5rem;
-        }
-
-        .service-card p {
-            font-size: 1rem;
-            color: #4a5568;
-        }
-
-        /* Icon specific colors */
-        .service-card:nth-child(1) .service-icon { background-color: #e0e7ff; color: #4c51bf; }
-        .service-card:nth-child(2) .service-icon { background-color: #e9d8fd; color: #805ad5; }
-        .service-card:nth-child(3) .service-icon { background-color: #d1fae5; color: #38a169; }
-
-        /* --- Contact Section --- */
-        .contact {
-            background-color: #ffffff;
-            padding: 5rem 0;
+        /* New main heading style for the page - Updated with brand color */
+        .projects-main-heading {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 3em;
+            color: #28496c;
+            margin: 0 0 20px 0;
             text-align: center;
         }
 
-        .contact h2 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: #1a202c;
-            margin-bottom: 1rem;
+        /* Section Headings and Descriptions - Updated with brand color */
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: #28496c;
+            text-align: center;
         }
 
-        .contact p {
-            font-size: 1.125rem;
-            color: #4a5568;
-            max-width: 600px;
-            margin: 0 auto 2rem;
+        /* Project Grid and Cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            padding: 0;
+            list-style: none;
         }
 
-        .contact-button {
-            background-color: #2d3748;
-            color: #ffffff;
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
+        .project-card {
+            border-radius: 10px;
+            padding: 25px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            cursor: pointer;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.5em;
+            margin: 0 0 10px 0;
+        }
+
+        .project-card p {
+            font-size: 1em;
+            color: #444; /* Slightly lighter shade for body text */
+            margin: 0;
+            flex-grow: 1;
+        }
+        
+        /* --- Updated Card Styles for Alternating Colors --- */
+        .independent-projects-grid .project-card:nth-child(odd) {
+            background-color: #26647D; /* Teal */
+            color: #fff;
+        }
+        
+        .independent-projects-grid .project-card:nth-child(even) {
+            background-color: #284964; /* Dark Blue */
+            color: #fff;
+        }
+        
+        .independent-projects-grid .project-card:nth-child(odd) h3,
+        .independent-projects-grid .project-card:nth-child(odd) p,
+        .independent-projects-grid .project-card:nth-child(even) h3,
+        .independent-projects-grid .project-card:nth-child(even) p {
+            color: #fff;
+        }
+
+        /* Independent Projects Section */
+        .independent-section {
+            width: 100%;
+            max-width: 1100px;
+            position: relative;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+        
+        /* What-if Pay Section */
+        .pay-scenario-section {
+            width: 100%;
+            max-width: 1100px;
+            margin: 50px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            background-color: #F5F5F5; /* Light gray from brand palette */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .pay-scenario-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .pay-scenario-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #284964;
+            margin-bottom: 10px;
+        }
+
+        .pay-scenario-content p {
+            font-size: 1.1em;
+            color: #284964;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        /* New Styles for the Download Link Button - Updated with brand colors */
+        .download-link-button {
+            display: inline-block;
+            padding: 12px 30px;
+            /* Subtle gradient background with brand colors */
+            background: linear-gradient(135deg, #26647D, #284964);
+            color: #fff;
             text-decoration: none;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: background-color 0.3s ease;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            border: none;
+            cursor: pointer;
         }
 
-        .contact-button:hover {
-            background-color: #4a5568;
+        /* Hover effect for the new button */
+        .download-link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #1a4f61, #284968);
         }
 
-        /* --- Footer --- */
-        .footer {
-            background-color: #2d3748;
-            color: #a0aec0;
-            padding: 1.5rem 0;
+        .download-message {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #888;
+        }
+        
+        /* --- New Freelance CTA Section - Updated with brand color --- */
+        .freelance-cta-section {
+            width: 100%;
+            max-width: 1100px;
+            margin: 50px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 40px;
+            background-color: #F5F5F5; /* Light gray from brand palette */
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .freelance-cta-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #284964;
+            margin: 0 0 15px 0;
+        }
+
+        .freelance-cta-section p {
+            font-size: 1.2em;
+            line-height: 1.7;
+            color: #284964;
+            max-width: 700px;
+            margin: 0 0 30px 0;
+        }
+
+        .freelance-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            background-color: #26647D; /* Teal from brand palette */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .freelance-cta-button:hover {
+            background-color: #284964; /* Dark blue on hover */
+            transform: translateY(-2px);
+        }
+
+
+        /* --- Project Modal Styles - Updated with brand color --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(40, 73, 108, 0.7); /* Dark blue with transparency */
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 900px;
+            width: 95%;
+            max-height: 95vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            animation: modal-fade-in 0.3s ease forwards;
+        }
+        
+        /* New styles for the What-if Pay modal */
+        #what-if-pay-modal-content {
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        #what-if-pay-modal-content h2 {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #284964;
+        }
+        
+        #what-if-pay-modal-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #284964;
+            margin-bottom: 25px;
+        }
+
+        @keyframes modal-fade-in {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2.5em;
+            font-weight: 300;
+            cursor: pointer;
+            color: #284964;
+            transition: color 0.3s;
+        }
+
+        .modal-close-button:hover {
+            color: #26647D;
+        }
+
+        .modal-client-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .modal-client-logo {
+            max-width: 150px;
+            max-height: 100px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .modal-client-logo:hover {
+            filter: grayscale(0%);
+        }
+
+        .modal-client-title-group {
             text-align: center;
         }
 
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #284964;
+            margin: 0;
+            text-align: center;
+        }
+
+        .modal-client-website-link {
+            font-size: 0.9em;
+            color: #284964;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        .modal-client-website-link:hover {
+            color: #26647D;
+            text-decoration: underline;
+        }
+
+        .modal-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin: 30px 0 10px 0;
+            color: #284964;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        /* New section title for independent projects */
+        .modal-tools-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin: 30px 0 10px 0;
+            color: #284964;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .modal-overview, .modal-my-role {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #284964;
+            margin-bottom: 20px;
+        }
+
+        .modal-skills-tools {
+            text-align: center;
+            font-size: 1.1em;
+            color: #284964;
+            margin-bottom: 20px;
+        }
+
+        .modal-screenshot {
+            display: block;
+            margin: 0 auto 30px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-summary {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #284964;
+            margin-bottom: 30px;
+        }
+
+        .modal-links-section h4 {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .modal-links-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .modal-links-table th, .modal-links-table td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+            color: #284964;
+        }
+
+        /* --- FIX for word-break on labels --- */
+        /* Apply word-break only to the URL column to prevent labels from breaking */
+        .modal-links-table td:nth-child(2) {
+            word-break: break-all;
+        }
+
+        .modal-links-table a {
+            color: #26647D;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .modal-links-table a:hover {
+            color: #1a4f61;
+            text-decoration: underline;
+        }
+
+        .modal-testimonial-section {
+            background-color: #f0f4f8;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 5px solid #26647D;
+        }
+
+        .modal-testimonial-section p {
+            font-style: italic;
+            font-size: 1.1em;
+            color: #284964;
+            line-height: 1.6;
+        }
+
+        .modal-testimonial-author {
+            text-align: right;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #284964;
+            font-size: 1em;
+        }
+
+        .modal-testimonial-link {
+            font-size: 0.9em;
+            color: #26647D;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+            margin-left: 10px;
+        }
+
+        .modal-testimonial-link:hover {
+            text-decoration: underline;
+        }
+
+        .modal-cta-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .modal-cta-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #284964;
+        }
+
+        .modal-cta-section p {
+            margin: 0 0 20px 0;
+            font-size: 1em;
+            line-height: 1.6;
+            color: #284964;
+        }
+
+        .modal-contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .modal-contact-buttons .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background-color: #26647D; /* Teal from brand palette */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .modal-contact-buttons .btn:hover {
+            background-color: #284964; /* Dark blue on hover */
+            transform: translateY(-2px);
+        }
+
+        .share-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+            /* Added margin-top to create space between CTA and sharing */
+            margin-top: 25px;
+        }
+
+        .share-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .share-box-label {
+            font-size: 0.9em;
+            color: #284964;
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .share-box input {
+            flex-grow: 1;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            font-size: 0.9em;
+            background-color: #fff;
+        }
+
+        .share-box .copy-btn {
+            background-color: #26647D; /* Teal from brand palette */
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .share-box .copy-btn:hover {
+            background-color: #284964; /* Dark blue on hover */
+        }
+
+
+        /* --- External Link Confirmation Modal --- */
+        .confirm-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(40, 73, 108, 0.5); /* Dark blue with transparency */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .confirm-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .confirm-modal-content {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .confirm-modal-content h4 {
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            color: #284964;
+        }
+
+        .confirm-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .confirm-buttons button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        #confirm-continue {
+            background-color: #26647D; /* Teal from brand palette */
+            color: #fff;
+        }
+
+        #confirm-continue:hover {
+            background-color: #284964;
+        }
+
+        #confirm-cancel {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        #confirm-cancel:hover {
+            background-color: #c82333;
+        }
+
+
+        /* Footer Section - Updated with brand color */
+        .footer {
+            width: 100%;
+            background-color: #ffffff;
+            color: #284964;
+            padding: 20px 0;
+            margin-top: auto;
+            text-align: center;
+            border-top: 1px solid #c0d9d9;
+        }
+
+        .footer-inner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .footer-inner-content p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        .footer-inner-content a {
+            color: #284964;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-inner-content a:hover {
+            color: #26647D;
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .hero-tagline {
+                text-align: center;
+                margin-top: 10px;
+            }
+            .client-projects-header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .client-filter-tabs-container {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-logo-icon {
+                width: 100px; /* Smaller logo on smaller screens */
+                height: 100px;
+            }
+            .hero-logo-main-text {
+                font-size: 1.5em; /* Smaller text on smaller screens */
+            }
+            .hero-logo-analytics-text {
+                font-size: 0.8em; /* Smaller text on smaller screens */
+            }
+            .hero-tagline {
+                font-size: 1em;
+            }
+            .navbar-links {
+                gap: 20px;
+            }
+            .navbar-links li a {
+                font-size: 1em;
+            }
+            .project-card {
+                min-height: 180px;
+                padding: 20px;
+            }
+            .client-projects-heading,
+            .independent-heading {
+                font-size: 2em;
+            }
+            .modal-content {
+                padding: 20px;
+            }
+            .modal-title {
+                font-size: 2em;
+            }
+            .modal-screenshot {
+                width: 100%;
+            }
+            .modal-client-logo {
+                max-width: 100px;
+            }
+            .share-box {
+                flex-direction: column;
+            }
+            .share-box input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+            .share-box .copy-btn {
+                border-radius: 5px;
+            }
+            .freelance-cta-section {
+                padding: 40px 20px;
+            }
+            .freelance-cta-section h3 {
+                font-size: 2em;
+            }
+            .freelance-cta-section p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-header {
+                padding: 10px;
+            }
+            .hero-logo-icon {
+                width: 80px; /* Even smaller logo on very small screens */
+                height: 80px;
+            }
+            .hero-logo-main-text {
+                font-size: 1.2em;
+            }
+            .hero-logo-analytics-text {
+                font-size: 0.7em;
+            }
+            .navbar-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .project-card h3 {
+                font-size: 1.2em;
+            }
+            .pay-scenario-content h3 {
+                font-size: 1.5em;
+            }
+            .freelance-cta-section h3 {
+                font-size: 1.5em;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Header Section -->
-    <header class="header">
-        <div class="container header-content">
-            <a href="#" class="header-logo">My Website</a>
-            <nav class="header-nav">
-                <ul>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+    <header class="hero-header">
+        <div class="hero-logo">
+            <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//Nuuraqlyz_Logo_Main-removebg-preview.png" alt="Nuuraqlyz Logo" class="hero-logo-icon">
+            <div>
+                <span class="hero-logo-main-text">Nuuraqlyz</span>
+                <span class="hero-logo-analytics-text">ANALYTICS</span>
+            </div>
+        </div>
+        <div class="hero-tagline">
+            Your data, your story.
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Welcome to Our Professional Website</h1>
-            <p>We provide high-quality services tailored to your needs.</p>
-            <a href="#services" class="hero-button">Explore Services</a>
-        </div>
-    </section>
+    <!-- Main Navigation Bar -->
+    <nav class="navbar">
+        <ul class="navbar-links">
+            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">HOME</a></li>
+            <li><a href="javascript:void(0)">ABOUT US</a></li>
+            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html" class="active">PROJECTS</a></li>
+            <li><a href="javascript:void(0)">CONTACT</a></li>
+        </ul>
+    </nav>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="services-header">
-                <h2>Our Services</h2>
-                <p>We offer a range of professional services designed to help you succeed.</p>
+    <!-- Main Content for Projects Page -->
+    <main class="main-content-projects">
+        
+        <h1 class="projects-main-heading">Independent Projects</h1>
+        <p class="section-description">
+            View my work. This is a showcase of my ability to transform large public data sets and other unstructured information into **actionable insights** that drive **strategic business decisions**. I invite you to explore these projects to see my capabilities in action and consider how I can help you uncover the potential hidden within your own data.
+        </p>
+
+        <!-- Independent Projects Section -->
+        <section class="independent-section">
+            <div id="independent-project-grid" class="project-grid independent-projects-grid">
+                <!-- Independent project cards will be injected here by JavaScript -->
             </div>
-            <div class="service-cards">
-                <!-- Service Card 1: Web Development -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4m-4 4l-4 4m-4 4l4-16m-4 4l-4-4m4 4l4 4" />
-                        </svg>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>
-                        We build modern, responsive, and high-performing websites tailored to your business needs.
-                    </p>
-                </div>
+        </section>
 
-                <!-- Service Card 2: UI/UX Design -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L12 19.25m0 0L14.25 17M12 19.25V4.75m0 14.5a.75.75 0 010-1.5M12 4.75a.75.75 0 010-1.5M12 4.75V19.25M17.25 12L19.5 14.25m0 0L17.25 12m2.25 2.25L17.25 12M17.25 12L19.5 14.25M4.5 12L2.25 14.25M4.5 12L2.25 9.75M4.5 12L2.25 14.25" />
-                        </svg>
-                    </div>
-                    <h3>UI/UX Design</h3>
-                    <p>
-                        Crafting intuitive and engaging user experiences that delight your customers.
-                    </p>
-                </div>
+        <!-- What-if Pay Section -->
+        <section class="pay-scenario-section">
+            <div class="pay-scenario-content">
+                <h3>What-if Pay</h3>
+                <p>
+                    Wondering about your income streams? Click below to learn more.
+                </p>
+                <button id="open-pay-modal-btn" class="download-link-button">Read here</button>
+            </div>
+        </section>
+        
+        <!-- Freelance Call-to-Action Section -->
+        <section class="freelance-cta-section">
+            <h3>Ready to Transform Your Data?</h3>
+            <p>
+                Are you looking for a freelance data analyst to help you with your business challenges? I specialize in turning complex data into clear, actionable insights. What data do you have? I'd love to discuss how we can work together to uncover your business's hidden potential.
+            </p>
+            <a href="https://airtable.com/" class="freelance-cta-button" target="_blank" rel="noopener noreferrer">
+                Let's Talk About Your Project
+            </a>
+        </section>
 
-                <!-- Service Card 3: Digital Marketing -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3>Digital Marketing</h3>
-                    <p>
-                        Driving traffic and growing your online presence with targeted marketing strategies.
-                    </p>
+        <!-- Project Modal (hidden by default) -->
+        <div id="project-modal-overlay" class="modal-overlay">
+            <div id="project-modal-content" class="modal-content">
+                <span id="modal-close-btn" class="modal-close-button">&times;</span>
+                <div id="modal-inner-content">
+                    <!-- Dynamic modal content will be injected here by JavaScript -->
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <p>Have a question or a project in mind? Contact us today.</p>
-            <a href="mailto:info@example.com" class="contact-button">Email Us</a>
+        
+        <!-- What-if Pay Modal (hidden by default) -->
+        <div id="what-if-pay-modal-overlay" class="modal-overlay">
+            <div id="what-if-pay-modal-content" class="modal-content">
+                <span id="what-if-pay-modal-close-btn" class="modal-close-button">&times;</span>
+                <div class="modal-inner-content">
+                    <h2>About the What-if Pay Spreadsheet</h2>
+                    <p>
+                        Here is a spreadsheet I thought about sharing with you. It takes three pay scenarios and your top six expenses, and gives you an idea of how these three pay scenarios will go against the three income streams. So if you are job searching or if you have three income streams coming in and you want to know which income stream will handle your top 6 expenses, this may be helpful.
+                    </p>
+                    <!-- New button with the spreadsheet link -->
+                    <a href="https://docs.google.com/spreadsheets/d/1GSvnwlyHLv2j5mX9YfS4xXW-2a6P89rzYzfA4O-OC9s/edit?usp=sharing"
+                       class="download-link-button" target="_blank" rel="noopener noreferrer">
+                        Access the Spreadsheet
+                    </a>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <!-- Footer -->
+        <!-- External Link Confirmation Modal (hidden by default) -->
+        <div id="confirm-modal-overlay" class="confirm-modal-overlay">
+            <div class="confirm-modal-content">
+                <h4>You are about to leave Nuuraqlyz Analytics.</h4>
+                <p>Are you sure you want to continue to this external website?</p>
+                <div class="confirm-buttons">
+                    <button id="confirm-continue">Continue</button>
+                    <button id="confirm-cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
+    <!-- Footer Section -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 My Website. All rights reserved.</p>
+        <div class="footer-inner-content">
+            <p>&copy; 2024 Nuuraqlyz Analytics. All Rights Reserved.</p>
+            <p>
+                <a href="javascript:void(0)">Privacy Policy</a> |
+                <a href="javascript:void(0)">Terms of Service</a> |
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Sitemap</a>
+            </p>
         </div>
     </footer>
 
+    <!-- JavaScript for project data and functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- DATA ARRAYS ---
+            const independentProjectsData = [
+                {
+                    id: 'proj5-nyc-waste-trends',
+                    title: 'New York City Waste Collection Trends',
+                    description: 'An in-depth analysis of NYC open data to visualize waste and recycling collection trends across the five boroughs.',
+                    modal: {
+                        projectTitle: 'New York City Waste Collection Trends',
+                        overview: 'This project analyzes public NYC sanitation data to uncover trends and patterns in waste and recycling collection. Using Python, I cleaned and transformed the raw data, and then created visualizations to highlight key findings such as seasonal variations and differences in collection volume across different boroughs. The goal was to provide clear, actionable insights from public data.',
+                        myRole: 'Sole developer and researcher.',
+                        skillsTools: 'Python, Pandas, Matplotlib, Seaborn, Folium, SQL, Public Data Analysis',
+                        screenshot: 'https://raw.githubusercontent.com/MeryemCiftciAly/assets/refs/heads/main/project_screenshot.png',
+                        links: [
+                            { name: 'Case Study (PDF)', url: 'javascript:void(0)'},
+                            { name: 'Presentation/Report', url: 'https://docs.google.com/presentation/d/e/2PACX-1vT5G1QJX5Nch2chxsb1YMFgpnV335Itrl2sWh1Fk8NTf82372BpQOo__e73Q1MIwAYlPFR04-HfplzN/pub?start=false&loop=false&delayms=10000&slide=id.p'},
+                            { name: 'Project Timeline/Flowchart', url: 'https://meryemciftcialy.github.io/work_sample/nyc-analy-prj-timeline.html'}
+                        ],
+                        tools: [
+                            { toolName: 'SQL (GitHub)', resourceUrl: 'https://github.com/MeryemCiftciAly/my_sql_journey/tree/main/nyc-sanitation-analysis' },
+                            { toolName: 'SQL (Kaggle)', resourceUrl: 'https://www.kaggle.com/code/meryemciftci/sql-nyc-garbage-collection-analysis' },
+                            { toolName: 'Python (GitHub)', resourceUrl: 'https://github.com/MeryemCiftciAly/nyc-sanitation-analysis-python' },
+                            { toolName: 'Python (Kaggle)', resourceUrl: 'https://www.kaggle.com/meryemciftci/python-nyc-garbage-collection' },
+                            { toolName: 'Tableau', resourceUrl: 'https://www.tableau.com/' },
+                            { toolName: 'Power BI', resourceUrl: 'https://powerbi.microsoft.com/' },
+                            { toolName: 'Excel', resourceUrl: 'https://drive.google.com/drive/folders/1b7UyW3vyQOxxizZx4d8mkwip7B-uM8y1?usp=sharing' },
+                            { toolName: 'Presentation Reports', resourceUrl: 'https://www.google.com/slides/about/' }
+                        ],
+                        objective: 'The primary goal was to leverage publicly available sanitation data from the NYC Open Data portal to uncover meaningful trends and patterns in waste and recycling collection. The project aimed to demonstrate how public data can be used to generate actionable insights and to showcase skills in data cleaning, transformation, and visualization.',
+                        solution: 'I developed a comprehensive data analysis pipeline using Python. I first ingested and cleaned and standardized the raw, unstructured data using Pandas. Next, I performed exploratory data analysis to identify key relationships between variables. Finally, I used libraries like Matplotlib and Seaborn to create interactive visualizations and a detailed report, making the complex data easily understandable.',
+                        benefits: 'This analysis provides city officials and sanitation planners with a clear, visual understanding of collection trends. It can help in optimizing routing, allocating resources more effectively during peak seasons, and identifying areas for public education campaigns to improve recycling rates. The insights can lead to more efficient municipal services and cost savings.',
+                        industries: 'This analysis can be applied to **public services**, **urban planning**, **logistics and supply chain management**, and **environmental science**. Any organization dealing with large-scale resource management and operational efficiency can benefit from similar data-driven insights.'
+                    }
+                },
+                {
+                    id: 'proj6-sanctions-analysis',
+                    title: 'International Sanctions Analysis (Coming Soon)',
+                    description: 'A forthcoming project that will explore the impact of international sanctions on global trade and economic trends.',
+                    modal: {
+                        projectTitle: 'International Sanctions Analysis',
+                        overview: 'This project is currently in development. It will analyze the effects of international sanctions on global economic stability, trade, and specific industries. The final analysis will include a detailed report and interactive visualizations.',
+                        myRole: 'Sole developer and researcher.',
+                        skillsTools: 'Python, Pandas, Data Visualization, Economic Research',
+                        screenshot: 'https://placehold.co/800x450/ffffff/000000?text=Project+Coming+Soon',
+                        links: [], // No links available yet
+                        tools: [], // No tools to list yet
+                        objective: 'This project is in the planning and data gathering phase. The objective is to produce a comprehensive analysis of international sanctions and their economic effects. Check back soon for updates on this project!',
+                        solution: 'The analysis will involve collecting and integrating data from various international databases and reports. The methodology will include statistical analysis and data visualization to highlight key trends and relationships, providing a clear picture of the economic consequences of sanctions.',
+                        benefits: 'The insights from this project will be valuable for policymakers, business leaders, and academics. They will provide a data-driven foundation for understanding the complex and far-reaching impacts of international sanctions on the global economy.',
+                        industries: 'This analysis will be relevant to **global economics**, **finance**, **international relations**, and **policy analysis**.'
+                    }
+                },
+                {
+                    id: 'proj-future-one',
+                    title: 'Project to be Realized',
+                    description: 'This space is reserved for a future project. Please check back later for updates.',
+                    modal: {
+                        projectTitle: 'Future Project',
+                        overview: 'This project is currently in the planning and development phase. Stay tuned for a new data analysis case study that will be featured here soon.',
+                        myRole: 'Sole developer and analyst.',
+                        skillsTools: 'TBD',
+                        screenshot: 'https://placehold.co/800x450/ffffff/000000?text=Project+To+Be+Realized',
+                        links: [],
+                        tools: [],
+                        objective: 'The goal of this card is to demonstrate that I have more projects in the works and that this portfolio is continuously being updated. I will provide a new data analysis project here in the near future.',
+                        solution: 'The project details and solution will be updated here once the project is complete.',
+                        benefits: 'The benefits of this project will be documented once it is complete.',
+                        industries: 'The industries that this project can be applied to will be documented once it is complete.'
+                    }
+                },
+                {
+                    id: 'proj-future-two',
+                    title: 'Project to be Realized',
+                    description: 'This space is reserved for a future project. Please check back later for updates.',
+                    modal: {
+                        projectTitle: 'Future Project',
+                        overview: 'This project is currently in the planning and development phase. Stay tuned for a new data analysis case study that will be featured here soon.',
+                        myRole: 'Sole developer and analyst.',
+                        skillsTools: 'TBD',
+                        screenshot: 'https://placehold.co/800x450/ffffff/000000?text=Project+To+Be+Realized',
+                        links: [],
+                        tools: [],
+                        objective: 'The goal of this card is to demonstrate that I have more projects in the works and that this portfolio is continuously being updated. I will provide a new data analysis project here in the near future.',
+                        solution: 'The project details and solution will be updated here once the project is complete.',
+                        benefits: 'The benefits of this project will be documented once it is complete.',
+                        industries: 'The industries that this project can be applied to will be documented once it is complete.'
+                    }
+                }
+            ];
+
+            // --- DOM ELEMENTS AND VARIABLES ---
+            const independentProjectGrid = document.getElementById('independent-project-grid');
+
+            const modalOverlay = document.getElementById('project-modal-overlay');
+            const modalContent = document.getElementById('project-modal-content');
+            const modalInnerContent = document.getElementById('modal-inner-content');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            
+            const confirmModalOverlay = document.getElementById('confirm-modal-overlay');
+            const confirmContinueBtn = document.getElementById('confirm-continue');
+            const confirmCancelBtn = document.getElementById('confirm-cancel');
+
+            // What-if Pay modal elements
+            const openPayModalBtn = document.getElementById('open-pay-modal-btn');
+            const payModalOverlay = document.getElementById('what-if-pay-modal-overlay');
+            const payModalCloseBtn = document.getElementById('what-if-pay-modal-close-btn');
+
+            let externalLinkToOpen = '';
+
+            // --- FUNCTIONS ---
+            
+            /**
+             * Renders all independent project cards into the DOM.
+             */
+            const renderIndependentProjects = () => {
+                if (!independentProjectGrid) {
+                    console.error('Independent project grid element not found.');
+                    return;
+                }
+                independentProjectGrid.innerHTML = '';
+                independentProjectsData.forEach(project => {
+                    const projectCardHTML = `
+                        <div class="project-card independent-project" data-project-id="${project.id}">
+                            <div class="card-content">
+                                <h3 class="card-title">${project.title}</h3>
+                                <p class="card-description">${project.description}</p>
+                            </div>
+                        </div>
+                    `;
+                    independentProjectGrid.insertAdjacentHTML('beforeend', projectCardHTML);
+                });
+                // Add event listeners to the new project cards
+                addProjectCardListeners();
+            };
+
+            /**
+             * Handles the opening of a project modal with dynamic content.
+             * @param {string} projectId - The ID of the project to display.
+             */
+            const openProjectModal = (projectId) => {
+                // Find the project data from the independent data array
+                const project = independentProjectsData.find(p => p.id === projectId);
+                if (!project) {
+                    console.error('Project not found:', projectId);
+                    return;
+                }
+                const modalData = project.modal;
+                if (!modalData) {
+                    console.error('Modal data not found for project:', projectId);
+                    return;
+                }
+
+                // Construct the HTML for the modal content
+                let modalHtml = '';
+                
+                // Title and Overview sections are always present
+                modalHtml += `<h2 class="modal-title independent-title">${modalData.projectTitle}</h2>`;
+                modalHtml += `<h3 class="modal-section-title">Overview</h3>`;
+                modalHtml += `<p class="modal-overview">${modalData.overview}</p>`;
+
+                // Add screenshot if available
+                if (modalData.screenshot) {
+                    modalHtml += `<img src="${modalData.screenshot}" alt="Project Screenshot" class="modal-screenshot">`;
+                }
+
+                // New Case Study sections
+                modalHtml += `<h3 class="modal-section-title">Objective</h3>`;
+                modalHtml += `<p class="modal-overview">${modalData.objective}</p>`;
+                
+                modalHtml += `<h3 class="modal-section-title">Solution</h3>`;
+                modalHtml += `<p class="modal-overview">${modalData.solution}</p>`;
+
+                modalHtml += `<h3 class="modal-section-title">Benefits</h3>`;
+                modalHtml += `<p class="modal-overview">${modalData.benefits}</p>`;
+
+                modalHtml += `<h3 class="modal-section-title">Industries that this analysis can apply to</h3>`;
+                modalHtml += `<p class="modal-overview">${modalData.industries}</p>`;
+
+                // Add links section if links are available
+                if (modalData.links && modalData.links.length > 0) {
+                    const linksHtml = modalData.links.map(link => `
+                        <tr>
+                            <td>${link.name}</td>
+                            <td><a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.url}</a></td>
+                            <td>
+                                <button class="copy-btn" data-copy-target="${link.url}">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    `).join('');
+                    modalHtml += `
+                        <div class="modal-links-section">
+                            <h4>Project Links</h4>
+                            <table class="modal-links-table">
+                                <thead>
+                                    <tr>
+                                        <th>Link Name</th>
+                                        <th>URL</th>
+                                        <th>Copy</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${linksHtml}
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                }
+                
+                // Add tools section if tools data is available
+                if (modalData.tools && modalData.tools.length > 0) {
+                    const toolsHtml = modalData.tools.map(tool => `
+                        <tr>
+                            <td>${tool.toolName}</td>
+                            <td><a href="${tool.resourceUrl}" target="_blank" rel="noopener noreferrer">${tool.resourceUrl}</a></td>
+                            <td>
+                                <button class="copy-btn" data-copy-target="${tool.resourceUrl}">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    `).join('');
+                    modalHtml += `
+                        <div class="modal-tools-section">
+                            <h3 class="modal-tools-title">Tools Used</h3>
+                            <table class="modal-links-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tool</th>
+                                        <th>Resource Link</th>
+                                        <th>Copy</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${toolsHtml}
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                }
+
+                // Add Share section
+                // This creates a dynamic URL for sharing the current project modal.
+                const shareUrl = `${window.location.origin}${window.location.pathname}#${projectId}`;
+                modalHtml += `
+                    <div class="share-container">
+                        <div class="share-box">
+                            <span class="share-box-label">Shareable Link:</span>
+                            <input type="text" id="share-link-input" value="${shareUrl}" readonly>
+                            <button class="copy-btn" data-copy-target="#share-link-input">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                // Add Call to Action section
+                modalHtml += `
+                    <div class="modal-cta-section">
+                        <h4>Let's make your data work for you.</h4>
+                        <p>If you have a project in mind, big or small, I'd love to discuss how data can help you achieve your goals.</p>
+                        <div class="modal-contact-buttons">
+                            <a href="https://airtable.com/" class="btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Contact Me</a>
+                        </div>
+                    </div>
+                `;
+
+                // Insert the generated HTML into the modal and display it
+                modalInnerContent.innerHTML = modalHtml;
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+                // Update URL hash without causing a page reload
+                history.pushState(null, '', `#${projectId}`);
+                
+                // Add copy to clipboard listeners for the new content
+                addCopyToClipboardListeners();
+                
+                // Re-add external link click handlers for new links
+                addExternalLinkHandlers();
+            };
+
+            /**
+             * Handles the opening of the What-if Pay modal.
+             */
+            const openPayModal = () => {
+                payModalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            /**
+             * Handles the closing of the What-if Pay modal.
+             */
+            const closePayModal = () => {
+                payModalOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+
+            /**
+             * Adds click event listeners to all project cards.
+             */
+            const addProjectCardListeners = () => {
+                const projectCards = document.querySelectorAll('.project-card');
+                projectCards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        const projectId = card.dataset.projectId;
+                        openProjectModal(projectId);
+                    });
+                });
+            };
+
+            /**
+             * Handles closing the project modal.
+             */
+            const closeProjectModal = () => {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                // Clear the URL hash
+                history.pushState(null, '', window.location.pathname);
+            };
+
+            /**
+             * Checks the URL hash on page load to see if a project modal should be opened.
+             */
+            const checkUrlHash = () => {
+                const projectId = window.location.hash.slice(1);
+                if (projectId) {
+                    const projectExists = independentProjectsData.some(p => p.id === projectId);
+                    if (projectExists) {
+                        openProjectModal(projectId);
+                    }
+                }
+            };
+            
+            /**
+             * Handles copying text to the clipboard.
+             * @param {string} targetId - The ID of the element containing the text to copy.
+             * @param {HTMLElement} button - The button element that was clicked.
+             */
+            const copyToClipboard = (targetId, button) => {
+                let textToCopy;
+                if (targetId.startsWith('http')) { // Handle raw URL from data attribute
+                    textToCopy = targetId;
+                } else {
+                    const targetElement = document.querySelector(`[data-copy-target="${targetId}"]`);
+                    textToCopy = targetElement ? targetElement.href : null;
+                    if (!textToCopy) {
+                         const targetInput = document.getElementById(targetId);
+                         textToCopy = targetInput ? targetInput.value : '';
+                    }
+                }
+            
+                if (textToCopy) {
+                    // Use a temporary textarea to perform the copy
+                    const tempTextarea = document.createElement('textarea');
+                    tempTextarea.value = textToCopy;
+                    document.body.appendChild(tempTextarea);
+                    tempTextarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempTextarea);
+                    
+                    // Provide visual feedback
+                    const originalHtml = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    setTimeout(() => {
+                        button.innerHTML = originalHtml;
+                    }, 2000);
+                } else {
+                    console.error('Could not find text to copy.');
+                }
+            };
+
+            /**
+             * Adds click handlers to all buttons with the `copy-btn` class.
+             */
+            const addCopyToClipboardListeners = () => {
+                const copyBtns = modalContent.querySelectorAll('.copy-btn');
+                copyBtns.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const targetUrl = e.currentTarget.dataset.copyTarget;
+                        copyToClipboard(targetUrl, e.currentTarget);
+                    });
+                });
+            };
+            
+            /**
+             * Attaches an event listener to the document body to handle external link clicks.
+             * This prevents the default behavior and shows a confirmation modal.
+             */
+            const addExternalLinkHandlers = () => {
+                const allLinks = document.querySelectorAll('a[href^="http"]');
+                allLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        const linkElement = e.currentTarget;
+                        if (!linkElement.href.includes(window.location.hostname) && !linkElement.classList.contains('btn')) {
+                            e.preventDefault();
+                            externalLinkToOpen = linkElement.href;
+                            if (confirmModalOverlay) confirmModalOverlay.classList.add('active');
+                        }
+                    });
+                });
+            };
+
+            // --- EVENT LISTENERS ---
+            // Main Project Modal Close Button
+            if (modalCloseBtn) {
+                modalCloseBtn.addEventListener('click', closeProjectModal);
+            }
+
+            // What-if Pay Modal Open/Close Buttons
+            if (openPayModalBtn) {
+                openPayModalBtn.addEventListener('click', openPayModal);
+            }
+            if (payModalCloseBtn) {
+                payModalCloseBtn.addEventListener('click', closePayModal);
+            }
+            if (payModalOverlay) {
+                payModalOverlay.addEventListener('click', (e) => {
+                    if (e.target === payModalOverlay) {
+                        closePayModal();
+                    }
+                });
+            }
+
+            // Close modal when clicking outside of it
+            if (modalOverlay) {
+                modalOverlay.addEventListener('click', (e) => {
+                    if (e.target === modalOverlay) {
+                        closeProjectModal();
+                    }
+                });
+            }
+            
+            // Close modal when ESC key is pressed
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                    closeProjectModal();
+                } else if (e.key === 'Escape' && payModalOverlay.classList.contains('active')) {
+                    closePayModal();
+                }
+            });
+
+            // External link confirmation handlers
+            if (confirmContinueBtn) {
+                confirmContinueBtn.addEventListener('click', () => {
+                    window.open(externalLinkToOpen, '_blank');
+                    if (confirmModalOverlay) confirmModalOverlay.classList.remove('active');
+                    externalLinkToOpen = '';
+                });
+            }
+
+            if (confirmCancelBtn) {
+                confirmCancelBtn.addEventListener('click', () => {
+                    if (confirmModalOverlay) confirmModalOverlay.classList.remove('active');
+                    externalLinkToOpen = '';
+                });
+            }
+
+            // Initial renders when the page loads
+            renderIndependentProjects();
+            
+            // Check the URL hash on both page load and hash changes for robustness
+            checkUrlHash();
+            window.addEventListener('hashchange', checkUrlHash);
+        });
+    </script>
 </body>
 </html>
