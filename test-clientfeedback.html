@@ -36,7 +36,8 @@
         }
 
         .hero-section-container {
-            max-width: 1200px; /* Max width for the content inside hero section */
+            max-width: 1365px; /* Updated to 1365px as requested */
+            width: 100%; /* Ensures it's responsive on smaller screens */
             margin: 0 auto; /* Center the content */
             border-radius: 10px; /* Rounded corners for the content area */
             overflow: hidden;
@@ -287,12 +288,12 @@
         /* Styles for the new footer */
         .footer {
             width: 100%;
-            background-color: #f8f8f8; /* A light gray background */
-            color: #555; /* Dark gray text */
+            background-color: #1a1a1a; /* Updated to dark charcoal color */
+            color: #cccccc; /* Updated text color for contrast */
             padding: 2rem 1rem;
             text-align: center;
             font-size: 0.9rem;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #333333; /* Updated border color for contrast */
             box-sizing: border-box; /* Include padding and border in element's total width and height */
             margin-top: auto; /* Push the footer to the bottom of the flex container */
         }
@@ -310,7 +311,7 @@
         }
 
         .footer a {
-            color: #333;
+            color: #cccccc; /* Updated link color for contrast */
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -356,10 +357,11 @@
             <!-- Navigation Bar -->
             <nav class="navbar">
                 <ul class="navbar-links">
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/test-clientfeedback.html#">Home</a></li>
-                   <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer-feedback.html" class="font-bold">Testimonials</a></li>
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/contact.html">Contact</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#" class="font-bold">Testimonials</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
 
@@ -490,7 +492,7 @@
     <!-- The new footer section -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
+            <p>&copy; 2025 Nuuraqlyz Analytics (new-rack-lyz). All rights reserved.</p>
             <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Meryem A. Rowe- Ciftci </p>
             <p>
                 <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-and-conditions.html">Terms of Service</a>
@@ -652,7 +654,7 @@ Consent to share: ${consent ? 'Yes' : 'No'}
                 const encodedSubject = encodeURIComponent(emailSubject);
                 const encodedBody = encodeURIComponent(emailBody);
                 
-                const mailtoLink = `mailto:youremail@example.com?subject=${encodedSubject}&body=${encodedBody}`;
+                const mailtoLink = `mailto:kamara.meryem.a@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
 
                 window.location.href = mailtoLink;
 
