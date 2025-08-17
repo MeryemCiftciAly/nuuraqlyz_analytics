@@ -13,16 +13,32 @@
 <link rel="shortcut icon" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//apple-touch-icon.png" />
 <link rel="manifest" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//site.webmanifest" />
+   
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUURAQLYZ Analytics - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.svg" />
+<link rel="shortcut icon" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//apple-touch-icon.png" />
+<link rel="manifest" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//site.webmanifest" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
     
-         /* General Body Styles - Consolidated */
+            /* General Body Styles - Consolidated */
         body {
             font-family: 'Inter', sans-serif; /* Default font for general text */
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* Corrected to white */
+            background-color: #ffffff; /* Changed to white */
             display: flex; /* Using flex to center the main content on the page */
             flex-direction: column; /* Stack content vertically */
             align-items: center; /* Center horizontally */
@@ -33,7 +49,7 @@
             line-height: 1.5; /* Default line height */
         }
 
-         /* Hero Section Container (now full-width background, content max-width) */
+        /* Hero Section Container (now full-width background, content max-width) */
         .hero-section-wrapper {
             width: 100%; /* Stretches full viewport width */
             background-color: #fff; /* White background for the header part */
@@ -93,130 +109,6 @@
             letter-spacing: 1px;
             text-align: right; /* Align text to the right within its space */
             white-space: nowrap; /* Prevent wrapping on desktop */
-        }
-
-        /* Navigation Bar Styles */
-        .navbar {
-            display: flex;
-            justify-content: center; /* Center the navigation links */
-            align-items: center;
-            padding: 15px 0;
-            width: 100%;
-            border-top: 1px solid #eee; /* Subtle separator from header */
-            box-sizing: border-box; /* Ensure padding/border don't add to width */
-        }
-
-        .navbar-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 40px; /* Space between navigation items */
-        }
-
-        .navbar-links li a {
-            color: #333; /* Dark text for links to blend with white header */
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1em;
-            padding: 5px 10px;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            border-radius: 5px;
-        }
-
-        .navbar-links li a:hover {
-            color: #FF8C00; /* Orange on hover, matching hero gradient */
-            background-color: rgba(0, 0, 0, 0.05); /* Subtle background on hover */
-        }
-
-        /* Main Hero Content Area (Gradient Background with Image Overlay) */
-        .hero-main-content {
-            display: flex;
-            position: relative; /* For positioning the image overlay */
-            min-height: 450px; /* Minimum height for desktop view */
-            padding: 50px 40px; /* Padding for content inside */
-            background: linear-gradient(to right, #FF8C00, #FFA07A); /* Orange to Light Salmon */
-            border-bottom-left-radius: 10px; /* Match container's rounded corners */
-            border-bottom-right-radius: 10px;
-            overflow: hidden; /* Crucial for containing the overlay */
-        }
-
-        /* Hero Image Overlay */
-        #hero-image-overlay {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 55%; /* Occupy the right portion */
-            height: 100%;
-            background-image: url('https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/main/media/hero_image.png'); /* Corrected URL */
-            background-size: cover; /* Cover the area, possibly cropping */
-            background-position: center right; /* Focus on the right side of the image */
-            opacity: 0; /* Start hidden for fade-in */
-            z-index: 0; /* Ensure this is behind the text content */
-            transition: opacity 1.5s ease-out; /* Fade in animation */
-        }
-
-        /* Keyframes for subtle zoom and pan animation */
-        @keyframes zoom-pan-subtle {
-            0% {
-                transform: scale(1) translateX(0);
-                background-position: center right;
-            }
-            50% {
-                transform: scale(1.03) translateX(-5px); /* Slightly zoom in and shift left */
-                background-position: center left; /* Shift background position */
-            }
-            100% {
-                transform: scale(1) translateX(0);
-                background-position: center right;
-            }
-        }
-
-        #hero-image-overlay.loaded {
-            opacity: 0.8; /* Target opacity after loading */
-            animation: zoom-pan-subtle 15s ease-in-out infinite alternate; /* Apply animation */
-        }
-
-        /* Loading indicator styles */
-        .loading-spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid #fff;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2; /* Above the image overlay */
-            display: none; /* Hidden by default, shown by JS */
-        }
-
-        @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        /* Text Content (A guiding light...) */
-        .hero-text-content {
-            flex: 1; /* Takes up available space on the left */
-            z-index: 1; /* Ensure text is above the image overlay */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            color: #fff; /* Set text color to white for contrast against gradient/image */
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif; /* Serif font for the title */
-            font-size: 3.5em; /* Adjusted font size for the new text */
-            font-weight: 700;
-            color: #fff; /* White text for "A guiding light into the unknown" */
-            line-height: 1.1; /* Tighter line height */
-            margin: 0;
-            padding: 0;
         }
 
         /* Navigation Bar Styles */
@@ -901,29 +793,7 @@
                 font-size: 1em;
             }
 
-            /* Industry Focus Responsive */
-            .industry-focus-section {
-                padding: 30px 15px;
-                margin: 15px auto; /* Center on mobile */
-            }
-            .industry-focus-heading {
-                font-size: 2em;
-                margin-bottom: 30px;
-            }
-            .industry-cards-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .card {
-                min-height: 160px;
-                padding: 20px;
-            }
-            .card-title {
-                font-size: 1.2em;
-            }
-            .collapsible-content {
-                font-size: 0.9em;
-            }
+         
             /* Contact Section Responsive */
             .contact-section {
                 padding: 40px 15px;
@@ -1397,100 +1267,116 @@
     </footer>
      <!-- JavaScript for dynamic behavior -->
     <script>
-        // Function to handle image loading and fade-in
-        function loadImageAndFadeIn(imgElementId, spinnerId) {
-            const imgElement = document.getElementById(imgElementId);
-            const spinnerElement = document.getElementById(spinnerId);
+          document.addEventListener('DOMContentLoaded', () => {
+            // Function to load image and handle spinner/fade-in
+            function loadImage(imageUrl, targetElement, spinnerId) {
+                const spinner = document.getElementById(spinnerId);
+                if (spinner) {
+                    spinner.style.display = 'block'; // Show spinner
+                }
 
-            if (imgElement && spinnerElement) {
-                // Show spinner while loading
-                spinnerElement.style.display = 'block';
+                // Create a temporary image object to check for load completion
+                const img = new Image();
+                img.src = imageUrl;
 
-                // We need to load the image via JavaScript to handle the fade-in effect.
-                const tempImage = new Image();
-
-                // Set up event handlers *before* setting the src
-                tempImage.onload = () => {
-                    // Hide spinner and fade in the actual image on load
-                    spinnerElement.style.display = 'none';
-                    imgElement.style.opacity = '1';
-                    imgElement.classList.add('loaded'); // Add a class for CSS animations if needed
+                img.onload = () => {
+                    // If the target is an <img> tag, set its src
+                    if (targetElement.tagName === 'IMG') {
+                        targetElement.src = imageUrl;
+                        targetElement.classList.add('loaded'); // Add class to trigger fade-in
+                    } 
+                    // If the target is a div (like hero-image-overlay), set its background-image
+                    else { 
+                        targetElement.style.backgroundImage = `url('${imageUrl}')`;
+                        targetElement.classList.add('loaded'); // Trigger fade-in
+                    }
+                    
+                    if (spinner) {
+                        spinner.style.display = 'none'; // Hide spinner after image loads
+                    }
                 };
-                tempImage.onerror = () => {
-                    // In case of error, hide spinner and log to console
-                    spinnerElement.style.display = 'none';
-                    console.error(`Error loading image from URL for ${imgElementId}. Check the URL.`);
+
+                img.onerror = () => {
+                    console.error(`Failed to load image: ${imageUrl}`);
+                    if (spinner) {
+                        spinner.style.display = 'none'; // Hide spinner on error
+                    }
+                    // Fallback for different element types
+                    if (targetElement.tagName === 'IMG') {
+                        targetElement.src = `https://placehold.co/${targetElement.width || 300}x${targetElement.height || 200}/cccccc/333333?text=Image+Error`;
+                        targetElement.classList.add('loaded'); // Still fade in fallback
+                    } else { // For hero overlay div
+                        targetElement.style.backgroundImage = `url('https://placehold.co/1200x675/cccccc/333333?text=Hero+Image+Error')`;
+                        targetElement.classList.add('loaded'); // Still fade in fallback
+                    }
                 };
-                // Set the source after the event handlers are in place.
-                // We'll use the hardcoded URL since the div doesn't have a src attribute.
-                tempImage.src = 'https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png';
             }
-        }
 
-        // Function to toggle the collapsible card content
-        function toggleCard(headerElement) {
-            const card = headerElement.parentElement;
-            const content = headerElement.nextElementSibling;
-            const icon = headerElement.querySelector('.icon-circle i');
+            // --- Image Loading Logic ---
+            const heroImageUrl = "https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png"; 
+            const contactImageUrl = "https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/contact_image.png";
 
-            // Toggle the active class on the content
-            content.classList.toggle('active');
-            
-            // Toggle the expanded class on the icon-circle for rotation
-            const iconCircle = headerElement.querySelector('.icon-circle');
-            iconCircle.classList.toggle('expanded');
-
-            // Change icon based on active state
-            if (content.classList.contains('active')) {
-                icon.classList.remove('fa-plus');
-                icon.classList.add('fa-minus');
-            } else {
-                icon.classList.remove('fa-minus');
-                icon.classList.add('fa-plus');
-            }
-        }
-
-        // This is a simple fallback for the hero image to ensure it's visible on smaller screens.
-        // On larger screens, CSS handles the fade-in and animation.
-        function handleHeroImageDisplay() {
             const heroImageOverlay = document.getElementById('hero-image-overlay');
-            const heroSpinner = document.getElementById('hero-image-spinner');
-            const mediaQuery = window.matchMedia('(min-width: 769px)');
-
-            // Check if the image should be animated or just visible
-            if (mediaQuery.matches) {
-                // For desktop, use the fade-in and animation
-                loadImageAndFadeIn('hero-image-overlay', 'hero-image-spinner');
+            if (heroImageOverlay) {
+                loadImage(heroImageUrl, heroImageOverlay, 'hero-loading-spinner');
             } else {
-                // For mobile, just make it visible
-                heroImageOverlay.style.opacity = 1;
-                if (heroSpinner) heroSpinner.style.display = 'none';
+                console.warn("Element with ID 'hero-image-overlay' not found. Hero image will not load via JS.");
             }
-        }
-        
-        // Initial call on page load
-        window.onload = function() {
-            handleHeroImageDisplay();
-            // Also handle the contact image load
-            const contactImage = document.querySelector('.contact-image img');
-            if (contactImage) {
-                contactImage.classList.add('loaded');
+
+            const contactImgElement = document.getElementById('contact-img');
+            if (contactImgElement) {
+                loadImage(contactImageUrl, contactImgElement, 'contact-loading-spinner');
+            } else {
+                console.warn("Element with ID 'contact-img' not found. Contact image will not load via JS.");
             }
-        };
 
-        // Re-evaluate on window resize
-        window.addEventListener('resize', handleHeroImageDisplay);
+            // --- Collapsible Sections Logic (Industry Focus) ---
+            const iconCircles = document.querySelectorAll('.industry-cards-container .icon-circle'); // Targeting only industry cards
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+            iconCircles.forEach(circle => {
+                circle.addEventListener('click', () => {
+                    const targetId = circle.dataset.target;
+                    const content = document.getElementById(targetId);
+                    
+                    circle.classList.toggle('expanded');
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                    if (content.classList.contains('active')) {
+                        content.style.maxHeight = null; // Collapse
+                        content.classList.remove('active');
+                    } else {
+                        // The max-height is now controlled by CSS, but this line can remain if you need
+                        // to dynamically set '--content-height' for other purposes or if content can vary significantly.
+                        // For fixed max-height with scrolling, this line is less critical for the max-height itself.
+                        content.style.setProperty('--content-height', content.scrollHeight + 'px'); 
+                        content.classList.add('active');
+                    }
+                });
+            });
+
+            // --- Collapsible Sections Logic (Services Grid - if applicable on index) ---
+            // Note: This part is typically for the services.html page.
+            // If you have a services grid on index.html, ensure its elements have unique IDs/classes
+            // to avoid conflict with the industry focus collapsible sections.
+            const serviceIconCircles = document.querySelectorAll('.services-grid .icon-circle');
+
+            serviceIconCircles.forEach(circle => {
+                circle.addEventListener('click', () => {
+                    const targetId = circle.dataset.target;
+                    const content = document.getElementById(targetId);
+                    
+                    circle.classList.toggle('expanded');
+
+                    if (content.classList.contains('active')) {
+                        content.style.maxHeight = null;
+                        content.classList.remove('active');
+                    } else {
+                        content.style.setProperty('--content-height', content.scrollHeight + 'px');
+                        content.classList.add('active');
+                    }
                 });
             });
         });
+        
     </script>
     </body>
 </html>
