@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,8 +14,11 @@
 <link rel="shortcut icon" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//apple-touch-icon.png" />
 <link rel="manifest" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//site.webmanifest" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        /* General Body Styles - Consolidated */
+    
+            /* General Body Styles - Consolidated */
         body {
             font-family: 'Inter', sans-serif; /* Default font for general text */
             margin: 0;
@@ -356,7 +360,7 @@
             max-width: 1200px;
             margin: 50px auto; /* Centered with top/bottom margin */
             padding: 40px 20px; /* Padding for the section itself */
-            background-color: #eef2f5; /* A slightly darker light background for this section */
+            background-color: #ffffff; /* A slightly darker light background for this section */
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
             box-sizing: border-box;
@@ -397,31 +401,7 @@
             text-align: left; /* Align card content left */
         }
 
-        /* Distinct Card Colors */
-        .card.industry-small-law {
-            background-color: #8A2BE2; /* Blue Violet */
-            color: #fff;
-        }
-        .card.industry-startup {
-            background-color: #FFD700; /* Gold */
-            color: #333; /* Dark text for light background */
-        }
-        .card.industry-small-realtors {
-            background-color: #20B2AA; /* Light Sea Green */
-            color: #fff;
-        }
-        .card.industry-small-medical {
-            background-color: #DC143C; /* Crimson */
-            color: #fff;
-        }
-        .card.industry-owner-run {
-            background-color: #FF8C00; /* Dark Orange */
-            color: #fff;
-        }
-        .card.industry-unsure {
-            background-color: #6A5ACD; /* Slate Blue */
-            color: #fff;
-        }
+       
 
         .card-header {
             display: flex;
@@ -536,7 +516,7 @@
             max-width: 1200px;
             margin: 50px auto; /* Centered with top/bottom margin */
             padding: 50px 20px;
-            background-color: #f8f8f8; /* Match body background for seamless blend */
+            background-color: #ffffff; /* Match body background for seamless blend */
             border-radius: 10px; /* Keep consistent rounding */
             box-shadow: none; /* Remove shadow to blend into body background */
             text-align: center;
@@ -544,7 +524,7 @@
         }
 
         .contact-container {
-            background-color: #F5F5F5; /* Light background for the info section */
+            background-color: #FfFfFf; /* Light background for the info section */
             color: #333;
             display: flex;
             max-width: 900px; /* Adjusted max-width for overall container */
@@ -774,29 +754,7 @@
                 font-size: 1em;
             }
 
-            /* Industry Focus Responsive */
-            .industry-focus-section {
-                padding: 30px 15px;
-                margin: 15px auto; /* Center on mobile */
-            }
-            .industry-focus-heading {
-                font-size: 2em;
-                margin-bottom: 30px;
-            }
-            .industry-cards-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .card {
-                min-height: 160px;
-                padding: 20px;
-            }
-            .card-title {
-                font-size: 1.2em;
-            }
-            .collapsible-content {
-                font-size: 0.9em;
-            }
+         
             /* Contact Section Responsive */
             .contact-section {
                 padding: 40px 15px;
@@ -915,10 +873,83 @@
                 height: 200px; /* Even smaller height for very small mobile */
             }
         }
+    
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        .services-section {
+            background-color: #ffffff;
+        }
+        .service-card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .service-card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a202c;
+        }
+        .service-card-content h4 {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #4c51bf;
+            margin-bottom: 0.5rem;
+        }
+        .service-card-content ul {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+        }
+        .service-card-content li {
+            font-size: 0.875rem;
+            color: #4a5568;
+            margin-bottom: 0.25rem;
+        }
+         /* Footer Styles */
+        .footer {
+            width: 100%; /* Stretches full viewport width */
+            background-color: #444444; /* Softer dark gray footer background */
+            color: #fff;
+            text-align: center;
+            margin-top: auto; /* Pushes footer to the bottom */
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
+
+        .footer-content {
+            max-width: 1200px; /* Content inside footer aligns with main content */
+            margin: 0 auto; /* Center the content */
+            padding: 30px 20px; /* Apply padding here */
+            border-top-left-radius: 10px; /* Apply radius to content wrapper if desired */
+            border-top-right-radius: 10px;
+        }
+
+        .footer p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        .footer a {
+            color: #FFD700; /* Gold links in footer */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #FFA07A; /* Lighter orange on hover */
+        }
+
     </style>
 </head>
-<body>
-    <div class="hero-section-wrapper">
+<body class="bg-white-100 p-8">
+
+<div class="hero-section-wrapper">
         <div class="hero-section-container">
             <header class="hero-header">
                 <div class="hero-logo">
@@ -934,8 +965,7 @@
             <nav class="navbar">
                 <ul class="navbar-links">
                     <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/services.html">Services</a></li>
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
+                                      <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
                     <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/customer-feedback.html">Client Feedback</a></li>
                     <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/information-guide.html">Guided Information</a></li>
                 </ul>
@@ -950,255 +980,161 @@
             </div>
         </div>
     </div>
-
-    <section class="about-section">
-        <div class="about-me-container">
-            <div class="left-column">
-                <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/Kamara%20(Meryem)%20Ciftci.png" alt="Meryem Ciftci Profile" class="profile-picture" onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/333333?text=Profile+Image';">
-                <h1 class="name">Meryem Ciftci</h1>
-                <p class="pronouns">(she/her)</p>
-                <p class="title">Data Analyst</p>
-                <a href="mailto:meryemkciftci@gmail.com?subject=Inquiry%20from%20Website" class="button">Email me</a>
-                <div class="social-icons">
-                    <a href="https://www.Linkedin.com/company/nuuraqlyz-analytics" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                </div>
+  
+  
+  
+  
+  
+  
+  <!-- Services Section -->
+    <section id="services" class="services-section py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Freelance Services</h2>
+                <p class="mt-4 text-xl text-gray-600">Transform your raw data into actionable insights and strategic decisions.</p>
             </div>
-            <div class="right-column">
-                <h2 class="section-title">About Me</h2>
-                <p class="about-text">
-                    I am a <span>forward-thinking</span>, <span>action-driven</span>, and <span>creative problem-solver</span> by nature and by profession. My philosophy is that <span style="font-style: italic;">skills and knowledge gained are never lost</span>; rather, they form a powerful foundation for future growth. After many years <span>supporting executive teams and business operations across diverse industries</span>, I honed my ability to be a <span>trusted knowledge center</span> and a <span>proactive source of solutions</span> for any challenge.
-                </p>
-
-                <p class="about-text">
-                    This <span>innate drive for overcoming obstacles and delivering results</span> sparked my transition into <span>data analytics</span>. I am now leveraging this passion to <span>offer freelance analytics services</span>, driven by a dual objective: to <span>help you meet your business objectives</span> and to <span>continuously grow my expertise</span>. I excel at <span>transforming raw data into actionable insights and innovative solutions</span> that <span>help businesses grow</span>, <span>uncover hidden opportunities</span>, and <span>discover invaluable information within their existing data</span> to <span>propel them toward their goals</span>.
-                </p>
-                <div class="action-buttons">
-                    <!-- Placeholder for future buttons if needed, currently empty as per previous request -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="industry-focus-section">
-        <h2 class="industry-focus-heading">We can find a data-driven problem and solution together.</h2>
-        <div class="industry-cards-container">
-            <div class="card industry-small-law">
-                <div class="card-header">
-                    <div class="card-title">Small Law Firms</div>
-                    <div class="icon-circle" data-target="law-firm-content">+</div>
-                </div>
-                <div id="law-firm-content" class="collapsible-content">
-                    <div class="collapsible-content-grid">
-                        <div>
-                            <h4>Type of Data They May Have:</h4>
-                            <ul>
-                                <li>Case management system data (client intake, case types, status, outcomes)</li>
-                                <li>Billing and invoicing data (hours logged, rates, payment status)</li>
-                                <li>Marketing and client acquisition data (referral sources, website analytics)</li>
-                                <li>Employee performance data (billable hours, case load)</li>
-                            </ul>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1: Data Cleaning & Preparation -->
+                <div class="service-card">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-broom text-4xl text-blue-600"></i>
                         </div>
+                        <div class="service-card-title">Data Cleaning & Preparation</div>
+                    </div>
+                    <div class="service-card-content mt-4">
+                        <p class="text-gray-600 mb-4">
+                            We transform raw, messy data into a clean, structured format, ensuring accuracy and reliability for all future analysis.
+                        </p>
                         <div>
-                            <h4>Potential Problems:</h4>
-                            <ul>
-                                <li>Difficulty tracking case progress and bottlenecks.</li>
-                                <li>Inefficient billing and revenue collection.</li>
-                                <li>Lack of insight into most profitable case types or client acquisition channels.</li>
-                                <li>Challenges in optimizing employee workload and productivity.</li>
-                            </ul>
-                            <h4>How Data Analytics Can Help:</h4>
-                            <ul>
-                                <li><strong>Case Flow Optimization:</strong> Analyze case durations, identify common delays, and optimize workflows to improve efficiency and reduce cycle times.</li>
-                                <li><strong>Revenue Analysis:</strong> Track billable hours vs. collected revenue, identify payment trends, and optimize pricing strategies.</li>
-                                <li><strong>Client Acquisition Strategy:</strong> Determine the most effective marketing channels and referral sources, allowing for targeted client acquisition efforts.</li>
-                                <li><strong>Resource Allocation:</strong> Optimize lawyer and paralegal workload distribution, identify training needs, and improve overall team productivity.</li>
-                                <li><strong>Predictive Insights:</strong> Forecast future case volumes and revenue based on historical data.</li>
+                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Spreadsheets (Excel, Google Sheets)</li>
+                                <li>Databases (SQL, NoSQL)</li>
+                                <li>APIs and web scraping data</li>
+                                <li>Legacy and unstructured data files</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card industry-startup">
-                <div class="card-header">
-                    <div class="card-title">Startups</div>
-                    <div class="icon-circle" data-target="startup-content">+</div>
-                </div>
-                <div id="startup-content" class="collapsible-content">
-                    <div class="collapsible-content-grid">
-                        <div>
-                            <h4>Type of Data They May Have:</h4>
-                            <ul>
-                                <li>Customer acquisition data (CAC, conversion rates, channel performance)</li>
-                                <li>Product usage data (user engagement, feature adoption, churn rates)</li>
-                                <li>Sales data (pipeline, revenue, customer lifetime value - CLTV)</li>
-                                <li>Marketing campaign data (impressions, clicks, conversions)</li>
-                                <li>Website and app analytics (traffic, bounce rate, user paths)</li>
-                            </ul>
+                <!-- Service Card 2: Interactive Dashboard Creation -->
+                <div class="service-card">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-chart-line text-4xl text-green-600"></i>
                         </div>
+                        <div class="service-card-title">Interactive Dashboards</div>
+                    </div>
+                    <div class="service-card-content mt-4">
+                        <p class="text-gray-600 mb-4">
+                            We design and build dynamic dashboards that provide a real-time, visual overview of your business's key performance metrics.
+                        </p>
                         <div>
-                            <h4>Potential Problems:</h4>
-                            <ul>
-                                <li>Unclear understanding of customer acquisition costs and profitability.</li>
-                                <li>Difficulty identifying key user behaviors that lead to retention or churn.</li>
-                                <li>Struggling to prioritize product features based on user impact.</li>
-                                <li>Ineffective marketing efforts due due to lack of performance metrics.</li>
-                                <li>Challenges in understanding customer loyalty and retention.</li>
-                            </ul>
-                            <h4>How Data Analytics Can Help:</h4>
-                            <ul>
-                                <li><strong>Growth Hacking:</strong> Identify key growth levers by analyzing user acquisition, activation, retention, referral, and revenue (AARRR) metrics.</li>
-                                <li><strong>Product-Market Fit:</strong> Understand which features drive engagement and retention, guiding product development.</li>
-                                <li><strong>Customer Segmentation:</strong> Identify high-value customer segments for targeted marketing and personalized experiences.</li>
-                                <li><strong>Churn Prediction:</strong> Develop models to predict and prevent customer churn, improving CLTV.</li>
-                                <li><strong>Fundraising Support:</strong> Provide data-backed insights and dashboards to impress investors and demonstrate traction.</li>
+                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>CRM and ERP systems</li>
+                                <li>Sales and financial data</li>
+                                <li>Website and app analytics</li>
+                                <li>Marketing campaign data</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card industry-small-realtors">
-                <div class="card-header">
-                    <div class="card-title">Small Real Estate Agencies / Realtors</div>
-                    <div class="icon-circle" data-target="realtors-content">+</div>
-                </div>
-                <div id="realtors-content" class="collapsible-content">
-                    <div class="collapsible-content-grid">
-                        <div>
-                            <h4>Type of Data They May Have:</h4>
-                            <ul>
-                                <li>Property listing data (type, price, location, features, days on market)</li>
-                                <li>Client lead data (source, contact info, preferences, follow-up history)</li>
-                                <li>Sales transaction data (closing prices, commissions, agent performance)</li>
-                                <li>Marketing campaign data (open house attendance, ad performance)</li>
-                                <li>Market trend data (neighborhood demographics, average prices, inventory)</li>
-                            </ul>
+                <!-- Service Card 3: Business Intelligence Reporting -->
+                <div class="service-card">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-file-alt text-4xl text-red-600"></i>
                         </div>
+                        <div class="service-card-title">Business Intelligence Reporting</div>
+                    </div>
+                    <div class="service-card-content mt-4">
+                        <p class="text-gray-600 mb-4">
+                            We create comprehensive reports that highlight key insights, allowing you to understand what's working and where there's room for improvement.
+                        </p>
                         <div>
-                            <h4>Potential Problems:</h4>
-                            <ul>
-                                <li>Inefficient lead management and conversion.</li>
-                                <li>Difficulty pricing properties competitively or identifying market trends.</li>
-                                <li>Lack of insight into agent performance and areas for improvement.</li>
-                                <li>Suboptimal marketing spend without clear ROI.</li>
-                                <li>Struggling to identify profitable neighborhoods or property types.</li>
-                            </ul>
-                            <h4>How Data Analytics Can Help:</h4>
-                            <ul>
-                                <li><strong>Lead Conversion Optimization:</strong> Analyze lead sources, follow-up effectiveness, and conversion rates to optimize lead nurturing strategies.</li>
-                                <li><strong>Market Trend Analysis:</strong> Identify emerging neighborhood trends, property value fluctuations, and optimal listing times.</li>
-                                <li><strong>Comparative Market Analysis (CMA) Enhancement:</strong> Use data to provide more precise and competitive property valuations.</li>
-                                <li><strong>Agent Performance Tracking:</strong> Monitor agent KPIs (leads, closings, commission) to identify top performers and provide targeted coaching.</li>
-                                <li><strong>Targeted Marketing:</strong> Understand which marketing channels deliver the highest quality leads and sales, optimizing ad spend.</li>
-                                <li><strong>Inventory Management:</strong> Analyze days on market by property type/location to optimize listing strategies.</li>
+                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Operational and financial data</li>
+                                <li>Customer satisfaction surveys</li>
+                                <li>Employee performance data</li>
+                                <li>KPI tracking from various sources</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card industry-small-medical">
-                <div class="card-header">
-                    <div class="card-title">Small Medical Practices</div>
-                    <div class="icon-circle" data-target="medical-content">+</div>
-                </div>
-                <div id="medical-content" class="collapsible-content">
-                    <div class="collapsible-content-grid">
-                        <div>
-                            <h4>Type of Data They May Have:</h4>
-                            <ul>
-                                <li>Patient demographic data (age, gender, insurance, contact info)</li>
-                                <li>Appointment scheduling data (no-show rates, wait times, visit types)</li>
-                                <li>Billing and claims data (reimbursement rates, denial reasons, outstanding balances)</li>
-                                <li>Patient satisfaction survey data</li>
-                                <li>Referral source tracking</li>
-                            </ul>
+                <!-- Service Card 4: Data Wrangling & Structuring -->
+                <div class="service-card">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-cogs text-4xl text-gray-600"></i>
                         </div>
+                        <div class="service-card-title">Data Wrangling & Structuring</div>
+                    </div>
+                    <div class="service-card-content mt-4">
+                        <p class="text-gray-600 mb-4">
+                            We transform raw, unorganized data into a clean, structured, and usable format, making it ready for analysis.
+                        </p>
                         <div>
-                            <h4>Potential Problems:</h4>
-                            <ul>
-                                <li>High patient no-show rates impacting revenue and scheduling.</li>
-                                <li>Inefficient patient flow leading to long wait times and dissatisfaction.</li>
-                                <li>Challenges in identifying reasons for claim denials and optimizing billing.</li>
-                                <li>Lack of insight into patient demographics and service utilization.</li>
-                                <li>Difficulty tracking referral effectiveness.</li>
-                            </ul>
-                            <h4>How Data Analytics Can Help:</h4>
-                            <ul>
-                                <li><strong>Appointment Optimization:</strong> Analyze no-show patterns and reschedule rates to implement effective reminder systems and reduce revenue loss.</li>
-                                <li><strong>Patient Flow Efficiency:</strong> Identify bottlenecks in patient journeys (check-in, wait times, consultation) to improve operational efficiency and patient satisfaction.</li>
-                                <li><strong>Revenue Cycle Management:</strong> Analyze billing data to identify common denial reasons, optimize claims submission, and reduce accounts receivable days.</li>
-                                <li><strong>Patient Demographics & Service Utilization:</strong> Understand patient populations to tailor services, marketing, and outreach programs.</li>
-                                <li><strong>Referral Tracking & Optimization:</strong> Identify top referral sources and their impact on patient volume and revenue.</li>
-                                <li><strong>Patient Satisfaction Insights:</strong> Analyze survey data to pinpoint areas for improvement in patient experience.</li>
+                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Raw spreadsheets and CSV files</li>
+                                <li>Database dumps (SQL, JSON, XML)</li>
+                                <li>Data from web APIs</li>
+                                <li>Text files and unstructured data</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card industry-owner-run">
-                <div class="card-header">
-                    <div class="card-title">Owner-Run Businesses</div>
-                    <div class="icon-circle" data-target="owner-run-content">+</div>
-                </div>
-                <div id="owner-run-content" class="collapsible-content">
-                    <div class="collapsible-content-grid">
-                        <div>
-                            <h4>Type of Data They May Have:</h4>
-                            <ul>
-                                <li>Sales data (daily/weekly/monthly revenue, product sales, customer purchase history)</li>
-                                <li>Inventory data (stock levels, popular items, slow-moving items)</li>
-                                <li>Customer data (contact info, purchase frequency, average spend)</li>
-                                <li>Marketing data (social media engagement, website traffic, ad spend)</li>
-                                <li>Operational data (employee hours, service delivery times)</li>
-                            </ul>
+                <!-- Service Card 5: Exploratory Analysis & Reporting -->
+                <div class="service-card">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-chart-pie text-4xl text-orange-600"></i>
                         </div>
+                        <div class="service-card-title">Exploratory Analysis & Reporting</div>
+                    </div>
+                    <div class="service-card-content mt-4">
+                        <p class="text-gray-600 mb-4">
+                            We dive deep into your data to uncover hidden patterns, trends, and key insights that drive strategic business decisions.
+                        </p>
                         <div>
-                            <h4>Potential Problems:</h4>
-                            <ul>
-                                <li>Overwhelm from managing all aspects of the business without clear performance indicators.</li>
-                                <li>Difficulty identifying which products/services are most profitable.</li>
-                                <li>Suboptimal inventory management leading to stockouts or excess stock.</li>
-                                <li>Ineffective marketing efforts due due to lack of data-driven insights.</li>
-                                <li>Challenges in understanding customer loyalty and retention.</li>
-                            </ul>
-                            <h4>How Data Analytics Can Help:</h4>
-                            <ul>
-                                <li><strong>Holistic Business Overview:</strong> Create a central dashboard integrating sales, inventory, and customer data for a quick, comprehensive view of business health.</li>
-                                <li><strong>Profitability Analysis:</strong> Identify your most profitable products, services, and customer segments to focus resources effectively.</li>
-                                <li><strong>Inventory Optimization:</strong> Forecast demand, optimize stock levels, and reduce carrying costs by analyzing sales patterns.</li>
-                                <li><strong>Marketing Effectiveness:</strong> Track campaign performance, identify best-performing channels, and optimize ad spend for higher ROI.</li>
-                                <li><strong>Customer Retention:</strong> Understand customer behavior, identify at-risk customers, and develop strategies to improve loyalty and repeat business.</li>
-                                <li><strong>Operational Efficiency:</strong> Pinpoint bottlenecks in operations, optimize resource allocation, and improve service delivery times.</li>
+                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Sales and marketing campaign data</li>
+                                <li>Product usage and customer behavior data</li>
+                                <li>Financial and operational data</li>
+                                <li>Market research and survey results</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card industry-unsure">
-                <div class="card-header">
-                    <div class="card-title">Unsure / Other</div>
-                    <div class="icon-circle" data-target="unsure-content">+</div>
-                </div>
-                <div id="unsure-content" class="collapsible-content">
-                    <div class="collapsible-content-grid">
-                        <div>
-                            <h4>Do you have data but aren't sure where to start?</h4>
-                            <p>Many businesses collect data but don't know how to leverage it. If you have data in spreadsheets, databases, or other systems but are unsure what insights it holds or how it can help your business, we can help!</p>
+                <!-- Service Card 6: Database & Spreadsheet Management -->
+                <div class="service-card">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-database text-4xl text-teal-600"></i>
                         </div>
+                        <div class="service-card-title">Database & Spreadsheet Management</div>
+                    </div>
+                    <div class="service-card-content mt-4">
+                        <p class="text-gray-600 mb-4">
+                            We provide comprehensive support for organizing and maintaining your data within databases and spreadsheets to ensure integrity and accessibility.
+                        </p>
                         <div>
-                            <h4>How We Can Help:</h4>
-                            <ul>
-                                <li><strong>Data Audit & Assessment:</strong> We can review your existing data sources to understand what information you have and its potential.</li>
-                                <li><strong>Problem Identification:</strong> Through discussions and initial data exploration, we can help you identify key business questions that your data can answer.</li>
-                                <li><strong>Opportunity Discovery:</strong> Uncover hidden patterns, trends, and opportunities within your data that you might not be aware of.</li>
-                                <li><strong>Custom Solution Design:</strong> Based on your data and identified needs, we can propose tailored analytics solutions, from simple reports to interactive dashboards.</li>
-                                <li><strong>Guidance & Strategy:</strong> Provide guidance on data collection best practices and a roadmap for building a data-driven strategy for your business.</li>
+                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Relational databases (SQL Server, MySQL)</li>
+                                <li>Non-relational databases (MongoDB)</li>
+                                <li>Spreadsheets (Google Sheets, Microsoft Excel)</li>
+                                <li>CRM and project management data</li>
                             </ul>
-                            <p>Don't let your data sit unused. Reach out for a free consultation to explore the possibilities!</p>
                         </div>
                     </div>
                 </div>
@@ -1206,30 +1142,83 @@
         </div>
     </section>
 
-    <section class="contact-section">
-        <div class="contact-container">
-            <div class="contact-image">
-                <div class="loading-spinner" id="contact-loading-spinner"></div>
-                <!-- Placeholder image for contact section. Replace src with your generated image URL. -->
-                <img id="contact-img" src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/contact_image.png" alt="Contact Image">
+    <!-- About Me & CTA Section -->
+    <section id="about" class="p-4 sm:p-8 md:p-12 lg:p-16">
+        <div class="max-w-7xl mx-auto bg-white p-6 sm:p-10 rounded-2xl shadow-xl flex flex-col gap-8">
+            <!-- Header with Headshot and Socials -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-gray-200">
+                <!-- Image and Name/Title -->
+                <div class="flex flex-col sm:flex-row items-center gap-6">
+                    <!-- Headshot Placeholder Image -->
+                    <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/Kamara%20(Meryem)%20Ciftci.png" alt="Your Name's headshot" class="w-44 h-44 sm:w-44 sm:h-44 rounded-full object-cover border-4 border-white shadow-lg">
+                    <div class="text-center sm:text-left">
+                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">Kamara Meryem A. Rowe-Ciftci</h1>
+                        <p class="text-lg text-gray-600 font-medium">Data Analyst</p>
+                    </div>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div class="flex gap-4 text-gray-500">
+                    <a href="https://www.linkedin.com/in/meryack" class="hover:text-blue-600 transition-colors duration-200" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/MeryemCiftciAly" class="hover:text-gray-800 transition-colors duration-200" aria-label="GitHub">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                    <a href="mailto:kamara.meryem.a@gmail.com" class="hover:text-red-500 transition-colors duration-200" aria-label="Email">
+                        <i class="fas fa-envelope fa-2x"></i>
+                    </a>
+                </div>
             </div>
-            <div class="contact-info">
-                <h2>Let's Connect</h2>
-                <p>Have a question or a project in mind? Reach out to us!</p>
-                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:meryemkciftci@gmail.com">Send Email</a></p>
-                <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> New York, NY</p>
-                <div class="contact-icons">
-                    <!-- Add social icons here if desired, e.g., LinkedIn, GitHub -->
+
+            <!-- Main content area -->
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- About Me Section -->
+                <div class="flex-1 space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900">About Me</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        Hi, I'm Meryem! I am a forward-thinking, action-driven, and creative problem-solver by nature and by profession. My philosophy is that skills and knowledge gained are never lost; rather, they form a powerful foundation for future growth. I've spent many years supporting executive teams and business operations across diverse industries. My passion for delivering results, being part of or contributing to solutions led me to transition into data analytics.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Now, I love being a passionate data professional dedicated to transforming complex data into clear, actionable insights. I believe that every dataset has a story to tell, and my goal is to help you uncover it. I believe in learning in public and welcoming feedback.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed font-bold">
+                        In order for you to work with me it is important for you to see what I can do. Therefore here you will find some of the independent projects I have done.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Whether it's creating a dynamic dashboard to visualize trends or structuring data and researching information to gain more understanding, I enjoy the entire process of turning raw data into a powerful tool. I thrive on new challenges and am always eager to learn and grow.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        When I'm not immersed in writing fictional stories or working on my blog, you can find me sitting taking time out to see life around or finding a dataset I'm curious about for my next project.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed font-bold">
+                        I'm excited to connect and see how my skills can help you achieve your business goals.
+                    </p>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="flex-1 bg-gray-100 p-6 sm:p-8 rounded-xl flex items-center">
+                    <div class="text-center">
+                        <h2 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
+                            Curious about the possibilities?
+                        </h2>
+                        <p class="text-gray-600 mb-6">
+                            Take a look at my independent projects to see how I've solved business challenges. Then, let's chat about your unique situation and find out how to unlock the value in your data.
+                        </p>
+                        <!-- Placeholder for a button or link -->
+                        <a href="#contact" class="inline-block bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-transform transform hover:scale-105 hover:bg-blue-700 shadow-md">
+                            Let's Connect
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer Section -->
+  <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
-            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Rowe- Ciftci (Meryem)</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #FF6347;"></i> by Kamara Meryem A. Rowe- Ciftci </p>
             <p>
                 <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-and-conditions.html">Terms of Service</a>
                 &nbsp;|&nbsp;
@@ -1237,9 +1226,9 @@
             </p>
         </div>
     </footer>
-
+     <!-- JavaScript for dynamic behavior -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+          document.addEventListener('DOMContentLoaded', () => {
             // Function to load image and handle spinner/fade-in
             function loadImage(imageUrl, targetElement, spinnerId) {
                 const spinner = document.getElementById(spinnerId);
@@ -1348,6 +1337,7 @@
                 });
             });
         });
+        
     </script>
-</body>
+    </body>
 </html>
