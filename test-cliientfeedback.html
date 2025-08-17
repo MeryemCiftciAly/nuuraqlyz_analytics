@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Experience - Testimonial Form</title>
+    <!-- Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for main text, Playfair Display for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Define a custom font family for use in Tailwind CSS */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        /* Custom styles for the star rating system */
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .rating-star {
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+            color: #d1d5db; /* Gray color for unselected stars */
+            font-size: 2rem;
+            user-select: none; /* Prevent text selection on stars */
+        }
+
+        .rating-star:hover,
+        .rating-star.hovered {
+            color: #facc15; /* Yellow on hover */
+            transform: scale(1.1);
+        }
+
+        .rating-star.selected {
+            color: #facc15; /* Yellow for selected stars */
+        }
+
+        /* Custom styles for the message box */
+        .message-box {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            color: white;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .message-box.show {
+            opacity: 1;
+        }
+
+        .message-box.success {
+            background-color: #4CAF50; /* Green */
+        }
+
+        .message-box.error {
+            background-color: #f44336; /* Red */
+        }
+        
+        /* Styles for the popup */
+        .info-popup {
+            display: none;
+            z-index: 100;
+        }
+
+        .info-popup.active {
+            display: block;
+        }
+
+        /* New styling for the popup to ensure it's hidden and appears correctly */
+        .popup-window {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .popup-window.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <!-- Main content container -->
+    <div class="bg-white p-8 md:p-12 lg:p-16 rounded-3xl shadow-2xl max-w-4xl w-full mx-4 my-8 md:my-12">
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight" style="font-family: 'Playfair Display', serif;">Share Your Experience</h1>
+            <p class="mt-4 text-base md:text-lg text-gray-600">
+                Your feedback helps me grow and showcase the quality of my work. Please take a moment to leave a rating and a brief testimonial about our project.
+            </p>
+        </header>
+
+        <!-- The main testimonial form -->
+        <form id="testimonialForm" class="space-y-6">
+            <!-- Client Details Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Client Name Input -->
+                <div>
+                    <label for="clientName" class="block text-sm font-medium text-gray-700">Your Name / Business Name</label>
+                    <input type="text" id="clientName" name="clientName" required class="mt-1 block w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg shadow-sm focus:ring-amber-500 focus:border-amber-500">
+                </div>
+                <!-- Project Title Input -->
+                <div>
+                    <label for="projectTitle" class="block text-sm font-medium text-gray-700">Project Title or Summary</label>
+                    <input type="text" id="projectTitle" name="projectTitle" required class="mt-1 block w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg shadow-sm focus:ring-amber-500 focus:border-amber-500">
+                </div>
+            </div>
+
+            <!-- Star Rating Section -->
+            <div class="text-center">
+                <label class="block text-lg font-medium text-gray-700 mb-4">How would you rate your experience?</label>
+                <div class="rating-stars" id="star-rating">
+                    <!-- The stars will be dynamically created by JavaScript -->
+                    <span class="rating-star" data-rating="1">&#9733;</span>
+                    <span class="rating-star" data-rating="2">&#9733;</span>
+                    <span class="rating-star" data-rating="3">&#9733;</span>
+                    <span class="rating-star" data-rating="4">&#9733;</span>
+                    <span class="rating-star" data-rating="5">&#9733;</span>
+                </div>
+                <!-- Hidden input to store the rating value -->
+                <input type="hidden" id="ratingValue" name="ratingValue" required>
+            </div>
+
+            <!-- Testimonial Textarea -->
+            <div>
+                <label for="testimonial" class="block text-sm font-medium text-gray-700">Your Testimonial</label>
+                <textarea id="testimonial" name="testimonial" rows="6" required class="mt-1 block w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg shadow-sm focus:ring-amber-500 focus:border-amber-500" placeholder="Please share a few words about your experience working with me. What did you enjoy most?"></textarea>
+            </div>
+
+            <!-- Consent Checkbox -->
+            <div class="flex items-start">
+                <div class="flex items-center h-5">
+                    <input id="consent" name="consent" type="checkbox" required class="focus:ring-amber-500 h-4 w-4 text-amber-600 border-gray-300 rounded">
+                </div>
+                <div class="ml-3 text-sm">
+                    <label for="consent" class="font-medium text-gray-700">
+                        I consent to my testimonial and name/business name being shared publicly on the portfolio website.
+                    </label>
+                    <p class="text-gray-500 mt-1">
+                        Your privacy is important. I will only use the name and testimonial provided here.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Submit button and info popup container -->
+            <div class="flex items-center justify-center space-x-2 relative flex-col sm:flex-row">
+                <!-- Submit Button -->
+                <button type="submit" class="w-full sm:w-auto flex-grow flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-amber-500 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition duration-300">
+                    Submit Testimonial
+                </button>
+                
+                <!-- Info Icon and Privacy Link Container -->
+                <div class="flex items-center space-x-2 mt-4 sm:mt-0">
+                    <!-- 'How it works' Info Icon -->
+                    <div class="relative">
+                        <i id="infoIcon" class="fas fa-info-circle text-gray-400 text-xl cursor-pointer hover:text-gray-600 transition"></i>
+                        <!-- The 'How it works' Popup Window -->
+                        <div id="infoPopup" class="info-popup absolute bottom-full mb-2 w-72 bg-gray-800 text-white text-sm p-4 rounded-lg shadow-lg transform -translate-x-1/2 left-1/2 popup-window">
+                            <p class="font-bold mb-2">How it works</p>
+                            <p>By clicking 'Submit Testimonial', your default email client will open with the form details pre-filled. You will need to click 'Send' to complete the submission.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 'Privacy concerns' link -->
+                    <div class="relative">
+                        <span id="privacyLink" class="text-sm font-medium text-gray-600 cursor-pointer hover:underline">Privacy Concerns?</span>
+                        <!-- The 'Privacy concerns' Popup Window -->
+                        <div id="privacyPopup" class="info-popup absolute bottom-full mb-2 w-72 bg-gray-800 text-white text-sm p-4 rounded-lg shadow-lg transform -translate-x-1/2 left-1/2 popup-window">
+                            <p class="font-bold mb-2">Security & Privacy</p>
+                            <p>This form does not collect or store any personal data. Your email address and password are not exposed. We simply create a draft email on your computer with your testimonial. You remain in complete control of sending it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <!-- Message Box for success/error feedback -->
+        <div id="messageBox" class="message-box"></div>
+    </div>
+
+    <script>
+        // Star rating functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const starContainer = document.getElementById('star-rating');
+            const stars = starContainer.querySelectorAll('.rating-star');
+            const ratingInput = document.getElementById('ratingValue');
+            let currentRating = 0;
+
+            // Function to update star colors based on the given rating
+            const updateStars = (rating) => {
+                stars.forEach((star, index) => {
+                    // Check if the current star's index is less than the rating
+                    if (index < rating) {
+                        star.classList.add('selected');
+                    } else {
+                        star.classList.remove('selected');
+                    }
+                });
+            };
+
+            // Event listener for mouseover on stars (hover effect)
+            starContainer.addEventListener('mouseover', (event) => {
+                const hoveredStar = event.target.closest('.rating-star');
+                if (!hoveredStar) return;
+
+                const rating = hoveredStar.dataset.rating;
+                stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.add('hovered');
+                    } else {
+                        star.classList.remove('hovered');
+                    }
+                });
+            });
+
+            // Event listener for mouseout from star container (reset hover effect)
+            starContainer.addEventListener('mouseout', () => {
+                // Remove the 'hovered' class from all stars when the mouse leaves the container
+                stars.forEach(star => star.classList.remove('hovered'));
+            });
+
+            // Event listener for click on a star
+            starContainer.addEventListener('click', (event) => {
+                const clickedStar = event.target.closest('.rating-star');
+                if (!clickedStar) return;
+
+                // Update the current rating and the hidden input value
+                currentRating = clickedStar.dataset.rating;
+                ratingInput.value = currentRating;
+                updateStars(currentRating); // Update the visual appearance
+            });
+
+            // Popup functionality using click/tap events
+            const infoIcon = document.getElementById('infoIcon');
+            const privacyLink = document.getElementById('privacyLink');
+            const infoPopup = document.getElementById('infoPopup');
+            const privacyPopup = document.getElementById('privacyPopup');
+
+            // Event listener to show/hide the "How it works" popup
+            infoIcon.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevents the document click listener from closing it
+                infoPopup.classList.toggle('is-visible');
+                privacyPopup.classList.remove('is-visible'); // Close the other popup
+            });
+
+            // Event listener to show/hide the "Privacy Concerns" popup
+            privacyLink.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevents the document click listener from closing it
+                privacyPopup.classList.toggle('is-visible');
+                infoPopup.classList.remove('is-visible'); // Close the other popup
+            });
+            
+            // Event listener to hide popups when clicking anywhere on the document
+            document.addEventListener('click', (event) => {
+                if (infoPopup.classList.contains('is-visible') || privacyPopup.classList.contains('is-visible')) {
+                    infoPopup.classList.remove('is-visible');
+                    privacyPopup.classList.remove('is-visible');
+                }
+            });
+
+            // Form submission handler
+            const form = document.getElementById('testimonialForm');
+            const messageBox = document.getElementById('messageBox');
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Simple form validation
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                // Gather form data
+                const clientName = document.getElementById('clientName').value;
+                const projectTitle = document.getElementById('projectTitle').value;
+                const testimonial = document.getElementById('testimonial').value;
+                const rating = currentRating;
+                const consent = document.getElementById('consent').checked;
+                
+                // Construct the email body
+                const emailBody = `
+Client Name: ${clientName}
+Project Title: ${projectTitle}
+Rating: ${rating} stars
+Testimonial: 
+${testimonial}
+
+Consent to share: ${consent ? 'Yes' : 'No'}
+`;
+                
+                // Encode the body for use in a URL
+                const encodedBody = encodeURIComponent(emailBody);
+
+                // Construct the mailto link
+                const mailtoLink = `mailto:your-email@example.com?subject=New Testimonial Submission&body=${encodedBody}`;
+
+                // Open the user's email client
+                window.location.href = mailtoLink;
+
+                // Provide user feedback that the email client is opening
+                showMessage('Opening your email client to send the testimonial...', 'success');
+            });
+
+            // Function to display a message box
+            const showMessage = (message, type) => {
+                messageBox.textContent = message;
+                messageBox.classList.add('show', type);
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    messageBox.classList.remove('show', type);
+                }, 5000);
+            };
+        });
+    </script>
+</body>
+</html>
