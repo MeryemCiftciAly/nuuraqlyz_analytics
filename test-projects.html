@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Favicon links -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon-96x96.png" sizes="180x180" />
     <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.svg" />
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.ico" />
@@ -30,7 +29,7 @@
             color: #28496c; /* Dark blue from brand palette */
         }
 
-        /* Header Section (Logo and Tagline) - Updated to match the image */
+        /* Header Section (Logo and Tagline) - Updated for new layout */
         .hero-header {
             display: flex;
             justify-content: space-between;
@@ -41,34 +40,30 @@
             max-width: 1200px;
             box-sizing: border-box;
         }
+
+        /* Container for the logo image and text */
+        .logo-and-name {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Added spacing between logo and text */
+        }
         
         /* Styles for the Nuuraqlyz Analytics text within the logo section */
         .hero-logo-main-text {
             font-size: 2em;
             font-weight: 700;
             color: #28496c;
-            white-space: nowrap; /* Prevent wrapping for "Nuuraqlyz" */
         }
 
         .hero-logo-analytics-text {
             color: #24647D; /* A slightly different blue from brand palette for a subtle contrast */
             font-weight: 400;
             margin-left: 8px;
-            white-space: nowrap; /* Prevent wrapping for "ANALYTICS" */
-        }
-
-        .hero-logo {
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-            color: #28496c;
-            gap: 0px; /* Adjust as needed for spacing between logo and text */
         }
 
         .hero-logo-icon {
             width: 180px; /* Consistent size */
             height: 180px; /* Consistent size */
-            margin-right: 8px;
             flex-shrink: 0;
             object-fit: contain;
         }
@@ -81,9 +76,65 @@
             letter-spacing: 1px;
             text-align: right;
             line-height: normal; /* Adjusted for single line */
-            white-space: nowrap; /* Prevent text from wrapping */
+        }
+    /* Styles for the new footer */
+        .footer {
+            width: 100%;
+            background-color: #1a1a1a; /* Updated to dark charcoal color */
+            color: #cccccc; /* Updated text color for contrast */
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid #333333; /* Updated border color for contrast */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            margin-top: auto; /* Push the footer to the bottom of the flex container */
         }
 
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        .footer a {
+            color: #cccccc; /* Updated link color for contrast */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #FF8C00; /* Match the hero section's theme */
+            text-decoration: underline;
+        }
+
+        .footer .fas.fa-heart {
+            color: #e25555; /* A standard heart color */
+            margin: 0 5px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive adjustments for footer */
+        @media (max-width: 768px) {
+            .footer-content {
+                text-align: center;
+            }
+
+            .footer-content p {
+                margin: 0.25rem 0;
+            }
+        }
 
         /* Navigation Bar - Updated with brand color */
         .navbar {
@@ -197,20 +248,23 @@
         }
         
         /* --- Updated Card Styles for Alternating Colors --- */
-        .independent-projects-grid .project-card:nth-child(odd) {
+        .independent-projects-grid .project-card:nth-child(3n+1) {
             background-color: #26647D; /* Teal */
             color: #fff;
         }
         
-        .independent-projects-grid .project-card:nth-child(even) {
+        .independent-projects-grid .project-card:nth-child(3n+2) {
             background-color: #284964; /* Dark Blue */
             color: #fff;
         }
+
+        .independent-projects-grid .project-card:nth-child(3n+3) {
+            background-color: #FF8C00; /* Dark Orange */
+            color: #fff;
+        }
         
-        .independent-projects-grid .project-card:nth-child(odd) h3,
-        .independent-projects-grid .project-card:nth-child(odd) p,
-        .independent-projects-grid .project-card:nth-child(even) h3,
-        .independent-projects-grid .project-card:nth-child(even) p {
+        .independent-projects-grid .project-card h3,
+        .independent-projects-grid .project-card p {
             color: #fff;
         }
 
@@ -252,8 +306,8 @@
 
         .pay-scenario-content p {
             font-size: 1.1em;
-            color: #284964;
             line-height: 1.6;
+            color: #284964;
             margin-bottom: 25px;
         }
         
@@ -488,7 +542,51 @@
             border-bottom: 2px solid #ddd;
             padding-bottom: 5px;
         }
+        
+        /* New Styles for two-column layout */
+        .modal-role-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-role-column {
+            flex: 1;
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #284964;
+        }
+        
+        .modal-role-column h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            color: #284964;
+        }
 
+        .modal-role-column ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .modal-role-column li {
+            margin-bottom: 5px;
+        }
+
+        @media (min-width: 768px) {
+            .modal-role-container {
+                flex-direction: row;
+            }
+            .modal-role-column:first-child {
+                flex: 0 0 30%; /* Fixed width for the role column */
+            }
+            .modal-role-column:last-child {
+                flex: 1; /* Takes up remaining space */
+            }
+        }
+        
         .modal-overview, .modal-my-role {
             font-size: 1.1em;
             line-height: 1.7;
@@ -767,12 +865,12 @@
         /* Footer Section - Updated with brand color */
         .footer {
             width: 100%;
-            background-color: #ffffff;
-            color: #284964;
+            background-color: #1a1a1a; /* Dark charcoal */
+            color: #cccccc;
             padding: 20px 0;
             margin-top: auto;
             text-align: center;
-            border-top: 1px solid #c0d9d9;
+            border-top: 1px solid #333333;
         }
 
         .footer-inner-content {
@@ -790,13 +888,13 @@
         }
 
         .footer-inner-content a {
-            color: #284964;
+            color: #cccccc;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .footer-inner-content a:hover {
-            color: #26647D;
+            color: #FF8C00;
             text-decoration: underline;
         }
 
@@ -809,7 +907,7 @@
             }
             .hero-tagline {
                 text-align: center;
-                margin-top: 10px;
+                margin-top: 20px; /* Increased margin for better spacing */
             }
             .client-projects-header-container {
                 flex-direction: column;
@@ -883,9 +981,6 @@
         }
 
         @media (max-width: 480px) {
-            .hero-header {
-                padding: 10px;
-            }
             .hero-logo-icon {
                 width: 80px; /* Even smaller logo on very small screens */
                 height: 80px;
@@ -918,46 +1013,41 @@
 </head>
 <body>
 
-    <!-- Header Section -->
     <header class="hero-header">
-        <div class="hero-logo">
-            <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//Nuuraqlyz_Logo_Main-removebg-preview.png" alt="Nuuraqlyz Logo" class="hero-logo-icon">
+        <div class="logo-and-name">
+            <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Logo" class="hero-logo-icon">
             <div>
                 <span class="hero-logo-main-text">Nuuraqlyz</span>
                 <span class="hero-logo-analytics-text">ANALYTICS</span>
             </div>
         </div>
         <div class="hero-tagline">
-            Your data, your story.
+            Analytics for Clarity Insights for Action
         </div>
     </header>
 
-    <!-- Main Navigation Bar -->
     <nav class="navbar">
         <ul class="navbar-links">
-            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">HOME</a></li>
-            <li><a href="javascript:void(0)">ABOUT US</a></li>
-            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html" class="active">PROJECTS</a></li>
-            <li><a href="javascript:void(0)">CONTACT</a></li>
+            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
+            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
+            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/client-feedback.html">Client Feedback</a></li>
+            <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/information-guide.html">Guided Information</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Main Content for Projects Page -->
     <main class="main-content-projects">
         
         <h1 class="projects-main-heading">Independent Projects</h1>
         <p class="section-description">
-            View my work. This is a showcase of my ability to transform large public data sets and other unstructured information into **actionable insights** that drive **strategic business decisions**. I invite you to explore these projects to see my capabilities in action and consider how I can help you uncover the potential hidden within your own data.
+            View my work. This is a showcase of my ability to transform large public data sets and other unstructured information into <strong>actionable insights</strong> that drive <strong>strategic business decisions</strong>. I invite you to explore these projects to see my capabilities in action and consider how I can help you uncover the potential hidden within your own data.
         </p>
 
-        <!-- Independent Projects Section -->
         <section class="independent-section">
             <div id="independent-project-grid" class="project-grid independent-projects-grid">
-                <!-- Independent project cards will be injected here by JavaScript -->
-            </div>
+                </div>
         </section>
 
-        <!-- What-if Pay Section -->
         <section class="pay-scenario-section">
             <div class="pay-scenario-content">
                 <h3>What-if Pay</h3>
@@ -968,540 +1058,188 @@
             </div>
         </section>
         
-        <!-- Freelance Call-to-Action Section -->
         <section class="freelance-cta-section">
             <h3>Ready to Transform Your Data?</h3>
             <p>
                 Are you looking for a freelance data analyst to help you with your business challenges? I specialize in turning complex data into clear, actionable insights. What data do you have? I'd love to discuss how we can work together to uncover your business's hidden potential.
             </p>
-            <a href="https://airtable.com/" class="freelance-cta-button" target="_blank" rel="noopener noreferrer">
+            <a href="#" class="freelance-cta-button" target="_blank" rel="noopener noreferrer">
                 Let's Talk About Your Project
             </a>
         </section>
 
-        <!-- Project Modal (hidden by default) -->
         <div id="project-modal-overlay" class="modal-overlay">
             <div id="project-modal-content" class="modal-content">
                 <span id="modal-close-btn" class="modal-close-button">&times;</span>
-                <div id="modal-inner-content">
-                    <!-- Dynamic modal content will be injected here by JavaScript -->
-                </div>
-            </div>
-        </div>
-        
-        <!-- What-if Pay Modal (hidden by default) -->
-        <div id="what-if-pay-modal-overlay" class="modal-overlay">
-            <div id="what-if-pay-modal-content" class="modal-content">
-                <span id="what-if-pay-modal-close-btn" class="modal-close-button">&times;</span>
-                <div class="modal-inner-content">
-                    <h2>About the What-if Pay Spreadsheet</h2>
+                <div class="modal-cta-section">
+                    <h4>Project Details Coming Soon!</h4>
                     <p>
-                        Here is a spreadsheet I thought about sharing with you. It takes three pay scenarios and your top six expenses, and gives you an idea of how these three pay scenarios will go against the three income streams. So if you are job searching or if you have three income streams coming in and you want to know which income stream will handle your top 6 expenses, this may be helpful.
+                        I'm currently finalizing the case study and full report for this project. Please check back soon for a detailed breakdown of the objective, my role, and the insights gained.
                     </p>
-                    <!-- New button with the spreadsheet link -->
-                    <a href="https://docs.google.com/spreadsheets/d/1GSvnwlyHLv2j5mX9YfS4xXW-2a6P89rzYzfA4O-OC9s/edit?usp=sharing"
-                       class="download-link-button" target="_blank" rel="noopener noreferrer">
-                        Access the Spreadsheet
-                    </a>
+                    <div class="modal-contact-buttons">
+                        <a href="https://airtable.com/" target="_blank" rel="noopener noreferrer" class="btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                        <a href="https://www.linkedin.com/in/meryack/" target="_blank" rel="noopener noreferrer" class="btn"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- External Link Confirmation Modal (hidden by default) -->
+        <div id="what-if-pay-modal-overlay" class="modal-overlay">
+            <div id="what-if-pay-modal-content" class="modal-content">
+                <span id="what-if-pay-modal-close-btn" class="modal-close-button">&times;</span>
+                <h2>What-if Pay:</h2>
+                <p>
+                    <strong>A hypothetical tool designed for individuals seeking to understand and analyze their various income streams.</strong> It is not a live application but a conceptual demonstration of how a user-friendly interface could be built to address a common personal finance challenge.
+                </p>
+                <p>
+                    The project highlights a potential solution for aggregating different types of income data (e.g., salary, freelance, investments) into a single, cohesive view. It is a testament to my ability to conceptualize, design, and plan a data-driven product from the ground up.
+                </p>
+                <p>
+                    <strong>This is a project concept, not a live application.</strong>
+                </p>
+                <a href="https://airtable.com/" class="download-link-button" target="_blank" rel="noopener noreferrer">Contact to Discuss This Concept</a>
+            </div>
+        </div>
+
         <div id="confirm-modal-overlay" class="confirm-modal-overlay">
             <div class="confirm-modal-content">
-                <h4>You are about to leave Nuuraqlyz Analytics.</h4>
-                <p>Are you sure you want to continue to this external website?</p>
+                <span id="confirm-close-btn" class="modal-close-button">&times;</span>
+                <h4>You are about to leave this site.</h4>
+                <p>Are you sure you want to continue to an external website?</p>
                 <div class="confirm-buttons">
                     <button id="confirm-continue">Continue</button>
                     <button id="confirm-cancel">Cancel</button>
                 </div>
             </div>
         </div>
-
     </main>
     
-    <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-inner-content">
-            <p>&copy; 2024 Nuuraqlyz Analytics. All Rights Reserved.</p>
+            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart"></i> by Kamara Meryem A. Rowe- Ciftci</p>
             <p>
-                <a href="javascript:void(0)">Privacy Policy</a> |
-                <a href="javascript:void(0)">Terms of Service</a> |
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Sitemap</a>
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/terms-and-conditions.html">Terms of Service</a> | 
+                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/privacy-policy.html">Privacy Policy</a>
             </p>
         </div>
     </footer>
-
-    <!-- JavaScript for project data and functionality -->
+    
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            // --- DATA ARRAYS ---
-            const independentProjectsData = [
-                {
-                    id: 'proj5-nyc-waste-trends',
-                    title: 'New York City Waste Collection Trends',
-                    description: 'An in-depth analysis of NYC open data to visualize waste and recycling collection trends across the five boroughs.',
-                    modal: {
-                        projectTitle: 'New York City Waste Collection Trends',
-                        overview: 'This project analyzes public NYC sanitation data to uncover trends and patterns in waste and recycling collection. Using Python, I cleaned and transformed the raw data, and then created visualizations to highlight key findings such as seasonal variations and differences in collection volume across different boroughs. The goal was to provide clear, actionable insights from public data.',
-                        myRole: 'Sole developer and researcher.',
-                        skillsTools: 'Python, Pandas, Matplotlib, Seaborn, Folium, SQL, Public Data Analysis',
-                        screenshot: 'https://raw.githubusercontent.com/MeryemCiftciAly/assets/refs/heads/main/project_screenshot.png',
-                        links: [
-                            { name: 'Case Study (PDF)', url: 'javascript:void(0)'},
-                            { name: 'Presentation/Report', url: 'https://docs.google.com/presentation/d/e/2PACX-1vT5G1QJX5Nch2chxsb1YMFgpnV335Itrl2sWh1Fk8NTf82372BpQOo__e73Q1MIwAYlPFR04-HfplzN/pub?start=false&loop=false&delayms=10000&slide=id.p'},
-                            { name: 'Project Timeline/Flowchart', url: 'https://meryemciftcialy.github.io/work_sample/nyc-analy-prj-timeline.html'}
-                        ],
-                        tools: [
-                            { toolName: 'SQL (GitHub)', resourceUrl: 'https://github.com/MeryemCiftciAly/my_sql_journey/tree/main/nyc-sanitation-analysis' },
-                            { toolName: 'SQL (Kaggle)', resourceUrl: 'https://www.kaggle.com/code/meryemciftci/sql-nyc-garbage-collection-analysis' },
-                            { toolName: 'Python (GitHub)', resourceUrl: 'https://github.com/MeryemCiftciAly/nyc-sanitation-analysis-python' },
-                            { toolName: 'Python (Kaggle)', resourceUrl: 'https://www.kaggle.com/meryemciftci/python-nyc-garbage-collection' },
-                            { toolName: 'Tableau', resourceUrl: 'https://www.tableau.com/' },
-                            { toolName: 'Power BI', resourceUrl: 'https://powerbi.microsoft.com/' },
-                            { toolName: 'Excel', resourceUrl: 'https://drive.google.com/drive/folders/1b7UyW3vyQOxxizZx4d8mkwip7B-uM8y1?usp=sharing' },
-                            { toolName: 'Presentation Reports', resourceUrl: 'https://www.google.com/slides/about/' }
-                        ],
-                        objective: 'The primary goal was to leverage publicly available sanitation data from the NYC Open Data portal to uncover meaningful trends and patterns in waste and recycling collection. The project aimed to demonstrate how public data can be used to generate actionable insights and to showcase skills in data cleaning, transformation, and visualization.',
-                        solution: 'I developed a comprehensive data analysis pipeline using Python. I first ingested and cleaned and standardized the raw, unstructured data using Pandas. Next, I performed exploratory data analysis to identify key relationships between variables. Finally, I used libraries like Matplotlib and Seaborn to create interactive visualizations and a detailed report, making the complex data easily understandable.',
-                        benefits: 'This analysis provides city officials and sanitation planners with a clear, visual understanding of collection trends. It can help in optimizing routing, allocating resources more effectively during peak seasons, and identifying areas for public education campaigns to improve recycling rates. The insights can lead to more efficient municipal services and cost savings.',
-                        industries: 'This analysis can be applied to **public services**, **urban planning**, **logistics and supply chain management**, and **environmental science**. Any organization dealing with large-scale resource management and operational efficiency can benefit from similar data-driven insights.'
-                    }
-                },
-                {
-                    id: 'proj6-sanctions-analysis',
-                    title: 'International Sanctions Analysis (Coming Soon)',
-                    description: 'A forthcoming project that will explore the impact of international sanctions on global trade and economic trends.',
-                    modal: {
-                        projectTitle: 'International Sanctions Analysis',
-                        overview: 'This project is currently in development. It will analyze the effects of international sanctions on global economic stability, trade, and specific industries. The final analysis will include a detailed report and interactive visualizations.',
-                        myRole: 'Sole developer and researcher.',
-                        skillsTools: 'Python, Pandas, Data Visualization, Economic Research',
-                        screenshot: 'https://placehold.co/800x450/ffffff/000000?text=Project+Coming+Soon',
-                        links: [], // No links available yet
-                        tools: [], // No tools to list yet
-                        objective: 'This project is in the planning and data gathering phase. The objective is to produce a comprehensive analysis of international sanctions and their economic effects. Check back soon for updates on this project!',
-                        solution: 'The analysis will involve collecting and integrating data from various international databases and reports. The methodology will include statistical analysis and data visualization to highlight key trends and relationships, providing a clear picture of the economic consequences of sanctions.',
-                        benefits: 'The insights from this project will be valuable for policymakers, business leaders, and academics. They will provide a data-driven foundation for understanding the complex and far-reaching impacts of international sanctions on the global economy.',
-                        industries: 'This analysis will be relevant to **global economics**, **finance**, **international relations**, and **policy analysis**.'
-                    }
-                },
-                {
-                    id: 'proj-future-one',
-                    title: 'Project to be Realized',
-                    description: 'This space is reserved for a future project. Please check back later for updates.',
-                    modal: {
-                        projectTitle: 'Future Project',
-                        overview: 'This project is currently in the planning and development phase. Stay tuned for a new data analysis case study that will be featured here soon.',
-                        myRole: 'Sole developer and analyst.',
-                        skillsTools: 'TBD',
-                        screenshot: 'https://placehold.co/800x450/ffffff/000000?text=Project+To+Be+Realized',
-                        links: [],
-                        tools: [],
-                        objective: 'The goal of this card is to demonstrate that I have more projects in the works and that this portfolio is continuously being updated. I will provide a new data analysis project here in the near future.',
-                        solution: 'The project details and solution will be updated here once the project is complete.',
-                        benefits: 'The benefits of this project will be documented once it is complete.',
-                        industries: 'The industries that this project can be applied to will be documented once it is complete.'
-                    }
-                },
-                {
-                    id: 'proj-future-two',
-                    title: 'Project to be Realized',
-                    description: 'This space is reserved for a future project. Please check back later for updates.',
-                    modal: {
-                        projectTitle: 'Future Project',
-                        overview: 'This project is currently in the planning and development phase. Stay tuned for a new data analysis case study that will be featured here soon.',
-                        myRole: 'Sole developer and analyst.',
-                        skillsTools: 'TBD',
-                        screenshot: 'https://placehold.co/800x450/ffffff/000000?text=Project+To+Be+Realized',
-                        links: [],
-                        tools: [],
-                        objective: 'The goal of this card is to demonstrate that I have more projects in the works and that this portfolio is continuously being updated. I will provide a new data analysis project here in the near future.',
-                        solution: 'The project details and solution will be updated here once the project is complete.',
-                        benefits: 'The benefits of this project will be documented once it is complete.',
-                        industries: 'The industries that this project can be applied to will be documented once it is complete.'
-                    }
+        const independentProjectsData = [
+            {
+                id: 'proj5-nyc-waste-trends',
+                title: 'New York City Waste Collection Trends',
+                description: 'An in-depth analysis of NYC open data to visualize waste and recycling collection trends across the five boroughs.',
+                modal: {
+                    placeholder: "Project details are currently being finalized. Please check back soon for a full case study and interactive demo."
                 }
-            ];
+            },
+            {
+                id: 'proj6-interactive-analytics-dashboard',
+                title: 'Interactive Analytics Dashboard',
+                description: `This project involves analyzing a comprehensive international sanctions dataset from 1949 to 2023. I will be using PowerBI, Excel, and SQL to extract key insights and answer specific questions about sanctions trends and impacts.`,
+                modal: {
+                    placeholder: `I am currently finalizing the case study for this project, which analyzes an international sanctions dataset from 1949-2023. I'm using PowerBI, Excel, and SQL to uncover trends and answer derived questions. Please check back soon for a detailed breakdown.`
+                }
+            },
+            {
+                id: 'proj7-upcoming-project',
+                title: 'Upcoming Project',
+                description: 'This card is a placeholder for a new project in the works. It will be a showcase of my skills in a new area. Check back soon for updates!',
+                modal: {
+                    placeholder: "This project is currently in the planning phase. Details and a full case study will be added as soon as it's finished. Thank you for your patience!"
+                }
+            },
+            {
+                id: 'proj8-expense-tracking',
+                title: 'Expense Tracking with Python and Excel',
+                description: `This project uses Python to process a spreadsheet of expenses in CSV or Excel format. The program automatically:
+- Formats and cleans the data (removing extra symbols, fixing numbers).
+- Organizes expenses by category.
+- Calculates totals for each category.
+- Produces a clean report in either text or CSV format.
+The user receives a clear expense summary showing what was spent, where it was spent, and the total cost per category. The CSV option also provides a structured, ready-to-use file that can be imported into Excel or other tools for further analysis.`,
+                modal: {
+                    placeholder: "Project details for the Expense Tracking project are currently being finalized. Please check back soon for a full case study and interactive demo."
+                }
+            }
+        ];
 
-            // --- DOM ELEMENTS AND VARIABLES ---
-            const independentProjectGrid = document.getElementById('independent-project-grid');
-
+        function renderIndependentProjects() {
+            const container = document.getElementById('independent-project-grid');
+            if (!container) return;
+            container.innerHTML = '';
+            independentProjectsData.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.setAttribute('data-id', project.id);
+                const title = document.createElement('h3');
+                title.textContent = project.title;
+                const description = document.createElement('p');
+                description.innerHTML = project.description.replace(/\n/g, '<br>');
+                card.appendChild(title);
+                card.appendChild(description);
+                container.appendChild(card);
+            });
+        }
+        
+        function openProjectModal(projectId) {
+            const project = independentProjectsData.find(p => p.id === projectId);
             const modalOverlay = document.getElementById('project-modal-overlay');
             const modalContent = document.getElementById('project-modal-content');
-            const modalInnerContent = document.getElementById('modal-inner-content');
+        
+            if (!project || !modalOverlay || !modalContent) {
+                console.error("Project data, modal overlay, or modal content not found.");
+                return;
+            }
+        
+            // Update modal content with the placeholder text
+            const ctaSection = modalContent.querySelector('.modal-cta-section');
+            if (ctaSection) {
+                ctaSection.querySelector('h4').textContent = "Project Details Coming Soon!";
+                ctaSection.querySelector('p').textContent = project.modal.placeholder;
+            }
+        
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            renderIndependentProjects();
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const projectId = card.getAttribute('data-id');
+                    openProjectModal(projectId);
+                });
+            });
             const modalCloseBtn = document.getElementById('modal-close-btn');
-            
-            const confirmModalOverlay = document.getElementById('confirm-modal-overlay');
-            const confirmContinueBtn = document.getElementById('confirm-continue');
-            const confirmCancelBtn = document.getElementById('confirm-cancel');
-
-            // What-if Pay modal elements
-            const openPayModalBtn = document.getElementById('open-pay-modal-btn');
-            const payModalOverlay = document.getElementById('what-if-pay-modal-overlay');
-            const payModalCloseBtn = document.getElementById('what-if-pay-modal-close-btn');
-
-            let externalLinkToOpen = '';
-
-            // --- FUNCTIONS ---
-            
-            /**
-             * Renders all independent project cards into the DOM.
-             */
-            const renderIndependentProjects = () => {
-                if (!independentProjectGrid) {
-                    console.error('Independent project grid element not found.');
-                    return;
-                }
-                independentProjectGrid.innerHTML = '';
-                independentProjectsData.forEach(project => {
-                    const projectCardHTML = `
-                        <div class="project-card independent-project" data-project-id="${project.id}">
-                            <div class="card-content">
-                                <h3 class="card-title">${project.title}</h3>
-                                <p class="card-description">${project.description}</p>
-                            </div>
-                        </div>
-                    `;
-                    independentProjectGrid.insertAdjacentHTML('beforeend', projectCardHTML);
+            const modalOverlay = document.getElementById('project-modal-overlay');
+            if (modalCloseBtn && modalOverlay) {
+                modalCloseBtn.addEventListener('click', () => {
+                    modalOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
                 });
-                // Add event listeners to the new project cards
-                addProjectCardListeners();
-            };
-
-            /**
-             * Handles the opening of a project modal with dynamic content.
-             * @param {string} projectId - The ID of the project to display.
-             */
-            const openProjectModal = (projectId) => {
-                // Find the project data from the independent data array
-                const project = independentProjectsData.find(p => p.id === projectId);
-                if (!project) {
-                    console.error('Project not found:', projectId);
-                    return;
-                }
-                const modalData = project.modal;
-                if (!modalData) {
-                    console.error('Modal data not found for project:', projectId);
-                    return;
-                }
-
-                // Construct the HTML for the modal content
-                let modalHtml = '';
-                
-                // Title and Overview sections are always present
-                modalHtml += `<h2 class="modal-title independent-title">${modalData.projectTitle}</h2>`;
-                modalHtml += `<h3 class="modal-section-title">Overview</h3>`;
-                modalHtml += `<p class="modal-overview">${modalData.overview}</p>`;
-
-                // Add screenshot if available
-                if (modalData.screenshot) {
-                    modalHtml += `<img src="${modalData.screenshot}" alt="Project Screenshot" class="modal-screenshot">`;
-                }
-
-                // New Case Study sections
-                modalHtml += `<h3 class="modal-section-title">Objective</h3>`;
-                modalHtml += `<p class="modal-overview">${modalData.objective}</p>`;
-                
-                modalHtml += `<h3 class="modal-section-title">Solution</h3>`;
-                modalHtml += `<p class="modal-overview">${modalData.solution}</p>`;
-
-                modalHtml += `<h3 class="modal-section-title">Benefits</h3>`;
-                modalHtml += `<p class="modal-overview">${modalData.benefits}</p>`;
-
-                modalHtml += `<h3 class="modal-section-title">Industries that this analysis can apply to</h3>`;
-                modalHtml += `<p class="modal-overview">${modalData.industries}</p>`;
-
-                // Add links section if links are available
-                if (modalData.links && modalData.links.length > 0) {
-                    const linksHtml = modalData.links.map(link => `
-                        <tr>
-                            <td>${link.name}</td>
-                            <td><a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.url}</a></td>
-                            <td>
-                                <button class="copy-btn" data-copy-target="${link.url}">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    `).join('');
-                    modalHtml += `
-                        <div class="modal-links-section">
-                            <h4>Project Links</h4>
-                            <table class="modal-links-table">
-                                <thead>
-                                    <tr>
-                                        <th>Link Name</th>
-                                        <th>URL</th>
-                                        <th>Copy</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ${linksHtml}
-                                </tbody>
-                            </table>
-                        </div>
-                    `;
-                }
-                
-                // Add tools section if tools data is available
-                if (modalData.tools && modalData.tools.length > 0) {
-                    const toolsHtml = modalData.tools.map(tool => `
-                        <tr>
-                            <td>${tool.toolName}</td>
-                            <td><a href="${tool.resourceUrl}" target="_blank" rel="noopener noreferrer">${tool.resourceUrl}</a></td>
-                            <td>
-                                <button class="copy-btn" data-copy-target="${tool.resourceUrl}">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    `).join('');
-                    modalHtml += `
-                        <div class="modal-tools-section">
-                            <h3 class="modal-tools-title">Tools Used</h3>
-                            <table class="modal-links-table">
-                                <thead>
-                                    <tr>
-                                        <th>Tool</th>
-                                        <th>Resource Link</th>
-                                        <th>Copy</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ${toolsHtml}
-                                </tbody>
-                            </table>
-                        </div>
-                    `;
-                }
-
-                // Add Share section
-                // This creates a dynamic URL for sharing the current project modal.
-                const shareUrl = `${window.location.origin}${window.location.pathname}#${projectId}`;
-                modalHtml += `
-                    <div class="share-container">
-                        <div class="share-box">
-                            <span class="share-box-label">Shareable Link:</span>
-                            <input type="text" id="share-link-input" value="${shareUrl}" readonly>
-                            <button class="copy-btn" data-copy-target="#share-link-input">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-
-                // Add Call to Action section
-                modalHtml += `
-                    <div class="modal-cta-section">
-                        <h4>Let's make your data work for you.</h4>
-                        <p>If you have a project in mind, big or small, I'd love to discuss how data can help you achieve your goals.</p>
-                        <div class="modal-contact-buttons">
-                            <a href="https://airtable.com/" class="btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Contact Me</a>
-                        </div>
-                    </div>
-                `;
-
-                // Insert the generated HTML into the modal and display it
-                modalInnerContent.innerHTML = modalHtml;
-                modalOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-
-                // Update URL hash without causing a page reload
-                history.pushState(null, '', `#${projectId}`);
-                
-                // Add copy to clipboard listeners for the new content
-                addCopyToClipboardListeners();
-                
-                // Re-add external link click handlers for new links
-                addExternalLinkHandlers();
-            };
-
-            /**
-             * Handles the opening of the What-if Pay modal.
-             */
-            const openPayModal = () => {
-                payModalOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            };
-
-            /**
-             * Handles the closing of the What-if Pay modal.
-             */
-            const closePayModal = () => {
-                payModalOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            };
-
-
-            /**
-             * Adds click event listeners to all project cards.
-             */
-            const addProjectCardListeners = () => {
-                const projectCards = document.querySelectorAll('.project-card');
-                projectCards.forEach(card => {
-                    card.addEventListener('click', () => {
-                        const projectId = card.dataset.projectId;
-                        openProjectModal(projectId);
-                    });
-                });
-            };
-
-            /**
-             * Handles closing the project modal.
-             */
-            const closeProjectModal = () => {
-                modalOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-                // Clear the URL hash
-                history.pushState(null, '', window.location.pathname);
-            };
-
-            /**
-             * Checks the URL hash on page load to see if a project modal should be opened.
-             */
-            const checkUrlHash = () => {
-                const projectId = window.location.hash.slice(1);
-                if (projectId) {
-                    const projectExists = independentProjectsData.some(p => p.id === projectId);
-                    if (projectExists) {
-                        openProjectModal(projectId);
-                    }
-                }
-            };
-            
-            /**
-             * Handles copying text to the clipboard.
-             * @param {string} targetId - The ID of the element containing the text to copy.
-             * @param {HTMLElement} button - The button element that was clicked.
-             */
-            const copyToClipboard = (targetId, button) => {
-                let textToCopy;
-                if (targetId.startsWith('http')) { // Handle raw URL from data attribute
-                    textToCopy = targetId;
-                } else {
-                    const targetElement = document.querySelector(`[data-copy-target="${targetId}"]`);
-                    textToCopy = targetElement ? targetElement.href : null;
-                    if (!textToCopy) {
-                         const targetInput = document.getElementById(targetId);
-                         textToCopy = targetInput ? targetInput.value : '';
-                    }
-                }
-            
-                if (textToCopy) {
-                    // Use a temporary textarea to perform the copy
-                    const tempTextarea = document.createElement('textarea');
-                    tempTextarea.value = textToCopy;
-                    document.body.appendChild(tempTextarea);
-                    tempTextarea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(tempTextarea);
-                    
-                    // Provide visual feedback
-                    const originalHtml = button.innerHTML;
-                    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    setTimeout(() => {
-                        button.innerHTML = originalHtml;
-                    }, 2000);
-                } else {
-                    console.error('Could not find text to copy.');
-                }
-            };
-
-            /**
-             * Adds click handlers to all buttons with the `copy-btn` class.
-             */
-            const addCopyToClipboardListeners = () => {
-                const copyBtns = modalContent.querySelectorAll('.copy-btn');
-                copyBtns.forEach(button => {
-                    button.addEventListener('click', (e) => {
-                        const targetUrl = e.currentTarget.dataset.copyTarget;
-                        copyToClipboard(targetUrl, e.currentTarget);
-                    });
-                });
-            };
-            
-            /**
-             * Attaches an event listener to the document body to handle external link clicks.
-             * This prevents the default behavior and shows a confirmation modal.
-             */
-            const addExternalLinkHandlers = () => {
-                const allLinks = document.querySelectorAll('a[href^="http"]');
-                allLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        const linkElement = e.currentTarget;
-                        if (!linkElement.href.includes(window.location.hostname) && !linkElement.classList.contains('btn')) {
-                            e.preventDefault();
-                            externalLinkToOpen = linkElement.href;
-                            if (confirmModalOverlay) confirmModalOverlay.classList.add('active');
-                        }
-                    });
-                });
-            };
-
-            // --- EVENT LISTENERS ---
-            // Main Project Modal Close Button
-            if (modalCloseBtn) {
-                modalCloseBtn.addEventListener('click', closeProjectModal);
-            }
-
-            // What-if Pay Modal Open/Close Buttons
-            if (openPayModalBtn) {
-                openPayModalBtn.addEventListener('click', openPayModal);
-            }
-            if (payModalCloseBtn) {
-                payModalCloseBtn.addEventListener('click', closePayModal);
-            }
-            if (payModalOverlay) {
-                payModalOverlay.addEventListener('click', (e) => {
-                    if (e.target === payModalOverlay) {
-                        closePayModal();
-                    }
-                });
-            }
-
-            // Close modal when clicking outside of it
-            if (modalOverlay) {
                 modalOverlay.addEventListener('click', (e) => {
                     if (e.target === modalOverlay) {
-                        closeProjectModal();
+                        modalOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
                     }
                 });
             }
-            
-            // Close modal when ESC key is pressed
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-                    closeProjectModal();
-                } else if (e.key === 'Escape' && payModalOverlay.classList.contains('active')) {
-                    closePayModal();
-                }
-            });
-
-            // External link confirmation handlers
-            if (confirmContinueBtn) {
-                confirmContinueBtn.addEventListener('click', () => {
-                    window.open(externalLinkToOpen, '_blank');
-                    if (confirmModalOverlay) confirmModalOverlay.classList.remove('active');
-                    externalLinkToOpen = '';
+            const copyBtn = document.getElementById('copy-btn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', () => {
+                    const shareLinkInput = document.getElementById('share-link-input');
+                    shareLinkInput.select();
+                    document.execCommand('copy');
+                    copyBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                    }, 2000);
                 });
             }
-
-            if (confirmCancelBtn) {
-                confirmCancelBtn.addEventListener('click', () => {
-                    if (confirmModalOverlay) confirmModalOverlay.classList.remove('active');
-                    externalLinkToOpen = '';
-                });
-            }
-
-            // Initial renders when the page loads
-            renderIndependentProjects();
-            
-            // Check the URL hash on both page load and hash changes for robustness
-            checkUrlHash();
-            window.addEventListener('hashchange', checkUrlHash);
         });
     </script>
 </body>
