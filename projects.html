@@ -1000,6 +1000,10 @@
                         </div>
                         <div class="modal-divider"></div>
                         <div class="modal-tools-section">
+                        <div class="modal-project-workflow-container">
+                            <a href="${project.workflowUrl}" target="_blank" class="modal-project-workflow-link">View Project Workflow</a>
+                            <span class="modal-project-workflow-url">${project.workflowUrl}</span>
+                        </div>
                             <h4>Links & Resources</h4>
                             <div class="modal-table-container">
                                 <table class="modal-table">
@@ -1025,15 +1029,16 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="modal-project-workflow-container">
-                            <a href="${project.workflowUrl}" target="_blank" class="modal-project-workflow-link">View Project Workflow</a>
-                            <span class="modal-project-workflow-url">${project.workflowUrl}</span>
-                        </div>
-                       <div class="modal-share-cta">
+                        
+            
+    
+    <div class="modal-share-cta">
     <p>Share this project or contact me:</p>
-    <button class="copy-link-button">Copy Project URL</button>
+    <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html?project=${projectId}" target="_blank" class="dm-link-button copy-link-button">Copy Project URL and Share</a>
     <a href="https://www.linkedin.com/in/meryack" target="_blank" class="dm-link-button">DM me on LinkedIn</a>
     <span id="copy-message" style="display:none; color:green; margin-left:10px;">Copied!</span>
+</div>
+
 </div>
 
                     `;
