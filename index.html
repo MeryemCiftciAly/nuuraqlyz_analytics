@@ -916,7 +916,7 @@
             margin-bottom: 0.25rem;
         }
         
-      /* Footer Styles */
+    /* Footer Styles */
         .footer {
             width: 100%;
             background-color: #28496c; /* Dark blue background */
@@ -953,6 +953,34 @@
         .footer-social-links a:hover {
             color: #E5792F; /* Orange highlight on hover */
         }
+
+        /* Responsive adjustments - Consolidated Media Queries */
+
+        /* Tablet and smaller desktops */
+        @media (max-width: 1024px) {
+            .hero-header, .navbar, .hero-main-content,
+            .about-section, .industry-focus-section, .contact-section {
+                max-width: 100%; /* Allow content to fill wrapper up to 1024px */
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-main-content {
+                min-height: 400px;
+            }
+            .hero-title {
+                font-size: 3em;
+            }
+            .navbar-links {
+                gap: 20px; /* Adjust gap for medium screens */
+            }
+        }
+
+        /* Mobile (Portrait) and smaller tablets */
+        @media (max-width: 768px) {
+            .hero-header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
         
         /* Responsive adjustments for smaller screens */
         @media (max-width: 768px) {
