@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meryem / Nuuraqlyz Expense Automation Workflow</title>
+    <!-- Use Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.svg" />
+<link rel="shortcut icon" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//apple-touch-icon.png" />
+<link rel="manifest" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//site.webmanifest" />
+    <!-- Include Tailwind CSS via CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        /* Custom modal styles */
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .modal.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <!-- Main container for the timeline -->
+    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl max-w-6xl w-full relative">
+        <!-- "About" button positioned at the top-right -->
+        <button id="about-btn" class="absolute top-4 right-4 p-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+        </button>
+
+        <!-- Header -->
+        <h1 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-4">
+            Expense Claim Report Project
+        </h1>
+        <p class="text-center text-gray-500 mb-10 text-lg md:text-xl">
+            A visual timeline of my expense automation and analysis project.
+        </p>
+
+        <!-- Timeline container -->
+        <div class="relative flex flex-col items-center justify-center space-y-12 md:space-y-0 md:flex-row md:justify-between md:space-x-8">
+
+            <!-- Horizontal line for timeline on desktop -->
+            <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 z-0 transform -translate-y-1/2 rounded-full"></div>
+            <!-- Vertical line for timeline on mobile -->
+            <div class="block md:hidden absolute left-1/2 top-0 h-full w-1 bg-gray-200 z-0 transform -translate-x-1/2 rounded-full"></div>
+
+            <!-- Timeline Point 1: Raw Data -->
+            <div id="raw-data" class="timeline-point z-10 flex flex-col items-center cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                <div class="w-16 h-16 md:w-20 md:h-20 bg-blue-500 rounded-full flex items-center justify-center shadow-lg mb-4">
+                    <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <span class="text-center text-gray-700 font-medium md:text-lg">Raw Data</span>
+            </div>
+
+            <!-- Timeline Point 2: Python Code -->
+            <div id="python-code" class="timeline-point z-10 flex flex-col items-center cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                <div class="w-16 h-16 md:w-20 md:h-20 bg-green-500 rounded-full flex items-center justify-center shadow-lg mb-4">
+                    <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                </div>
+                <span class="text-center text-gray-700 font-medium md:text-lg">Python Code</span>
+            </div>
+
+            <!-- Timeline Point 3: Colab Automation -->
+            <div id="colab-automation" class="timeline-point z-10 flex flex-col items-center cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                <div class="w-16 h-16 md:w-20 md:h-20 bg-yellow-500 rounded-full flex items-center justify-center shadow-lg mb-4">
+                    <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2m7 1a4 4 0 100-8 4 4 0 000 8z"></path>
+                    </svg>
+                </div>
+                <span class="text-center text-gray-700 font-medium md:text-lg">Colab Automation</span>
+            </div>
+
+            <!-- Timeline Point 4: Tableau Dashboard -->
+            <div id="tableau-dashboard" class="timeline-point z-10 flex flex-col items-center cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                <div class="w-16 h-16 md:w-20 md:h-20 bg-red-500 rounded-full flex items-center justify-center shadow-lg mb-4">
+                    <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M4 8h16M4 12h16M4 16h16"></path>
+                    </svg>
+                </div>
+                <span class="text-center text-gray-700 font-medium md:text-lg">Tableau Dashboard</span>
+            </div>
+
+            <!-- Timeline Point 5: PDF Report -->
+            <div id="pdf-report" class="timeline-point z-10 flex flex-col items-center cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                <div class="w-16 h-16 md:w-20 md:h-20 bg-purple-500 rounded-full flex items-center justify-center shadow-lg mb-4">
+                    <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <span class="text-center text-gray-700 font-medium md:text-lg">PDF Report</span>
+            </div>
+        </div>
+
+        <!-- Hidden modal for the navigation alert -->
+        <div id="modal" class="modal fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-75 p-4 opacity-0">
+            <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-sm w-full">
+                <p id="modal-text" class="text-xl font-medium text-gray-800 mb-6"></p>
+                <div class="flex justify-center space-x-4">
+                    <button id="modal-cancel" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-colors duration-200">
+                        Cancel
+                    </button>
+                    <button id="modal-continue" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
+                        Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden modal for the "About the Analyst" section -->
+    <div id="about-modal" class="modal fixed inset-0 flex items-start justify-end p-4 opacity-0">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full mt-20 md:mt-4 mr-4 relative">
+            <button id="close-about" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors duration-200 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <h2 class="text-xl font-bold text-gray-800 mb-2">About the Analyst</h2>
+            <p class="text-gray-600 leading-relaxed">
+                Kamara Meryem A. Rowe-Ciftci ("Meryem") is a data analytics professional who uses projects like this one to demonstrate her skills and growth in the field. She brings together business operations experience and analytical problem-solving, with a focus on turning data into actionable insights. Guided by a growth mindset, Meryem is committed to delivering value, whether contributing as part of a company’s team or collaborating one-on-one with businesses on their data needs.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Define the links for each step of the workflow
+        const links = {
+            'raw-data': {
+                url: 'https://docs.google.com/spreadsheets/d/1_PLACEHOLDER_FOR_YOUR_SHEET/edit?usp=sharing',
+                message: 'You are about to navigate to the Google Sheet with the raw expense data.'
+            },
+            'python-code': {
+                url: 'https://github.com/YOUR_USERNAME/YOUR_REPO',
+                message: 'You are about to navigate to the Python code on GitHub.'
+            },
+            'colab-automation': {
+                url: 'https://colab.research.google.com/drive/1_PLACEHOLDER_FOR_YOUR_NOTEBOOK',
+                message: 'You are about to navigate to the interactive notebook on Google Colab.'
+            },
+            'tableau-dashboard': {
+                url: 'https://public.tableau.com/profile/YOUR_PROFILE/viz/YOUR_VIZ',
+                message: 'You are about to navigate to the Tableau Public dashboard.'
+            },
+            'pdf-report': {
+                url: 'https://example.com/your-report.pdf',
+                message: 'You are about to navigate to the final PDF report.'
+            }
+        };
+
+        // Get the navigation modal elements
+        const navModal = document.getElementById('modal');
+        const navModalText = document.getElementById('modal-text');
+        const navModalCancelBtn = document.getElementById('modal-cancel');
+        const navModalContinueBtn = document.getElementById('modal-continue');
+
+        // Get the about modal elements
+        const aboutBtn = document.getElementById('about-btn');
+        const aboutModal = document.getElementById('about-modal');
+        const closeAboutBtn = document.getElementById('close-about');
+
+        let currentUrl = ''; // Variable to store the URL to navigate to
+
+        // Function to show the navigation modal with a specific message
+        function showNavModal(message, url) {
+            navModalText.textContent = message;
+            currentUrl = url;
+            navModal.classList.add('open');
+        }
+
+        // Function to hide the navigation modal
+        function hideNavModal() {
+            navModal.classList.remove('open');
+            currentUrl = '';
+        }
+
+        // Function to show the about modal
+        function showAboutModal() {
+            aboutModal.classList.add('open');
+        }
+
+        // Function to hide the about modal
+        function hideAboutModal() {
+            aboutModal.classList.remove('open');
+        }
+
+        // Add click event listeners to each timeline point
+        document.querySelectorAll('.timeline-point').forEach(point => {
+            point.addEventListener('click', () => {
+                const step = links[point.id];
+                if (step) {
+                    showNavModal(step.message, step.url);
+                }
+            });
+        });
+
+        // Add event listener for the Continue button
+        navModalContinueBtn.addEventListener('click', () => {
+            if (currentUrl) {
+                // Open the URL in a new tab
+                window.open(currentUrl, '_blank');
+            }
+            hideNavModal(); // Hide the modal after the action
+        });
+
+        // Add event listener for the Cancel button
+        navModalCancelBtn.addEventListener('click', hideNavModal);
+
+        // Add event listener for the "About" button
+        aboutBtn.addEventListener('click', showAboutModal);
+
+        // Add event listener for the "X" button in the about modal
+        closeAboutBtn.addEventListener('click', hideAboutModal);
+
+        // Add event listener to close the about modal when clicking outside
+        aboutModal.addEventListener('click', (event) => {
+            if (event.target === aboutModal) {
+                hideAboutModal();
+            }
+        });
+    </script>
+</body>
+</html>
