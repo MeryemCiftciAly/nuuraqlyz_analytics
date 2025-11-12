@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuuraqlyz Analytics | Data Insights for Women Entrepreneurs</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom colors and Inter font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Theme: Refined Bronze and Deep Charcoal (Elegant, Neutral, Professional)
+                        'primary-bronze': '#A87E60', // Refined Bronze/Gold for accent
+                        'dark-navy': '#1C2833', // Deep Charcoal/Navy for contrast background
+                        'light-gray': '#F5F7FA', // Very light, clean background
+                        'dark-text': '#333333', // Main text color (Dark Charcoal)
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom CSS for a clean aesthetic */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: theme('colors.dark-text');
+            background-color: white;
+        }
+        .section-padding {
+            padding: 5rem 1rem;
+        }
+        /* Style for the sticky navigation bar */
+        .sticky-nav {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+            transition: box-shadow 0.3s ease;
+        }
+        /* Utility for simple SVG icons */
+        .icon {
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            width: 24px;
+            height: 24px;
+        }
+        /* Custom style for the skills list */
+        .skill-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            margin: 0.3rem 0.3rem 0 0;
+            border-radius: 9999px;
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500; /* font-medium */
+            background-color: theme('colors.primary-bronze / 10%');
+            color: theme('colors.primary-bronze');
+            border: 1px solid theme('colors.primary-bronze / 30%');
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar (Sticky) -->
+    <header id="navbar" class="sticky-nav w-full top-0 z-50 shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <a href="#hero" class="text-xl font-bold text-primary-bronze hover:text-dark-navy transition duration-300">
+                Nuuraqlyz Analytics
+            </a>
+            <div class="space-x-4 flex items-center">
+                
+                <!-- Dropdown Container for Services (Desktop Only) -->
+                <div class="relative hidden sm:block">
+                    <button id="dropdownButton" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 flex items-center focus:outline-none">
+                        Services
+                        <!-- Chevron Down Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon w-4 h-4 ml-1 transition-transform duration-200" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <!-- Dropdown Content -->
+                    <div id="servicesDropdown" class="absolute hidden top-full mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-xl overflow-hidden transition-opacity duration-300 z-10">
+                        <!-- Links here jump to the main services section, showing the categories -->
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Cleaning & Setup</a>
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Dashboard Creation</a>
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Report Automation</a>
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Consultation</a>
+                    </div>
+                </div>
+
+                <!-- Regular Nav Links (Desktop Only) -->
+                <a href="#services" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 sm:hidden">Services</a>
+                <a href="#about" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 hidden sm:inline-block">About</a>
+                <a href="#portfolio" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 hidden sm:inline-block">Projects</a>
+                
+                <a href="#contact" class="bg-primary-bronze text-white py-2 px-4 rounded-lg shadow-lg hover:bg-dark-navy transition duration-300 font-medium">Work With Me</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section (Restored to concise messaging) -->
+        <section id="hero" class="section-padding bg-light-gray min-h-[calc(100vh-6rem)] flex items-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-dark-text mb-4 leading-tight">
+                    Helping Women Entrepreneurs Turn <span class="text-primary-bronze">their Data into Smart Business Insights</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    I specialize in transforming raw data into clear, automated reports and powerful dashboards, specifically designed for women entrepreneurs and small business owners to drive confident, data-backed decisions.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="mailto:kamara.meryem.a@gmail.com" class="bg-primary-bronze text-white text-lg py-3 px-8 rounded-xl hover:bg-dark-navy transition duration-300 shadow-xl transform hover:scale-[1.02]">
+                        Get in touch
+                    </a>
+                    <a href="#portfolio" class="border border-primary-bronze text-primary-bronze text-lg py-3 px-8 rounded-xl hover:bg-primary-bronze hover:text-white transition duration-300">
+                        See My Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 2. Services Section -->
+        <section id="services" class="section-padding">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-4 text-dark-text">My Services</h2>
+                <p class="text-center text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+                    Whether you’re just starting to track your business data or ready to automate your reports, I offer flexible services that meet you where you are.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <!-- Service Card 1: Data Cleaning & Setup -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-primary-bronze/70">
+                        <div class="text-primary-bronze mb-4">
+                            <!-- Filter Icon (Cleaning) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon w-8 h-8" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"/><path d="M22 7H2"/><path d="M10 12h4"/><path d="M12 10v4"/><path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/><path d="M22 17H2"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Data Cleaning & Setup</h3>
+                        <p class="text-gray-600 text-sm">
+                            I transform messy spreadsheets and raw files into structured, reliable datasets ready for analysis. Get rid of errors and inconsistencies for good. 
+                            <span class="font-semibold text-primary-bronze">Tools I Use: Excel, SQL, Python.</span>
+                        </p>
+                    </div>
+
+                    <!-- Service Card 2: Dashboard Creation -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-primary-bronze/70">
+                        <div class="text-primary-bronze mb-4">
+                            <!-- Layout Icon (Dashboards) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon w-8 h-8" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Dashboard Creation</h3>
+                        <p class="text-gray-600 text-sm">
+                            I create visual dashboards that give you a complete, intuitive picture of your sales, finances, and performance. Using Excel, Power BI, or Looker Studio, I design dashboards that are easy to read, actionable, and tailored to your business needs.
+                            <span class="font-semibold text-primary-bronze">Tools I Use: Excel, Power BI, Looker Studio, Tableau.</span>
+                        </p>
+                    </div>
+
+                    <!-- Service Card 3: Report Automation -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-primary-bronze/70">
+                        <div class="text-primary-bronze mb-4">
+                            <!-- Clock/Repeat Icon (Automation) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon w-8 h-8" viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M22 12h-4"/><path d="M18.37 15.63l-2.42-2.42"/><path d="M15.63 18.37l-2.42-2.42"/><circle cx="12" cy="12" r="10"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Report Automation</h3>
+                        <p class="text-gray-600 text-sm">
+                            I reduce manual work and save hours every month by automating recurring Excel or Power BI reports using Power Query or simple scripts, so you can focus on making decisions instead of compiling data.
+                            <span class="font-semibold text-primary-bronze">Tools I Use: Excel (Power Query, VBA) | Power BI | Python.</span>
+                        </p>
+                    </div>
+
+                    <!-- Service Card 4: Data Consultation -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-primary-bronze/70">
+                        <div class="text-primary-bronze mb-4">
+                            <!-- Message/Chat Icon (Consultation) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon w-8 h-8" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 0 0 12 22c5 0 9-3.5 9-7V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v10c0 3.5 4 7 9 7z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Data Consultation</h3>
+                        <p class="text-gray-600 text-sm">
+                            I offer one-on-one sessions to understand your business pain points and review your data workflows — how data is collected, stored, and processed across spreadsheets, systems, or websites. Using a <span class="font-semibold">structured methodology</span>, I identify bottlenecks and inefficiencies, and provide a short, actionable report with recommendations for better data flow, process improvements, and <span class="font-semibold">tools or automation</span> (e.g., Excel, Power BI, Python, CRM integrations) to make your operations more efficient and insights easier to access.
+                            <span class="font-semibold text-primary-bronze">Methodology: Discovery & Assessment | Data Workflow Review | Bottleneck Analysis | Recommendations & Reporting.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <p class="text-lg text-dark-text mb-4">Not sure which service fits? Let’s discuss your needs in a free consultation.</p>
+                    <a href="mailto:kamara.meryem.a@gmail.com" class="bg-primary-bronze text-white text-lg py-3 px-8 rounded-xl hover:bg-dark-navy transition duration-300 shadow-xl">
+                        Get in touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3. About Me Section -->
+        <section id="about" class="section-padding bg-light-gray">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:flex lg:items-center lg:space-x-12">
+                    <div class="lg:w-1/2">
+                        <!-- Professional Photo -->
+                        <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/Kamara%20(Meryem)%20Ciftci.png" 
+                             alt="Professional Photo of Meryem Ciftci" 
+                             class="rounded-xl shadow-2xl w-full h-auto object-cover transform hover:scale-[1.01] transition duration-500"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/94a3b8/ffffff?text=Image+Unavailable';"
+                             >
+                    </div>
+                    <div class="lg:w-1/2 mt-10 lg:mt-0">
+                        <h2 class="text-4xl font-bold mb-4 text-dark-text">Hi, I’m Meryem </h2>
+                        <h3 class="text-xl font-semibold text-dark-navy mb-6">Data Analyst | Visionary Support behind Nuuraqlyz Analytics</h3>
+                        
+                        <!-- Section 1: Your Story -->
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            I’m Kamara Meryem Rowe-Ciftci, a data analyst with over <span class="font-semibold text-dark-text">seven years of experience</span> supporting executives and business leaders across industries including insurance, marketing, and tech startups. My background in business operations gave me a deep understanding of how organizations function, how decisions are made, and how data drives growth — a perspective I now bring to every analytics project I take on.
+                        </p>
+                        
+                        <!-- Section 2: Your Mission & Focus -->
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Over the past two years, I’ve focused fully on data analytics, helping business owners and entrepreneurs make sense of their data. I specialize in cleaning and organizing spreadsheets, automating recurring reports, and building dashboards that reveal insights and patterns to guide <span class="font-semibold text-dark-text">informed, confident decisions.</span>
+                        </p>
+
+                         <!-- Section 3: Approach -->
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            I’m skilled in Excel, Power BI, SQL, and Salesforce, and I extend my work beyond analysis to create <span class="font-semibold text-dark-text">executive reports, presentations, and Salesforce-based summaries</span> that communicate insights clearly and effectively. My approach combines analytical rigor, creativity, and a deep understanding of business operations to deliver solutions that are not only accurate but actionable.
+                        </p>
+
+
+                        <!-- Tools & Skills List -->
+                        <h4 class="text-lg font-bold mt-6 mb-2 text-dark-text">My Core Toolset:</h4>
+                        <div class="flex flex-wrap">
+                            <span class="skill-badge">Excel (Power Query, VBA Automation)</span>
+                            <span class="skill-badge">Power BI & Looker Studio</span>
+                            <span class="skill-badge">SQL (Querying)</span>
+                            <span class="skill-badge">Salesforce Reporting</span>
+                            <span class="skill-badge">Executive Reporting & Visualization</span>
+                        </div>
+                        
+                        <!-- MODIFIED: Changed <a> to <p> to remove the link/hover effect -->
+                        <p class="inline-block mt-8 text-primary-bronze font-semibold">
+                            If you’re a business owner looking to structure your operations, automate daily tasks for efficiency, and uncover insights that drive your business objectives, I can help. Let's build systems that support sustainable growth &rarr;
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 4. Mid-Section Call to Action (CTA) -->
+        <section class="py-20 bg-primary-bronze/10">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-dark-navy mb-4">
+                    Ready to Transform Your Operations with Data?
+                </h2>
+                <p class="text-lg text-dark-text mb-8">
+                    Stop guessing and start using clear, actionable insights to guide your business growth. Let's build a data strategy that works for you.
+                </p>
+                <a href="#contact" class="bg-primary-bronze text-white text-lg py-3 px-8 rounded-xl hover:bg-dark-navy transition duration-300 shadow-xl transform hover:scale-[1.05]">
+                    Start the Conversation Now
+                </a>
+            </div>
+        </section>
+
+
+        <!-- 5. Portfolio/Client Logo Section (Adjusted grid for bigger cards) -->
+        <section id="portfolio" class="section-padding bg-light-gray">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-4 text-dark-text">Client & Project Highlights</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+                    Review my featured client work and the space reserved for future collaborations.
+                </p>
+
+                <!-- UPDATED GRID: Changed to lg:grid-cols-3 and xl:grid-cols-4 for larger card sizes -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    
+                    <!-- Project 1: REAL CLIENT CASE STUDY (EvanBirkhead LLC) -->
+                    <div class="group relative aspect-video bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer border border-gray-200 hover:shadow-2xl transition duration-300">
+                        <!-- Logo Placeholder (Visible by default) -->
+                        <div class="logo-mockup flex flex-col items-center justify-center h-full p-4">
+                            <div class="text-5xl font-extrabold text-primary-bronze leading-none">
+                                <!-- Placeholder Icon for Logo -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                            </div>
+                            <span class="text-xs font-normal text-dark-text/70 mt-1">Client Logo Placeholder</span>
+                        </div>
+                        <!-- Hover Overlay (Shows Name & Description) -->
+                        <div class="portfolio-overlay absolute inset-0 bg-dark-navy/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+                            <div class="text-white text-center relative z-10 space-y-3">
+                                <p class="text-xl font-bold text-primary-bronze">EvanBirkhead LLC</p>
+                                <p class="text-base font-medium">
+                                    Cleaned and consolidated multiple spreadsheets into a clean, well-organized system, helping the client save time, reduce errors, and work more efficiently with their business data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: BLANK PLACEHOLDER -->
+                    <div class="aspect-video bg-white rounded-xl shadow-inner overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center group cursor-default">
+                        <p class="text-gray-400 text-sm font-medium">Future Project</p>
+                        <!-- Blank Overlay -->
+                        <div class="portfolio-overlay absolute inset-0 bg-light-gray/60 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+                    
+                    <!-- Project 3: BLANK PLACEHOLDER -->
+                    <div class="aspect-video bg-white rounded-xl shadow-inner overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center group cursor-default">
+                        <p class="text-gray-400 text-sm font-medium">Future Project</p>
+                        <!-- Blank Overlay -->
+                        <div class="portfolio-overlay absolute inset-0 bg-light-gray/60 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+
+                    <!-- Project 4: BLANK PLACEHOLDER -->
+                    <div class="aspect-video bg-white rounded-xl shadow-inner overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center group cursor-default">
+                        <p class="text-gray-400 text-sm font-medium">Future Project</p>
+                        <!-- Blank Overlay -->
+                        <div class="portfolio-overlay absolute inset-0 bg-light-gray/60 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+                    
+                    <!-- Project 5: BLANK PLACEHOLDER (Will wrap to next row on smaller desktops) -->
+                    <div class="aspect-video bg-white rounded-xl shadow-inner overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center group cursor-default">
+                        <p class="text-gray-400 text-sm font-medium">Future Project</p>
+                        <!-- Blank Overlay -->
+                        <div class="portfolio-overlay absolute inset-0 bg-light-gray/60 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </section>
+
+
+        <!-- 6. Contact Section (UPDATED CONTENT) -->
+        <section id="contact" class="py-20 bg-dark-navy">
+            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h2 class="text-4xl font-bold mb-4">Contact</h2>
+                <p class="text-xl mb-6">
+                    As a freelance data analyst passionate about supporting entrepreneurs and women-owned small businesses, I understand how important it is for you to make confident business decisions. I’m here to help you make sense of your data and turn it into clear, actionable information. Based on your objectives, we’ll create a plan to uncover patterns, opportunities, and key metrics that help your business grow and thrive.
+                </p>
+
+                <div class="text-left bg-dark-navy/90 p-6 rounded-xl border border-primary-bronze/50 shadow-2xl">
+                    <h3 class="text-2xl font-semibold text-primary-bronze mb-4">I am available for:</h3>
+                    <ul class="text-lg space-y-2 mb-6 list-disc list-inside">
+                        <li>Data analysis, visualization, and dashboarding</li>
+                        <li>Support project management for data projects</li>
+                        <li>Data presentation and report creation</li>
+                        <li>Presentations and data storytelling</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-semibold text-primary-bronze mb-2">Rates</h3>
+                    <p class="text-lg mb-6">
+                        Data analysis projects: <span class="font-bold">on request</span> (project-based quotes provided after consultation).
+                    </p>
+                    
+                    <a href="mailto:kamara.meryem.a@gmail.com" class="text-xl font-bold text-white hover:text-primary-bronze transition duration-300 underline">
+                        Send an Email to Get in touch
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-text py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved. | Data Analyst for Women Entrepreneurs</p>
+            <p class="mt-2">Location: Remote/New York, United States | </p>
+           
+        </div>
+    </footer>
+
+    <!-- Back to Top Button (Fixed) -->
+    <button id="backToTop" 
+            class="fixed bottom-6 right-6 z-50 p-3 bg-primary-bronze text-white rounded-full shadow-xl 
+                   hover:bg-dark-navy transition-all duration-300 transform scale-100 
+                   opacity-0 pointer-events-none focus:outline-none focus:ring-4 focus:ring-primary-bronze/50">
+        <!-- Arrow Up Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- JavaScript for smooth scrolling, dropdown, and back-to-top functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Smooth Scrolling Functionality
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // 2. Dropdown Menu Functionality (for Services)
+            const dropdownButton = document.getElementById('dropdownButton');
+            const servicesDropdown = document.getElementById('servicesDropdown');
+
+            function toggleDropdown(event) {
+                event.preventDefault();
+                // Toggle the 'hidden' class to show/hide the menu
+                servicesDropdown.classList.toggle('hidden');
+                // Stop propagation to prevent the click from immediately reaching the window listener
+                event.stopPropagation();
+            }
+
+            // Attach event listener to the button
+            dropdownButton.addEventListener('click', toggleDropdown);
+
+            // Close dropdown if user clicks anywhere outside the button or menu
+            document.addEventListener('click', (event) => {
+                if (!dropdownButton.contains(event.target) && !servicesDropdown.contains(event.target)) {
+                    servicesDropdown.classList.add('hidden');
+                }
+            });
+
+            // Close dropdown when a link inside it is clicked
+            servicesDropdown.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    servicesDropdown.classList.add('hidden');
+                });
+            });
+
+
+            // 3. Back to Top Button Functionality
+            const backToTopButton = document.getElementById('backToTop');
+            const scrollThreshold = 300; // Pixels to scroll before showing the button
+
+            const toggleVisibility = () => {
+                if (window.scrollY > scrollThreshold) {
+                    // Show the button
+                    backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopButton.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    // Hide the button
+                    backToTopButton.classList.remove('opacity-100', 'pointer-events-auto');
+                    backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+                }
+            };
+
+            // Listen for scroll events to toggle visibility
+            window.addEventListener('scroll', toggleVisibility);
+
+            // Scroll to the top when the button is clicked
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // Smooth scroll effect
+                });
+            });
+        });
+    </script>
+</body>
+</html>
