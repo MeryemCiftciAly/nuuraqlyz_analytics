@@ -1,1384 +1,549 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUURAQLYZ Analytics - Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.svg" />
-<link rel="shortcut icon" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//apple-touch-icon.png" />
-<link rel="manifest" href="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main//site.webmanifest" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Nuuraqlyz Analytics | Data Insights for Women Entrepreneurs</title>
+    
+<script src="https://cdn.tailwindcss.com"></script>
+    
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Theme: Refined Bronze and Deep Charcoal (Elegant, Neutral, Professional)
+                        'primary-bronze': '#A87E60', // Refined Bronze/Gold for accent
+                        'dark-navy': '#1C2833', // Deep Charcoal/Navy for contrast background
+                        'light-gray': '#F5F7FA', // Very light, clean background
+                        'dark-text': '#333333', // Main text color (Dark Charcoal)
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <style>
-    
-            /* General Body Styles - Consolidated */
-        body {
-            font-family: 'Inter', sans-serif; /* Default font for general text */
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff; /* Changed to white */
-            display: flex; /* Using flex to center the main content on the page */
-            flex-direction: column; /* Stack content vertically */
-            align-items: center; /* Center horizontally */
-            min-height: 100vh;
-            box-sizing: border-box;
-            overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
-            color: #333; /* Default text color */
-            line-height: 1.5; /* Default line height */
-        }
-
-
-        /* Hero Section Container (now full-width background, content max-width) */
-        .hero-section-wrapper {
-            width: 100%; /* Stretches full viewport width */
-            background-color: #fff; /* White background for the header part */
-            overflow: hidden; /* Ensures rounded corners apply to children */
-            margin-bottom: 0; /* Removed margin-bottom for smooth transition */
-        }
-
-        .hero-section-container {
-            max-width: 1365px; /* Max width for the content inside hero section */
-            margin: 0 auto; /* Center the content */
-            border-radius: 10px; /* Rounded corners for the content area */
-            overflow: hidden;
-        }
-
-        /* Header Section (Logo and Tagline) */
-        .hero-header {
-            display: flex;
-            justify-content: space-between; /* Pushes logo and tagline to opposite ends */
-            align-items: center;
-            padding: 20px 40px; /* Padding for the header */
-            background-color: #fff; /* White background */
-        }
-
-        .hero-logo {
-            display: flex; /* Use flexbox for precise alignment */
-            align-items: center;
-            font-weight: 600; /* Default for logo text */
-            color: #333; /* Default color for logo text */
-            gap: 0px; /* Remove default gap between flex items, relying on margins */
-        }
-
-        .hero-logo-icon {
-            width: 180px; /* Updated width for circular logo */
-            height: 180px; /* Updated height for circular logo */
-            margin-right: 8px; /* Added positive margin to create space */
-            flex-shrink: 0; /* Prevents icon from shrinking below its size in flex container */
-            object-fit: contain; /* Ensures the entire image fits within the bounds without cropping */
-        }
-
-        .hero-logo-main-text {
-            font-size: 2em; /* Increased font size for 'NUURAQLYZ' text to balance with large logo */
-            font-weight: 700;
-            color: #333;
-        }
-
-        .hero-logo-analytics-text {
-            color: #888; /* Soft medium gray */
-            font-weight: 400; /* Regular weight, less bold than NUURAQLYZ */
-            margin-left: 8px; /* Re-added small margin-left for "ANALYTICS" */
-        }
-
-        .hero-tagline {
-            font-size: 1.3em; /* Increased font size significantly for better visibility */
-            font-weight: 700;
-            color: #777777;
-            text-transform: none; /* No longer all uppercase as per new text */
-            letter-spacing: 1px;
-            text-align: right; /* Align text to the right within its space */
-            white-space: nowrap; /* Prevent wrapping on desktop */
-        }
-
-        /* Navigation Bar Styles */
-        .navbar {
-            display: flex;
-            justify-content: center; /* Center the navigation links */
-            align-items: center;
-            padding: 15px 0;
-            width: 100%;
-            border-top: 1px solid #eee; /* Subtle separator from header */
-            box-sizing: border-box; /* Ensure padding/border don't add to width */
-        }
-
-        .navbar-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 40px; /* Space between navigation items */
-        }
-
-        .navbar-links li a {
-            color: #333; /* Dark text for links to blend with white header */
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1em;
-            padding: 5px 10px;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            border-radius: 5px;
-        }
-
-        .navbar-links li a:hover {
-            color: #FF8C00; /* Orange on hover, matching hero gradient */
-            background-color: rgba(0, 0, 0, 0.05); /* Subtle background on hover */
-        }
-
-        /* Main Hero Content Area (Gradient Background with Image Overlay) */
-        .hero-main-content {
-            display: flex;
-            position: relative; /* For positioning the image overlay */
-            min-height: 450px; /* Minimum height for desktop view */
-            padding: 50px 40px; /* Padding for content inside */
-            background: linear-gradient(to right, #FF8C00, #FFA07A); /* Orange to Light Salmon */
-            border-bottom-left-radius: 10px; /* Match container's rounded corners */
-            border-bottom-right-radius: 10px;
-            overflow: hidden; /* Crucial for containing the overlay */
-        }
-
-        /* Hero Image Overlay */
-        #hero-image-overlay {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 55%; /* Occupy the right portion */
-            height: 100%;
-            background-image: url('https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png'); /* <--- ADD THIS LINE FOR YOUR ROAD IMAGE */
-            background-size: cover; /* Cover the area, possibly cropping */
-            background-position: center right; /* Focus on the right side of the image */
-            opacity: 0; /* Start hidden for fade-in */
-            z-index: 0; /* Ensure this is behind the text content */
-            transition: opacity 1.5s ease-out; /* Fade in animation */
-        }
-
-        /* Keyframes for subtle zoom and pan animation */
-        @keyframes zoom-pan-subtle {
-            0% {
-                transform: scale(1) translateX(0);
-                background-position: center right;
-            }
-            50% {
-                transform: scale(1.03) translateX(-5px); /* Slightly zoom in and shift left */
-                background-position: center left; /* Shift background position */
-            }
-            100% {
-                transform: scale(1) translateX(0);
-                background-position: center right;
-            }
-        }
-
-        #hero-image-overlay.loaded {
-            opacity: 0.8; /* Target opacity after loading */
-            animation: zoom-pan-subtle 15s ease-in-out infinite alternate; /* Apply animation */
-        }
-
-        /* Loading indicator styles */
-        .loading-spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid #fff;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2; /* Above the image overlay */
-            display: none; /* Hidden by default, shown by JS */
-        }
-
-        @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        /* Text Content (A guiding light...) */
-        .hero-text-content {
-            flex: 1; /* Takes up available space on the left */
-            z-index: 1; /* Ensure text is above the image overlay */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            color: #fff; /* Set text color to white for contrast against gradient/image */
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif; /* Serif font for the title */
-            font-size: 3.5em; /* Adjusted font size for the new text */
-            font-weight: 700;
-            color: #fff; /* White text for "A guiding light into the unknown" */
-            line-height: 1.1; /* Tighter line height */
-            margin: 0;
-            padding: 0;
-        }
-
-        /* ABOUT ME SECTION STYLES - Consolidated */
-        .about-section {
-            width: 100%;
-            max-width: 1200px; /* Match main container width */
-            margin-top: 50px; /* Add space above the about section */
-            margin-bottom: 50px; /* Add space below the about section (optional, but good for consistency) */
-            padding: 0; /* No internal padding for the section itself */
-            box-sizing: border-box; /* Include padding in element's total width and height */
-            margin-left: auto; /* Center the section on the page */
-            margin-right: auto;
-        }
-
-        .about-me-container { /* Renamed from .container to avoid conflict */
-            display: flex;
-            background-color: #fff; /* White background for the content area */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-            max-width: 900px; /* Adjust as needed */
-            width: 100%;
-            border-radius: 8px; /* Slightly rounded corners */
-            overflow: hidden; /* Ensures content stays within bounds */
-            margin: 0 auto; /* Center the about me container within its section */
-        }
-
-        .left-column {
-            flex: 1; /* Takes up equal space */
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            border-right: 1px solid #eee; /* Separator line */
-        }
-
-        .profile-picture {
-            width: 180px; /* Fixed width for the image */
-            height: 180px; /* Fixed height for the image */
-            border-radius: 50%; /* Makes the image circular */
-            object-fit: cover; /* Ensures the image covers the area without distortion */
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-        }
-
-        .name {
-            font-size: 2.2em;
-            font-weight: 700; /* Bold */
-            color: #333;
-            margin-bottom: 5px;
-            line-height: 1.1;
-        }
-
-        .pronouns {
-            font-size: 1em;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .title {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 30px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #333; /* Dark grey button */
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1em;
-            font-weight: 700;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            border: none; /* Remove default button border */
-        }
-
-        .button:hover {
-            background-color: #555; /* Darker grey on hover */
-        }
-
-        .social-icons {
-            margin-top: 40px;
-            display: flex;
-            gap: 20px; /* Space between icons */
-        }
-
-        .social-icon {
-            color: #333; /* Dark grey icons */
-            font-size: 1.5em;
-            transition: color 0.3s ease;
-        }
-        .social-icon:hover {
-            color: #007bff; /* Example hover color for social icons */
-        }
-
-        .right-column {
-            flex: 2; /* Takes up more space than the left column */
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .section-title {
-            font-size: 2.8em;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .about-text {
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 30px;
-        }
-        /* Removed custom color for bold spans in about-text */
-        .about-text span {
-            font-weight: bold; /* Keep bolding */
-            color: inherit; /* Revert to parent text color */
-        }
-        .about-text span[style*="font-style: italic"] {
-            font-style: italic; /* Keep italic if present */
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 20px; /* Space between buttons */
-        }
-
-        .button-link {
-            text-decoration: none; /* Remove underline from anchor around button */
-        }
-
-        /* INDUSTRY FOCUS SECTION STYLES */
-        .industry-focus-section {
-            width: 100%;
-            max-width: 1200px;
-            margin: 50px auto; /* Centered with top/bottom margin */
-            padding: 40px 20px; /* Padding for the section itself */
-            background-color: #ffffff; /* A slightly darker light background for this section */
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            box-sizing: border-box;
-            text-align: center; /* Center the heading */
-        }
-
-        .industry-focus-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 40px;
-            line-height: 1.2;
-        }
-
-        .industry-cards-container { /* Renamed from .dashboard-container */
-            display: grid;
-            /* Adjusted minmax to allow cards to be wider */
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Increased min-width for cards */
-            gap: 25px;
-            width: 100%;
-            max-width: 1000px; /* Limit width of the grid itself */
-            margin: 0 auto; /* Center the grid */
-            padding: 0; /* No internal padding here, handled by cards */
-        }
-        .card {
-            border-radius: 10px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
-            position: relative;
-            overflow: hidden;
-            min-height: 180px; /* Increased min-height for better appearance */
-            box-sizing: border-box;
-            transition: all 0.3s ease; /* Smooth transition for expansion */
-            text-align: left; /* Align card content left */
-        }
-
-       
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px; /* Slightly reduced margin */
-            cursor: pointer;
-        }
-
-        .card-title {
-            font-size: 1.4em; /* Larger title for industry */
-            font-weight: bold;
-            line-height: 1.3;
-            color: inherit; /* Inherit color from card */
-        }
-
-        .icon-circle {
-            width: 35px; /* Larger icon circle */
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.8em; /* Larger plus/minus sign */
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .icon-circle.expanded {
-            transform: rotate(45deg);
-        }
-        /* Adjust icon circle colors based on card background */
-        .card.industry-small-law .icon-circle,
-        .card.industry-small-realtors .icon-circle,
-        .card.industry-small-medical .icon-circle,
-        .card.industry-owner-run .icon-circle,
-        .card.industry-unsure .icon-circle {
-            background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent white for dark cards */
-            color: #ffffff; /* White for plus sign */
-        }
-        .card.industry-startup .icon-circle {
-            background-color: rgba(0, 0, 0, 0.1); /* Slightly transparent black for light cards */
-            color: #333; /* Dark for plus sign */
-        }
-
-        /* Collapsible Content Styling - MODIFIED FOR SCROLLING AND TEXT COLOR */
-        .collapsible-content {
-            max-height: 0; /* Initially hidden */
-            padding-top: 0; /* No padding when closed */
-            padding-bottom: 0; /* No padding when closed */
-            transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition for height and padding */
-            overflow: hidden; /* Ensures content doesn't overflow during collapse */
-            text-align: left; /* Align content left */
-            color: #fff; /* Default text color for collapsible content */
-        }
-        .collapsible-content.active {
-            max-height: 250px; /* Fixed height for scrolling content */
-            overflow-y: auto; /* Enable vertical scrolling */
-            padding-top: 15px; /* Padding when open */
-            padding-bottom: 15px; /* Padding when open */
-            border-top: 1px solid; /* Add border when active */
-        }
-        /* Adjust border color for collapsible content based on card */
-        .card.industry-small-law .collapsible-content,
-        .card.industry-small-realtors .collapsible-content,
-        .card.industry-small-medical .collapsible-content,
-        .card.industry-owner-run .collapsible-content,
-        .card.industry-unsure .collapsible-content {
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-        .card.industry-startup .collapsible-content {
-            border-color: rgba(0, 0, 0, 0.1);
-            color: #333; /* Keep dark text for the light background of startup card */
-        }
-
-        /* Multi-column grid for collapsible content */
-        .collapsible-content-grid {
-            display: grid;
-            /* Increased minmax for columns within expanded content */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Wider columns for better readability */
-            gap: 20px;
-            padding-top: 10px;
-        }
-        .collapsible-content-grid h4 {
-            grid-column: 1 / -1; /* Make headers span all columns */
-            margin-top: 10px;
-            margin-bottom: 5px;
-            font-size: 1.05em;
-            color: inherit; /* Inherit color from parent (.collapsible-content) */
-            font-weight: bold;
-        }
-        .collapsible-content-grid ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding-left: 0;
-            margin-bottom: 10px;
-            color: inherit; /* Inherit color from parent (.collapsible-content) */
-        }
-        .collapsible-content-grid ul li {
-            margin-bottom: 5px;
-            color: inherit; /* Inherit color from parent (.collapsible-content) */
-        }
-        .collapsible-content-grid p { /* Added rule for paragraph text */
-            color: inherit; /* Inherit color from parent (.collapsible-content) */
-            margin-bottom: 10px;
-        }
-
-
-        /* Contact Section Styles */
-        .contact-section {
-            width: 100%;
-            max-width: 1200px;
-            margin: 50px auto; /* Centered with top/bottom margin */
-            padding: 50px 20px;
-            background-color: #ffffff; /* Match body background for seamless blend */
-            border-radius: 10px; /* Keep consistent rounding */
-            box-shadow: none; /* Remove shadow to blend into body background */
-            text-align: center;
-            box-sizing: border-box;
-        }
-
-        .contact-container {
-            background-color: #FfFfFf; /* Light background for the info section */
-            color: #333;
-            display: flex;
-            max-width: 900px; /* Adjusted max-width for overall container */
-            width: 95%;
-            margin: 0 auto; /* Center within the contact-section */
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        .contact-info {
-            flex: 1; /* Allows this section to grow */
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-info h2 {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 30px;
-        }
-
-        .contact-info p {
-            font-size: 1em;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            display: flex; /* Allows icon and text to be on the same line */
-            align-items: center;
-        }
-
-        .contact-info p strong {
-            font-weight: 700;
-            margin-right: 10px; /* Space between label and content */
-        }
-
-        .contact-info p i {
-            margin-right: 8px; /* Space after the icon */
-            font-size: 1.2em; /* Adjust icon size */
-            color: #555; /* Icon color */
-        }
-
-        .contact-info a {
-            color: #007bff; /* Link color */
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-icons {
-            margin-top: 20px;
-            display: flex;
-            gap: 20px; /* Space between icons */
-            align-items: center;
-        }
-
-        .contact-icons a {
-            color: #555; /* Icon color */
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-icons a:hover {
-            color: #007bff; /* Hover color for icons */
-        }
-
-        .contact-image {
-            width: 356px;
-            height: 426px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #eee; /* Placeholder background */
-        }
-
-        .contact-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            opacity: 0; /* Start hidden for fade-in */
-            transition: opacity 1s ease-in-out; /* Fade in effect */
-        }
-        .contact-image img.loaded {
-            opacity: 1;
-        }
-
-        
-        /* Footer Styles */
-        .footer {
-            width: 100%;
-            background-color: #28496c; /* Dark blue background */
-            color: #f0f8ff; /* Light, off-white text */
-            padding: 20px 0;
-            text-align: center;
-            margin-top: auto; /* Pushes footer to the bottom */
-            font-size: 0.9em;
-            box-sizing: border-box;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer p {
-            margin: 0;
-            padding: 0;
-        }
-
-        .footer-social-links a {
-            color: #f0f8ff;
-            margin: 0 10px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social-links a:hover {
-            color: #E5792F; /* Orange highlight on hover */
-        }
-
-        /* Responsive adjustments - Consolidated Media Queries */
-
-        /* Tablet and smaller desktops */
-        @media (max-width: 1024px) {
-            .hero-header, .navbar, .hero-main-content,
-            .about-section, .industry-focus-section, .contact-section {
-                max-width: 100%; /* Allow content to fill wrapper up to 1024px */
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .hero-main-content {
-                min-height: 400px;
-            }
-            .hero-title {
-                font-size: 3em;
-            }
-            .navbar-links {
-                gap: 20px; /* Adjust gap for medium screens */
-            }
-        }
-
-        /* Mobile (Portrait) and smaller tablets */
-        @media (max-width: 768px) {
-            .hero-header {
-                flex-direction: column;
-                padding: 15px 20px;
-            }
-            .hero-logo {
-                margin-bottom: 10px;
-            }
-            .hero-tagline {
-                font-size: 1.1em; /* Keep larger size for tablets */
-                text-align: center;
-                white-space: normal; /* Allow text to wrap on smaller screens */
-                line-height: 1.3; /* Re-introduce line-height for stacking on smaller screens */
-            }
-            .hero-main-content {
-                flex-direction: column-reverse; /* Stack image below text */
-                min-height: auto;
-                padding: 30px 20px;
-            }
-            #hero-image-overlay {
-                position: static; /* Remove absolute positioning */
-                width: 100%;
-                height: 200px; /* Fixed height for image when stacked */
-                margin-top: 20px;
-                opacity: 1; /* Make it always visible on mobile if it's stacked */
-                z-index: auto; /* Reset z-index */
-                animation: none; /* Disable animation on mobile when stacked */
-            }
-            .hero-text-content {
-                align-items: center;
-                text-align: center;
-            }
-            .hero-title {
-                font-size: 2.5em;
-            }
-
-            /* About Me Responsive */
-            .about-me-container {
-                flex-direction: column;
-                max-width: 100%;
-                margin: 20px;
-            }
-            .left-column {
-                border-right: none;
-                border-bottom: 1px solid #eee; /* Add bottom border when stacked */
-                padding-bottom: 30px;
-            }
-            .right-column {
-                padding-top: 30px;
-            }
-            .action-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .button {
-                width: 100%;
-                box-sizing: border-box;
-            }
-            .profile-picture {
-                width: 150px;
-                height: 150px;
-            }
-            .name {
-                font-size: 1.8em;
-            }
-            .section-title {
-                font-size: 2.2em;
-            }
-            .about-text {
-                font-size: 1em;
-            }
-
-            /* Navigation Responsive */
-            .navbar-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .navbar-links li a {
-                padding: 8px 15px;
-                font-size: 1em;
-            }
-
-         
-            /* Contact Section Responsive */
-            .contact-section {
-                padding: 40px 15px;
-                margin: 30px auto;
-            }
-            .contact-container {
-                flex-direction: column; /* Stack image and info vertically */
-                max-width: 100%;
-                width: auto; /* Allow it to take full width of parent padding */
-            }
-            .contact-info {
-                padding-bottom: 20px; /* Add padding below info when stacked */
-            }
-            .contact-info h2 {
-                font-size: 2em;
-                margin-bottom: 20px;
-            }
-            .contact-info p {
-                justify-content: center; /* Center text lines including icons */
-            }
-            .contact-image {
-                width: 100%; /* Full width image */
-                height: 250px; /* Adjusted height for mobile */
-                margin-bottom: 20px;
-            }
-            .contact-icons {
-                justify-content: center; /* Center icons on mobile */
-            }
-        }
-
-        /* Very Small Mobile Screens */
-        @media (max-width: 480px) {
-            .hero-section-wrapper {
-                margin-bottom: 10px;
-            }
-            .hero-header {
-                padding: 10px 15px;
-            }
-            .hero-logo-icon {
-                width: 140px;
-                height: 60px; /* Potentially problematic for aspect ratio, review during testing */
-            }
-            .hero-tagline {
-                font-size: 1em; /* Adjusted for very small screens */
-            }
-            .hero-main-content {
-                padding: 20px 15px;
-            }
-            .hero-title {
-                font-size: 2em;
-            }
-
-            /* About Me Responsive (further) */
-            .about-me-container {
-                margin: 10px;
-            }
-            .left-column, .right-column {
-                padding: 25px;
-            }
-            .profile-picture {
-                width: 120px;
-                height: 120px;
-            }
-            .name {
-                font-size: 1.5em;
-            }
-            .section-title {
-                font-size: 1.8em;
-            }
-            /* Navigation Responsive (further) */
-            .navbar-links {
-                gap: 10px;
-            }
-            .navbar-links li a {
-                font-size: 0.9em;
-            }
-
-            /* Industry Focus Responsive (further) */
-            .industry-focus-section {
-                padding: 20px 10px;
-                margin: 10px auto;
-            }
-            .industry-focus-heading {
-                font-size: 1.8em;
-                margin-bottom: 25px;
-            }
-            .card {
-                padding: 18px;
-            }
-            .card-title {
-                font-size: 1.1em;
-            }
-            .icon-circle {
-                width: 30px;
-                height: 30px;
-                font-size: 1.5em;
-            }
-
-            /* Contact Section Responsive (further) */
-            .contact-section {
-                padding: 30px 10px;
-            }
-            .contact-info h2 {
-                font-size: 1.8em;
-            }
-            .contact-info p {
-                font-size: 0.9em;
-            }
-            .contact-icons {
-                gap: 15px;
-            }
-            .contact-icons a i { /* Target the icon inside the link */
-                font-size: 1.8em; /* Slightly smaller icons for very small screens */
-            }
-            .contact-image {
-                height: 200px; /* Even smaller height for very small mobile */
-            }
-        }
-    
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        /* Custom CSS for a clean aesthetic */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
+            color: theme('colors.dark-text');
+            background-color: white;
         }
-        .services-section {
-            background-color: #ffffff;
+        .section-padding {
+            padding: 5rem 1rem;
         }
-        .service-card {
-            background-color: #ffffff;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        /* Style for the sticky navigation bar */
+        .sticky-nav {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+            transition: box-shadow 0.3s ease;
         }
-        .service-card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1a202c;
+        /* Utility for simple SVG icons */
+        .icon {
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            width: 24px;
+            height: 24px;
         }
-        .service-card-content h4 {
-            font-weight: 600;
-            font-size: 1rem;
-            color: #4c51bf;
-            margin-bottom: 0.5rem;
+        /* Custom style for the skills list */
+        .skill-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            margin: 0.3rem 0.3rem 0 0;
+            border-radius: 9999px;
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500; /* font-medium */
+            background-color: theme('colors.primary-bronze / 10%');
+            color: theme('colors.primary-bronze');
+            border: 1px solid theme('colors.primary-bronze / 30%');
         }
-        .service-card-content ul {
-            list-style-type: disc;
-            padding-left: 1.25rem;
-        }
-        .service-card-content li {
-            font-size: 0.875rem;
-            color: #4a5568;
-            margin-bottom: 0.25rem;
-        }
-        
-    /* Footer Styles */
-        .footer {
-            width: 100%;
-            background-color: #28496c; /* Dark blue background */
-            color: #f0f8ff; /* Light, off-white text */
-            padding: 20px 0;
-            text-align: center;
-            margin-top: auto; /* Pushes footer to the bottom */
-            font-size: 0.9em;
-            box-sizing: border-box;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer p {
-            margin: 0;
-            padding: 0;
-        }
-
-        .footer-social-links a {
-            color: #f0f8ff;
-            margin: 0 10px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social-links a:hover {
-            color: #E5792F; /* Orange highlight on hover */
-        }
-
-        /* Responsive adjustments - Consolidated Media Queries */
-
-        /* Tablet and smaller desktops */
-        @media (max-width: 1024px) {
-            .hero-header, .navbar, .hero-main-content,
-            .about-section, .industry-focus-section, .contact-section {
-                max-width: 100%; /* Allow content to fill wrapper up to 1024px */
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .hero-main-content {
-                min-height: 400px;
-            }
-            .hero-title {
-                font-size: 3em;
-            }
-            .navbar-links {
-                gap: 20px; /* Adjust gap for medium screens */
-            }
-        }
-
-        /* Mobile (Portrait) and smaller tablets */
-        @media (max-width: 768px) {
-            .hero-header {
-                flex-direction: column;
-                padding: 15px 20px;
-            }
-        
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 768px) {
-            .hero-header {
-                flex-direction: column;
-                padding: 10px 20px;
-                text-align: center;
-            }
-
     </style>
 </head>
-<body class="bg-white-100 p-8">
+<body class="antialiased">
 
-<div class="hero-section-wrapper">
-        <div class="hero-section-container">
-            <header class="hero-header">
-                <div class="hero-logo">
-                    <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/nuuraqlyz_analytics_logo.png" alt="Nuuraqlyz Analytics Logo" class="hero-logo-icon" onerror="this.onerror=null;this.src='https://placehold.co/86x86/cccccc/333333?text=Circular+Logo+Placeholder';">
-                    <span class="hero-logo-main-text">Nuuraqlyz</span>
-                    <span class="hero-logo-analytics-text">ANALYTICS</span>
+    
+<header id="navbar" class="fixed top-0 z-50 w-full shadow-md sticky-nav">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <a href="#hero" class="text-xl font-bold text-primary-bronze hover:text-dark-navy transition duration-300">
+                Nuuraqlyz Analytics
+            </a>
+            <div class="space-x-4 flex items-center">
+                
+                
+<div class="relative hidden sm:block">
+                    <button id="servicesDropdownButton" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 flex items-center focus:outline-none">
+                        Services
+                        
+<svg xmlns="http://www.w3.org/2000/svg" class="icon w-4 h-4 ml-1 transition-transform duration-200" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    
+<div id="servicesDropdown" class="absolute hidden top-full mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-xl overflow-hidden transition-opacity duration-300 z-10">
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Cleaning & Setup</a>
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Dashboard Creation</a>
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Report Automation</a>
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Consultation</a>
+                    </div>
                 </div>
-                <div class="hero-tagline">
-                    Guiding your journey from raw data to insight
-                </div>
-            </header>
 
-            <nav class="navbar">
-                <ul class="navbar-links">
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/index.html">Home</a></li>
-                      <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/projects.html">Projects</a></li>
-                    <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/project-feedback.html">Project Feedback</a></li>
-                   <li><a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-
-            <div class="hero-main-content">
-                <div class="loading-spinner" id="hero-loading-spinner"></div>
-                <div id="hero-image-overlay"></div> 
-                <div class="hero-text-content">
-                    <h1 class="hero-title">Helping you navigate<br>data</h1>
+                
+<div class="relative hidden sm:block">
+                    <button id="projectsDropdownButton" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 flex items-center focus:outline-none">
+                        Projects
+                        
+<svg xmlns="http://www.w3.org/2000/svg" class="icon w-4 h-4 ml-1 transition-transform duration-200" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    
+<div id="projectsDropdown" class="absolute hidden top-full mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-xl overflow-hidden transition-opacity duration-300 z-10">
+                        
+                        
+<a href="dashboard.html" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Dashboard Case Study</a>
+                        <a href="dataanalysis.html" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Analysis Report</a>
+                    </div>
                 </div>
+
+                
+<a href="#services" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 sm:hidden">Services</a>
+                <a href="#about" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 hidden sm:inline-block">About</a>
+                
+<a href="#portfolio" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 hidden sm:inline-block">Work Done</a>
+                
+                <a href="#contact" class="bg-primary-bronze text-white py-2 px-4 rounded-lg shadow-lg hover:bg-dark-navy transition duration-300 font-medium">Work With Me</a>
             </div>
-        </div>
-    </div>
-  
-  
-  
-  <!-- Services Section -->
-    <section id="services" class="services-section py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">How I Can Help?</h2>
-                <p class="mt-4 text-xl text-gray-600">I specialize in analyzing and visualizing data to help you make informed decisions. Whether you need insights from a single dataset or ongoing support to track trends, here’s how I can support your objectives.</p>
-            </div>
+        </nav>
+    </header>
+
+    <main>
+        
+<div class="h-20 sm:h-20"></div>
+
+        
+<section id="hero" class="section-padding min-h-[calc(100vh-6rem)] flex items-center -mt-20 sm:-mt-20 relative overflow-hidden" 
+                 style="background-image: url('https://images.unsplash.com/photo-1542450821-b3b320d7747e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
+
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1: Data Cleaning & Preparation -->
-                <div class="service-card">
-                    <div class="flex items-center space-x-4">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-broom text-4xl text-blue-600"></i>
-                        </div>
-                        <div class="service-card-title">Data Cleaning & Preparation</div>
-                    </div>
-                    <div class="service-card-content mt-4">
-                        <p class="text-gray-600 mb-4">
-                             Clean, structure, and prepare raw data for reliable analysis.
-                        </p>
-                        <div>
-                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Spreadsheets (Excel, Google Sheets)</li>
-                                <li>Databases (SQL, NoSQL)</li>
-                                <li>APIs and web scraping data</li>
-                                <li>Legacy and unstructured data files</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 2: Interactive Dashboard Creation -->
-                <div class="service-card">
-                    <div class="flex items-center space-x-4">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-chart-line text-4xl text-green-600"></i>
-                        </div>
-                        <div class="service-card-title">Interactive Dashboards</div>
-                    </div>
-                    <div class="service-card-content mt-4">
-                        <p class="text-gray-600 mb-4">
-                           Create dashboards to explore and understand your data
-                        </p>
-                        <div>
-                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>CRM and ERP systems</li>
-                                <li>Sales and financial data</li>
-                                <li>Website and app analytics</li>
-                                <li>Marketing campaign data</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 3: Business Intelligence Reporting -->
-                <div class="service-card">
-                    <div class="flex items-center space-x-4">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-file-alt text-4xl text-red-600"></i>
-                        </div>
-                        <div class="service-card-title">Business Intelligence Reporting</div>
-                    </div>
-                    <div class="service-card-content mt-4">
-                        <p class="text-gray-600 mb-4">
-                            Transform analysis into actionable insights
-                        </p>
-                        <div>
-                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Operational and financial data</li>
-                                <li>Customer satisfaction surveys</li>
-                                <li>Employee performance data</li>
-                                <li>KPI tracking from various sources</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 4: Data Wrangling & Structuring -->
-                <div class="service-card">
-                    <div class="flex items-center space-x-4">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-cogs text-4xl text-gray-600"></i>
-                        </div>
-                        <div class="service-card-title">Data Wrangling & Structuring</div>
-                    </div>
-                    <div class="service-card-content mt-4">
-                        <p class="text-gray-600 mb-4">
-                            Organize complex datasets for easier interpretation
-                        </p>
-                        <div>
-                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Raw spreadsheets and CSV files</li>
-                                <li>Database dumps (SQL, JSON, XML)</li>
-                                <li>Data from web APIs</li>
-                                <li>Text files and unstructured data</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 5: Exploratory Analysis & Reporting -->
-                <div class="service-card">
-                    <div class="flex items-center space-x-4">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-chart-pie text-4xl text-orange-600"></i>
-                        </div>
-                        <div class="service-card-title">Exploratory Analysis & Reporting</div>
-                    </div>
-                    <div class="service-card-content mt-4">
-                        <p class="text-gray-600 mb-4">
-                            Identify trends, patterns, and insights from your data
-                        </p>
-                        <div>
-                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Sales and marketing campaign data</li>
-                                <li>Product usage and customer behavior data</li>
-                                <li>Financial and operational data</li>
-                                <li>Market research and survey results</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 6: Database & Spreadsheet Management -->
-                <div class="service-card">
-                    <div class="flex items-center space-x-4">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-database text-4xl text-teal-600"></i>
-                        </div>
-                        <div class="service-card-title">Database & Spreadsheet Management</div>
-                    </div>
-                    <div class="service-card-content mt-4">
-                        <p class="text-gray-600 mb-4">
-                            Manage and maintain structured data efficiently
-                        </p>
-                        <div>
-                            <h4 class="font-semibold text-gray-700 mb-2">Type of Data We Use:</h4>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Relational databases (SQL Server, MySQL)</li>
-                                <li>Non-relational databases (MongoDB)</li>
-                                <li>Spreadsheets (Google Sheets, Microsoft Excel)</li>
-                                <li>CRM and project management data</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Me & CTA Section -->
-    <section id="about" class="p-4 sm:p-8 md:p-12 lg:p-16">
-        <div class="max-w-7xl mx-auto bg-white p-6 sm:p-10 rounded-2xl shadow-xl flex flex-col gap-8">
-            <!-- Header with Headshot and Socials -->
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-gray-200">
-                <!-- Image and Name/Title -->
-                <div class="flex flex-col sm:flex-row items-center gap-6">
-                    <!-- Headshot Placeholder Image -->
-                    <img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/Kamara%20(Meryem)%20Ciftci.png" alt="Your Name's headshot" class="w-44 h-44 sm:w-44 sm:h-44 rounded-full object-cover border-4 border-white shadow-lg">
-                    <div class="text-center sm:text-left">
-                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">Kamara Meryem A. Rowe-Ciftci</h1>
-                        <p class="text-lg text-gray-600 font-medium">Data Analyst</p>
-                    </div>
-                </div>
-
-                <!-- Social Media Icons -->
-                <div class="flex gap-4 text-gray-500">
-                    <a href="https://www.linkedin.com/in/meryack" class="hover:text-blue-600 transition-colors duration-200" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin fa-2x"></i>
+<div class="absolute inset-0 bg-light-gray opacity-80 z-10"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20">
+                
+<h1 class="text-5xl md:text-6xl font-extrabold text-dark-text mb-4 leading-tight">
+                    Helping Women Entrepreneurs Turn <span class="text-primary-bronze">their Data into Smart Business Insights</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+                    I specialize in transforming raw data into clear, automated reports and powerful dashboards, specifically designed for women entrepreneurs and small business owners to drive confident, data-backed decisions.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    
+<a href="mailto:kamara.meryem.a@gmail.com" class="bg-primary-bronze text-white text-lg py-3 px-8 rounded-xl hover:bg-dark-navy transition duration-300 shadow-lg hover:shadow-xl">
+                        Get in touch
                     </a>
-                    <a href="https://github.com/MeryemCiftciAly" class="hover:text-gray-800 transition-colors duration-200" aria-label="GitHub">
-                        <i class="fab fa-github fa-2x"></i>
-                    </a>
-                    <a href="https://www.kaggle.com/meryemciftci" class="hover:text-red-500 transition-colors duration-200" aria-label="Kaggle">
-                        <i class="fas fa-envelope fa-2x"></i>
+                    
+<a href="#portfolio" class="border border-primary-bronze text-primary-bronze text-lg py-3 px-8 rounded-xl hover:bg-primary-bronze hover:text-white transition duration-300">
+                        See My Work
                     </a>
                 </div>
             </div>
+        </section>
 
-            <!-- Main content area -->
-            <div class="flex flex-col md:flex-row gap-8">
-                <!-- About Me Section -->
-                <div class="flex-1 space-y-4">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900">About Me</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Hi, I'm Meryem! I am a forward-thinking, action-driven, and creative problem-solver by nature and by profession. My philosophy is that skills and knowledge gained are never lost; rather, they form a powerful foundation for future growth. I've spent many years supporting executive teams and business operations across diverse industries. My passion for delivering results, being part of or contributing to solutions led me to transition into data analytics.
-                    </p>
-                    <p class="text-gray-700 leading-relaxed">
-                        Now, I love being a passionate data professional dedicated to transforming complex data into clear, actionable insights. I believe that every dataset has a story to tell, and my goal is to help you uncover it. I believe in learning in public and welcoming feedback.
-                    </p>
-                    <p class="text-gray-700 leading-relaxed font-bold">
-                        In order for you to work with me it is important for you to see what I can do. Therefore here you will find some of the independent projects I have done.
-                    </p>
-                    <p class="text-gray-700 leading-relaxed">
-                        Whether it's creating a dynamic dashboard to visualize trends or structuring data and researching information to gain more understanding, I enjoy the entire process of turning raw data into a powerful tool. I thrive on new challenges and am always eager to learn and grow.
-                    </p>
-                    <p class="text-gray-700 leading-relaxed">
-                        When I'm not immersed in writing fictional stories or working on my blog, you can find me sitting taking time out to see life around or finding a dataset I'm curious about for my next project.
-                    </p>
-                    <p class="text-gray-700 leading-relaxed font-bold">
-                        I'm excited to connect and see how my skills can help you achieve your business goals.
-                    </p>
+
+        
+<section id="services" class="section-padding">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-4 text-dark-text">My Services</h2>
+                <p class="text-center text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+                    Whether you’re just starting to track your business data or ready to automate your reports, I offer flexible services that meet you where you are.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-primary-bronze/70">
+                        <div class="text-primary-bronze mb-4">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" class="icon w-8 h-8" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"/><path d="M22 7H2"/><path d="M10 12h4"/><path d="M12 10v4"/><path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/><path d="M22 17H2"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Data Cleaning & Setup</h3>
+                        <p class="text-gray-600 text-sm">
+                            I transform messy spreadsheets and raw files into structured, reliable datasets ready for analysis. Get rid of errors and inconsistencies for good. 
+                            <span class="font-semibold text-primary-bronze">Tools I Use: Excel, SQL, Python.</span>
+                        </p>
+                    </div>
+
+                    
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-primary-bronze/70">
+                        <div class="text-primary-bronze mb-4">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" class="icon w-8 h-8" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Dashboard Creation</h3>
+                        <p class="text-gray-600 text-sm">
+                            I create visual dashboards that give you a complete, intuitive picture of your sales, finances, and performance. Using Excel, Power BI, or Looker Studio, I design dashboards that are easy to read, actionable, and tailored to your business needs.
+                            <span class="font-semibold text-primary-bronze">Tools I Use: Excel, Power BI, Looker Studio, Tableau.</span>
+                        </p>
+                    </div>
+
+                    
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-primary-bronze/70">
+                        <div class="text-primary-bronze mb-4">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" class="icon w-8 h-8" viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M22 12h-4"/><path d="M18.37 15.63l-2.42-2.42"/><path d="M15.63 18.37l-2.42-2.42"/><circle cx="12" cy="12" r="10"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Report Automation</h3>
+                        <p class="text-gray-600 text-sm">
+                            I reduce manual work and save hours every month by automating recurring Excel or Power BI reports using Power Query or simple scripts, so you can focus on making decisions instead of compiling data.
+                            <span class="font-semibold text-primary-bronze">Tools I Use: Excel (Power Query, VBA) | Power BI | Python.</span>
+                        </p>
+                    </div>
+
+                    
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-primary-bronze/70">
+                        <div class="text-primary-bronze mb-4">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" class="icon w-8 h-8" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 0 0 12 22c5 0 9-3.5 9-7V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v10c0 3.5 4 7 9 7z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Data Consultation</h3>
+                        <p class="text-gray-600 text-sm">
+                            I offer one-on-one sessions to understand your business pain points and review your data workflows — how data is collected, stored, and processed across spreadsheets, systems, or websites. Using a <span class="font-semibold">structured methodology</span>, I identify bottlenecks and inefficiencies, and provide a short, actionable report with recommendations for better data flow, process improvements, and <span class="font-semibold">tools or automation</span> (e.g., Excel, Power BI, Python, CRM integrations) to make your operations more efficient and insights easier to access.
+                            <span class="font-semibold text-primary-bronze">Methodology: Discovery & Assessment | Data Workflow Review | Bottleneck Analysis | Recommendations & Reporting.</span>
+                        </p>
+                    </div>
                 </div>
 
-                <!-- CTA Section -->
-                <div class="flex-1 bg-gray-100 p-6 sm:p-8 rounded-xl flex items-center">
-                    <div class="text-center">
-                       
-                        <p class="text-gray-600 mb-6">
-                            I'm excited to connect and see how my skills can help you achieve your business goals.
+                <div class="text-center mt-12">
+                    <p class="text-lg text-dark-text mb-4">Not sure which service fits? Let’s discuss your needs in a free consultation.</p>
+                    <a href="#contact" class="bg-primary-bronze text-white text-lg py-3 px-8 rounded-xl hover:bg-dark-navy transition duration-300 shadow-xl">
+                        Get in touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        
+<section id="about" class="section-padding bg-light-gray">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:flex lg:items-center lg:space-x-12">
+                    <div class="lg:w-1/2 flex justify-center lg:justify-start"> 
+<img src="https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/Kamara%20(Meryem)%20Ciftci.png" 
+                             alt="Professional Photo of Meryem Ciftci" 
+                             width="400" height="400"
+                             class="rounded-xl shadow-2xl object-cover transform hover:scale-[1.01] transition duration-500 max-w-full h-auto"
+                             onerror="this.onerror=null;this.src='https://placehold.co/400x400/94a3b8/ffffff?text=Image+Unavailable';"
+                             >
+                    </div>
+                    <div class="lg:w-1/2 mt-10 lg:mt-0">
+                        <h2 class="text-4xl font-bold mb-4 text-dark-text">Hi, I’m Meryem </h2>
+                        <h3 class="text-xl font-semibold text-dark-navy mb-6">Data Analyst | Visionary Support behind Nuuraqlyz Analytics</h3>
+                        
+                        
+<p class="text-gray-700 leading-relaxed mb-4">
+                            I’m K. Meryem Rowe-Ciftci, a data analyst with over <span class="font-semibold text-dark-text">seven years of experience</span> supporting executives and business leaders across industries including insurance, marketing, and tech startups. My background in business operations gave me a deep understanding of how organizations function, how decisions are made, and how data drives growth, a perspective I now bring to every analytics project I take on.
                         </p>
-                        <!-- Placeholder for a button or link -->
-                        <a href="#contact" class="inline-block bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-transform transform hover:scale-105 hover:bg-blue-700 shadow-md">
-                            Let's Connect
-                        </a>
+                        
+                        
+<p class="text-gray-700 leading-relaxed mb-4">
+                            Over the past two years, I’ve focused fully on data analytics, helping business owners and entrepreneurs make sense of their data. I specialize in cleaning and organizing spreadsheets, automating recurring reports, and building dashboards that reveal insights and patterns to guide <span class="font-semibold text-dark-text">informed, confident decisions.</span>
+                        </p>
+
+                         
+<p class="text-gray-700 leading-relaxed mb-6">
+                            I’m skilled in Excel, Power BI, SQL, and Salesforce, and I extend my work beyond analysis to create <span class="font-semibold text-dark-text">executive reports, presentations, and Salesforce-based summaries</span> that communicate insights clearly and effectively. My approach combines analytical rigor, creativity, and a deep understanding of business operations to deliver solutions that are not only accurate but actionable.
+                        </p>
+
+
+                        
+<h4 class="text-lg font-bold mt-6 mb-2 text-dark-text">My Core Toolset:</h4>
+                        <div class="flex flex-wrap">
+                            <span class="skill-badge">Excel (Power Query, VBA Automation)</span>
+                            <span class="skill-badge">Power BI, Looker Studio & Tableau</span>
+                            <span class="skill-badge">SQL (Querying), Python</span>
+                            <span class="skill-badge">Salesforce Reporting</span>
+                            <span class="skill-badge">Business Reporting & Presentation</span>
+                        </div>
+                        
+                        
+<p class="inline-block mt-8 text-primary-bronze font-semibold">
+                            If you’re a business owner looking to structure your operations, automate daily tasks for efficiency, and uncover insights that drive your business objectives, I can help. Let's build systems that support sustainable growth &rarr;
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
- 
-     <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Nuuraqlyz Analytics — Independent Data Analysis by Kamara Meryem A Rowe-Ciftci.</p>
-            <div class="footer-social-links">
-                <a href="https://www.linkedin.com/in/meryack" target="_blank">LinkedIn</a>
-                <a href="https://github.com/MeryemCiftciAly" target="_blank">GitHub</a>
-                <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/contact.html">Contact</a>
+        </section>
+
+
+        
+<section class="py-20 bg-primary-bronze/10">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-dark-navy mb-4">
+                    Ready to Transform Your Operations with Data?
+                </h2>
+                <p class="text-lg text-dark-text mb-8">
+                    Stop guessing and start using clear, actionable insights to guide your business growth. Let's build a data strategy that works for you.
+                </p>
+                
+<a href="#contact" class="bg-primary-bronze text-white text-lg py-3 px-8 rounded-xl hover:bg-dark-navy transition duration-300 shadow-lg hover:shadow-xl">
+                    Start the Conversation Now
+                </a>
             </div>
+        </section>
+
+
+        
+<section id="portfolio" class="section-padding bg-light-gray">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-4 text-dark-text">Client & Project Highlights (Work Done)</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+                   Showcasing partnerships with entrepreneurs and women-owned small businesses to bring clarity and efficiency to their data and workflows.
+                </p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    
+                    
+<div class="group relative aspect-video bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer border border-gray-200 hover:shadow-2xl transition duration-300">
+                        
+<div class="logo-mockup flex flex-col items-center justify-center h-full p-4">
+                            <div class="text-5xl font-extrabold text-primary-bronze leading-none">
+                                
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                            </div>
+                            <span class="text-xs font-normal text-dark-text/70 mt-1">Client Logo Placeholder</span>
+                        </div>
+                        
+<div class="portfolio-overlay absolute inset-0 bg-dark-navy/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+                            <div class="text-white text-center relative z-10 space-y-3">
+                                <p class="text-xl font-bold text-primary-bronze">EBD</p>
+                                <p class="text-base font-medium">
+                                    Cleaned and consolidated multiple spreadsheets into a clean, well-organized system, helping the client save time, reduce errors, and work more efficiently with their business data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+<div class="aspect-video bg-white rounded-xl shadow-inner overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center group cursor-default">
+                        <p class="text-gray-400 text-sm font-medium">Future Project</p>
+                        
+<div class="portfolio-overlay absolute inset-0 bg-light-gray/60 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+                    
+                    
+<div class="aspect-video bg-white rounded-xl shadow-inner overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center group cursor-default">
+                        <p class="text-gray-400 text-sm font-medium">Future Project</p>
+                        
+<div class="portfolio-overlay absolute inset-0 bg-light-gray/60 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+
+                    
+<div class="aspect-video bg-white rounded-xl shadow-inner overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center group cursor-default">
+                        <p class="text-gray-400 text-sm font-medium">Future Project</p>
+                        
+<div class="portfolio-overlay absolute inset-0 bg-light-gray/60 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+                    
+                    
+<div class="aspect-video bg-white rounded-xl shadow-inner overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center group cursor-default">
+                        <p class="text-gray-400 text-sm font-medium">Future Project</p>
+                        
+<div class="portfolio-overlay absolute inset-0 bg-light-gray/60 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </section>
+
+
+        
+<section id="contact" class="py-20 bg-dark-navy">
+            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h2 class="text-4xl font-bold mb-4">Contact</h2>
+                <p class="text-xl mb-6">
+                    As a freelance data analyst passionate about supporting entrepreneurs and women-owned small businesses, I understand how important it is for you to make confident business decisions. I’m here to help you make sense of your data and turn it into clear, actionable information. Based on your objectives, we’ll create a plan to uncover patterns, opportunities, and key metrics that help your business grow and thrive.
+                </p>
+
+                <div class="text-left bg-dark-navy/90 p-6 rounded-xl border border-primary-bronze/50 shadow-2xl">
+                    <h3 class="text-2xl font-semibold text-primary-bronze mb-4">I am available for:</h3>
+                    <ul class="text-lg space-y-2 mb-6 list-disc list-inside">
+                        <li>Data analysis, visualization, and dashboarding</li>
+                        <li>Support project management for data projects</li>
+                        <li>Data presentation and report creation</li>
+                        <li>Presentations and data storytelling</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-semibold text-primary-bronze mb-2">Rates</h3>
+                    <p class="text-lg mb-6">
+                        Data analysis projects: <span class="font-bold">on request</span> (project-based quotes provided after consultation).
+                    </p>
+                    
+                    <a href="mailto:kamara.meryem.a@gmail.com" class="text-xl font-bold text-white hover:text-primary-bronze transition duration-300 underline">
+                        Send an Email to Get in touch
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        
+<section id="alt-contact" class="py-16 bg-light-gray">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-dark-text mb-8">Connect With Me</h2>
+                <p class="text-lg text-gray-600 mb-10">Prefer a quick connection? Find me here:</p>
+                <div class="flex justify-center space-x-16 sm:space-x-20">
+                    
+                    
+<a href="https://www.linkedin.com/in/meryack" target="_blank" rel="noopener noreferrer" class="text-dark-navy hover:text-primary-bronze transition duration-300 group flex flex-col items-center">
+                        
+<svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-2" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
+                        </svg>
+                        <p class="text-lg font-medium">LinkedIn</p>
+                        <span class="text-sm text-gray-500 block group-hover:text-primary-bronze transition duration-300">Professional Networking</span>
+                    </a>
+
+                    
+<a href="mailto:kamara.meryem.a@gmail.com" class="text-dark-navy hover:text-primary-bronze transition duration-300 group flex flex-col items-center">
+                        
+<svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                        <p class="text-lg font-medium">Email</p>
+                        <span class="text-sm text-gray-500 block group-hover:text-primary-bronze transition duration-300">kamara.meryem.a@gmail.com</span>
+                    </a>
+                    
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    
+<footer>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved. | Data Analyst for Women Entrepreneurs</p>
+            <p class="mt-2">Location: Remote/New York, United States </p>
+            
         </div>
     </footer>
 
-     <!-- JavaScript for dynamic behavior -->
-    <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            // Function to load image and handle spinner/fade-in
-            function loadImage(imageUrl, targetElement, spinnerId) {
-                const spinner = document.getElementById(spinnerId);
-                if (spinner) {
-                    spinner.style.display = 'block'; // Show spinner
-                }
+    
+<button id="backToTop" 
+            class="fixed bottom-6 right-6 z-50 p-3 bg-primary-bronze text-white rounded-full shadow-xl 
+                   hover:bg-dark-navy transition-all duration-300 transform scale-100 
+                   opacity-0 pointer-events-none focus:outline-none focus:ring-4 focus:ring-primary-bronze/50">
+        
+<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6"/>
+        </svg>
+    </button>
 
-                // Create a temporary image object to check for load completion
-                const img = new Image();
-                img.src = imageUrl;
-
-                img.onload = () => {
-                    // If the target is an <img> tag, set its src
-                    if (targetElement.tagName === 'IMG') {
-                        targetElement.src = imageUrl;
-                        targetElement.classList.add('loaded'); // Add class to trigger fade-in
-                    } 
-                    // If the target is a div (like hero-image-overlay), set its background-image
-                    else { 
-                        targetElement.style.backgroundImage = `url('${imageUrl}')`;
-                        targetElement.classList.add('loaded'); // Trigger fade-in
-                    }
-                    
-                    if (spinner) {
-                        spinner.style.display = 'none'; // Hide spinner after image loads
-                    }
-                };
-
-                img.onerror = () => {
-                    console.error(`Failed to load image: ${imageUrl}`);
-                    if (spinner) {
-                        spinner.style.display = 'none'; // Hide spinner on error
-                    }
-                    // Fallback for different element types
-                    if (targetElement.tagName === 'IMG') {
-                        targetElement.src = `https://placehold.co/${targetElement.width || 300}x${targetElement.height || 200}/cccccc/333333?text=Image+Error`;
-                        targetElement.classList.add('loaded'); // Still fade in fallback
-                    } else { // For hero overlay div
-                        targetElement.style.backgroundImage = `url('https://placehold.co/1200x675/cccccc/333333?text=Hero+Image+Error')`;
-                        targetElement.classList.add('loaded'); // Still fade in fallback
-                    }
-                };
-            }
-
-            // --- Image Loading Logic ---
-            const heroImageUrl = "https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/hero_image.png"; 
-            const contactImageUrl = "https://raw.githubusercontent.com/MeryemCiftciAly/nuuraqlyz_analytics/refs/heads/main/media/contact_image.png";
-
-            const heroImageOverlay = document.getElementById('hero-image-overlay');
-            if (heroImageOverlay) {
-                loadImage(heroImageUrl, heroImageOverlay, 'hero-loading-spinner');
-            } else {
-                console.warn("Element with ID 'hero-image-overlay' not found. Hero image will not load via JS.");
-            }
-
-            const contactImgElement = document.getElementById('contact-img');
-            if (contactImgElement) {
-                loadImage(contactImageUrl, contactImgElement, 'contact-loading-spinner');
-            } else {
-                console.warn("Element with ID 'contact-img' not found. Contact image will not load via JS.");
-            }
-
-            // --- Collapsible Sections Logic (Industry Focus) ---
-            const iconCircles = document.querySelectorAll('.industry-cards-container .icon-circle'); // Targeting only industry cards
-
-            iconCircles.forEach(circle => {
-                circle.addEventListener('click', () => {
-                    const targetId = circle.dataset.target;
-                    const content = document.getElementById(targetId);
-                    
-                    circle.classList.toggle('expanded');
-
-                    if (content.classList.contains('active')) {
-                        content.style.maxHeight = null; // Collapse
-                        content.classList.remove('active');
-                    } else {
-                        // The max-height is now controlled by CSS, but this line can remain if you need
-                        // to dynamically set '--content-height' for other purposes or if content can vary significantly.
-                        // For fixed max-height with scrolling, this line is less critical for the max-height itself.
-                        content.style.setProperty('--content-height', content.scrollHeight + 'px'); 
-                        content.classList.add('active');
+    
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Smooth Scrolling Functionality (Only for internal hash links)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    // Check if the link is only a hash link (e.g., #contact, #about)
+                    if (this.hash && this.hash !== '#') {
+                        e.preventDefault();
+                        document.querySelector(this.hash).scrollIntoView({
+                            behavior: 'smooth'
+                        });
                     }
                 });
             });
 
-            // --- Collapsible Sections Logic (Services Grid - if applicable on index) ---
-            // Note: This part is typically for the services.html page.
-            // If you have a services grid on index.html, ensure its elements have unique IDs/classes
-            // to avoid conflict with the industry focus collapsible sections.
-            const serviceIconCircles = document.querySelectorAll('.services-grid .icon-circle');
+            // 2. Dropdown Menu Functionality (for Services and Projects)
+            const servicesButton = document.getElementById('servicesDropdownButton');
+            const servicesMenu = document.getElementById('servicesDropdown');
+            const projectsButton = document.getElementById('projectsDropdownButton');
+            const projectsMenu = document.getElementById('projectsDropdown');
 
-            serviceIconCircles.forEach(circle => {
-                circle.addEventListener('click', () => {
-                    const targetId = circle.dataset.target;
-                    const content = document.getElementById(targetId);
-                    
-                    circle.classList.toggle('expanded');
+            const allDropdowns = [
+                { button: servicesButton, menu: servicesMenu },
+                { button: projectsButton, menu: projectsMenu }
+            ];
 
-                    if (content.classList.contains('active')) {
-                        content.style.maxHeight = null;
-                        content.classList.remove('active');
-                    } else {
-                        content.style.setProperty('--content-height', content.scrollHeight + 'px');
-                        content.classList.add('active');
+            function closeAllDropdowns() {
+                allDropdowns.forEach(item => {
+                    if (item.menu) {
+                        item.menu.classList.add('hidden');
                     }
+                });
+            }
+
+            function setupDropdown(button, menu) {
+                if (!button || !menu) return;
+
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Close others, but not the current one if it's already open
+                    const isOpening = menu.classList.contains('hidden');
+                    closeAllDropdowns(); 
+                    if (isOpening) {
+                        menu.classList.remove('hidden');
+                    }
+                    e.stopPropagation();
+                });
+
+                // Close when a link inside it is clicked
+                menu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Initialize all dropdowns
+            setupDropdown(servicesButton, servicesMenu);
+            setupDropdown(projectsButton, projectsMenu);
+
+            // Close dropdowns if user clicks anywhere outside
+            document.addEventListener('click', (event) => {
+                let clickedInsideDropdown = false;
+                allDropdowns.forEach(item => {
+                    if (item.button && item.menu && (item.button.contains(event.target) || item.menu.contains(event.target))) {
+                        clickedInsideDropdown = true;
+                    }
+                });
+
+                if (!clickedInsideDropdown) {
+                    closeAllDropdowns();
+                }
+            });
+
+
+            // 3. Back to Top Button Functionality
+            const backToTopButton = document.getElementById('backToTop');
+            const scrollThreshold = 300; // Pixels to scroll before showing the button
+
+            const toggleVisibility = () => {
+                if (window.scrollY > scrollThreshold) {
+                    // Show the button
+                    backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopButton.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    // Hide the button
+                    backToTopButton.classList.remove('opacity-100', 'pointer-events-auto');
+                    backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+                }
+            };
+
+            // Listen for scroll events to toggle visibility
+            window.addEventListener('scroll', toggleVisibility);
+
+            // Scroll to the top when the button is clicked
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // Smooth scroll effect
                 });
             });
         });
-        
     </script>
-    </body>
+</body>
 </html>
