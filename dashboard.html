@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuuraqlyz Analytics | Dashboard Case Study</title>
+    
+<script src="https://cdn.tailwindcss.com"></script>
+    
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    // Theme: Refined Bronze and Deep Charcoal (Elegant, Neutral, Professional)
+                    'primary-bronze': '#A87E60', // Refined Bronze/Gold for accent
+                    'dark-navy': '#1C2833', // Deep Charcoal/Navy for contrast background
+                    'light-gray': '#F5F7FA', // Very light, clean background
+                    'dark-text': '#333333', // Main text color (Dark Charcoal)
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                },
+            }
+        }
+    }
+</script>
+    <style>
+        /* Custom CSS for a clean aesthetic */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: theme('colors.dark-text');
+            background-color: white;
+        }
+        .section-padding {
+            padding: 5rem 1rem;
+        }
+        /* Style for the sticky navigation bar */
+        .sticky-nav {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+            transition: box-shadow 0.3s ease;
+        }
+        /* Utility for simple SVG icons */
+        .icon {
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            width: 24px;
+            height: 24px;
+        }
+        /* Custom style for the skills list */
+        .skill-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            margin: 0.3rem 0.3rem 0 0;
+            border-radius: 9999px;
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500; /* font-medium */
+            background-color: theme('colors.primary-bronze / 10%');
+            color: theme('colors.primary-bronze');
+            border: 1px solid theme('colors.primary-bronze / 30%');
+        }
+
+        /* Responsive Dashboard Image Sizing */
+        .dashboard-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+            border: 1px solid rgba(168, 126, 96, 0.2); /* primary-bronze border */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar (Included from your prompt) -->
+    <header id="navbar" class="fixed top-0 z-50 w-full shadow-md sticky-nav">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <a href="#hero" class="text-xl font-bold text-primary-bronze hover:text-dark-navy transition duration-300">
+                Nuuraqlyz Analytics
+            </a>
+            <div class="space-x-4 flex items-center">
+                
+                
+<div class="relative hidden sm:block">
+                    <button id="servicesDropdownButton" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 flex items-center focus:outline-none">
+                        Services
+                        
+<svg xmlns="http://www.w3.org/2000/svg" class="icon w-4 h-4 ml-1 transition-transform duration-200" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    
+<div id="servicesDropdown" class="absolute hidden top-full mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-xl overflow-hidden transition-opacity duration-300 z-10">
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Cleaning & Setup</a>
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Dashboard Creation</a>
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Report Automation</a>
+                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Consultation</a>
+                    </div>
+                </div>
+
+                
+<div class="relative hidden sm:block">
+                    <button id="projectsDropdownButton" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 flex items-center focus:outline-none">
+                        Projects
+                        
+<svg xmlns="http://www.w3.org/2000/svg" class="icon w-4 h-4 ml-1 transition-transform duration-200" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    
+<div id="projectsDropdown" class="absolute hidden top-full mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-xl overflow-hidden transition-opacity duration-300 z-10">
+                        
+                        
+<a href="dashboard.html" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Dashboard Case Study</a>
+                        <a href="dataanalysis.html" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Analysis Report</a>
+                    </div>
+                </div>
+
+                
+<a href="#services" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 sm:hidden">Services</a>
+                <a href="#about" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 hidden sm:inline-block">About</a>
+                
+<a href="#portfolio" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 hidden sm:inline-block">Work Done</a>
+                
+                <a href="#contact" class="bg-primary-bronze text-white py-2 px-4 rounded-lg shadow-lg hover:bg-dark-navy transition duration-300 font-medium">Work With Me</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24 bg-light-gray">
+
+        <!-- Hero/Title Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-dark-navy mb-4">Dashboard Case Studies</h1>
+            <p class="text-lg text-dark-text max-w-3xl mx-auto">Showcasing data visualization projects built with <b>Tableau</b> and <b>Power BI</b> for actionable business insights.</p>
+        </section>
+
+        <!-- Tableau Project Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 bg-white shadow-xl rounded-xl mb-12">
+            <span class="skill-badge mb-2">Platform: Tableau</span>
+            <h2 class="text-3xl font-bold text-dark-text mb-6">Expense Claims Overview: Strategic Spending Insights</h2>
+            
+            <!-- Dashboard Image -->
+            <div class="mb-8">
+                <!-- Updated Image Source -->
+                <img src="https://raw.githubusercontent.com/MeryemCiftciAly/assets/refs/heads/main/tableau_expense_claims_dashboard.png" alt="Tableau Expense Claims Overview Dashboard" class="dashboard-image" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/1200x600/A87E60/ffffff?text=Tableau+Dashboard+Placeholder'">
+            </div>
+
+            <!-- Goal, Result, Duration -->
+            <div class="grid md:grid-cols-3 gap-8 text-center border-t border-b border-gray-200 py-6">
+                
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-primary-bronze mb-2 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon w-6 h-6 mr-2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8z"/></svg>
+                        GOAL
+                    </h3>
+                    <!-- Updated Goal -->
+                    <p class="text-dark-text/80">To demonstrate that an everyday task—the expense report—can be leveraged using <b>Python cleaning</b> and <b>Tableau</b> to generate strategic, actionable business decisions.</p>
+                </div>
+
+                <div class="p-4 border-l border-r border-gray-200">
+                    <h3 class="text-xl font-semibold text-primary-bronze mb-2 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon w-6 h-6 mr-2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                        RESULT
+                    </h3>
+                    <p class="text-dark-text/80">Streamlined expense auditing, highlighting 'Rejected' vs. 'Approved' totals and specific trend shifts over time to inform policy adjustments.</p>
+                </div>
+
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-primary-bronze mb-2 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon w-6 h-6 mr-2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        PROJECT DURATION
+                    </h3>
+                    <!-- **UPDATED DURATION TEXT** -->
+                    <p class="text-dark-text/80"><b>2 Weeks</b>. This comprehensive timeline covered the entire analytical lifecycle: <b>initial data review and Python cleaning</b>, <b>data modeling</b>, <b>dashboard design</b>, internal <b>testing and troubleshooting</b>, and <b>final publication</b>.</p>
+                </div>
+
+            </div>
+            
+            <div class="mt-8 text-center">
+                <!-- Updated Link -->
+                <a href="https://public.tableau.com/app/profile/meryem.ciftci/viz/ExpenseClaimsSpendingAnalysis/ExpenseClaimsDashboard" target="_blank" rel="noopener noreferrer" class="bg-dark-navy text-white py-3 px-6 rounded-lg shadow-lg hover:bg-primary-bronze transition duration-300 font-medium inline-flex items-center">
+                    View Live Tableau Dashboard 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon w-5 h-5 ml-2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Power BI Project Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 bg-white shadow-xl rounded-xl mb-12">
+            <span class="skill-badge mb-2">Platform: Power BI</span>
+            <h2 class="text-3xl font-bold text-dark-text mb-6">Re-Offense Program Analysis Dashboard</h2>
+            
+            <!-- Dashboard Image -->
+            <div class="mb-8">
+                <!-- Updated Image Source -->
+                <img src="https://raw.githubusercontent.com/MeryemCiftciAly/assets/refs/heads/main/Powerbi%20Dashboard%20Screen.png" alt="Power BI Re-offense Program Analysis Dashboard" class="dashboard-image" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/1200x600/A87E60/ffffff?text=Power+BI+Dashboard+Placeholder'">
+            </div>
+
+            <!-- Goal, Result, Duration -->
+            <div class="grid md:grid-cols-3 gap-8 text-center border-t border-b border-gray-200 py-6">
+                
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-primary-bronze mb-2 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon w-6 h-6 mr-2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8z"/></svg>
+                        GOAL
+                    </h3>
+                    <!-- Updated Goal -->
+                    <p class="text-dark-text/80">To analyze data from a reform program to find insights behind the <b>likelihood of re-offense</b> by participants, assessing the effectiveness of interventions like education, drug abuse counseling, and anger management.</p>
+                </div>
+
+                <div class="p-4 border-l border-r border-gray-200">
+                    <h3 class="text-xl font-semibold text-primary-bronze mb-2 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon w-6 h-6 mr-2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                        RESULT
+                    </h3>
+                    <p class="text-dark-text/80">Enabled immediate program assessment and allowed staff to identify high-risk participants based on age, education, and incident type frequency.</p>
+                </div>
+
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-primary-bronze mb-2 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon w-6 h-6 mr-2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        PROJECT DURATION
+                    </h3>
+                    <!-- **UPDATED DURATION TEXT** -->
+                    <p class="text-dark-text/80"><b>2 Weeks</b>. This included the full lifecycle: <b>data integration and cleaning</b>, defining <b>DAX data models</b>, <b>dashboard design and visualization</b>, <b>rigorous testing and quality assurance</b>, iterative <b>updates</b>, and final <b>deployment</b> to the Power BI service.</p>
+                </div>
+
+            </div>
+
+            <div class="mt-8 text-center">
+                <!-- Updated Link -->
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiMDA0OTI5MDItZGYzYi00YTljLTgxODgtNTlhY2FjZDJiNTA5IiwidCI6IjAwMjgyOGQ1LTBiYTMtNDJmZi1hMWFkLWFlMzUwMWU5YTliMiIsImMiOjJ9" target="_blank" rel="noopener noreferrer" class="bg-dark-navy text-white py-3 px-6 rounded-lg shadow-lg hover:bg-primary-bronze transition duration-300 font-medium inline-flex items-center">
+                    View Live Power BI Dashboard 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon w-5 h-5 ml-2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- New Contact Section -->
+        <section id="alt-contact" class="py-16 bg-light-gray">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-dark-text mb-8">Connect With Me</h2>
+                <p class="text-lg text-gray-600 mb-10">Prefer a quick connection? Find me here:</p>
+                <div class="flex justify-center space-x-16 sm:space-x-20">
+                    
+                    
+<a href="https://www.linkedin.com/in/meryack" target="_blank" rel="noopener noreferrer" class="text-dark-navy hover:text-primary-bronze transition duration-300 group flex flex-col items-center">
+                        
+<svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-2" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
+                        </svg>
+                        <p class="text-lg font-medium">LinkedIn</p>
+                        <span class="text-sm text-gray-500 block group-hover:text-primary-bronze transition duration-300">Professional Networking</span>
+                    </a>
+
+                    
+<a href="mailto:kamara.meryem.a@gmail.com" class="text-dark-navy hover:text-primary-bronze transition duration-300 group flex flex-col items-center">
+                        
+<svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                        <p class="text-lg font-medium">Email</p>
+                        <span class="text-sm text-gray-500 block group-hover:text-primary-bronze transition duration-300">kamara.meryem.a@gmail.com</span>
+                    </a>
+                    
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section (Updated) -->
+    <footer class="bg-dark-navy text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm py-8">
+            <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
+            <p>Data Analyst for Small Business and Women Entrepreneurs</p>
+            <p class="mt-2">Location: Remote/New York, United States </p>
+        </div>
+    </footer>
+
+    <!-- Dropdown Script (for navigation) -->
+    <script>
+        // Toggle function for the dropdowns
+        function toggleDropdown(buttonId, dropdownId) {
+            const button = document.getElementById(buttonId);
+            const dropdown = document.getElementById(dropdownId);
+
+            if (button && dropdown) {
+                button.addEventListener('click', () => {
+                    dropdown.classList.toggle('hidden');
+                    // Optional: Rotate the arrow icon
+                    const icon = button.querySelector('svg');
+                    if (icon) {
+                        icon.classList.toggle('rotate-180');
+                    }
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', (event) => {
+                    if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                        dropdown.classList.add('hidden');
+                        const icon = button.querySelector('svg');
+                        if (icon) {
+                            icon.classList.remove('rotate-180');
+                        }
+                    }
+                });
+            }
+        }
+
+        // Initialize dropdowns
+        document.addEventListener('DOMContentLoaded', () => {
+            toggleDropdown('servicesDropdownButton', 'servicesDropdown');
+            toggleDropdown('projectsDropdownButton', 'projectsDropdown');
+        });
+    </script>
+</body>
+</html>
