@@ -117,7 +117,7 @@
                 </div>
 
                 
-<a href="#services" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 sm:hidden">Services</a>
+<a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/#services" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 sm:hidden">Services</a>
                 <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/#about" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 hidden sm:inline-block">About</a>
                 
 <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/#portfolio" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 hidden sm:inline-block">Work Done</a>
@@ -241,7 +241,7 @@
 
         </section>
 
-        <!-- New Contact Section -->
+        <!-- New Contact Section (bg-light-gray: #F5F7FA) -->
         <section id="alt-contact" class="py-16 bg-light-gray">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-3xl font-bold text-dark-text mb-8">Connect With Me</h2>
@@ -274,16 +274,22 @@
 
     </main>
 
-    <!-- Footer Section (Updated) -->
-    <footer class="bg-dark-navy text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm py-8">
+    <!-- Footer Section (Updated to lightest color: bg-white) -->
+    <footer class="bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-dark-text/70 text-sm py-8">
             <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved.</p>
             <p>Data Analyst for Small Business and Women Entrepreneurs</p>
             <p class="mt-2">Location: Remote/New York, United States </p>
         </div>
     </footer>
 
-    <!-- Dropdown Script (for navigation) -->
+    <!-- Back to Top Button (Hidden by default) -->
+    <button id="backToTopBtn" class="fixed bottom-6 right-6 bg-primary-bronze text-white p-3 rounded-full shadow-xl transition-opacity duration-300 opacity-0 invisible hover:bg-dark-navy focus:outline-none focus:ring-4 focus:ring-primary-bronze/50 z-50">
+        <!-- Up Arrow Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+
+    <!-- Dropdown Script (for navigation) and Back to Top Logic -->
     <script>
         // Toggle function for the dropdowns
         function toggleDropdown(buttonId, dropdownId) {
@@ -317,6 +323,29 @@
         document.addEventListener('DOMContentLoaded', () => {
             toggleDropdown('servicesDropdownButton', 'servicesDropdown');
             toggleDropdown('projectsDropdownButton', 'projectsDropdown');
+
+            // --- Back to Top Button Logic ---
+            const backToTopBtn = document.getElementById('backToTopBtn');
+
+            window.addEventListener('scroll', () => {
+                // Show button after scrolling 300px
+                if (window.scrollY > 300) { 
+                    backToTopBtn.classList.remove('opacity-0', 'invisible');
+                    backToTopBtn.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopBtn.classList.remove('opacity-100', 'visible');
+                    backToTopBtn.classList.add('opacity-0', 'invisible');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                // Scroll to the top smoothly
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            // --- End Back to Top Button Logic ---
         });
     </script>
 </body>
