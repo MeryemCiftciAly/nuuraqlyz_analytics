@@ -67,56 +67,72 @@
 </head>
 <body class="antialiased">
 
-    
-<header id="navbar" class="fixed top-0 z-50 w-full shadow-md sticky-nav">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
-            <a href="#hero" class="text-xl font-bold text-primary-bronze hover:text-dark-navy transition duration-300">
-                Nuuraqlyz Analytics
-            </a>
-            <div class="space-x-4 flex items-center">
-                
-                
-<div class="relative hidden sm:block">
-                    <button id="servicesDropdownButton" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 flex items-center focus:outline-none">
-                        Services
-                        
-<svg xmlns="http://www.w3.org/2000/svg" class="icon w-4 h-4 ml-1 transition-transform duration-200" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-                    </button>
-                    
-<div id="servicesDropdown" class="absolute hidden top-full mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-xl overflow-hidden transition-opacity duration-300 z-10">
-                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Cleaning & Setup</a>
-                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Dashboard Creation</a>
-                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Report Automation</a>
-                        <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Consultation</a>
-                    </div>
-                </div>
+<!-- FIXED HEADER AND NAVIGATION STRUCTURE -->
+<header class="sticky-nav fixed top-0 left-0 w-full z-30 shadow-lg px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto h-20 flex items-center justify-between">
+        
+        <!-- Logo/Brand Name -->
+        <div class="text-2xl font-bold text-dark-navy">
+            Nuuraqlyz <span class="text-primary-bronze">Analytics</span>
+        </div>
 
-                
-<div class="relative hidden sm:block">
-                    <button id="projectsDropdownButton" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 flex items-center focus:outline-none">
-                        Projects
-                        
-<svg xmlns="http://www.w3.org/2000/svg" class="icon w-4 h-4 ml-1 transition-transform duration-200" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-                    </button>
-                    
-<div id="projectsDropdown" class="absolute hidden top-full mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-xl overflow-hidden transition-opacity duration-300 z-10">
-                        
-                        
-<a href="dashboard.html" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Dashboard Case Study</a>
-                        <a href="dataanalysis.html" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Analysis Report</a>
-                    </div>
+        <!-- Desktop Menu -->
+        <nav class="hidden sm:flex space-x-4 items-center">
+            
+            <div class="relative">
+                <button id="servicesDropdownButton" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 flex items-center focus:outline-none">
+                    Services
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon w-4 h-4 ml-1 transition-transform duration-200" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div id="servicesDropdown" class="absolute hidden top-full mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-xl z-10">
+                    <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Cleaning & Setup</a>
+                    <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Dashboard Creation</a>
+                    <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Report Automation</a>
+                    <a href="#services" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Consultation</a>
                 </div>
-
-                
-<a href="#services" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 sm:hidden">Services</a>
-                <a href="#about" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 hidden sm:inline-block">About</a>
-                
-<a href="#portfolio" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 hidden sm:inline-block">Work Done</a>
-                
-                <a href="#contact" class="bg-primary-bronze text-white py-2 px-4 rounded-lg shadow-lg hover:bg-dark-navy transition duration-300 font-medium">Work With Me</a>
             </div>
+
+            <div class="relative">
+                <button id="projectsDropdownButton" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2 flex items-center focus:outline-none">
+                    Projects
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon w-4 h-4 ml-1 transition-transform duration-200" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <!-- NOTE: Links below point to files that do not exist, they should be changed or linked to sections -->
+                <div id="projectsDropdown" class="absolute hidden top-full mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-xl z-10">
+                    <a href="#portfolio" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Dashboard Case Study</a>
+                    <a href="#portfolio" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Analysis Report</a>
+                </div>
+            </div>
+
+            <a href="#about" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2">About</a>
+            <a href="#portfolio" class="text-dark-text hover:text-primary-bronze font-medium transition duration-300 rounded-md p-2">Work Done</a>
+            <a href="#contact" class="bg-primary-bronze text-white py-2 px-4 rounded-lg shadow-lg hover:bg-dark-navy transition duration-300 font-medium">Work With Me</a>
         </nav>
-    </header>
+
+        <!-- Mobile Hamburger -->
+        <div class="sm:hidden">
+            <button id="mobileMenuButton" class="text-dark-text focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-white hidden flex-col items-center justify-center space-y-6 text-center p-6 overflow-auto sm:hidden">
+        <a href="#services" class="text-dark-text text-lg font-medium hover:text-primary-bronze">Services</a>
+        <a href="#about" class="text-dark-text text-lg font-medium hover:text-primary-bronze">About</a>
+        <a href="#portfolio" class="text-dark-text text-lg font-medium hover:text-primary-bronze">Work Done</a>
+        <a href="#contact" class="bg-primary-bronze text-white py-3 px-6 rounded-lg shadow-lg hover:bg-dark-navy transition duration-300 font-medium">Work With Me</a>
+        <button id="mobileMenuClose" class="absolute top-6 right-6 text-dark-text">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+</header>
+<!-- END FIXED HEADER AND NAVIGATION STRUCTURE -->
 
     <main>
         
@@ -360,12 +376,13 @@
 
     
 <footer>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm py-8">
             <p>&copy; 2025 Nuuraqlyz Analytics. All rights reserved. | Data Analyst for Women Entrepreneurs</p>
             <p class="mt-2">Location: Remote/New York, United States </p>
             
         </div>
     </footer>
+
 
     
 <button id="backToTop" 
@@ -480,6 +497,26 @@
                     top: 0,
                     behavior: 'smooth'
                 });
+            });
+
+            // 4. Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+            });
+
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+
+            // Close mobile menu when clicking outside or a link
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu || e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
             });
         });
     </script>
