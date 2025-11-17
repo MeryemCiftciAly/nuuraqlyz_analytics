@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuuraqlyz Analytics | Data Insights for Small Business & Women Entrepreneurs</title>
+    <title>Nuuraqlyz Analytics | Data Insights for Women Entrepreneurs</title>
     
 <script src="https://cdn.tailwindcss.com"></script>
     
@@ -97,10 +97,11 @@
                     Projects
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon w-4 h-4 ml-1 transition-transform duration-200" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
-                <!-- NOTE: Links below point to files that do not exist, they should be changed or linked to sections -->
                 <div id="projectsDropdown" class="absolute hidden top-full mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-xl z-10">
-                    <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/dashboard.html" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Dashboard Case Study</a>
-                    <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/dataanalytics.html" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Analytics Report</a>
+                    <!-- Dashboard Case Study link -->
+                    <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/dashboard.html" target="_blank" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Dashboard Case Study</a>
+                    <!-- Data Analytics Report link (Updated text) -->
+                    <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/dataanalytics.html" target="_blank" class="block px-4 py-2 text-dark-text hover:bg-light-gray/50 hover:text-primary-bronze transition duration-150">Data Analytics Report</a>
                 </div>
             </div>
 
@@ -119,17 +120,30 @@
         </div>
     </div>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobileMenu" class="fixed inset-0 z-40 bg-white hidden flex-col items-center justify-center space-y-6 text-center p-6 overflow-auto sm:hidden">
-        <a href="#services" class="text-dark-text text-lg font-medium hover:text-primary-bronze">Services</a>
-        <a href="#about" class="text-dark-text text-lg font-medium hover:text-primary-bronze">About</a>
-        <a href="#portfolio" class="text-dark-text text-lg font-medium hover:text-primary-bronze">Work Done</a>
-        <a href="#contact" class="bg-primary-bronze text-white py-3 px-6 rounded-lg shadow-lg hover:bg-dark-navy transition duration-300 font-medium">Work With Me</a>
-        <button id="mobileMenuClose" class="absolute top-6 right-6 text-dark-text">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </button>
+    <!-- MOBILE MENU DROPDOWN (New Implementation) -->
+    <div id="mobileMenu" class="absolute top-20 left-0 w-full bg-white shadow-xl border-t border-gray-100 hidden sm:hidden pb-4 z-40">
+        <nav class="flex flex-col space-y-1 p-4">
+            <a href="#services" class="block px-3 py-2 text-dark-text font-medium hover:bg-light-gray hover:text-primary-bronze rounded-lg transition duration-150">Services</a>
+            
+            <!-- NEW: Mobile Projects Dropdown/Accordion -->
+            <div class="border-b border-gray-100 pb-2">
+                <button id="mobileProjectsDropdownButton" class="w-full text-left flex justify-between items-center px-3 py-2 text-dark-text font-medium hover:bg-light-gray hover:text-primary-bronze rounded-lg transition duration-150">
+                    Projects
+                    <svg id="mobileProjectsIcon" xmlns="http://www.w3.org/2000/svg" class="icon w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div id="mobileProjectsDropdown" class="pl-6 pt-1 hidden">
+                    <!-- Dashboard Case Study link -->
+                    <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/dashboard.html" target="_blank" class="block px-3 py-1 text-sm text-gray-600 hover:bg-light-gray hover:text-primary-bronze rounded-lg transition duration-150">Dashboard Case Study</a>
+                    <!-- Data Analytics Report link (Updated text) -->
+                    <a href="https://meryemciftcialy.github.io/nuuraqlyz_analytics/dataanalytics.html" target="_blank" class="block px-3 py-1 text-sm text-gray-600 hover:bg-light-gray hover:text-primary-bronze rounded-lg transition duration-150">Data Analytics Report</a>
+                </div>
+            </div>
+            <!-- END NEW: Mobile Projects Dropdown/Accordion -->
+
+            <a href="#about" class="block px-3 py-2 text-dark-text font-medium hover:bg-light-gray hover:text-primary-bronze rounded-lg transition duration-150">About</a>
+            <a href="#portfolio" class="block px-3 py-2 text-dark-text font-medium hover:bg-light-gray hover:text-primary-bronze rounded-lg transition duration-150">Work Done</a>
+            <a href="#contact" class="mt-2 block mx-3 bg-primary-bronze text-white py-2 px-3 rounded-xl shadow-md text-center hover:bg-dark-navy transition duration-300 font-medium">Work With Me</a>
+        </nav>
     </div>
 </header>
 <!-- END FIXED HEADER AND NAVIGATION STRUCTURE -->
@@ -317,7 +331,7 @@
             <img src="https://raw.githubusercontent.com/MeryemCiftciAly/assets/refs/heads/main/EB_Logo_Mark_4c.png" alt="Client Logo - EBD" class="max-h-32 w-auto object-contain opacity-90 group-hover:opacity-100 transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/300x150/cccccc/000000?text=Logo';" > 
             <div class="portfolio-overlay absolute inset-0 bg-dark-navy/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4"> 
                 <div class="text-white text-center space-y-3 px-4"> 
-                    <p class="text-xl font-bold text-primary-bronze">Evan Birkhead LLC</p> 
+                    <p class="text-xl font-bold text-primary-bronze">EBD</p> 
                     <p class="text-base font-medium"> Cleaned and consolidated multiple spreadsheets into a centralized system, improving accuracy, saving time, and creating a more efficient workflow for the client. </p> 
                 </div> 
             </div> 
@@ -397,7 +411,7 @@
 <a href="mailto:kamara.meryem.a@gmail.com" class="text-dark-navy hover:text-primary-bronze transition duration-300 group flex flex-col items-center">
                         
 <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect width="20" height="16" x="2" y="4" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                         </svg>
                         <p class="text-lg font-medium">Email</p>
                         <span class="text-sm text-gray-500 block group-hover:text-primary-bronze transition duration-300">kamara.meryem.a@gmail.com</span>
@@ -424,7 +438,7 @@
 <button id="backToTop" 
             class="fixed bottom-6 right-6 z-50 p-3 bg-primary-bronze text-white rounded-full shadow-xl 
                     hover:bg-dark-navy transition-all duration-300 transform scale-100 
-                    opacity-0 pointer-events-none focus:outline-none focus:ring-4 focus:ring-primary-bronze/50">
+                    opacity-0 pointer-events-none focus:outline-none focus:ring-4 focus:ring-bronze/50">
         
 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m18 15-6-6-6 6"/>
@@ -448,7 +462,7 @@
                 });
             });
 
-            // 2. Dropdown Menu Functionality (for Services and Projects)
+            // 2. Desktop Dropdown Menu Functionality (for Services and Projects)
             const servicesButton = document.getElementById('servicesDropdownButton');
             const servicesMenu = document.getElementById('servicesDropdown');
             const projectsButton = document.getElementById('projectsDropdownButton');
@@ -489,20 +503,20 @@
                 });
             }
 
-            // Initialize all dropdowns
+            // Initialize all desktop dropdowns
             setupDropdown(servicesButton, servicesMenu);
             setupDropdown(projectsButton, projectsMenu);
 
-            // Close dropdowns if user clicks anywhere outside
+            // Close desktop dropdowns if user clicks anywhere outside
             document.addEventListener('click', (event) => {
-                let clickedInsideDropdown = false;
+                let clickedInsideDesktopDropdown = false;
                 allDropdowns.forEach(item => {
                     if (item.button && item.menu && (item.button.contains(event.target) || item.menu.contains(event.target))) {
-                        clickedInsideDropdown = true;
+                        clickedInsideDesktopDropdown = true;
                     }
                 });
 
-                if (!clickedInsideDropdown) {
+                if (!clickedInsideDesktopDropdown) {
                     closeAllDropdowns();
                 }
             });
@@ -538,20 +552,59 @@
             // 4. Mobile Menu Toggle
             const mobileMenuButton = document.getElementById('mobileMenuButton');
             const mobileMenu = document.getElementById('mobileMenu');
-            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileProjectsButton = document.getElementById('mobileProjectsDropdownButton');
+            const mobileProjectsMenu = document.getElementById('mobileProjectsDropdown');
+            const mobileProjectsIcon = document.getElementById('mobileProjectsIcon');
+
 
             mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.toggle('hidden');
+                // Ensure mobile project submenu is closed when main menu is toggled closed
+                if (mobileMenu.classList.contains('hidden') && mobileProjectsMenu) {
+                    mobileProjectsMenu.classList.add('hidden');
+                    mobileProjectsIcon.classList.remove('rotate-180');
+                }
             });
 
-            mobileMenuClose.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+            // 5. Mobile Projects Submenu Accordion
+            if (mobileProjectsButton) {
+                mobileProjectsButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    mobileProjectsMenu.classList.toggle('hidden');
+                    mobileProjectsIcon.classList.toggle('rotate-180');
+                    e.stopPropagation(); 
+                });
+                
+                // Ensure clicking a project link closes the main menu and submenu
+                mobileProjectsMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        // Closing main menu when an item is selected, especially external links
+                        mobileMenu.classList.add('hidden');
+                        mobileProjectsMenu.classList.add('hidden'); 
+                        mobileProjectsIcon.classList.remove('rotate-180');
+                    });
+                });
+            }
 
-            // Close mobile menu when clicking outside or a link
-            mobileMenu.addEventListener('click', (e) => {
-                if (e.target === mobileMenu || e.target.tagName === 'A') {
+            // Close main mobile menu when clicking a simple link inside it (not the submenu button)
+            mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
+                 });
+            });
+            
+            // Close mobile menu when clicking outside of it
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.classList.contains('hidden') && 
+                    !mobileMenu.contains(e.target) && 
+                    !mobileMenuButton.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    
+                    // Close mobile project submenu if the main menu is closed
+                    if (mobileProjectsMenu) {
+                        mobileProjectsMenu.classList.add('hidden');
+                        mobileProjectsIcon.classList.remove('rotate-180');
+                    }
                 }
             });
         });
